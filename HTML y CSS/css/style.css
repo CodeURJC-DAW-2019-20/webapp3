@@ -455,7 +455,10 @@ textarea.input {
 
 .header-logo .logo img {
   display: block;
+  width: 35%;
+  height: 35%;
 }
+
 
 /*----------------------------*\
 	Search
