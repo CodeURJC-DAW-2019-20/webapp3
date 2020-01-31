@@ -13,28 +13,32 @@ The name of the App Web is Swap It!
 
 We recommend the use of Brackets to change de code of the APP Web.
 
-** Entities **
+**Entities**
+
+The entities could be User Types and Second Entities.
 
 **User Types 👨‍💼👩‍💼**
 
-* Admin User*: Each of the managers of the App Web, responsible for the control of the proper functioning of the App.
+* Admin User: Each of the managers of the App Web, responsible for the control of the proper functioning of the App.
 
-* Registered User *: A person who can sell or buy something in the App Web.
+* Registered User: A person who can sell or buy something in the App Web.
 
-* Anonymous User *: A person who can only see the published information in the App Web.
+* Anonymous User: A person who can only see the published information in the App Web.
 
-** 👕 💷 💰 **
 
-* Products *: Our products are clothes and accessories which people can sell or/and buy in the App Web.
+**Second Entities 👕 💷 💰**
 
-* To Buy *: Web App products can be bought.
+* Products: Our products are clothes and accessories which people can sell or/and buy in the App Web.
 
-* To Sell *: New products can be added to be sold in the App Web.
+* To Buy: Web App products can be bought.
+
+* To Sell: New products can be added to be sold in the App Web.
+
 
 An example of relation, is Registered User buys Product, or Registered User sells Product in the APP web.
 
-
 An anonymous user that has registered it in the App Web becomes a Registered User. A Registered User after logging in can buy products, check his historical movements or upload products to sell. 
+
 
 ** Pictures **
 
@@ -42,13 +46,15 @@ The App Web must allow to upload pictures, for example, a Registered User wants 
 
 Always the uploaded product will be accompanied with its respective photo.
 
-** Complementary Technology ** 
+
+**Complementary Technology** 
 
 In this moment we don't use any complementary technology, but in the future we will use it.
 
-** Advanced Query Algorithm **
+**Advanced Query Algorithm**
 
 We will use two Advanced Query Algorithms, one to establish the product price and the second one to give a virtual money quantity to a Registered User for one of their products.
+
 
 ### Installation 🔧
 
@@ -65,7 +71,6 @@ To test the App Web you can try to interact with the elements of the APP Web.
 
 
 ## Built with 🛠️
-
 
 * [Brackets](http://brackets.io/) - The text editor that we used
 * [Trello](https://trello.com/b/7tXmEA17/daw) - To manager the task that we must do in this phase.
