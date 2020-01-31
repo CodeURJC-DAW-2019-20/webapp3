@@ -87,16 +87,16 @@ We use **HTML5** to design the format of the APP Web and **CSS3** to add styles.
 ## Authors ✒️
 
 
-* **Javier Barrio Martín** - *Programmer* - [Mail](j.barrio.2016@alumnos.urjc.es)
-* **Maria Gutierrez** - *Programmer* - [Mail](m.gutierrezt.2016@alumnos.urjc.es)
-* **Alejandro Aguilar** - *Programmer* - [Mail](a.aguilarf@alumnos.urjc.es)
-* **David Robles** - *Programmer* - [Mail](d.robles.2016@alumnos.urjc.es)
-* **Alvaro Noguerales** - *Programmer* - [Mail](a.noguerales.2016@alumnos.urjc.es)
+* **Javier Barrio Martín** - *Programmer* - [Git Account](https://github.com/JaviBarrio6) - Mail: j.barrio.2016@alumnos.urjc.es
+* **Maria Gutierrez** - *Programmer* - [Git Account](https://github.com/Mariagt97) - Mail: m.gutierrezt.2016@alumnos.urjc.es
+* **Alejandro Aguilar** - *Programmer* - [Git Account](https://github.com/Aaguilarf) - Mail: a.aguilarf.2016@alumnos.urjc.es
+* **David Robles** - *Programmer* - [Git Account](https://github.com/davidrobl) - Mail: d.robles.2016@alumnos.urjc.es
+* **Alvaro Noguerales** - *Programmer* - [Git Account](https://github.com/Anogue) - Mail: ja.noguerales.2016@alumnos.urjc.es
 
 If you check the list with all the contributors you will check [contributors](https://github.com/CodeURJC-DAW-2019-20/webapp3/graphs/contributors).
 
 ## Licency 📄
 
-This project is down the licency [LICENSE.md](LICENSE.md) for details
+This project is down the licency [LICENSE.md](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/master/LICENSE) for details
 
 
