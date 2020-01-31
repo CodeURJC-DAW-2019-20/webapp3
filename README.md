@@ -40,7 +40,7 @@ An example of relation, is Registered User buys Product, or Registered User sell
 An anonymous user that has registered it in the App Web becomes a Registered User. A Registered User after logging in can buy products, check his historical movements or upload products to sell. 
 
 
-** Pictures **
+**Pictures**
 
 The App Web must allow to upload pictures, for example, a Registered User wants to change his user avatar.
 
