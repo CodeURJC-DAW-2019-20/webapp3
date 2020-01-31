@@ -2,7 +2,7 @@
 
 Our objective is to create a APP web to sell second-hand clothes throught a monetary change or virtual money to use in the same APP.
 
-## Beggining 🚀
+## Begining 🚀
 
 If you want get a copy of our proyect to development and testing you will download the project in: https://github.com/CodeURJC-DAW-2019-20/webapp3.git
 
@@ -12,10 +12,15 @@ If you want get a copy of our proyect to development and testing you will downlo
 
 We recommend the use of Brackets to change de code of the APP Web.
 
+** Entities 👨‍💼👩‍💼 **
+
+* Admin User*: Each of the managers of the App Web who are responsaible for the control of the proper functioning of the App.
+* Registered User *: Person who can sell or buy something in the App Web.
+* Anonymous User *: Person who only can see the information of the App Web.
 
 ### Installation 🔧
 
-If you want to exceute the project you will must open the same with a browser.
+If you want to execute the project you will must open the same with a browser.
 
 ```
 Open index.HTML with a browser
