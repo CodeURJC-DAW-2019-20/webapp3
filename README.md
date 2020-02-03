@@ -68,7 +68,7 @@ We will use a Advanced Query Algorithm to recommend products to a customer based
 
 Our Start Page is *index.html*, in this page you can see the categories of the Sales App Web, the new products, the acess to the profile section, the opening month offer, the record to the news and another themes.
 
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/tree/Fase-1/HTML%20y%20CSS/screenshot/index1.png)
+![Vaya caca](https://github.com/CodeURJC-DAW-2019-20/webapp3/tree/Fase-1/HTML%20y%20CSS/screenshot/index1.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/tree/Fase-1/HTML%20y%20CSS/screenshot/index2.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/tree/Fase-1/HTML%20y%20CSS/screenshot/index3.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/tree/Fase-1/HTML%20y%20CSS/screenshot/index4.png)
