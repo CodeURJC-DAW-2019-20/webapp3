@@ -28,7 +28,11 @@ The entities could be User Types and Second Entities.
 
 **Second Entities 👕 💷 💰**
 
-* Products: Our products are clothes and accessories which people can sell or/and buy in the App Web.
+* Request: A Registered User do a request to a Admin User to upload a product. If the admin check the request and all are ok, the product will upload.
+
+* Product: Our products are clothes and accessories which people can sell or/and buy in the App Web.
+
+* Brand: In the database the products also grouped by brand.
 
 * To Buy: Web App products can be bought.
 
@@ -53,8 +57,13 @@ In this moment we don't use any complementary technology, but in the future we w
 
 **Advanced Query Algorithm**
 
-We will use two Advanced Query Algorithms, one to establish the product price and the second one to give a virtual money quantity to a Registered User for one of their products.
+We will use a Advanced Query Algorithm to recommend products to a customer based on their previous purchases.
 
+### Phase 1 📋
+
+**Screenshots**
+
+**Navigation Diagrams**
 
 ### Installation 🔧
 
