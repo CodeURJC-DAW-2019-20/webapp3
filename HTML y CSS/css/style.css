@@ -67,6 +67,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 10px;
 }
 
+.text-uppercase {
+    color: aliceblue;
+}
+
 a {
   color: #2B2D42;
   font-weight: 500;
@@ -796,7 +800,7 @@ textarea.input {
   padding: 60px 0px;
   margin: 30px 0px;
   background-color: #E4E7ED;
-  background-image: grey;
+  background-image: url(../img/FondoInauguraci%C3%B3n.jpg);
   background-position: center;
   background-repeat: no-repeat;
 }
