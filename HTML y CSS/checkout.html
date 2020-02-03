@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-		<title>Electro - HTML Ecommerce Template</title>
+		<title>Swap it! - Checkout</title>
 
  		<!-- Google font -->
  		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -75,10 +75,20 @@
 									<form>
 										<select class="input-select">
 											<option value="0">Categorias</option>
-											<option value="1">Categoria 1</option> <!--Hay que decidir que categorias vamos a tener-->
-											<option value="1">Categoria 2</option>
+											<option value="1">Abrigos</option>
+											<option value="2">Accesorios</option>
+											<option value="3">Botas</option>
+											<option value="4">Abrigos</option>
+											<option value="5">Camisas</option>
+											<option value="6">Camisetas</option>
+											<option value="7">Chaquetas</option>
+											<option value="8">Faldas</option>
+											<option value="9">Jerseys</option>
+											<option value="10">Vaqueros</option>
+											<option value="11">Zapatillas</option>
+											<option value="12">Zapatos</option>
 										</select>
-										<input class="input" placeholder="Search here">
+										<input class="input" placeholder="Buscar">
 										<button class="search-btn">Buscar</button>
 									</form>
 								</div>
@@ -103,39 +113,39 @@
 										<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 											<i class="fa fa-shopping-cart"></i>
 											<span>Mi Cesta</span>
-											<div class="qty">3</div>
+											<div class="qty">2</div>
 										</a>
 										<div class="cart-dropdown">
 											<div class="cart-list">
 												<div class="product-widget">
 													<div class="product-img">
-														<img src="./img/product01.png" alt="">
+														<img src="./img/camisapana.jpg" alt="">
 													</div>
 													<div class="product-body">
-														<h3 class="product-name"><a href="#">product name goes here</a></h3>
-														<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+														<h3 class="product-name"><a href="#">Camisa de Pana</a></h3>
+														<h4 class="product-price"><span class="qty">1x</span>29,99€ / 299 Swapers</h4>
 													</div>
 													<button class="delete"><i class="fa fa-close"></i></button>
 												</div>
 
 												<div class="product-widget">
 													<div class="product-img">
-														<img src="./img/product02.png" alt="">
+														<img src="./img/bandolera.jpg" alt="">
 													</div>
 													<div class="product-body">
-														<h3 class="product-name"><a href="#">product name goes here</a></h3>
-														<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+														<h3 class="product-name"><a href="#">Bandolera Geométrica</a></h3>
+														<h4 class="product-price"><span class="qty">1x</span>12,95€ / 129 Swapers</h4>
 													</div>
 													<button class="delete"><i class="fa fa-close"></i></button>
 												</div>
 											</div>
 											<div class="cart-summary">
-												<small>3 Item(s) selected</small>
-												<h5>SUBTOTAL: $2940.00</h5>
+												<small>2 Productos seleccionados</small>
+												<h5>SUBTOTAL: 42,94€ / 429 Swapers</h5>
 											</div>
 											<div class="cart-btns">
-												<a href="#">View Cart</a>
-												<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+												<a href="#">Ver Cesta</a>
+												<a href="checkout.html">Comprar<i class="fa fa-arrow-circle-right"></i></a>
 											</div>
 										</div>
 									</div>
@@ -169,13 +179,12 @@
 					<div id="responsive-nav">
 						<!-- NAV -->
 						<ul class="main-nav nav navbar-nav">
-							<li class="active"><a href="#">Inicio</a></li>
+							<li class="active"><a href="index.html">Inicio</a></li>
 							<li><a href="#">Ofertas</a></li>
 							<li><a href="#">Categorias</a></li>
 							<li><a href="#">Mujer</a></li>
 							<li><a href="#">Hombre</a></li>
 							<li><a href="#">Accesorios</a></li>
-							<li><a href="#">Organos</a></li>
 						</ul>
 						<!-- /NAV -->
 					</div>
@@ -194,7 +203,7 @@
 					<div class="col-md-12">
 						<h3 class="breadcrumb-header">Checkout</h3>
 						<ul class="breadcrumb-tree">
-							<li><a href="#">Home</a></li>
+							<li><a href="index.html">Home</a></li>
 							<li class="active">Checkout</li>
 						</ul>
 					</div>
@@ -216,42 +225,42 @@
 						<!-- Billing Details -->
 						<div class="billing-details">
 							<div class="section-title">
-								<h3 class="title">Billing address</h3>
+								<h3 class="title">Dirección de envío</h3>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="First Name">
+								<input class="input" type="text" name="first-name" placeholder="Nombre">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Last Name">
+								<input class="input" type="text" name="last-name" placeholder="Apellido">
 							</div>
 							<div class="form-group">
 								<input class="input" type="email" name="email" placeholder="Email">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Address">
+								<input class="input" type="text" name="address" placeholder="Dirección">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="City">
+								<input class="input" type="text" name="city" placeholder="Ciudad">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="Country">
+								<input class="input" type="text" name="country" placeholder="País">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
+								<input class="input" type="text" name="zip-code" placeholder="Código Postal">
 							</div>
 							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telephone">
+								<input class="input" type="tel" name="tel" placeholder="Teléfono">
 							</div>
 							<div class="form-group">
 								<div class="input-checkbox">
 									<input type="checkbox" id="create-account">
 									<label for="create-account">
 										<span></span>
-										Create Account?
+										¿Crear una nueva cuenta?
 									</label>
 									<div class="caption">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-										<input class="input" type="password" name="password" placeholder="Enter Your Password">
+										<p>Para crear una nueva cuenta introduzca una contraseña de más de 8 carácteres</p>
+										<input class="input" type="password" name="password" placeholder="Contraseña">
 									</div>
 								</div>
 							</div>
@@ -261,78 +270,72 @@
 						<!-- Shiping Details -->
 						<div class="shiping-details">
 							<div class="section-title">
-								<h3 class="title">Shiping address</h3>
+								<h3 class="title">Dirección de envío</h3>
 							</div>
 							<div class="input-checkbox">
 								<input type="checkbox" id="shiping-address">
 								<label for="shiping-address">
 									<span></span>
-									Ship to a diffrent address?
+									Enviar a una dirección diferente
 								</label>
 								<div class="caption">
 									<div class="form-group">
-										<input class="input" type="text" name="first-name" placeholder="First Name">
+										<input class="input" type="text" name="first-name" placeholder="Nombre">
 									</div>
 									<div class="form-group">
-										<input class="input" type="text" name="last-name" placeholder="Last Name">
+										<input class="input" type="text" name="last-name" placeholder="Apellidos">
 									</div>
 									<div class="form-group">
 										<input class="input" type="email" name="email" placeholder="Email">
 									</div>
 									<div class="form-group">
-										<input class="input" type="text" name="address" placeholder="Address">
+										<input class="input" type="text" name="address" placeholder="Dirección">
 									</div>
 									<div class="form-group">
-										<input class="input" type="text" name="city" placeholder="City">
+										<input class="input" type="text" name="city" placeholder="Ciudad">
 									</div>
 									<div class="form-group">
-										<input class="input" type="text" name="country" placeholder="Country">
+										<input class="input" type="text" name="country" placeholder="País">
 									</div>
 									<div class="form-group">
-										<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
+										<input class="input" type="text" name="zip-code" placeholder="Código postal">
 									</div>
 									<div class="form-group">
-										<input class="input" type="tel" name="tel" placeholder="Telephone">
+										<input class="input" type="tel" name="tel" placeholder="Teléfono">
 									</div>
 								</div>
 							</div>
 						</div>
 						<!-- /Shiping Details -->
-
-						<!-- Order notes -->
-						<div class="order-notes">
-							<textarea class="input" placeholder="Order Notes"></textarea>
-						</div>
-						<!-- /Order notes -->
 					</div>
 
 					<!-- Order Details -->
 					<div class="col-md-5 order-details">
 						<div class="section-title text-center">
-							<h3 class="title">Your Order</h3>
+							<h3 class="title">Su pedido</h3>
 						</div>
 						<div class="order-summary">
 							<div class="order-col">
-								<div><strong>PRODUCT</strong></div>
+								<div><strong>PRODUCTO</strong></div>
 								<div><strong>TOTAL</strong></div>
 							</div>
 							<div class="order-products">
 								<div class="order-col">
-									<div>1x Product Name Goes Here</div>
-									<div>$980.00</div>
+									<div>1x Camisa de Pana</div>
+									<div>29,99€ / 299 Swapers</div>
 								</div>
 								<div class="order-col">
-									<div>2x Product Name Goes Here</div>
-									<div>$980.00</div>
+									<div>1x Bandolera Geométrica</div>
+									<div>12,95€ / 129 Swapers</div>
 								</div>
 							</div>
 							<div class="order-col">
-								<div>Shiping</div>
-								<div><strong>FREE</strong></div>
+								<div>Envío</div>
+								<div><strong>Gratuito</strong></div>
 							</div>
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">$2940.00</strong></div>
+								<div><strong class="order-total">42,94€ / 429 Swapers</strong></div>
 							</div>
 						</div>
 						<div class="payment-method">
@@ -340,41 +343,25 @@
 								<input type="radio" name="payment" id="payment-1">
 								<label for="payment-1">
 									<span></span>
-									Direct Bank Transfer
+									Tarjeta de crédito
 								</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								</div>
 							</div>
 							<div class="input-radio">
 								<input type="radio" name="payment" id="payment-2">
 								<label for="payment-2">
 									<span></span>
-									Cheque Payment
+									Paypal
 								</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								</div>
-							</div>
-							<div class="input-radio">
-								<input type="radio" name="payment" id="payment-3">
-								<label for="payment-3">
-									<span></span>
-									Paypal System
-								</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								</div>
 							</div>
 						</div>
 						<div class="input-checkbox">
 							<input type="checkbox" id="terms">
 							<label for="terms">
 								<span></span>
-								I've read and accept the <a href="#">terms & conditions</a>
+								He leído y acepto los <a href="#">términos y condiciones</a>
 							</label>
 						</div>
-						<a href="#" class="primary-btn order-submit">Place order</a>
+						<a href="#" class="primary-btn order-submit">Realizar pedido</a>
 					</div>
 					<!-- /Order Details -->
 				</div>
@@ -392,7 +379,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="newsletter">
-							<p>Registrate para acceder al <strong>NOTICIARIO</strong></p>
+							<p>Registrate para recibir <strong>NOTICIAS!</strong></p>
 							<form>
 								<input class="input" type="email" placeholder="Enter Your Email">
 								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribirse</button>
@@ -444,11 +431,16 @@
 							<div class="footer">
 								<h3 class="footer-title">categorias</h3>
 								<ul class="footer-links">
-									<li><a href="#">Destacados</a></li>
-									<li><a href="#">Categoria 1</a></li>
-									<li><a href="#">categoria 2</a></li>
-									<li><a href="#">categoria 3</a></li>
+									<li><a href="#">Abrigos</a></li>
 									<li><a href="#">Accesorios</a></li>
+									<li><a href="#">Botas</a></li>
+									<li><a href="#">Camisas</a></li>
+									<li><a href="#">Camisetas</a></li>
+									<li><a href="#">Faldas</a></li>
+									<li><a href="#">Jerseys</a></li>
+									<li><a href="#">Vaqueros</a></li>
+									<li><a href="#">Zapatillas</a></li>
+									<li><a href="#">Zapatos</a></li>
 								</ul>
 							</div>
 						</div>
