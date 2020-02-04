@@ -56,6 +56,8 @@ In this moment we don't use any complementary technology, but in the future we w
 We will use two Advanced Query Algorithms, one to establish the product price and the second one to give a virtual money quantity to a Registered User for one of their products.
 
 
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/img/Diagrama.png)
+
 ### Installation 🔧
 
 If you want to execute the project you must open it with a browser.
