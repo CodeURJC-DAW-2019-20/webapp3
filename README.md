@@ -98,6 +98,8 @@ By last, the store page show a lot of products and filters to search a particula
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/img/Diagrama.png)
 
+### Phase 2 📋
+
 ### Installation 🔧
 
 If you want to execute the project you must open it with a browser.
