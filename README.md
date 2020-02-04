@@ -85,7 +85,7 @@ In the Profile page we can change our information and we can see the graphics ab
 
 In the checkout page we can finish a purchase introducing tha address data and payment details.
 
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/screenshot/checkout.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/screenshot/Checkout.png)
 
 By last, the store page show a lot of products and filters to search a particular product according to the search wish of the customer.
 
