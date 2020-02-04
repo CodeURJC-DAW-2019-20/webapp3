@@ -1537,6 +1537,23 @@ textarea.input {
   width: 90px;
 }
 
+.celda-select {
+  padding: 2px;
+  background: #FFF;
+  border: 1px solid #E4E7ED;
+}
+.product-celda  {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+  height: 100%;
+}
+
+.product-celda p {
+  margin: 0px;
+}
+
 .product-details .add-to-cart {
   margin-bottom: 30px;
 }
