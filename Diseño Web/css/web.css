@@ -2,7 +2,14 @@
 This Css has been created for edit style of elements that the designers implement manually
 */
 
-/*Input text of infomail.html*/
+/*From infomail.html*/
 #infoComentario {
   height: 200px;
+}
+/*From profile.html*/
+#profileProductDetail {
+  height: 50px;
+}
+#profileProductDescription {
+  height: 50px;
 }

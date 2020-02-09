@@ -27,6 +27,7 @@
 
  		<!-- Custom stlylesheet -->
  		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="css/web.css"/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -229,22 +230,11 @@
                             <div class="form-group">
                                 <input class="input" type="tel" name="tel" placeholder="Teléfono">
                             </div>
-                            <div class="form-group">
-                                <div class="input-checkbox">
-                                    <input type="checkbox" id="create-account">
-                                    <label for="create-account">
-                                        <span></span>
-                                        ¿Crear una nueva cuenta?
-                                    </label>
-                                    <div class="caption">
-                                        <p>Para crear una nueva cuenta introduzca una contraseña de más de 8 carácteres</p>
-                                        <input class="input" type="password" name="password" placeholder="Contraseña">
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     <!-- /Profile Details -->
                 </div>
+
 				<!-- /row -->
 			</div>
 			<!-- /container -->
@@ -258,18 +248,22 @@
 							<ul class="tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab1">Historial Compras</a></li>
 								<li><a data-toggle="tab" href="#tab2">Historial Ventas</a></li>
+								<li><a data-toggle="tab" href="#tab3">Subir Producto</a></li>
 							</ul>
 							<!-- /product tab nav -->
 
 							<!-- product tab content -->
 							<div class="tab-content">
+								<!-- Subir Producto  -->
+
+								<!-- /tab1  -->
 								<!-- HISTORIAL COMPRAS  -->
 								<div id="tab1" class="tab-pane fade in active">
 									<div class="row">
 										<div class="col-md-12">
-                                            <div>
+                    	<div>
 												<img class="graphic" src= "img/GraficoCompra.png" alt = "Grafico de Compras">
-								            </div>
+								      </div>
 										</div>
 									</div>
 								</div>
@@ -286,6 +280,73 @@
 									</div>
 								</div>
 								<!-- /tab2  -->
+
+									<div id="tab3" class="tab-pane fade in">
+										<div class="container">
+										<div class="row">
+											<div class="col-md-7">
+										  	<div class="form-group">
+													<input class="input" type="text" name="product-name" placeholder="Nombre del Producto">
+												</div>
+												<div class="form-group">
+													<input class="input" type="text" name="product-color" placeholder="Color">
+												</div>
+												<ul>
+													<li> <!-- Desplegable CATEGORIA-->
+														<div class="col-md-6">
+															<div class="header-search">
+																<form>
+																	<span>Categoria</span>
+																	<select class="input-select">
+																		<option value="0"></option>
+																		<option value="1">Abrigo</option>
+																		<option value="2">Accesorio</option>
+																		<option value="3">Bota</option>
+																		<option value="5">Camisa</option>
+																		<option value="6">Camiseta</option>
+																		<option value="7">Chaqueta</option>
+																		<option value="8">Falda</option>
+																		<option value="9">Jersey</option>
+																		<option value="10">Vaquero</option>
+																		<option value="11">Zapatilla</option>
+																		<option value="12">Zapato</option>
+																	</select>
+																</form>
+															</div>
+														</div>
+												</li>
+												<li> <!-- Desplegable Talla-->
+													<div class="col-md-6">
+														<div class="header-search">
+															<form>
+																<span>Talla</span>
+																<select class="input-select">
+																	<option value="0"></option>
+																	<option value="1">XS</option>
+																	<option value="2">S</option>
+																	<option value="3">M</option>
+																	<option value="5">L</option>
+																	<option value="6">XL</option>
+																</select>
+															</form>
+														</div>
+													</div>
+											</li>
+											</ul>
+												<div class="form-group">
+													<textarea  id="profileProductDescription" class="input" type="text" name="product-description" placeholder="Descripcion"></textarea>
+												</div>
+												<div class="form-group">
+													<textarea id="profileProductDetail" class="input" type="text" name="product-detail" placeholder="Detalles"></textarea>
+												</div>
+												<input type="file" id="input" multiple="true" onchange="handleFiles(this.files)">
+												<br>
+							 					<a id="sendInfoButton" class="primary-btn cta-btn" href="profile.html">SUBIR</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /tab3  -->
 							</div>
 							<!-- /product tab content  -->
 						</div>
@@ -565,6 +626,8 @@
 		<script src="js/nouislider.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
 		<script src="js/main.js"></script>
+
+
 
 	</body>
 	</html>
