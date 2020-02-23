@@ -100,6 +100,20 @@ By last, the store page show a lot of products and filters to search a particula
 
 ### Phase 2 📋
 
+**Navigation Diagrams**
+
+**Navigation Screenshots**
+
+**Development Instructions**
+
+**BD Entity Diagram**
+
+**Class Diagram and Templates**
+
+**Members Participation**
+
+
+
 ### Installation 🔧
 
 If you want to execute the project you must open it with a browser.
