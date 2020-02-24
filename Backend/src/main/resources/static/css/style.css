@@ -1399,7 +1399,9 @@ textarea.input {
   text-transform: uppercase;
   font-size: 12px;
 }
-
+.product-img{
+	height:300px;
+}
 /*=========================================================
 	08 -> PRODUCT DETAILS PAGE
 ===========================================================*/
