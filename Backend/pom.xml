@@ -14,7 +14,7 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath/>
 	</parent>
-	
+
 
 
 	<properties>
@@ -54,5 +54,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 	</dependencies>
+	
 
+
+	
+	<issueManagement>
+		<url>error</url>
+	</issueManagement>
 </project>

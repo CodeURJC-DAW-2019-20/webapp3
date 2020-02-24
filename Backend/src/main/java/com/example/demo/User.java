@@ -12,8 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 
 @Entity
+@Component
 public class User {
 
 	@Id
@@ -42,13 +44,16 @@ public class User {
 	 private String phone; 
 	 
 	 private Integer puntos;
+
+	 
+	 private Boolean login;
+
 	
 	public User() {
 	}
 
 	public User(String name, String password, String lastname, String email, String address ,String city , String country , String cp ,String phone, Integer puntos, String... roles) {
 		this.name = name;
-		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.lastname=lastname;
 		this.email=email;
 		this.address=address;
@@ -56,17 +61,21 @@ public class User {
 		this.country=country;
 		this.cp=cp;
 		this.phone=phone;
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 		this.puntos=puntos;
+		this.login=false;
 	}
+	
 
+	public Long getId() {
+		return id;
+	}
+	
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getPasswordHash() {
 		return passwordHash;
@@ -104,8 +113,8 @@ public class User {
 		return address;
 	}
 
-	public void setAddress(String addres) {
-		this.address = addres;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getCity() {
@@ -146,6 +155,32 @@ public class User {
 
 	public void setPuntos(Integer puntos) {
 		this.puntos = puntos;
+	}
+
+	public Boolean getLogin() {
+		return login;
+	}
+
+	public void setLogin(Boolean login) {
+		this.login = login;
+	}
+
+	public void updateData( String lastname, String email, String address, String city, String country, String cp, String phone) {
+
+		if(lastname != "")
+			setLastname(lastname);
+		if(email != "")
+			setEmail(email);
+		if(address != "")
+			setAddress(address);
+		if(city != "")
+			setCity(city);
+		if(country != "")
+			setCountry(country);
+		if(cp != "")
+			setCp(cp);
+		if(phone != "")
+			setPhone(phone);
 	}
 
 }

@@ -46,8 +46,15 @@
 							<li><a href="/infomail"><i class="fa fa-envelope-o"></i> info@Swapit.com</a></li>
 						</ul>
 						<ul class="header-links pull-right">
+						{{#user.login}}
+							<li><a><i class="fa fa-dollar"></i> {{user.puntos}}</a></li>
+							<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
+							<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
+						{{/user.login}}
+						{{^user.login}}
 							<li><a><i class="fa fa-dollar"></i> Puntos</a></li>
 							<li><a href="/profile"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
+						{{/user.login}}
 						</ul>
 					</div>
 				</div>
@@ -206,19 +213,21 @@
 														<div class="section-title">
 																<h3 class="title">Solicitar Informacion</h3>
 														</div>
-														<div class="form-group">
-																<input class="input" type="text" name="first-name" placeholder="Nombre">
-														</div>
-														<div class="form-group">
-																<input class="input" type="text" name="last-name" placeholder="Apellido">
-														</div>
-														<div class="form-group">
-																<input class="input" type="email" name="email" placeholder="Email">
-														</div>
-														<div class="form-group">
-																<textarea id="infoComentario" class="input" type="text" name="infoComentario" placeholder="Comentario"> </textarea>
-														</div>
-														<a id="sendInfoButton" class="primary-btn cta-btn" href="/index">Enviar</a>
+														<form action="/profile/infomail" method="post">
+															<div class="form-group">
+																	<input class="input" type="text" name="name" placeholder="Nombre">
+															</div>
+															<div class="form-group">
+																	<input class="input" type="text" name="lastname" placeholder="Apellido">
+															</div>
+															<div class="form-group">
+																	<input class="input" type="email" name="email" placeholder="Email">
+															</div>
+															<div class="form-group">
+																	<textarea id="infoComentario" class="input" type="text" name="message" placeholder="Comentario"> </textarea>
+															</div>
+															<input type="submit" id="sendInfoButton" class="primary-btn cta-btn" value="Enviar">
+														</form>
 												</div>
 										<!-- /Profile Details -->
 								</div>

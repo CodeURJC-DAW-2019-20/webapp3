@@ -29,6 +29,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/log").permitAll();
         http.authorizeRequests().antMatchers("/product").permitAll();
         http.authorizeRequests().antMatchers("/store").permitAll();
+        http.authorizeRequests().antMatchers("/error").permitAll();
+        
+        
         
         //Public Folders
         http.authorizeRequests().antMatchers("/css/*").permitAll();
@@ -36,9 +39,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/img/*").permitAll();
         http.authorizeRequests().antMatchers("/js/*").permitAll();
 
-        // Private pages (all other pages)
-        http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
-        http.authorizeRequests().anyRequest().authenticated();
+        // Private pages 
+        http.authorizeRequests().antMatchers("/profile").authenticated();
+        http.authorizeRequests().antMatchers("/checkout").authenticated();
+        http.authorizeRequests().antMatchers("/likeit").authenticated();
         
 
         // Login form
@@ -46,10 +50,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin().usernameParameter("username");
         http.formLogin().passwordParameter("password"); //Verificar si funciona
         http.formLogin().defaultSuccessUrl("/profile");
-        http.formLogin().failureUrl("/blank");
+        http.formLogin().failureUrl("/error");
 
         // Logout
-        http.logout().logoutUrl("/blank"); // Hay que crear una paginal logout
+        http.logout().logoutUrl("/logout"); 
         http.logout().logoutSuccessUrl("/");
         
         // Disable CSRF at the moment

@@ -41,8 +41,15 @@
 						<li><a href="/infomail"><i class="fa fa-envelope-o"></i> info@Swapit.com</a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a><i class="fa fa-dollar"></i> Puntos</a></li>
-						<li><a href="/profile"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
+						{{#user.login}}
+							<li><a><i class="fa fa-dollar"></i> {{user.puntos}}</a></li>
+							<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
+							<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
+						{{/user.login}}
+						{{^user.login}}
+							<li><a><i class="fa fa-dollar"></i> Puntos</a></li>
+							<li><a href="/profile"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
+						{{/user.login}}
 					</ul>
 				</div>
 			</div>
