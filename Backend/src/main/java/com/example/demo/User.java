@@ -10,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -43,9 +42,6 @@ public class User {
 	 private String phone; 
 	 
 	 private Integer puntos;
-	 
-	 @OneToMany
-	 private List<Coment> coment;
 	
 	public User() {
 	}
