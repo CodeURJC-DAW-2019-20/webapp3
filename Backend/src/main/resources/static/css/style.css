@@ -496,6 +496,12 @@ textarea.input {
   border-radius: 0px 40px 40px 0px;
 }
 
+.search-btn a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 /*----------------------------*\
 	Cart
 \*----------------------------*/

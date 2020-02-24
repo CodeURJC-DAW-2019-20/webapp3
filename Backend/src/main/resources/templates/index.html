@@ -22,7 +22,7 @@
 
 		<!-- Font Awesome Icon -->
 		<link rel = "stylesheet" href = "/css/font-awesome.min.css">
-        <script src="https://kit.fontawesome.com/639c797cd5.js" crossorigin="anonymous"></script>
+        <script src = "https://kit.fontawesome.com/639c797cd5.js" crossorigin = "anonymous"></script>
 
 		<!-- Custom stlylesheet -->
 		<link type = "text/css" rel = "stylesheet" href = "/css/style.css"/>
@@ -37,17 +37,17 @@
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-						<li><a><i class="fa fa-phone"></i> +34 608 844 077</a></li>
+						<li><a><i class="fa fa-phone"></i> +34 608 844 123</a></li>
 						<li><a href="/infomail"><i class="fa fa-envelope-o"></i> info@Swapit.com</a></li>
 					</ul>
 					<ul class="header-links pull-right">
 						{{#user.login}}
-							<li><a><i class="fa fa-dollar"></i> {{user.puntos}}</a></li>
+							<li><a><i class="fa fa-coins"></i> {{user.puntos}}</a></li>
 							<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
 							<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
 						{{/user.login}}
 						{{^user.login}}
-							<li><a><i class="fa fa-dollar"></i> Puntos</a></li>
+							<li><a><i class="fa fa-coins"></i> Puntos</a></li>
 							<li><a href="/profile"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
 						{{/user.login}}
 					</ul>
@@ -89,8 +89,8 @@
 										<option value="11">Zapatillas</option>
 										<option value="12">Zapatos</option>
 									</select>
-									<input class="input" placeholder="Buscar">
-									<button class="search-btn">Buscar</button>
+									<input class = "input" placeholder = "Buscar">
+									<button class = "search-btn"><a href = "/store">Buscar</a></button>
 								</form>
 							</div>
 						</div>
@@ -124,7 +124,7 @@
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">Camisa de Pana</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>29,99€ / 299 Swapers</h4>
+													<h4 class="product-price"><span class="qty">1x</span>299 Swapers</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
 											</div>
@@ -135,14 +135,14 @@
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">Bandolera Geométrica</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>12,95€ / 129 Swapers</h4>
+													<h4 class="product-price"><span class="qty">1x</span>129 Swapers</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
 											</div>
 										</div>
 										<div class="cart-summary">
 											<small>2 Productos Seleccionados</small>
-											<h5>SUBTOTAL: 42,94€ / 429 Swapers</h5>
+											<h5>SUBTOTAL: 429 Swapers</h5>
 										</div>
 										<div class="cart-btns">
 											<a href="/profile">Ver Cesta</a>
@@ -181,10 +181,7 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="index.html">Inicio</a></li>
-						<li><a href="/store">Ofertas</a></li>
-						<li><a href="/store.html">Catálogo</a></li>
-						<li><a href="/store.html">Mujer</a></li>
-						<li><a href="/store.html">Hombre</a></li>
+						<li><a href="/store">Catálogo</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>
@@ -193,60 +190,6 @@
 			<!-- /container -->
 		</nav>
 		<!-- /NAVIGATION -->
-
-		<!-- SECTION -->
-		<div class = "section">
-			<!-- container -->
-			<div class = "container">
-				<!-- row -->
-				<div class = "row">
-					<!-- shop -->
-					<div class = "col-md-4 col-xs-6">
-						<div class = "shop">
-							<div class = "shop-img">
-								<img src = "./img/mujer1.jpg" alt = "">
-							</div>
-							<div class = "shop-body">
-								<h3>Prendas de<br>Mujer</h3>
-								<a href = "#" class = "cta-btn">Ver Ahora <i class = "fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-
-					<!-- shop -->
-					<div class = "col-md-4 col-xs-6">
-						<div class = "shop">
-							<div class = "shop-img">
-								<img src = "./img/hombre1.jpg" alt = "">
-							</div>
-							<div class="shop-body">
-								<h3>Prendas de <br>Hombre</h3>
-								<a href = "#" class = "cta-btn">Ver Ahora <i class = "fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-
-					<!-- shop -->
-					<div class = "col-md-4 col-xs-6">
-						<div class = "shop">
-							<div class = "shop-img">
-								<img src = "./img/accesorios1.jpg" alt = "">
-							</div>
-							<div class = "shop-body">
-								<h3>Accesorios<br>Unisex</h3>
-								<a href = "#" class = "cta-btn">Ver Ahora <i class = "fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /SECTION -->
 
 		<!-- SECTION -->
 		<div class="section">
@@ -281,18 +224,14 @@
 										<div class = "product">
 											<div class = "product-img">
 												<img src = "./img/jerseymostaza.jpg" alt = "">
-												<div class = "product-label">
-													<span class = "new">NEW</span>
-												</div>
 											</div>
 											<div class = "product-body">
 												<p class = "product-category">Jerseys</p>
 												<h3 class = "product-name"><a href = "#">Jersey mostaza</a></h3>
-												<h4 class = "product-price">20,00€ / 200 Swapers</h4>
+												<h4 class = "product-price">200 Swapers</h4>
 												<div class = "product-btns">
 													<button class = "add-to-wishlist"><i class = "fa fa-heart-o"></i><span class = "tooltipp">Añadir a Deseados</span></button>
-													<button class = "add-to-compare"><i class = "fa fa-exchange"></i><span class = "tooltipp">Comparar Productos</span></button>
-													<button class="quick-view"><i class = "fa fa-eye"></i><span class = "tooltipp">Vista Previa</span></button>
+													<button class="quick-view"><i class = "fa fa-eye"></i><span class = "tooltipp">Visualizar</span></button>
 												</div>
 											</div>
 											<div class = "add-to-cart">
@@ -305,18 +244,14 @@
 										<div class = "product">
 											<div class = "product-img">
 												<img src = "./img/sudadera.jpg" alt = "">
-												<div class = "product-label">
-													<span class = "new">NEW</span>
-												</div>
 											</div>
 											<div class = "product-body">
 												<p class = "product-category">Jerseys</p>
 												<h3 class = "product-name"><a href = "./product.html">Sudadera Capucha color Block</a></h3>
-												<h4 class = "product-price">4,99€ / 49 Swapers</h4>
+												<h4 class = "product-price">49 Swapers</h4>
 												<div class = "product-btns">
 													<button class = "add-to-wishlist"><i class = "fa fa-heart-o"></i><span class = "tooltipp">Añadir a Deseados</span></button>
-													<button class = "add-to-compare"><i class = "fa fa-exchange"></i><span class = "tooltipp">Comparar Productos</span></button>
-													<button class="quick-view"><i class = "fa fa-eye"></i><span class = "tooltipp">Vista Previa</span></button>
+													<button class="quick-view"><i class = "fa fa-eye"></i><span class = "tooltipp">Visualizar</span></button>
 												</div>
 											</div>
 											<div class = "add-to-cart">
@@ -329,18 +264,14 @@
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/camisapana.jpg" alt="">
-												<div class="product-label">
-													<span class="new">NEW</span>
-												</div>
 											</div>
 											<div class="product-body">
 												<p class="product-category">Camisas</p>
 												<h3 class="product-name"><a href="#">Camisa de pana</a></h3>
-												<h4 class="product-price">29,99€ / 299 Swapers </h4>
+												<h4 class="product-price">299 Swapers </h4>
 												<div class = "product-btns">
 													<button class = "add-to-wishlist"><i class = "fa fa-heart-o"></i><span class = "tooltipp">Añadir a Deseados</span></button>
-													<button class = "add-to-compare"><i class = "fa fa-exchange"></i><span class = "tooltipp">Comparar Productos</span></button>
-													<button class="quick-view"><i class = "fa fa-eye"></i><span class = "tooltipp">Vista Previa</span></button>
+													<button class="quick-view"><i class = "fa fa-eye"></i><span class = "tooltipp">Visualizar</span></button>
 												</div>
 											</div>
 											<div class = "add-to-cart">
@@ -357,13 +288,10 @@
 											<div class="product-body">
 												<p class="product-category">Jerseys</p>
 												<h3 class="product-name"><a href="#">Jersey burdeos</a></h3>
-												<h4 class="product-price">25,99€ / 259 Swapers </h4>
-												<div class="product-rating">
-												</div>
+												<h4 class="product-price">259 Swapers </h4>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar Productos</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Previa</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -380,11 +308,10 @@
 											<div class="product-body">
 												<p class="product-category">Abrigos</p>
 												<h3 class="product-name"><a href="#">Chaqueta de pana</a></h3>
-												<h4 class="product-price">35,00€ / 350 Swapers</h4>
+												<h4 class="product-price">350 Swapers</h4>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar Productos</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Previa</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -401,11 +328,10 @@
 											<div class="product-body">
 												<p class="product-category">Accesorios</p>
 												<h3 class="product-name"><a href="#">Bandolera geométrica</a></h3>
-												<h4 class="product-price">12,95€ / 129 Swapers </h4>
+												<h4 class="product-price">129 Swapers </h4>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar Productos</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Previa</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -473,40 +399,6 @@
 			<!-- /container -->
 		</div>
 		<!-- /Inauguration Month -->
-
-
-		<!-- NOTICIAS -->
-		<div id="newsletter" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="newsletter">
-							<p>Registrate para recibir <strong>NOTICIAS!</strong></p>
-							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribirse</button>
-							</form>
-							<ul class="newsletter-follow">
-								<li>
-									<a href="#"><i class="fab fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fab fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fab fa-instagram"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /NEWSLETTER -->
 
 		<!-- PIE DE PAGINA -->
 		<footer id="footer">
@@ -597,7 +489,6 @@
 									<li><a href="/profile">Mi Perfil</a></li>
 									<li><a href="/profile">Ver Cesta</a></li>
 									<li><a href="/profile">Favoritos</a></li>
-									<li><a href="/profile">Solicitar Pedido</a></li>
 									<li><a href="/infomail">Ayuda</a></li>
 								</ul>
 							</div>
@@ -615,15 +506,6 @@
 					<!-- row -->
 					<div class="row">
 						<div class="col-md-12 text-center">
-						<!--	<ul class="footer-payments">
-								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-							</ul>
-						-->
 							<span class="copyright">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados. Esta pagina ha sido desarrollada por el equipo de Swap It! <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
