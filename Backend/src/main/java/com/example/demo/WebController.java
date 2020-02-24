@@ -67,8 +67,17 @@ public class WebController {
 	}
 	@GetMapping("/likeit")
 	public String basicLikeit(Model model) {
+		model.addAttribute("user",user);
 		return "likeit";
 	}
+	
+	@GetMapping("/logout")
+	public String basicLogout(Model model) {
+		user.setLogin(false);
+		model.addAttribute("user",user);
+		return "log";
+	}
+	
 	@GetMapping("/log")
 	public String basicLog(Model model) {
 		return "log";
