@@ -42,8 +42,15 @@
           <li><a href="#"><i class="fa fa-envelope-o"></i> info@Swapit.com</a></li>
         </ul>
         <ul class="header-links pull-right">
-          <li><a href="#"><i class="fa fa-dollar"></i> Puntos</a></li>
-          <li><a href="#"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
+          {{#user.login}}
+			<li><a><i class="fa fa-dollar"></i> {{user.puntos}}</a></li>
+			<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
+			<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
+		{{/user.login}}
+		{{^user.login}}
+			<li><a><i class="fa fa-dollar"></i> Puntos</a></li>
+			<li><a href="/profile"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
+		{{/user.login}}
         </ul>
       </div>
     </div>
@@ -192,26 +199,8 @@
 
 
 <!-- BREADCRUMB -->
-<div id="breadcrumb" class="section">
-  <!-- container -->
-  <div class="container">
-    <!-- row -->
-    <div class="row">
-      <div class="col-md-12">
-        <h3 class="breadcrumb-header">Regular Page</h3>
-        <ul class="breadcrumb-tree">
-          <li><a href="/index">Home</a></li>
-          <li class="active">Registro</li>
-        </ul>
-      </div>
-    </div>
-    <!-- /row -->
-  </div>
-  <!-- /container -->
-</div>
+
 <!-- /BREADCRUMB -->
-
-
 
 <!-- SECTION -->
 <div class="section">
@@ -241,36 +230,52 @@
               <div class="form-group">
                   <h2>Iniciar Sesión</h2>
                   <form action="/log" method="post">
-                    	<div class="form-group">
+                  	  <div class="form-group">
                         <input type="text" name="username" placeholder="Usuario" required>
                       </div>
-                    	<div class="form-group">
+                      <div class="form-group">
                         <input type="password" name="password" placeholder="Contraseña" required>
                       </div>
-                    	<div class="form-group">
-                        <input type="submit" value="Iniciar Sesión">
+                      <div class="form-group">
+                        <input type="submit" id="sendLogin" value="Iniciar Sesion" class="primary-btn cta-btn">
                       </div>
                   </form>
               </div>
-
+			  <br>
+			  <br>
               <div class="form-group">
                   <h2>Crea tu Cuenta</h2>
-                  <form action="#">
+                  <form action="profile/register" method="post">
                     	<div class="form-group">
-                        <input type="input" placeholder="Usuario" required>
-                      </div>
+                        	<input type="input" name="name" placeholder="Nombre de Usuario" required>
+                      	</div>
                     	<div class="form-group">
-                        <input type="input" placeholder="Contraseña" required>
-                      </div>
-                     <div class="form-group">
-                       <input type="input" placeholder="Correo Electronico" required>
-                     </div>
+                        	<input type="input" name="password"placeholder="Contraseña" required>
+                     	</div>
                      	<div class="form-group">
-                        <input type="input" placeholder="Teléfono" required>
-                      </div>
-                      <div class="form-group">
-                        <input type="submit" value="Registrarse">
-                      </div>
+                        	<input type="input" name="lastname" placeholder="Apellidos" required>
+                      	</div>
+                     	<div class="form-group">
+                       		<input type="input" name="email" placeholder="Correo Electronico" required>
+                    	</div>
+                     	<div class="form-group">
+                        	<input type="input" name="address" placeholder="Direccion de Envio" required>
+                      	</div>
+                      	<div class="form-group">
+                        	<input type="input" name="city" placeholder="Ciudad" required>
+                      	</div>
+                     	<div class="form-group">
+                        	<input type="input" name="country" placeholder="Pais" required>
+                      	</div>
+                      	<div class="form-group">
+                        	<input type="input" name="cp" placeholder="Codigo Postal" required>
+                      	</div>
+                     	<div class="form-group">
+                        	<input type="input" name="phone" placeholder="Teléfono" required>
+                     	</div>
+                      	<div class="form-group">
+                        	<input type="submit" id="sendRegistration" value="Registrarse" class="primary-btn cta-btn">
+                      	</div>
                   </form>
               </div>
 

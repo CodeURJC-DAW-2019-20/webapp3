@@ -23,6 +23,7 @@
 
  		<!-- Font Awesome Icon -->
  		<link rel="stylesheet" href="/css/font-awesome.min.css">
+ 		<script src="https://kit.fontawesome.com/639c797cd5.js" crossorigin="anonymous"></script>
 
  		<!-- Custom stlylesheet -->
  		<link type="text/css" rel="stylesheet" href="/css/style.css"/>
@@ -47,12 +48,12 @@
 					</ul>
 					<ul class="header-links pull-right">
 						{{#user.login}}
-							<li><a><i class="fa fa-dollar"></i> {{user.puntos}}</a></li>
+							<li><a><i class="fa fa-coins"></i> {{user.puntos}}</a></li>
 							<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
 							<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
 						{{/user.login}}
 						{{^user.login}}
-							<li><a><i class="fa fa-dollar"></i> Puntos</a></li>
+							<li><a><i class="fa fa-coins"></i> Puntos</a></li>
 							<li><a href="/profile"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
 						{{/user.login}}
 					</ul>
@@ -129,7 +130,7 @@
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">Camisa de Pana</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>29,99€ / 299 Swapers</h4>
+													<h4 class="product-price"><span class="qty">1x</span>299 Swapers</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
 											</div>
@@ -140,14 +141,14 @@
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">Bandolera Geométrica</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>12,95€ / 129 Swapers</h4>
+													<h4 class="product-price"><span class="qty">1x</span>129 Swapers</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
 											</div>
 										</div>
 										<div class="cart-summary">
 											<small>2 Productos Seleccionados</small>
-											<h5>SUBTOTAL: 42,94€ / 429 Swapers</h5>
+											<h5>SUBTOTAL: 429 Swapers</h5>
 										</div>
 										<div class="cart-btns">
 											<a href="/profile">Ver Cesta</a>
@@ -188,8 +189,6 @@
 						<li class="active"><a href="/index">Inicio</a></li>
 						<li><a href="/store">Ofertas</a></li>
 						<li><a href="/store">Catálogo</a></li>
-						<li><a href="/store">Mujer</a></li>
-						<li><a href="/store">Hombre</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>
@@ -197,29 +196,7 @@
 			</div>
 			<!-- /container -->
 		</nav>
-		<!-- /NAVIGATION -->
-			<nav id="navigation">
-				<!-- container -->
-				<div class="container">
-					<!-- responsive-nav -->
-					<div id="responsive-nav">
-						<!-- NAV -->
-						<ul class="main-nav nav navbar-nav">
-							<li class="active"><a href="/index">Inicio</a></li>
-							<li><a href=".//store">Ofertas</a></li>
-							<li><a href=".//store">Categorias</a></li>
-							<li><a href=".//store">Mujer</a></li>
-							<li><a href=".//store">Hombre</a></li>
-							<li><a href=".//store">Accesorios</a></li>
-						</ul>
-						<!-- /NAV -->
-					</div>
-					<!-- /responsive-nav -->
-				</div>
-				<!-- /container -->
-			</nav>
-			<!-- /NAVIGATION -->
-
+		
 		<!-- BREADCRUMB -->
 		<div id="breadcrumb" class="section">
 			<!-- container -->
@@ -348,11 +325,11 @@
 							<div class="order-products">
 								<div class="order-col">
 									<div>1x Camisa de Pana</div>
-									<div>29,99€ / 299 Swapers</div>
+									<div>299 Swapers</div>
 								</div>
 								<div class="order-col">
 									<div>1x Bandolera Geométrica</div>
-									<div>12,95€ / 129 Swapers</div>
+									<div>129 Swapers</div>
 								</div>
 							</div>
 							<div class="order-col">
@@ -361,25 +338,10 @@
 							</div>
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">42,94€ / 429 Swapers</strong></div>
+								<div><strong class="order-total">429 Swapers</strong></div>
 							</div>
 						</div>
-						<div class="payment-method">
-							<div class="input-radio">
-								<input type="radio" name="payment" id="payment-1">
-								<label for="payment-1">
-									<span></span>
-									Tarjeta de crédito
-								</label>
-							</div>
-							<div class="input-radio">
-								<input type="radio" name="payment" id="payment-2">
-								<label for="payment-2">
-									<span></span>
-									Paypal
-								</label>
-							</div>
-						</div>
+						
 						<div class="input-checkbox">
 							<input type="checkbox" id="terms">
 							<label for="terms">
@@ -396,43 +358,6 @@
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
-
-		<!-- NOTICIAS -->
-		<div id="newsletter" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="newsletter">
-							<p>Registrate para recibir <strong>NOTICIAS!</strong></p>
-							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribirse</button>
-							</form>
-							<ul class="newsletter-follow">
-								<li>
-									<a href="#"><i class="fa fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-instagram"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-pinterest"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /NEWSLETTER -->
-
 		<!-- PIE DE PAGINA -->
 		<footer id="footer">
 			<!-- top footer -->
@@ -520,9 +445,8 @@
 								<h3 class="footer-title">Servicio</h3>
 								<ul class="footer-links">
 									<li><a href="/profile">Mi Perfil</a></li>
-									<li><a href="/profile">Ver Cesta</a></li>
-									<li><a href="/profile">Favoritos</a></li>
-									<li><a href="/profile">Solicitar Pedido</a></li>
+									<li><a href="/checkout">Ver Cesta</a></li>
+									<li><a href="/likeit">Favoritos</a></li>
 									<li><a href="/infomail">Ayuda</a></li>
 								</ul>
 							</div>

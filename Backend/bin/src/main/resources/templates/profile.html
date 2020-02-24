@@ -50,6 +50,7 @@
 					<ul class="header-links pull-right">
 						<li><a><i class="fa fa-dollar"></i>{{user.puntos}}</a></li>
 						<li><a href="/profile"><i class="fa fa-user-o"></i> {{user.name}}</a></li>
+						<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
 					</ul>
 				</div>
 			</div>
@@ -206,39 +207,43 @@
                             <div class="section-title">
                                 <h3 class="title">Perfil de usuario</h3>
                             </div>
-                            <div class="form-group">
-                            	<span>Nombre</span>
-                                <input class="input" type="text" name="first-name" placeholder={{user.name}}>
-                            </div>
-                            <div class="form-group">
-                            	<span>Apellidos</span>
-                                <input class="input" type="text" name="last-name" placeholder="{{user.lastname}}">
-                            </div>
-                            <div class="form-group">
-                            	<span>Email</span>
-                                <input class="input" type="email" name="email" placeholder="{{user.email}}">
-                            </div>
-                            <div class="form-group">
-                           	 	<span>Dirección</span>
-                                <input class="input" type="text" name="address" placeholder="{{user.address}}">
-                            </div>
-                            <div class="form-group">
-                            	<span>Ciudad</span>
-                                <input class="input" type="text" name="city" placeholder="{{user.city}}">
-                            </div>
-                            <div class="form-group">
-                            	<span>País</span>
-                                <input class="input" type="text" name="country" placeholder="{{user.country}}">
-                            </div>
-                            <div class="form-group">
-                            	<span>Código Postal</span>
-                                <input class="input" type="text" name="zip-code" placeholder="{{user.cp}}">
-                            </div>
-                            <div class="form-group">
-                            	<span>Teléfono</span>
-                                <input class="input" type="tel" name="tel" placeholder="{{user.phone}}">
-                            </div>
-
+                            <form action="/profile/update" method="post">
+	                            <div class="form-group">
+	                            	<span>Nombre</span>
+	                                <input class="input" type="text" name="name" placeholder={{user.name}}>
+	                            </div>
+	                            <div class="form-group">
+	                            	<span>Apellidos</span>
+	                                <input class="input" type="text" name="lastname" placeholder="{{user.lastname}}">
+	                            </div>
+	                            <div class="form-group">
+	                            	<span>Email</span>
+	                                <input class="input" type="email" name="email" placeholder="{{user.email}}">
+	                            </div>
+	                            <div class="form-group">
+	                           	 	<span>Dirección</span>
+	                                <input class="input" type="text" name="address" placeholder="{{user.address}}">
+	                            </div>
+	                            <div class="form-group">
+	                            	<span>Ciudad</span>
+	                                <input class="input" type="text" name="city" placeholder="{{user.city}}">
+	                            </div>
+	                            <div class="form-group">
+	                            	<span>País</span>
+	                                <input class="input" type="text" name="country" placeholder="{{user.country}}">
+	                            </div>
+	                            <div class="form-group">
+	                            	<span>Código Postal</span>
+	                                <input class="input" type="text" name="cp" placeholder="{{user.cp}}">
+	                            </div>
+	                            <div class="form-group">
+	                            	<span>Teléfono</span>
+	                                <input class="input" type="tel" name="phone" placeholder="{{user.phone}}">
+	                            </div>
+	                            <div class="from-gruop">
+									<input type="submit" id="sendInfoButton" class="primary-btn cta-btn" value="Actualizar Datos">
+                        		</div>
+                        	</form>
                         </div>
                     <!-- /Profile Details -->
                 </div>
@@ -247,8 +252,209 @@
 			</div>
 			<!-- /container -->
 		</div>
-		<!-- /SECTION -->
+		{{#admin}}
+		 <!-- ADMIN -->
+			
+					<!-- Product tab -->
+					<div class="col-md-12">
+						<div id="product-tab">
+							<!-- product tab nav -->
+							<ul class="tab-nav">
+								<li class="active"><a data-toggle="tab" href="#tab1">Usuarios Registrados</a></li>
+								<li><a data-toggle="tab" href="#tab2">Productos en Stock</a></li>
+								<li><a data-toggle="tab" href="#tab3">Productos pendientes de Aceptacion</a></li>
+								<li><a data-toggle="tab" href="#tab4">Atencion al Cliente</a></li>
+							</ul>
+							<!-- /product tab nav -->
 
+							<!-- product tab content -->
+							<div class="tab-content">
+								<!-- Subir Producto  -->
+
+								<!-- /tab1  -->
+								<!-- USUARIOS REGISTRADOS  -->
+								<div id="tab1" class="tab-pane fade in active">
+									<div class="row">
+										<div class="col-md-12">
+											<table>
+												<tr>
+													<td> <h4>Indice</h4> </td>
+													<td> <h4>Nombre</h4> </td>
+													<td> <h4>Apellido</h4> </td>
+													<td> <h4>Email</h4> </td>
+													<td> <h4>Direccion</h4> </td>
+													<td> <h4>Poblacion</h4> </td>
+													<td> <h4>Pais</h4> </td>
+													<td> <h4>C.P</h4> </td>
+													<td> <h4>Telefono</h4> </td>
+													<td> <h4>Puntos</h4> </td>
+													<td> <h4>Login</h4> </td>
+													<td> <h4>Rol</h4> </td>
+												</tr>
+										  		{{#userlist}}
+												<tr>
+													<div>
+														<form action="" method="post">
+															<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>						
+															<td>  <input class="input" type="text" name="name" value="{{name}}"> </td>	
+															<td>  <input class="input" type="text" name="lastname" value="{{lastname}}">  </td>	
+															<td>  <input class="input" type="text" name="email" value="{{email}}">  </td>
+															<td>  <input class="input" type="text" name="address" value="{{address}}"> </td>
+															<td>  <input class="input" type="text" name="city" value="{{city}}">  </td>	
+															<td>  <input class="input" type="text" name="country" value="{{country}}">  </td>	
+															<td>  <input class="input" type="text" name="cp" value="{{cp}}">  </td>
+															<td>  <input class="input" type="text" name="phone" value="{{phone}}">  </td>
+															<td>  <input class="input" type="text" name="puntos" value="{{puntos}}">  </td>
+															<td>  <input class="input" type="text" name="login" value="{{login}}">  </td>
+															<td>  <input class="input" type="text" name="Rol" value="{{roles}}">  </td>
+															<td> <input type="submit" name="action" value="Modificar"></td>
+															<td> <input type="submit" name="action" value="Eliminar"></td>
+														</form>					
+													</div>
+												<tr>
+											     {{/userlist}}
+											</table>
+											<br>
+										</div>
+									</div>
+								</div>
+								<!-- /tab1  -->
+
+								<!-- PRODUCTOS EN STOCK  -->
+								<div id="tab2" class="tab-pane fade in">
+									<div class="row">
+										<div class="col-md-12">
+										{{#stockempty}}
+											<div>
+												<span> No hay productos en Stock</span>
+								            </div>
+										{{/stockempty}}	
+										{{^stockempty}}
+										<table>	
+											<tr>
+												<td> <h4>Indice</h4> </td>
+												<td> <h4>Nombre</h4> </td>
+												<td> <h4>Color</h4> </td>
+												<td> <h4>Categoria</h4> </td>
+												<td> <h4>Talla</h4> </td>
+												<td> <h4>Descripcion</h4> </td>
+												<td> <h4>Detalles</h4> </td>
+											</tr>
+											{{#stock}}
+											<tr>
+												<div>
+													<form action="profile/modifyproduct" method="post">
+														<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>						
+														<td>  <input class="input" type="text" name="name" value="{{name}}"> </td>	
+														<td>  <input class="input" type="text" name="color" value="{{color}}">  </td>	
+														<td>  <input class="input" type="text" name="category" value="{{category}}">  </td>
+														<td>  <input class="input" type="text" name="size" value="{{size}}"> </td>
+														<td>  <input class="input" type="text" name="description" value="{{description}}">  </td>	
+														<td>  <input class="input" type="text" name="detail" value="{{detail}}">  </td>	
+														<td> <input type="submit" name="action" value="Modificar"></td>
+														<td> <input type="submit" name="action" value="Eliminar"></td>
+													</form>					
+												</div>
+											<tr>
+										     {{/stock}}
+								        </table>  
+								        <br>  
+										{{/stockempty}}											
+										</div>
+									</div>
+								</div>
+								<!-- /tab2  -->
+								<!-- RODUCTOS PENDIENTES DE VERIFICACION -->
+								<div id="tab3" class="tab-pane fade in">
+									<div class="row">
+										<div class="col-md-12">
+										{{#prestockempty}}
+											<div>
+												<span> No hay productos pendientes de verificacion</span>
+								            </div>
+										{{/prestockempty}}	
+										{{^prestockempty}}
+											<table>
+												<tr>
+													<td> <h4>Indice</h4> </td>
+													<td> <h4>Nombre</h4> </td>
+													<td> <h4>Color</h4> </td>
+													<td> <h4>Categoria</h4> </td>
+													<td> <h4>Talla</h4> </td>
+													<td> <h4>Descripcion</h4> </td>
+													<td> <h4>Detalles</h4> </td>
+												</tr>
+												{{#prestock}}
+												<tr>
+													<div>
+														<form action="profile/checkproduct" method="post">
+															<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>						
+															<td>  <input class="input" type="text" name="name" value="{{name}}"> </td>	
+															<td>  <input class="input" type="text" name="color" value="{{color}}">  </td>	
+															<td>  <input class="input" type="text" name="category" value="{{category}}">  </td>
+															<td>  <input class="input" type="text" name="size" value="{{size}}"> </td>
+															<td>  <input class="input" type="text" name="description" value="{{description}}">  </td>	
+															<td>  <input class="input" type="text" name="detail" value="{{detail}}">  </td>	
+															<td> <input type="submit" name="action" value="Aceptar"></td>
+															<td> <input type="submit" name="action" value="Denegar"></td>
+														</form>					
+													</div>
+												</tr>
+								            	{{/prestock}}
+								            </table>
+								            <br>
+										{{/prestockempty}}				          
+										</div>
+									</div>
+								</div>
+								<!-- /tab3  -->
+								<!-- SUGERENCIAS DE USUARIOS -->
+								<div id="tab4" class="tab-pane fade in">
+									<div class="row">
+										<div class="col-md-12">
+										{{#suggestionlistempty}}
+											<div>
+												<span> No hay sugerencias </span>
+								      		</div>
+										{{/suggestionlistempty}}
+										{{^suggestionlistempty}}
+											<table>
+												<tr>
+													<td> <h4>Indice</h4> </td>
+													<td> <h4>Nombre</h4> </td>
+													<td> <h4>Apellido</h4> </td>
+													<td> <h4>Email</h4> </td>
+													<td> <h4>Mensaje</h4> </td>
+												</tr>
+												{{#suggestionlist}}
+												<tr>
+													<div>
+														
+														<form action="profile/editsuggestion" method="post">
+															<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>						
+															<td>  <input class="input" type="text" name="name" value="{{name}}"> </td>	
+															<td>  <input class="input" type="text" name="lastname" value="{{lastname}}">  </td>	
+															<td>  <input class="input" type="text" name="email" value="{{email}}">  </td>
+															<td>  <input class="input" type="text" name="message" value="{{message}}"> </td>
+															<td> <input type="submit" name="eliminar" value="Borrar"></td>
+														</form>				
+													</div>
+												<tr>
+								            	{{/suggestionlist}}
+								            </table>
+											<br>
+								         {{/suggestionlistempty}}
+										</div>
+									</div>
+								<!-- /tab4  -->
+								</div>
+							<!-- /product tab content  -->
+					
+		<!-- / ADMIN -->
+		{{/admin}}
+		{{^admin}}
+		<!-- / USER -->
+					
 					<!-- Product tab -->
 					<div class="col-md-12">
 						<div id="product-tab">
@@ -269,9 +475,9 @@
 								<div id="tab1" class="tab-pane fade in active">
 									<div class="row">
 										<div class="col-md-12">
-                    	<div>
+                    						<div>
 												<img class="graphic" src= "img/GraficoCompra.png" alt = "Grafico de Compras">
-								      </div>
+								      		</div>
 										</div>
 									</div>
 								</div>
@@ -289,23 +495,23 @@
 								</div>
 								<!-- /tab2  -->
 
-									<div id="tab3" class="tab-pane fade in">
-										<div class="container">
+								<div id="tab3" class="tab-pane fade in">
+									<div class="container">
 										<div class="row">
 											<div class="col-md-7">
-										  	<div class="form-group">
-													<input class="input" type="text" name="product-name" placeholder="Nombre del Producto">
-												</div>
-												<div class="form-group">
-													<input class="input" type="text" name="product-color" placeholder="Color">
-												</div>
-												<ul>
-													<li> <!-- Desplegable CATEGORIA-->
-														<div class="col-md-6">
-															<div class="header-search">
-																<form>
+												<form action="profile/loadProduct" method="post">
+											  		<div class="form-group">
+														<input class="input" type="text" name="name" placeholder="Nombre del Producto" required>
+													</div>
+													<div class="form-group">
+														<input class="input" type="text" name="color" placeholder="Color" required>
+													</div>
+													<ul>
+														<li> <!-- Desplegable CATEGORIA-->
+															<div class="col-md-6">
+																<div class="header-search">
 																	<span>Categoria</span>
-																	<select class="input-select">
+																	<select name="category" class="input-select" required>
 																		<option value="0"></option>
 																		<option value="1">Abrigo</option>
 																		<option value="2">Accesorio</option>
@@ -318,39 +524,37 @@
 																		<option value="10">Vaquero</option>
 																		<option value="11">Zapatilla</option>
 																		<option value="12">Zapato</option>
-																	</select>
-																</form>
+																	</select>	
+																</div>
 															</div>
+														</li>
+														<li> <!-- Desplegable Talla-->
+															<div class="col-md-6">
+																<div class="header-search">																	
+																	<span>Talla</span>
+																	<select name="size" class="input-select" required>
+																		<option value="0"></option>
+																		<option value="1">XS</option>
+																		<option value="2">S</option>
+																		<option value="3">M</option>
+																		<option value="5">L</option>
+																		<option value="6">XL</option>
+																	</select>																	
+																</div>
+															</div>
+														</li>
+														</ul>
+														<div class="form-group">
+															<textarea  name="description" class="input" type="text" name="product-description" placeholder="Descripcion" required></textarea>
 														</div>
-												</li>
-												<li> <!-- Desplegable Talla-->
-													<div class="col-md-6">
-														<div class="header-search">
-															<form>
-																<span>Talla</span>
-																<select class="input-select">
-																	<option value="0"></option>
-																	<option value="1">XS</option>
-																	<option value="2">S</option>
-																	<option value="3">M</option>
-																	<option value="5">L</option>
-																	<option value="6">XL</option>
-																</select>
-															</form>
+														<div class="form-group">
+															<textarea name="detail" class="input" type="text" name="product-detail" placeholder="Detalles" required></textarea>
 														</div>
-													</div>
-											</li>
-											</ul>
-												<div class="form-group">
-													<textarea  id="profileProductDescription" class="input" type="text" name="product-description" placeholder="Descripcion"></textarea>
-												</div>
-												<div class="form-group">
-													<textarea id="profileProductDetail" class="input" type="text" name="product-detail" placeholder="Detalles"></textarea>
-												</div>
-												<input type="file" id="input" multiple="true" onchange="handleFiles(this.files)">
-												<br>
-							 					<a id="sendInfoButton" class="primary-btn cta-btn" href="/profile">SUBIR</a>
-											</div>
+														<input type="file" name="images" multiple="true" onchange="handleFiles(this.files)" required>
+														<br>
+									 					<input type="submit" id="sendInfoButton" class="primary-btn cta-btn" href="/profile" value="Subir Producto">
+												</form>	
+											</div>											
 										</div>
 									</div>
 								</div>
@@ -366,8 +570,8 @@
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
-
-		<!-- Section Inferior de la pagina -->
+			
+		<!-- Seccion Inferior de la pagina -->
 		<div class="section">
 			<!-- container -->
 			<div class="container">
@@ -495,7 +699,7 @@
 			<!-- /container -->
 		</div>
 		<!-- /NEWSLETTER -->
-
+		{{/admin}}
 		<!-- PIE DE PAGINA -->
 		<footer id="footer">
 			<!-- top footer -->
