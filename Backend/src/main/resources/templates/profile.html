@@ -199,7 +199,7 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-15">
                         <!-- Profile Details -->
                         <div class="billing-details">
                             <div class="section-title">
@@ -446,130 +446,131 @@
 									</div>
 								<!-- /tab4  -->
 								</div>
+							</div>
+						</div>
 							<!-- /product tab content  -->
 					
 		<!-- / ADMIN -->
 		{{/admin}}
 		{{^admin}}
 		<!-- / USER -->
-					
-					<!-- Product tab -->
-					<div class="col-md-12">
-						<div id="product-tab">
-							<!-- product tab nav -->
-							<ul class="tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">Historial Compras</a></li>
-								<li><a data-toggle="tab" href="#tab2">Historial Ventas</a></li>
-								<li><a data-toggle="tab" href="#tab3">Subir Producto</a></li>
-							</ul>
-							<!-- /product tab nav -->
+			<!-- Product tab -->
+			<div class="col-md-12">
+				<div id="product-tab">
+					<!-- product tab nav -->
+					<ul class="tab-nav">
+						<li class="active"><a data-toggle="tab" href="#tab1">Historial Compras</a></li>
+						<li><a data-toggle="tab" href="#tab2">Historial Ventas</a></li>
+						<li><a data-toggle="tab" href="#tab3">Subir Producto</a></li>
+					</ul>
+					<!-- /product tab nav -->
 
-							<!-- product tab content -->
-							<div class="tab-content">
-								<!-- Subir Producto  -->
+					<!-- product tab content -->
+					<div class="tab-content">
+						<!-- Subir Producto  -->
 
-								<!-- /tab1  -->
-								<!-- HISTORIAL COMPRAS  -->
-								<div id="tab1" class="tab-pane fade in active">
-									<div class="row">
-										<div class="col-md-12">
-                    						<div>
-												<img class="graphic" src= "img/GraficoCompra.png" alt = "Grafico de Compras">
-								      		</div>
-										</div>
+						<!-- /tab1  -->
+						<!-- HISTORIAL COMPRAS  -->
+						<div id="tab1" class="tab-pane fade in active">
+							<div class="row">
+								<div class="col-md-12">
+									<div>
+										<img class="graphic" src= "img/GraficoCompra.png" alt = "Grafico de Compras">
 									</div>
 								</div>
-								<!-- /tab1  -->
-
-								<!-- HISTORIAL VENTAS  -->
-								<div id="tab2" class="tab-pane fade in">
-									<div class="row">
-										<div class="col-md-12">
-											<div>
-												<img class="graphic" src= "img/GraficoVenta.png" alt = "Grafico de Compras">
-								            </div>
-										</div>
-									</div>
-								</div>
-								<!-- /tab2  -->
-
-								<div id="tab3" class="tab-pane fade in">
-									<div class="container">
-										<div class="row">
-											<div class="col-md-7">
-												<form action="profile/loadProduct" method="post">
-											  		<div class="form-group">
-														<input class="input" type="text" name="name" placeholder="Nombre del Producto" required>
-													</div>
-													<div class="form-group">
-														<input class="input" type="text" name="color" placeholder="Color" required>
-													</div>
-													<ul>
-														<li> <!-- Desplegable CATEGORIA-->
-															<div class="col-md-6">
-																<div class="header-search">
-																	<span>Categoria</span>
-																	<select name="category" class="input-select" required>
-																		<option value="0"></option>
-																		<option value="1">Abrigo</option>
-																		<option value="2">Accesorio</option>
-																		<option value="3">Bota</option>
-																		<option value="5">Camisa</option>
-																		<option value="6">Camiseta</option>
-																		<option value="7">Chaqueta</option>
-																		<option value="8">Falda</option>
-																		<option value="9">Jersey</option>
-																		<option value="10">Vaquero</option>
-																		<option value="11">Zapatilla</option>
-																		<option value="12">Zapato</option>
-																	</select>	
-																</div>
-															</div>
-														</li>
-														<li> <!-- Desplegable Talla-->
-															<div class="col-md-6">
-																<div class="header-search">																	
-																	<span>Talla</span>
-																	<select name="size" class="input-select" required>
-																		<option value="0"></option>
-																		<option value="1">XS</option>
-																		<option value="2">S</option>
-																		<option value="3">M</option>
-																		<option value="5">L</option>
-																		<option value="6">XL</option>
-																	</select>																	
-																</div>
-															</div>
-														</li>
-														</ul>
-														<div class="form-group">
-															<textarea  name="description" class="input" type="text" name="product-description" placeholder="Descripcion" required></textarea>
-														</div>
-														<div class="form-group">
-															<textarea name="detail" class="input" type="text" name="product-detail" placeholder="Detalles" required></textarea>
-														</div>
-														<input type="file" name="images" multiple="true" onchange="handleFiles(this.files)" required>
-														<br>
-									 					<input type="submit" id="sendInfoButton" class="primary-btn cta-btn" href="/profile" value="Subir Producto">
-												</form>	
-											</div>											
-										</div>
-									</div>
-								</div>
-								<!-- /tab3  -->
 							</div>
-							<!-- /product tab content  -->
 						</div>
+						<!-- /tab1  -->
+
+						<!-- HISTORIAL VENTAS  -->
+						<div id="tab2" class="tab-pane fade in">
+							<div class="row">
+								<div class="col-md-12">
+									<div>
+										<img class="graphic" src= "img/GraficoVenta.png" alt = "Grafico de Compras">
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /tab2  -->
+
+						<div id="tab3" class="tab-pane fade in">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-20">
+										<form action="profile/loadProduct" method="post">
+											<div class="form-group">
+												<input class="input" type="text" name="name" placeholder="Nombre del Producto" required>
+											</div>
+											<div class="form-group">
+												<input class="input" type="text" name="color" placeholder="Color" required>
+											</div>
+											<ul>
+												<li> <!-- Desplegable CATEGORIA-->
+													<div class="col-md-6">
+														<div class="header-search">
+															<span>Categoria</span>
+															<select name="category" class="input-select" required>
+																<option value="0"></option>
+																<option value="1">Abrigo</option>
+																<option value="2">Accesorio</option>
+																<option value="3">Bota</option>
+																<option value="5">Camisa</option>
+																<option value="6">Camiseta</option>
+																<option value="7">Chaqueta</option>
+																<option value="8">Falda</option>
+																<option value="9">Jersey</option>
+																<option value="10">Vaquero</option>
+																<option value="11">Zapatilla</option>
+																<option value="12">Zapato</option>
+															</select>
+														</div>
+													</div>
+												</li>
+												<li> <!-- Desplegable Talla-->
+													<div class="col-md-6">
+														<div class="header-search">
+															<span>Talla</span>
+															<select name="size" class="input-select" required>
+																<option value="0"></option>
+																<option value="1">XS</option>
+																<option value="2">S</option>
+																<option value="3">M</option>
+																<option value="5">L</option>
+																<option value="6">XL</option>
+															</select>
+														</div>
+													</div>
+												</li>
+												</ul>
+												<div class="form-group">
+													<textarea  name="description" class="input" type="text" name="product-description" placeholder="Descripcion" required></textarea>
+												</div>
+												<div class="form-group">
+													<textarea name="detail" class="input" type="text" name="product-detail" placeholder="Detalles" required></textarea>
+												</div>
+												<input type="file" name="images" multiple="true" onchange="handleFiles(this.files)" required>
+												<br>
+												<input type="submit" id="sendInfoButton" class="primary-btn cta-btn" href="/profile" value="Subir Producto">
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /tab3  -->
 					</div>
-					<!-- /product tab -->
+					<!-- /product tab content  -->
 				</div>
+			</div>
+			<!-- /product tab -->
+		</div>
 				<!-- /row -->
 			</div>
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
-			
-		<!-- Seccion Inferior de la pagina -->
+
+		<!-- Section Inferior de la pagina -->
 		<div class="section">
 			<!-- container -->
 			<div class="container">
@@ -578,26 +579,25 @@
 
 					<div class="col-md-12">
 						<div class="section-title text-center">
-							<h3 class="title">SUGERENCIAS PERSONALIZADAS</h3>
+							<h3 class="title">Productos Recomendados</h3>
 						</div>
 					</div>
 
 					<!-- PRODUCTO 1 -->
-					<div class="col-md-3 col-xs-6">
+					<div class="col-md-4 col-xs-6">
 						<div class="product">
 							<div class="product-img">
 								<img src="./img/sudaderaalt.jpg" alt="">
-				            </div>
+							</div>
 							<div class="product-body">
 								<p class="product-category">Sudaderas</p>
 								<h3 class="product-name"><a href="#">Sudadera con Capucha color Block</a></h3>
-								<h4 class="product-price">4,95€ / 49 Swapers </h4>
+								<h4 class="product-price"> 49 Swapers </h4>
 								<div class="product-rating">
 								</div>
 								<div class="product-btns">
 									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Favoritos</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar</span></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Previa</span></button>
+									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
 								</div>
 							</div>
 							<div class="add-to-cart">
@@ -608,7 +608,7 @@
 					<!-- /product -->
 
 					<!-- PRODUCTO 2 -->
-					<div class="col-md-3 col-xs-6">
+					<div class="col-md-4 col-xs-6">
 						<div class="product">
 							<div class="product-img">
 								<img src="./img/sudaderaalt2.jpg" alt="">
@@ -619,11 +619,10 @@
 							<div class="product-body">
 								<p class="product-category">Sudadera</p>
 								<h3 class="product-name"><a href="#">Sudadera Mickey Mouse con Capucha</a></h3>
-								<h4 class="product-price">49 Swapers</h4>
+								<h4 class="product-price"> 49 Swapers</h4>
 								<div class="product-btns">
 									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Favoritos</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar</span></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Previa</span></button>
+									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
 								</div>
 							</div>
 							<div class="add-to-cart">
@@ -636,7 +635,7 @@
 					<div class="clearfix visible-sm visible-xs"></div>
 
 					<!-- PRODUCTO 3 -->
-					<div class="col-md-3 col-xs-6">
+					<div class="col-md-4 col-xs-6">
 						<div class="product">
 							<div class="product-img">
 								<img src="./img/sudaderaalt3.jpg" alt="">
@@ -644,11 +643,10 @@
 							<div class="product-body">
 								<p class="product-category">Sudadera</p>
 								<h3 class="product-name"><a href="#">Sudadera Combinada</a></h3>
-								<h4 class="product-price">49 Swapers</h4>
+								<h4 class="product-price"> 49 Swapers</h4>
 								<div class="product-btns">
 									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Favoritos</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar</span></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Previa</span></button>
+									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
 								</div>
 							</div>
 							<div class="add-to-cart">
@@ -657,6 +655,7 @@
 						</div>
 					</div>
 					<!-- /product -->
+
 
 				</div>
 				<!-- /row -->
