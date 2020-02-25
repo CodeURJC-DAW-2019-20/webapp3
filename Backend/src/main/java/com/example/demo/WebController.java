@@ -72,8 +72,9 @@ public class WebController {
 	}
 	
 	@GetMapping("/logout")
-	public String basicLogout(Model model) {
+	public String basicLogout(Model model, @RequestParam HttpSession sesion) {
 		user.setLogin(false);
+		sesion.invalidate();
 		model.addAttribute("user",user);
 		return "log";
 	}

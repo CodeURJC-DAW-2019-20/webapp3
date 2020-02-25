@@ -38,17 +38,17 @@
     <div id="top-header">
       <div class="container">
         <ul class="header-links pull-left">
-          <li><a href="#"><i class="fa fa-phone"></i> +34 608 844 077</a></li>
+          <li><a href="#"><i class="fa fa-phone"></i> +34 608 844 123</a></li>
           <li><a href="#"><i class="fa fa-envelope-o"></i> info@Swapit.com</a></li>
         </ul>
         <ul class="header-links pull-right">
           {{#user.login}}
-			<li><a><i class="fa fa-dollar"></i> {{user.puntos}}</a></li>
+			<li><a><i class="fa fa-coins"></i> {{user.puntos}}</a></li>
 			<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
 			<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
 		{{/user.login}}
 		{{^user.login}}
-			<li><a><i class="fa fa-dollar"></i> Puntos</a></li>
+			<li><a><i class="fa fa-coins"></i> Puntos</a></li>
 			<li><a href="/profile"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
 		{{/user.login}}
         </ul>
@@ -65,7 +65,7 @@
           <!-- LOGO -->
           <div class="col-md-3">
             <div class="header-logo">
-              <a href="#" class="logo">
+              <a href="/index" class="logo">
                 <img src="./img/logo.png" alt="">
               </a>
             </div>
@@ -91,7 +91,7 @@
                   <option value="12">Zapatos</option>
                 </select>
                 <input class="input" placeholder="Buscar">
-                <button class="search-btn">Buscar</button>
+                <button class="search-btn"><a href = "/store">Buscar</a></button>
               </form>
             </div>
           </div>
@@ -125,7 +125,7 @@
                       </div>
                       <div class="product-body">
                         <h3 class="product-name"><a href="#">Camisa de Pana</a></h3>
-                        <h4 class="product-price"><span class="qty">1x</span>29,99€ / 299 Swapers</h4>
+                        <h4 class="product-price"><span class="qty">1x</span>299 Swapers</h4>
                       </div>
                       <button class="delete"><i class="fa fa-close"></i></button>
                     </div>
@@ -136,17 +136,17 @@
                       </div>
                       <div class="product-body">
                         <h3 class="product-name"><a href="#">Bandolera Geométrica</a></h3>
-                        <h4 class="product-price"><span class="qty">1x</span>12,95€ / 129 Swapers</h4>
+                        <h4 class="product-price"><span class="qty">1x</span>129 Swapers</h4>
                       </div>
                       <button class="delete"><i class="fa fa-close"></i></button>
                     </div>
                   </div>
                   <div class="cart-summary">
                     <small>2 Productos Seleccionados</small>
-                    <h5>SUBTOTAL: 42,94€ / 429 Swapers</h5>
+                    <h5>SUBTOTAL: 429 Swapers</h5>
                   </div>
                   <div class="cart-btns">
-                    <a href="#">Ver Cesta</a>
+                    <a href="7log">Ver Cesta</a>
                     <a href="/checkout">Comprar  <i class="fa fa-arrow-circle-right"></i></a>
                   </div>
                 </div>
@@ -182,11 +182,7 @@
         <!-- NAV -->
         <ul class="main-nav nav navbar-nav">
           <li class="active"><a href="/index">Inicio</a></li>
-          <li><a href="#">Ofertas</a></li>
-          <li><a href="#">Categorias</a></li>
-          <li><a href="#">Mujer</a></li>
-          <li><a href="#">Hombre</a></li>
-          <li><a href="#">Accesorios</a></li>
+          <li><a href="/store">Catálogo</a></li>
         </ul>
         <!-- /NAV -->
       </div>
@@ -198,22 +194,6 @@
 
 
 
-<!-- BREADCRUMB -->
-
-<!-- /BREADCRUMB -->
-
-<!-- SECTION -->
-<div class="section">
-  <!-- container -->
-  <div class="container">
-    <!-- row -->
-    <div class="row">
-    </div>
-    <!-- /row -->
-  </div>
-  <!-- /container -->
-</div>
-<!-- /SECTION -->
 
 <div class="section">
   <!-- container -->
@@ -286,40 +266,6 @@
   </div>
 </div>
 
-
-<!-- NOTICIAS -->
-<div id="newsletter" class="section">
-  <!-- container -->
-  <div class="container">
-    <!-- row -->
-    <div class="row">
-      <div class="col-md-12">
-        <div class="newsletter">
-          <p>Registrate para recibir <strong>NOTICIAS!</strong></p>
-          <form>
-            <input class="input" type="email" placeholder="Enter Your Email">
-            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribirse</button>
-          </form>
-          <ul class="newsletter-follow">
-            <li>
-              <a href="#"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- /row -->
-  </div>
-  <!-- /container -->
-</div>
-<!-- /NEWSLETTER -->
-
 <!-- PIE DE PAGINA -->
 <footer id="footer">
   <!-- top footer -->
@@ -377,11 +323,10 @@
           <div class="footer">
             <h3 class="footer-title">Servicio</h3>
             <ul class="footer-links">
-              <li><a href="#">Mi Perfil</a></li>
-              <li><a href="#">Ver Cesta</a></li>
-              <li><a href="#">Favoritos</a></li>
-              <li><a href="#">Solicitar Pedido</a></li>
-              <li><a href="#">Ayuda</a></li>
+              <li><a href="/profile">Mi Perfil</a></li>
+              <li><a href="/checkout">Ver Cesta</a></li>
+              <li><a href="/likeit">Favoritos</a></li>
+              <li><a href="/infomail">Ayuda</a></li>
             </ul>
           </div>
         </div>

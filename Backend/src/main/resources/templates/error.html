@@ -23,6 +23,7 @@
 
  		<!-- Font Awesome Icon -->
  		<link rel="stylesheet" href="/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/639c797cd5.js" crossorigin="anonymous"></script>
 
  		<!-- Custom stlylesheet -->
  		<link type="text/css" rel="stylesheet" href="/css/style.css"/>
@@ -42,17 +43,17 @@
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-						<li><a><i class="fa fa-phone"></i> +34 608 844 077</a></li>
+						<li><a><i class="fa fa-phone"></i> +34 608 844 123</a></li>
 						<li><a href="/infomail"><i class="fa fa-envelope-o"></i> info@Swapit.com</a></li>
 					</ul>
 					<ul class="header-links pull-right">
 						{{#user.login}}
-							<li><a><i class="fa fa-dollar"></i> {{user.puntos}}</a></li>
+							<li><a><i class="fa fa-coins"></i> {{user.puntos}}</a></li>
 							<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
 							<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
 						{{/user.login}}
 						{{^user.login}}
-							<li><a><i class="fa fa-dollar"></i> Puntos</a></li>
+							<li><a><i class="fa fa-coins"></i> Puntos</a></li>
 							<li><a href="/profile"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
 						{{/user.login}}
 					</ul>

@@ -53,8 +53,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin().failureUrl("/error");
 
         // Logout
-      /*  http.logout().logoutUrl("/logout"); 
-        http.logout().logoutSuccessUrl("/");*/
+       
+        http.logout().logoutUrl("/logout"); 
+        http.logout().logoutSuccessUrl("/").permitAll();
         
         // Disable CSRF at the moment
         http.csrf().disable();
