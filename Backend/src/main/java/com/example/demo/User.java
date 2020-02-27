@@ -1,24 +1,18 @@
 package com.example.demo;
 
 import java.util.ArrayList;
-
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-
-
-@Table(name="clientes")
 
 @Entity
 @Component
@@ -31,8 +25,7 @@ public class User {
 	private String name;
 
 	private String passwordHash;
-	
-	
+
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 
