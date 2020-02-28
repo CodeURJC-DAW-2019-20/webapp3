@@ -29,6 +29,10 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
 		}
+		
+		if (user.getEmailVerified() == false) {
+			throw new BadCredentialsException("Email Not verified");
+		}
 
 		String password = (String) auth.getCredentials();
 		if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {

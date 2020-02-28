@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +34,9 @@ public class WebController {
 	
 	@Autowired
 	private Suggestion suggestion;
+	
+    @Autowired
+    private EmailSenderService emailSenderService;
 	
 	ArrayList<Product> prestock = new ArrayList<Product>();
 	ArrayList<Product> stock = new ArrayList<Product>();
@@ -109,9 +114,13 @@ public class WebController {
 	}
 	
 	@PostMapping("/profile/update")
-	public String updateProfile(Model model, HttpServletRequest request, @RequestParam String name, String lastname, String email, String address, String city, String country, String cp, String phone) {	
-		user.updateData( lastname, email, address, city, country, cp, phone);
-		userRepository.save(user);
+	public String updateProfile(Model model, HttpServletRequest request, @RequestParam String name, String lastname, String email, String address, String city, String country, String cp, String phone, String action) {	
+		if (action.equals("Modificar")) {
+			user.updateData( lastname, email, address, city, country, cp, phone);
+			userRepository.save(user);
+		}else {
+			userRepository.delete(userRepository.findByName(name));
+		}
 		
 		model.addAttribute("stockempty", stock.isEmpty());
 		model.addAttribute("stock",stock);
@@ -126,20 +135,45 @@ public class WebController {
 	
 	@PostMapping("/profile/register")
 	public String registerProfile(Model model, HttpServletRequest request, @RequestParam String name, String lastname, String email, String address, String city, String country, String cp, String phone,String password) {	
-		userRepository.save(new User(name, password,lastname,email,address,city,country,cp,phone, 10,"ROLE_USER"));
-		user = userRepository.findByName(request.getUserPrincipal().getName());
+		
+		SimpleMailMessage mailMessage = new SimpleMailMessage();
+		mailMessage.setTo(email);
+        mailMessage.setSubject("Complete Registration!");
+        mailMessage.setFrom("swapitserver@gmail.com");
+        mailMessage.setText("To confirm your account, please click here :" +"https://localhost:8443/profile/validate?name="+name);
+        try {
+	        emailSenderService.sendEmail(mailMessage);
+	        userRepository.save(new User(name, password,lastname,email,address,city,country,cp,phone, 10,false,"ROLE_USER"));
+			return "emailVerification";
+		}
+        catch(Exception e) {
+        	return"error";      	
+        }
+
+	}
+	
+	@GetMapping("/profile/validate")
+	public String validate(Model model, HttpServletRequest request, @RequestParam String name ) {
+		
+		user = userRepository.findByName(name);
 		user.setLogin(true);
+		user.setEmailVerified(true);
+		userRepository.save(user);
 		
 		model.addAttribute("stockempty", stock.isEmpty());
 		model.addAttribute("stock",stock);
-
-		model.addAttribute("admin",request.isUserInRole("ROLE_ADMIN"));
-		model.addAttribute("prestockempty", prestock.isEmpty());
-		model.addAttribute("prestock",prestock);
 		model.addAttribute("suggestionlistempty",suggestionlist.isEmpty());
 		model.addAttribute("suggestionlist",suggestionlist);
+		model.addAttribute("user",user);
+		model.addAttribute("admin",request.isUserInRole("ROLE_ADMIN"));
+		model.addAttribute("prestock",prestock);
+		model.addAttribute("prestockempty", prestock.isEmpty());
+		model.addAttribute("userlist", userRepository.findAll());
+		
 		return "profile";
 	}
+	
+	
 	
 	@PostMapping("/profile/loadProduct")
 	public String register(Model model, HttpServletRequest request, @RequestParam String name, String color, String category, String size, String description, String detail) {

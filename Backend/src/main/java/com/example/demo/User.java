@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,7 +22,8 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	
+	@Column(unique = true)
 	private String name;
 
 	private String passwordHash;
@@ -45,6 +47,7 @@ public class User {
 	 
 	 private Integer puntos;
 
+	 private Boolean emailVerified;
 	 
 	 private Boolean login;
 
@@ -52,7 +55,7 @@ public class User {
 	public User() {
 	}
 
-	public User(String name, String password, String lastname, String email, String address ,String city , String country , String cp ,String phone, Integer puntos, String... roles) {
+	public User(String name, String password, String lastname, String email, String address ,String city , String country , String cp ,String phone, Integer puntos, Boolean Verified, String... roles) {
 		this.name = name;
 		this.lastname=lastname;
 		this.email=email;
@@ -65,6 +68,7 @@ public class User {
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 		this.puntos=puntos;
 		this.login=false;
+		this.emailVerified=Verified;
 	}
 	
 
@@ -181,6 +185,14 @@ public class User {
 			setCp(cp);
 		if(phone != "")
 			setPhone(phone);
+	}
+
+	public Boolean getEmailVerified() {
+		return emailVerified;
+	}
+
+	public void setEmailVerified(Boolean emailVerified) {
+		this.emailVerified = emailVerified;
 	}
 
 }
