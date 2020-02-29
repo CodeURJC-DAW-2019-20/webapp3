@@ -1,19 +1,25 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 
 import java.awt.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.swing.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 //import es.urjc.code.security.User;
 //import es.urjc.code.security.UserRepository;
@@ -23,6 +29,9 @@ public class WebController {
 	
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private  ProductRepository productRepository;
 	
 	@Autowired
 	private User user;
@@ -35,6 +44,9 @@ public class WebController {
 	
     @Autowired
     private EmailSenderService emailSenderService;
+
+    @Autowired
+	private ImageService imageService;
 	
 	ArrayList<Product> prestock = new ArrayList<Product>();
 	ArrayList<Product> stock = new ArrayList<Product>();
@@ -47,6 +59,14 @@ public class WebController {
 		model.addAttribute("user", user);
 		return "index";
 	}
+
+	@PostMapping("/")
+	@ResponseStatus(HttpStatus.CREATED)
+	public Product newProduct(@RequestBody Product product){
+		productRepository.save(product);
+		return product;
+	}
+
 	@GetMapping("/checkout")
 	public String basicCheckout(Model model) {
 		
@@ -171,11 +191,40 @@ public class WebController {
 		return "profile";
 	}
 	
-	
+	@PostMapping("/{id}/imagen")
+	public ResponseEntity<Product> newImageProduct (@PathVariable long id, @RequestParam MultipartFile imagenFile) throws IOException {
+		Optional <Product> product = productRepository.findById(id);
+
+		if (product.isPresent()){
+			product.get().setImage(true);
+			productRepository.save(product.get());
+
+			imageService.saveImage("productos", product.get().getId(), imagenFile);
+			return new ResponseEntity<>(HttpStatus.CREATED);
+
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/{id}/imagen")
+	public ResponseEntity<Object> getImageProduct (@PathVariable long id) throws IOException {
+		Optional <Product> product = productRepository.findById(id);
+
+		if (product.isPresent()) {
+			if (product.get().hasImage()) {
+				return this.imageService.createResponseFromImage("productos", id);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 	
 	@PostMapping("/profile/loadProduct")
-	public String register(Model model, HttpServletRequest request, @RequestParam String name, String color, String category, String size, int price, String description, String detail, ImageIcon img) {
-		product = new Product(name, color, category, size, price, description, detail,false, img);
+	public String register(Model model, HttpServletRequest request, @RequestParam String name, String color, String category, String brand, String size, String description, String detail, MultipartFile imagenFile) throws IOException {
+		product = new Product(name, color, category, brand, size, description, detail, false);
 		prestock.add(product);
 		
 		model.addAttribute("stockempty", stock.isEmpty());
@@ -186,6 +235,12 @@ public class WebController {
 		model.addAttribute("prestock",prestock);
 		model.addAttribute("suggestionlistempty",suggestionlist.isEmpty());
 		model.addAttribute("suggestionlist",suggestionlist);
+
+		product.setImage(true);
+		productRepository.save(product);
+
+		imageService.saveImage("productos", product.getId(), imagenFile);
+
 		return "profile";
 	}
 	
@@ -197,10 +252,10 @@ public class WebController {
 	}
 	
 	@PostMapping("/profile/checkproduct")
-	public String cheksproduct(Model model, HttpServletRequest request, @RequestParam String index, String name, String color, String category, String size, int price, String description, String detail ,String action,  ImageIcon img) {
+	public String cheksproduct(Model model, HttpServletRequest request, @RequestParam String index, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
 	
 		if (action.equals("Aceptar"))
-			stock.add(new Product(name, color, category, size, price, description, detail,true, img));
+			stock.add(new Product(name, color, category, brand, size, description, detail, true));
 		prestock.remove(Integer.parseInt(index)-1);
 		
 		model.addAttribute("stockempty", stock.isEmpty());
@@ -216,10 +271,10 @@ public class WebController {
 	
 	
 	@PostMapping("/profile/modifyproduct")
-	public String modifyproduct(Model model, HttpServletRequest request, @RequestParam String index, String name, String color, String category, String size, int price, String description, String detail ,String action,  ImageIcon img) {
+	public String modifyproduct(Model model, HttpServletRequest request, @RequestParam String index, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
 		
 		if (action.equals("Modificar"))
-			stock.add(new Product(name, color, category, size, price, description, detail, true, img));
+			stock.add(new Product(name, color, category, brand, size, description, detail, true));
 		stock.remove(Integer.parseInt(index)-1);
 		
 		model.addAttribute("stockempty", stock.isEmpty());
@@ -258,6 +313,5 @@ public class WebController {
 		model.addAttribute("user", user);
 		return "store";
 	}
-
 
 }

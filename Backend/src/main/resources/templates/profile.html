@@ -50,7 +50,7 @@
 					<ul class="header-links pull-right">
 						<li><a><i class="fa fa-coins"></i>{{user.puntos}}</a></li>
 						<li><a href="/profile"><i class="fa fa-user-o"></i> {{user.name}}</a></li>
-						<li><a href = "/logout""><i class="fa fa-user-o"></i>Logout</a></li>
+						<li><a href = "/logout"><i class="fa fa-user-o"></i>Logout</a></li>
 					</ul>
 				</div>
 			</div>
@@ -333,6 +333,7 @@
 												<td> <h4>Nombre</h4> </td>
 												<td> <h4>Color</h4> </td>
 												<td> <h4>Categoria</h4> </td>
+												<td> <h4>Marca</h4> </td>
 												<td> <h4>Talla</h4> </td>
 												<td> <h4>Descripcion</h4> </td>
 												<td> <h4>Detalles</h4> </td>
@@ -345,11 +346,13 @@
 														<td>  <input class="input" type="text" name="name" value="{{name}}"> </td>	
 														<td>  <input class="input" type="text" name="color" value="{{color}}">  </td>	
 														<td>  <input class="input" type="text" name="category" value="{{category}}">  </td>
+														<td>  <input class="input" type="text" name="brand" value="{{brand}}">  </td>
 														<td>  <input class="input" type="text" name="size" value="{{size}}"> </td>
 														<td>  <input class="input" type="text" name="description" value="{{description}}">  </td>	
-														<td>  <input class="input" type="text" name="detail" value="{{detail}}">  </td>	
-														<td> <input type="submit" name="action" value="Modificar"></td>
-														<td> <input type="submit" name="action" value="Eliminar"></td>
+														<td>  <input class="input" type="text" name="detail" value="{{detail}}">  </td>
+														<td>  <input class="input" type="file" name="images" value="{{pictureList}}">
+														<td>  <input type="submit" name="action" value="Modificar"></td>
+														<td>  <input type="submit" name="action" value="Eliminar"></td>
 													</form>					
 												</div>
 											<tr>
@@ -377,6 +380,7 @@
 													<td> <h4>Nombre</h4> </td>
 													<td> <h4>Color</h4> </td>
 													<td> <h4>Categoria</h4> </td>
+													<td> <h4>Marca</h4> </td>
 													<td> <h4>Talla</h4> </td>
 													<td> <h4>Descripcion</h4> </td>
 													<td> <h4>Detalles</h4> </td>
@@ -389,9 +393,11 @@
 															<td>  <input class="input" type="text" name="name" value="{{name}}"> </td>	
 															<td>  <input class="input" type="text" name="color" value="{{color}}">  </td>	
 															<td>  <input class="input" type="text" name="category" value="{{category}}">  </td>
+															<td>  <input class="input" type="text" name="brand" value="{{brand}}">  </td>
 															<td>  <input class="input" type="text" name="size" value="{{size}}"> </td>
 															<td>  <input class="input" type="text" name="description" value="{{description}}">  </td>	
-															<td>  <input class="input" type="text" name="detail" value="{{detail}}">  </td>	
+															<td>  <input class="input" type="text" name="detail" value="{{detail}}">  </td>
+															<td>  <input class="input" type="file" name="images" value="{{pictureList}}">
 															<td> <input type="submit" name="action" value="Aceptar"></td>
 															<td> <input type="submit" name="action" value="Denegar"></td>
 														</form>					
@@ -514,14 +520,40 @@
 																<option value="1">Abrigo</option>
 																<option value="2">Accesorio</option>
 																<option value="3">Bota</option>
-																<option value="5">Camisa</option>
-																<option value="6">Camiseta</option>
-																<option value="7">Chaqueta</option>
-																<option value="8">Falda</option>
-																<option value="9">Jersey</option>
-																<option value="10">Vaquero</option>
-																<option value="11">Zapatilla</option>
-																<option value="12">Zapato</option>
+																<option value="4">Camisa</option>
+																<option value="5">Camiseta</option>
+																<option value="6">Chaqueta</option>
+																<option value="7">Falda</option>
+																<option value="8">Jersey</option>
+																<option value="9">Vaquero</option>
+																<option value="10">Zapatilla</option>
+																<option value="11">Zapato</option>
+															</select>
+														</div>
+													</div>
+												</li>
+												<li> <!-- Desplegable Marca-->
+													<div class="col-md-6">
+														<div class="header-search">
+															<span>Marca</span>
+															<select name="brand" class="input-select" required>
+																<option value="0"></option>
+																<option value="1">Adidas</option>
+																<option value="2">Armani</option>
+																<option value="3">Calvin Klein</option>
+																<option value="4">C&A</option>
+																<option value="5">Hollister</option>
+																<option value="6">HyM</option>
+																<option value="7">Lacoste</option>
+																<option value="8">Lefties</option>
+																<option value="9">Nike</option>
+																<option value="10">Primark</option>
+																<option value="11">PullAndBear</option>
+																<option value="12">Puma</option>
+																<option value="13">Ralph Lauren</option>
+																<option value="14">TH</option>
+																<option value="15">Zara</option>
+																<option value="16">Otra</option>
 															</select>
 														</div>
 													</div>
@@ -548,7 +580,7 @@
 												<div class="form-group">
 													<textarea name="detail" class="input" type="text" name="product-detail" placeholder="Detalles" required></textarea>
 												</div>
-												<input type="file" name="images" multiple="true" onchange="handleFiles(this.files)" required>
+												<input type="file" name="images" accept=".jpg, .jpeg, .png" multiple="false" onchange="handleFiles(this.files)" required>
 												<br>
 												<input type="submit" id="sendInfoButton" class="primary-btn cta-btn" href="/profile" value="Subir Producto">
 										</form>
