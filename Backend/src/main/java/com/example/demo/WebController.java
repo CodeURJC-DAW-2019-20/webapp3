@@ -1,21 +1,19 @@
 package com.example.demo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.mail.SimpleMailMessage;
+
+import java.awt.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import antlr.collections.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.swing.*;
+import java.util.ArrayList;
 
 //import es.urjc.code.security.User;
 //import es.urjc.code.security.UserRepository;
@@ -143,7 +141,7 @@ public class WebController {
         mailMessage.setText("To confirm your account, please click here :" +"https://localhost:8443/profile/validate?name="+name);
         try {
 	        emailSenderService.sendEmail(mailMessage);
-	        userRepository.save(new User(name, password,lastname,email,address,city,country,cp,phone, 10,false,"ROLE_USER"));
+	        userRepository.save(new User(name, password,lastname,email,address,city,country,cp,phone, 100,false,"ROLE_USER"));
 			return "emailVerification";
 		}
         catch(Exception e) {
@@ -176,8 +174,8 @@ public class WebController {
 	
 	
 	@PostMapping("/profile/loadProduct")
-	public String register(Model model, HttpServletRequest request, @RequestParam String name, String color, String category, String size, String description, String detail) {
-		product=new Product(name, color, category, size, description, detail,false);
+	public String register(Model model, HttpServletRequest request, @RequestParam String name, String color, String category, String size, int price, String description, String detail, ImageIcon img) {
+		product = new Product(name, color, category, size, price, description, detail,false, img);
 		prestock.add(product);
 		
 		model.addAttribute("stockempty", stock.isEmpty());
@@ -199,10 +197,10 @@ public class WebController {
 	}
 	
 	@PostMapping("/profile/checkproduct")
-	public String cheksproduct(Model model, HttpServletRequest request, @RequestParam String index, String name, String color, String category, String size, String description, String detail ,String action) {
+	public String cheksproduct(Model model, HttpServletRequest request, @RequestParam String index, String name, String color, String category, String size, int price, String description, String detail ,String action,  ImageIcon img) {
 	
 		if (action.equals("Aceptar"))
-			stock.add(new Product(name,color,category,size,description,detail,true));
+			stock.add(new Product(name, color, category, size, price, description, detail,true, img));
 		prestock.remove(Integer.parseInt(index)-1);
 		
 		model.addAttribute("stockempty", stock.isEmpty());
@@ -218,10 +216,10 @@ public class WebController {
 	
 	
 	@PostMapping("/profile/modifyproduct")
-	public String modifyproduct(Model model, HttpServletRequest request, @RequestParam String index, String name, String color, String category, String size, String description, String detail ,String action) {
+	public String modifyproduct(Model model, HttpServletRequest request, @RequestParam String index, String name, String color, String category, String size, int price, String description, String detail ,String action,  ImageIcon img) {
 		
 		if (action.equals("Modificar"))
-			stock.add(new Product(name,color,category,size,description,detail,true));
+			stock.add(new Product(name, color, category, size, price, description, detail, true, img));
 		stock.remove(Integer.parseInt(index)-1);
 		
 		model.addAttribute("stockempty", stock.isEmpty());
