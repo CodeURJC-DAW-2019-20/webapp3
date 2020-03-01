@@ -13,10 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.swing.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+
+import java.util.List;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -239,7 +237,7 @@ public class WebController {
 		product.setImage(true);
 		productRepository.save(product);
 
-		imageService.saveImage("productos", product.getId(), imagenFile);
+		imageService.saveImage("products", product.getId(), imagenFile);
 
 		return "profile";
 	}
@@ -305,12 +303,26 @@ public class WebController {
 		model.addAttribute("suggestionlist",suggestionlist);
 		return "profile";
 	}
-	
+
+	@GetMapping ("/product/{id}")
+    public String verProducto(Model model, @PathVariable long id){
+
+	    Optional<Product> product = productRepository.findById(id);
+	    if (product.isPresent()){
+	        model.addAttribute("producto", product.get());
+        }
+
+	    return "ver Producto";
+    }
+
 	//---------------------------------------------------------------
 	@GetMapping("/store")
 	public String basicStore(Model model) {
-		
-		model.addAttribute("user", user);
+
+	    List<Product> product = productRepository.findAll();
+
+	    model.addAttribute("product", product);
+
 		return "store";
 	}
 

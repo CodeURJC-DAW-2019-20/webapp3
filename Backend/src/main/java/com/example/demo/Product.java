@@ -1,22 +1,22 @@
 package com.example.demo;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.swing.*;
-import javax.swing.text.Document;
-
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.ArrayList;
+
 
 @Entity
 @Component
 public class Product {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
 	//Constants
 	static final int PRICE_BASE_COAT = 600;
 	static final int PRICE_BASE_ACCESSORY = 50;
@@ -35,10 +35,6 @@ public class Product {
 	static final float  MULTIPLIER_HIGH = 1.5f;
 	static final float  MULTIPLIER_PREMIUM = 2.2f;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
 	private String name;
 	private String color;
 	private String category;
@@ -49,7 +45,6 @@ public class Product {
 	private String detail;
 	private Boolean verify;
 	private Boolean image;
-
 	
 	public Product() {
 		this.setName("");
@@ -63,9 +58,10 @@ public class Product {
 		this.setVerify(false);
 		this.setImage(false);
 	}
-	
+
 	public Product (String name, String color, String category, String brand, String size, String description, String detail, Boolean verify) {
-		this.setName(name);
+		super ();
+	    this.setName(name);
 		this.setColor(color);
 		this.setCategory(category);
 		this.setBrand(brand);
@@ -150,6 +146,10 @@ public class Product {
 		this.image = status;
 	}
 
+	public void setImage (boolean image){
+	    this.image = image;
+    }
+
 	public boolean getImage (){
 		return this.image;
 	}
@@ -160,37 +160,37 @@ public class Product {
 
 	public int priceCategory (){
 		switch (this.category){
-			case "1": //Coat
+			case "Abrigo": //Coat
 				return PRICE_BASE_COAT;
 
-			case "2": //Accesory
+			case "Accesorio": //Accesory
 				return PRICE_BASE_ACCESSORY;
 
-			case "3": //Boats
+			case "Bota": //Boats
 				return PRICE_BASE_BOATS;
 
-			case "4": //Shirt
+			case "Camisa": //Shirt
 				return PRICE_BASE_SHIRT;
 
-			case "5": //Tshirt
+			case "Camiseta": //Tshirt
 				return PRICE_BASE_TSHIRT;
 
-			case "6": //Jacket
+			case "Chaqueta": //Jacket
 				return PRICE_BASE_JACKET;
 
-			case "7": //Skirt
+			case "Falda": //Skirt
 				return PRICE_BASE_SKIRT;
 
-			case "8": //Sweater
+			case "Jersey": //Sweater
 				return PRICE_BASE_SWEATER;
 
-			case "9": //Jeans
+			case "Vaquero": //Jeans
 				return PRICE_BASE_JEANS;
 
-			case "10": //Sneakers
+			case "Zapatilla": //Sneakers
 				return PRICE_BASE_SNEAKERS;
 
-			case "11": //Shoes
+			case "Zapato": //Shoes
 				return PRICE_BASE_SHOES;
 		}
 		return 1;
@@ -198,28 +198,28 @@ public class Product {
 
 	public float priceBrand (){
 		switch (this.brand){
-			case "8": //Lefties
-			case "10": //Primark
+			case "Lefties": //Lefties
+			case "Primark": //Primark
 				return MULTIPLIER_LOW;
 
-			case "4": //C&A
-			case "6": //HyM
-			case "11": //PullAndBear
-			case "12": //Puma
-			case "16": //Otra
+			case "C&A": //C&A
+			case "HyM": //HyM
+			case "PullAndBear": //PullAndBear
+			case "Puma": //Puma
+			case "Other": //Otra
 				return MULTIPLIER_NORMAL;
 
-			case "1": //Adidas
-			case "9": //Nike
-			case "15": //Zara
+			case "Adidas": //Adidas
+			case "Nike": //Nike
+			case "Zara": //Zara
 				return MULTIPLIER_HIGH;
 
-			case "2": //Armani
-			case "3": //Calvin Klein
-			case "5": //Hollister
-			case "7": //Lacoste
-			case "13": //Ralph Lauren
-			case "14": //TH
+			case "Armani": //Armani
+			case "CalvinKlein": //Calvin Klein
+			case "Hollister": //Hollister
+			case "Lacoste": //Lacoste
+			case "RalphLauren": //Ralph Lauren
+			case "TH": //TH
 				return MULTIPLIER_PREMIUM;
 		}
 		return 1;

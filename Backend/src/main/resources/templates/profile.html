@@ -335,8 +335,10 @@
 												<td> <h4>Categoria</h4> </td>
 												<td> <h4>Marca</h4> </td>
 												<td> <h4>Talla</h4> </td>
+												<td> <h4>Precio</h4></td>
 												<td> <h4>Descripcion</h4> </td>
 												<td> <h4>Detalles</h4> </td>
+												<td> <h4>Foto</h4></td>
 											</tr>
 											{{#stock}}
 											<tr>
@@ -348,9 +350,10 @@
 														<td>  <input class="input" type="text" name="category" value="{{category}}">  </td>
 														<td>  <input class="input" type="text" name="brand" value="{{brand}}">  </td>
 														<td>  <input class="input" type="text" name="size" value="{{size}}"> </td>
+														<td>  <input class="input" type="text" name="price" value="{{price}}"> </td>
 														<td>  <input class="input" type="text" name="description" value="{{description}}">  </td>	
 														<td>  <input class="input" type="text" name="detail" value="{{detail}}">  </td>
-														<td>  <input class="input" type="file" name="images" value="{{pictureList}}">
+														<td>  <img src='/images/products/image-{{id}}.jpg'></td>
 														<td>  <input type="submit" name="action" value="Modificar"></td>
 														<td>  <input type="submit" name="action" value="Eliminar"></td>
 													</form>					
@@ -364,7 +367,7 @@
 									</div>
 								</div>
 								<!-- /tab2  -->
-								<!-- RODUCTOS PENDIENTES DE VERIFICACION -->
+								<!-- PRODUCTOS PENDIENTES DE VERIFICACION -->
 								<div id="tab3" class="tab-pane fade in">
 									<div class="row">
 										<div class="col-md-12">
@@ -382,8 +385,10 @@
 													<td> <h4>Categoria</h4> </td>
 													<td> <h4>Marca</h4> </td>
 													<td> <h4>Talla</h4> </td>
+													<td> <h4>Precio</h4></td>
 													<td> <h4>Descripcion</h4> </td>
 													<td> <h4>Detalles</h4> </td>
+													<td> <h4>Foto</h4></td>
 												</tr>
 												{{#prestock}}
 												<tr>
@@ -395,9 +400,10 @@
 															<td>  <input class="input" type="text" name="category" value="{{category}}">  </td>
 															<td>  <input class="input" type="text" name="brand" value="{{brand}}">  </td>
 															<td>  <input class="input" type="text" name="size" value="{{size}}"> </td>
+															<td>  <input class="input" type="text" name="price" value="{{price}}"> </td>
 															<td>  <input class="input" type="text" name="description" value="{{description}}">  </td>	
 															<td>  <input class="input" type="text" name="detail" value="{{detail}}">  </td>
-															<td>  <input class="input" type="file" name="images" value="{{pictureList}}">
+															<td>  <img src='/images/products/image-{{id}}.jpg'></td>
 															<td> <input type="submit" name="action" value="Aceptar"></td>
 															<td> <input type="submit" name="action" value="Denegar"></td>
 														</form>					
@@ -503,7 +509,7 @@
 							<div class="container">
 								<div class="row">
 									<div class="col-md-20">
-										<form action="profile/loadProduct" method="post">
+										<form action="profile/loadProduct" method="post" enctype = "multipart/form-data">
 											<div class="form-group">
 												<input class="input" type="text" name="name" placeholder="Nombre del Producto" required>
 											</div>
@@ -517,17 +523,17 @@
 															<span>Categoria</span>
 															<select name="category" class="input-select" required>
 																<option value="0"></option>
-																<option value="1">Abrigo</option>
-																<option value="2">Accesorio</option>
-																<option value="3">Bota</option>
-																<option value="4">Camisa</option>
-																<option value="5">Camiseta</option>
-																<option value="6">Chaqueta</option>
-																<option value="7">Falda</option>
-																<option value="8">Jersey</option>
-																<option value="9">Vaquero</option>
-																<option value="10">Zapatilla</option>
-																<option value="11">Zapato</option>
+																<option value="Abrigo">Abrigo</option>
+																<option value="Accesorio">Accesorio</option>
+																<option value="Bota">Bota</option>
+																<option value="Camisa">Camisa</option>
+																<option value="Camiseta">Camiseta</option>
+																<option value="Chaqueta">Chaqueta</option>
+																<option value="Falda">Falda</option>
+																<option value="Jersey">Jersey</option>
+																<option value="Vaquero">Vaquero</option>
+																<option value="Zapatilla">Zapatilla</option>
+																<option value="Zapato">Zapato</option>
 															</select>
 														</div>
 													</div>
@@ -538,22 +544,22 @@
 															<span>Marca</span>
 															<select name="brand" class="input-select" required>
 																<option value="0"></option>
-																<option value="1">Adidas</option>
-																<option value="2">Armani</option>
-																<option value="3">Calvin Klein</option>
-																<option value="4">C&A</option>
-																<option value="5">Hollister</option>
-																<option value="6">HyM</option>
-																<option value="7">Lacoste</option>
-																<option value="8">Lefties</option>
-																<option value="9">Nike</option>
-																<option value="10">Primark</option>
-																<option value="11">PullAndBear</option>
-																<option value="12">Puma</option>
-																<option value="13">Ralph Lauren</option>
-																<option value="14">TH</option>
-																<option value="15">Zara</option>
-																<option value="16">Otra</option>
+																<option value="Adidas">Adidas</option>
+																<option value="Armani">Armani</option>
+																<option value="CalvinKlein">Calvin Klein</option>
+																<option value="C&A">C&A</option>
+																<option value="Hollister">Hollister</option>
+																<option value="HyM">HyM</option>
+																<option value="Lacoste">Lacoste</option>
+																<option value="Lefties">Lefties</option>
+																<option value="Nike">Nike</option>
+																<option value="Primark">Primark</option>
+																<option value="PullAndBear">PullAndBear</option>
+																<option value="Puma">Puma</option>
+																<option value="RalphLauren">Ralph Lauren</option>
+																<option value="TH">TH</option>
+																<option value="Zara">Zara</option>
+																<option value="Other">Otra</option>
 															</select>
 														</div>
 													</div>
@@ -564,11 +570,11 @@
 															<span>Talla</span>
 															<select name="size" class="input-select" required>
 																<option value="0"></option>
-																<option value="1">XS</option>
-																<option value="2">S</option>
-																<option value="3">M</option>
-																<option value="5">L</option>
-																<option value="6">XL</option>
+																<option value="XS">XS</option>
+																<option value="S">S</option>
+																<option value="M">M</option>
+																<option value="L">L</option>
+																<option value="XL">XL</option>
 															</select>
 														</div>
 													</div>
@@ -580,7 +586,7 @@
 												<div class="form-group">
 													<textarea name="detail" class="input" type="text" name="product-detail" placeholder="Detalles" required></textarea>
 												</div>
-												<input type="file" name="images" accept=".jpg, .jpeg, .png" multiple="false" onchange="handleFiles(this.files)" required>
+												<input type="file" name="imagenFile" accept=".jpg, .jpeg, .png">
 												<br>
 												<input type="submit" id="sendInfoButton" class="primary-btn cta-btn" href="/profile" value="Subir Producto">
 										</form>

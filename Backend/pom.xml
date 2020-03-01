@@ -83,8 +83,6 @@
 		</plugins>
 	</build>
 
-
-	
 	<issueManagement>
 		<url>error</url>
 	</issueManagement>

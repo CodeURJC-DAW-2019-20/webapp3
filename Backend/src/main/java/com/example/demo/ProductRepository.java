@@ -1,8 +1,9 @@
 package com.example.demo;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends CrudRepository<Product, Long> {
+
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Product findByName(String name);
     Product findByPrice(long price);
