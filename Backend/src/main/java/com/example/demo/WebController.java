@@ -89,6 +89,13 @@ public class WebController {
 	@GetMapping("/likeit")
 	public String basicLikeit(Model model) {
 		model.addAttribute("user",user);
+
+		List<Product> products = productRepository.findAll();
+		for (Product product: products){
+			if (user.getProductsILikeIt().contains(product))
+				model.addAttribute("product", product);
+		}
+
 		return "likeit";
 	}
 	
@@ -234,6 +241,7 @@ public class WebController {
 		model.addAttribute("suggestionlistempty",suggestionlist.isEmpty());
 		model.addAttribute("suggestionlist",suggestionlist);
 
+		product.setOwner(user);
 		product.setImage(true);
 		productRepository.save(product);
 

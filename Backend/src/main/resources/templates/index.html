@@ -104,7 +104,11 @@
 									<a href="/likeit">
 										<i class="fa fa-heart-o"></i>
 										<span>Me gusta</span>
-										<div class="qty">20</div>
+										{{#user.login}}
+											<div class="qty">{{user.itemsILikeIt}}</div>
+										{{/user.login}}
+										{{^user.login}}
+										{{/user.login}}
 									</a>
 								</div>
 								<!-- /Wishlist -->

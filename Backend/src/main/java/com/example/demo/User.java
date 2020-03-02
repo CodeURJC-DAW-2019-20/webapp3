@@ -4,13 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -32,26 +26,25 @@ public class User {
 	private List<String> roles;
 
 	 private String lastname;
-	 
 	 private String email;
-	 
 	 private String address;
-	 
 	 private String city;
-	 
 	 private String country;
-	 
 	 private String cp;
-	 
-	 private String phone; 
-	 
+	 private String phone;
 	 private Integer puntos;
-
 	 private Boolean emailVerified;
-	 
 	 private Boolean login;
 
-	
+	 @OneToMany
+	 private List<Product> productsILikeIt;
+
+	 @OneToMany
+	 private List<Product> productsBasket;
+
+	 private int itemsILikeIt;
+	 private int itemsBasket;
+
 	public User() {
 	}
 
@@ -69,6 +62,11 @@ public class User {
 		this.puntos=puntos;
 		this.login=false;
 		this.emailVerified=Verified;
+
+		this.productsILikeIt = new ArrayList<>();
+		this.productsBasket = new ArrayList<>();
+		this.itemsILikeIt = getNumberOfitemsILikeIt();
+		this.itemsBasket = getNumberOfitemsBasket();
 	}
 	
 
@@ -193,6 +191,34 @@ public class User {
 
 	public void setEmailVerified(Boolean emailVerified) {
 		this.emailVerified = emailVerified;
+	}
+
+	public void addProductILikeIt (Product product){
+		this.productsILikeIt.add(product);
+	}
+
+	public void addProductBasket (Product product){
+		this.productsBasket.add(product);
+	}
+
+	public List<Product> getProductsILikeIt (){
+		return this.productsILikeIt;
+	}
+
+	public int getNumberOfitemsILikeIt (){
+		int items = 0;
+		for (Product product: this.productsILikeIt){
+			items++;
+		}
+		return items;
+	}
+
+	public int getNumberOfitemsBasket (){
+		int items = 0;
+		for (Product product: this.productsBasket){
+			items++;
+		}
+		return items;
 	}
 
 }

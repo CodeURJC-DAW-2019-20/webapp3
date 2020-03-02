@@ -1,10 +1,8 @@
 package com.example.demo;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 import org.springframework.stereotype.Component;
 
 
@@ -45,6 +43,9 @@ public class Product {
 	private String detail;
 	private Boolean verify;
 	private Boolean image;
+
+	@OneToOne
+	private User owner;
 	
 	public Product() {
 		this.setName("");
@@ -156,6 +157,18 @@ public class Product {
 
 	public boolean hasImage () {
 		return this.image;
+	}
+
+	public void setOwner(User user){
+		this.owner = user;
+	}
+
+	public User getOwner (){
+		return this.owner;
+	}
+
+	public long getIdOfOwner (){
+		return this.owner.getId();
 	}
 
 	public int priceCategory (){
