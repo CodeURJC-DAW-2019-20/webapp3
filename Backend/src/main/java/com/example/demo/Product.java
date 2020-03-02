@@ -1,10 +1,16 @@
 package com.example.demo;
 
-import javax.annotation.PostConstruct;
+import javax.imageio.ImageIO;
 import javax.persistence.*;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Component;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
 @Entity
@@ -13,7 +19,7 @@ public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private long id;
 
 	//Constants
 	static final int PRICE_BASE_COAT = 600;
@@ -42,11 +48,11 @@ public class Product {
 	private String description;
 	private String detail;
 	private Boolean verify;
-	private Boolean image;
+	private Boolean hasImage;
 
-	@OneToOne
-	private User owner;
-	
+	private byte[] image;
+
+	//Constructors
 	public Product() {
 		this.setName("");
 		this.setColor("");
@@ -57,7 +63,7 @@ public class Product {
 		this.setDescription("");
 		this.setDetail("");
 		this.setVerify(false);
-		this.setImage(false);
+		this.setHasImage(false);
 	}
 
 	public Product (String name, String color, String category, String brand, String size, String description, String detail, Boolean verify) {
@@ -73,28 +79,27 @@ public class Product {
 		this.setVerify(verify);
 	}
 
-	public Long getId(){
-		return this.id;
-	}
+    public Product (String name, String color, String category, String brand, String size, String description, String detail, Boolean verify, String imageURL) throws IOException {
+        super ();
+        this.setName(name);
+        this.setColor(color);
+        this.setCategory(category);
+        this.setBrand(brand);
+        this.setSize(size);
+        this.setPrice();
+        this.setDescription(description);
+        this.setDetail(detail);
+        this.setVerify(verify);
+        this.setImage(imageURL);
+    }
 
-	public String getName() {
-		return name;
-	}
-
+	//Setters
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getColor() {
-		return color;
-	}
-
 	public void setColor(String color) {
 		this.color = color;
-	}
-
-	public String getCategory() {
-		return category;
 	}
 
 	public void setCategory(String category) {
@@ -103,12 +108,57 @@ public class Product {
 
 	public void setBrand(String brand){this.brand = brand;}
 
-	public String getSize() {
-		return size;
-	}
-
 	public void setSize(String size) {
 		this.size = size;
+	}
+
+	public void setPrice() {
+		this.price = priceCategory() * priceBrand();
+	}
+
+	public void setVerify(Boolean verify) {
+		this.verify = verify;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+
+	public void setHasImage (Boolean status){
+		this.hasImage = status;
+	}
+
+	public void setImage (String imageName) throws IOException {
+		File file = new File("../Backend/src/main/resources/static/img/" + imageName + ".jpg");
+
+        FileInputStream fis = new FileInputStream(file);
+        this.image = fis.readAllBytes();
+	}
+
+	//Getters
+
+	public Long getId(){
+		return this.id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public String getSize() {
+		return size;
 	}
 
 	public float getPrice (){
@@ -119,56 +169,18 @@ public class Product {
 		return description;
 	}
 
-	public void setPrice() {
-		this.price = priceCategory() * priceBrand();
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public String getDetail() {
 		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
 	}
 
 	public Boolean getVerify() {
 		return verify;
 	}
 
-	public void setVerify(Boolean verify) {
-		this.verify = verify;
-	}
-
-	public void setImage (Boolean status){
-		this.image = status;
-	}
-
-	public void setImage (boolean image){
-	    this.image = image;
-    }
-
-	public boolean getImage (){
-		return this.image;
-	}
+	//Functions
 
 	public boolean hasImage () {
-		return this.image;
-	}
-
-	public void setOwner(User user){
-		this.owner = user;
-	}
-
-	public User getOwner (){
-		return this.owner;
-	}
-
-	public long getIdOfOwner (){
-		return this.owner.getId();
+		return this.hasImage;
 	}
 
 	public int priceCategory (){

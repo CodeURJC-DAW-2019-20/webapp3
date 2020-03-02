@@ -208,115 +208,17 @@
 								<!-- tab -->
 								<div id = "tab1" class = "tab-pane active">
 									<div class ="products-slick" data-nav = "#slick-nav-1">
-										<!-- product -->
-										<div class = "product">
-											<div class = "product-img">
-												<img src = "./img/jerseymostaza.jpg" alt = "">
-											</div>
-											<div class = "product-body">
-												<p class = "product-category">Jerseys</p>
-												<h3 class = "product-name"><a href = "#">Jersey mostaza</a></h3>
-												<h4 class = "product-price">200 Swapers</h4>
-												<div class = "product-btns">
-													<button class = "add-to-wishlist"><i class = "fa fa-heart-o"></i><span class = "tooltipp">Añadir a Deseados</span></button>
-													<button class="quick-view"><i class = "fa fa-eye"></i><span class = "tooltipp">Visualizar</span></button>
-												</div>
-											</div>
-											<div class = "add-to-cart">
-												<button class = "add-to-cart-btn"><i class = "fa fa-shopping-cart"></i> Añadir a la Cesta</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-                                        <!-- product -->
-										<div class = "product">
-											<div class = "product-img">
-												<img src = "./img/sudadera.jpg" alt = "">
-											</div>
-											<div class = "product-body">
-												<p class = "product-category">Jerseys</p>
-												<h3 class = "product-name"><a href = "./product.html">Sudadera Capucha color Block</a></h3>
-												<h4 class = "product-price">49 Swapers</h4>
-												<div class = "product-btns">
-													<button class = "add-to-wishlist"><i class = "fa fa-heart-o"></i><span class = "tooltipp">Añadir a Deseados</span></button>
-													<button class="quick-view"><i class = "fa fa-eye"></i><span class = "tooltipp">Visualizar</span></button>
-												</div>
-											</div>
-											<div class = "add-to-cart">
-												<button class = "add-to-cart-btn"><i class = "fa fa-shopping-cart"></i> Añadir a la Cesta</button>
-											</div>
-										</div>
-										<!-- /product -->
-
+										{{#product}}
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/camisapana.jpg" alt="">
+												<img src='/images/products/image-{{id}}.jpg' alt="">
 											</div>
 											<div class="product-body">
-												<p class="product-category">Camisas</p>
-												<h3 class="product-name"><a href="#">Camisa de pana</a></h3>
-												<h4 class="product-price">299 Swapers </h4>
-												<div class = "product-btns">
-													<button class = "add-to-wishlist"><i class = "fa fa-heart-o"></i><span class = "tooltipp">Añadir a Deseados</span></button>
-													<button class="quick-view"><i class = "fa fa-eye"></i><span class = "tooltipp">Visualizar</span></button>
-												</div>
-											</div>
-											<div class = "add-to-cart">
-												<button class = "add-to-cart-btn"><i class = "fa fa-shopping-cart"></i> Añadir a la Cesta</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/jerseyburdeos.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Jerseys</p>
-												<h3 class="product-name"><a href="#">Jersey burdeos</a></h3>
-												<h4 class="product-price">259 Swapers </h4>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir a la Cesta </button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/chaquetapana.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Abrigos</p>
-												<h3 class="product-name"><a href="#">Chaqueta de pana</a></h3>
-												<h4 class="product-price">350 Swapers</h4>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir a la cesta</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/bandolera.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Accesorios</p>
-												<h3 class="product-name"><a href="#">Bandolera geométrica</a></h3>
-												<h4 class="product-price">129 Swapers </h4>
+												<p class="product-category">{{category}}</p>
+												<p class="product-category">{{brand}}}</p>
+												<h3 class="product-name"><a href="#">{{name}}</a></h3>
+												<h4 class="product-price">{{price}} Swapers </h4>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
@@ -326,6 +228,7 @@
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir a la Cesta</button>
 											</div>
 										</div>
+										{{/product}}
 										<!-- /product -->
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>

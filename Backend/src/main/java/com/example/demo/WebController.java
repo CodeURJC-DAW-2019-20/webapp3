@@ -53,7 +53,7 @@ public class WebController {
 	
 	@GetMapping("/")
 	public String localIndex(Model model) {
-		
+
 		model.addAttribute("user", user);
 		return "index";
 	}
@@ -76,6 +76,11 @@ public class WebController {
 	public String basicIndex(Model model) {
 		
 		model.addAttribute("user", user);
+
+		List<Product> product = productRepository.findAll();
+
+		model.addAttribute("product", product);
+
 		return "index";
 	}
 
@@ -198,10 +203,10 @@ public class WebController {
 	
 	@PostMapping("/{id}/imagen")
 	public ResponseEntity<Product> newImageProduct (@PathVariable long id, @RequestParam MultipartFile imagenFile) throws IOException {
-		Optional <Product> product = productRepository.findById(id);
+		Optional<Product> product = productRepository.findById(id);
 
 		if (product.isPresent()){
-			product.get().setImage(true);
+			product.get().setHasImage(true);
 			productRepository.save(product.get());
 
 			imageService.saveImage("productos", product.get().getId(), imagenFile);
@@ -241,8 +246,7 @@ public class WebController {
 		model.addAttribute("suggestionlistempty",suggestionlist.isEmpty());
 		model.addAttribute("suggestionlist",suggestionlist);
 
-		product.setOwner(user);
-		product.setImage(true);
+		product.setHasImage(true);
 		productRepository.save(product);
 
 		imageService.saveImage("products", product.getId(), imagenFile);
