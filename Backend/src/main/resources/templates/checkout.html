@@ -110,7 +110,11 @@
 									<a href="/likeit">
 										<i class="fa fa-heart-o"></i>
 										<span>Me gusta</span>
-										<div class="qty">20</div>
+										{{#user.login}}
+										<div class="qty">{{user.itemsILikeIt}}</div>
+										{{/user.login}}
+										{{^user.login}}
+										{{/user.login}}
 									</a>
 								</div>
 								<!-- /Wishlist -->
@@ -141,14 +145,14 @@
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">Bandolera Geométrica</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>129 Swapers</h4>
+													<h4 class="product-price"><span class="qty">1x</span>129.0 Swapers</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
 											</div>
 										</div>
 										<div class="cart-summary">
 											<small>2 Productos Seleccionados</small>
-											<h5>SUBTOTAL: 429 Swapers</h5>
+											<h5>SUBTOTAL: 429.0 Swapers</h5>
 										</div>
 										<div class="cart-btns">
 											<a href="/profile">Ver Cesta</a>
@@ -311,11 +315,11 @@
 							<div class="order-products">
 								<div class="order-col">
 									<div>1x Camisa de Pana</div>
-									<div>299 Swapers</div>
+									<div>299.0 Swapers</div>
 								</div>
 								<div class="order-col">
 									<div>1x Bandolera Geométrica</div>
-									<div>129 Swapers</div>
+									<div>129.0 Swapers</div>
 								</div>
 							</div>
 							<div class="order-col">
@@ -324,7 +328,7 @@
 							</div>
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">429 Swapers</strong></div>
+								<div><strong class="order-total">429.0 Swapers</strong></div>
 							</div>
 						</div>
 						

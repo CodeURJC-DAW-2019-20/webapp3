@@ -110,7 +110,11 @@
                             <a href="/likeit">
                                 <i class="fa fa-heart-o"></i>
                                 <span>Me gusta</span>
-                                <div class="qty">20</div>
+                                {{#user.login}}
+                                <div class="qty">{{user.itemsILikeIt}}</div>
+                                {{/user.login}}
+                                {{^user.login}}
+                                {{/user.login}}
                             </a>
                         </div>
                         <!-- /Wishlist -->
@@ -130,7 +134,7 @@
                                         </div>
                                         <div class="product-body">
                                             <h3 class="product-name"><a href="#">Camisa de Pana</a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span>29,99€ / 299 Swapers</h4>
+                                            <h4 class="product-price"><span class="qty">1x</span>299.0 Swapers</h4>
                                         </div>
                                         <button class="delete"><i class="fa fa-close"></i></button>
                                     </div>
@@ -141,14 +145,14 @@
                                         </div>
                                         <div class="product-body">
                                             <h3 class="product-name"><a href="#">Bandolera Geométrica</a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span>12,95€ / 129 Swapers</h4>
+                                            <h4 class="product-price"><span class="qty">1x</span>129.0 Swapers</h4>
                                         </div>
                                         <button class="delete"><i class="fa fa-close"></i></button>
                                     </div>
                                 </div>
                                 <div class="cart-summary">
                                     <small>2 Productos Seleccionados</small>
-                                    <h5>SUBTOTAL: 42,94€ / 429 Swapers</h5>
+                                    <h5>SUBTOTAL: 429.0 Swapers</h5>
                                 </div>
                                 <div class="cart-btns">
                                     <a href="/profile">Ver Cesta</a>
@@ -233,7 +237,7 @@
                             <div class="product-body">
                                 <p class="product-category">Jerseys</p>
                                 <h3 class="product-name"><a href="#">Sudadera Capucha color Block</a></h3>
-                                <h4 class="product-price">49 Swapers </h4>
+                                <h4 class="product-price">49.0 Swapers </h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">
@@ -260,7 +264,7 @@
                             <div class="product-body">
                                 <p class="product-category">Jerseys</p>
                                 <h3 class="product-name"><a href="#">Jersey mostaza</a></h3>
-                                <h4 class="product-price">200 Swapers </h4>
+                                <h4 class="product-price">200.0 Swapers </h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">
@@ -286,7 +290,7 @@
                             <div class="product-body">
                                 <p class="product-category">Jerseys</p>
                                 <h3 class="product-name"><a href="#">Jersey azul</a></h3>
-                                <h4 class="product-price">299 Swapers </h4>
+                                <h4 class="product-price">299.0 Swapers </h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">
@@ -312,7 +316,7 @@
                             <div class="product-body">
                                 <p class="product-category">Jerseys</p>
                                 <h3 class="product-name"><a href="#">Jersey burdeos</a></h3>
-                                <h4 class="product-price">259 Swapers </h4>
+                                <h4 class="product-price">259.0 Swapers </h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">
@@ -338,7 +342,7 @@
                             <div class="product-body">
                                 <p class="product-category">>Jerseys</p>
                                 <h3 class="product-name"><a href="#">Jesey blanco</a></h3>
-                                <h4 class="product-price">350 Swapers </h4>
+                                <h4 class="product-price">350.0 Swapers </h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">
@@ -362,7 +366,7 @@
                             <div class="product-body">
                                 <p class="product-category">Jerseys</p>
                                 <h3 class="product-name"><a href="#">Jersey gris</a></h3>
-                                <h4 class="product-price">129 Swapers </h4>
+                                <h4 class="product-price">129.0 Swapers </h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">
@@ -388,7 +392,7 @@
                             <div class="product-body">
                                 <p class="product-category">Jerseys</p>
                                 <h3 class="product-name"><a href="#">Jersey marrón</a></h3>
-                                <h4 class="product-price">27,95€ / 129 Swapers </h4>
+                                <h4 class="product-price">129.0 Swapers </h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">
@@ -412,7 +416,7 @@
                             <div class="product-body">
                                 <p class="product-category">Jerseys</p>
                                 <h3 class="product-name"><a href="#">Jersey a rayas</a></h3>
-                                <h4 class="product-price">129 Swapers </h4>
+                                <h4 class="product-price">129.0 Swapers </h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">
@@ -438,7 +442,7 @@
                             <div class="product-body">
                                 <p class="product-category">Jerseys</p>
                                 <h3 class="product-name"><a href="#">Jesey verde</a></h3>
-                                <h4 class="product-price">129 Swapers </h4>
+                                <h4 class="product-price">129.0 Swapers </h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">

@@ -102,7 +102,11 @@
 									<a href="/likeit">
 										<i class="fa fa-heart-o"></i>
 										<span>Me gusta</span>
-										<div class="qty">20</div>
+										{{#user.login}}
+										<div class="qty">{{user.itemsILikeIt}}</div>
+										{{/user.login}}
+										{{^user.login}}
+										{{/user.login}}
 									</a>
 								</div>
 								<!-- /Wishlist -->
@@ -122,7 +126,7 @@
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">Camisa de Pana</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>29,99€ / 299 Swapers</h4>
+													<h4 class="product-price"><span class="qty">1x</span>299.0 Swapers</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
 											</div>
@@ -133,14 +137,14 @@
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">Bandolera Geométrica</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>12,95€ / 129 Swapers</h4>
+													<h4 class="product-price"><span class="qty">1x</span>129.0 Swapers</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
 											</div>
 										</div>
 										<div class="cart-summary">
 											<small>2 Productos Seleccionados</small>
-											<h5>SUBTOTAL: 42,94€ / 429 Swapers</h5>
+											<h5>SUBTOTAL: 429.0 Swapers</h5>
 										</div>
 										<div class="cart-btns">
 											<a href="/profile">Ver Cesta</a>
@@ -179,10 +183,7 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="/index">Inicio</a></li>
-						<li><a href="/store">Ofertas</a></li>
 						<li><a href="/store">Catálogo</a></li>
-						<li><a href="/store">Mujer</a></li>
-						<li><a href="/store">Hombre</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>
