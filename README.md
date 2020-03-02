@@ -108,7 +108,12 @@ Our Start Page is **index.html**, in this page you can see the categories of the
 
 In the page product we can see a particular product with its details and other similar products.
 
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/screenshot/product3.png)
+AdminUser
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/product3.png)
+
+BasicUser
+
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/screenshot/product2.png)
 
 In the Profile page we can change our information and we can see the graphics about our expenses and incomes, also we can see recommended articles based on our purchases.
@@ -144,11 +149,12 @@ By last, the store page show a lot of products and filters to search a particula
 **BD Entity Diagram**
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama1.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama2.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama3.png)
 
 **Class Diagram and Templates**
 
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama2.png)
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama3.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama5.png)
 
 
 ### Installation 🔧
