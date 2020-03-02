@@ -104,7 +104,7 @@ By last, the store page show a lot of products and filters to search a particula
 
 Our Start Page is **index.html**, in this page you can see the categories of the Sales App Web, the new products, the acess to the profile section, the opening month offer, the record to the news and another themes.
 
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/HTML%20y%20CSS/screenshot/Index5.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/Index5.png)
 
 In the page product we can see a particular product with its details and other similar products.
 
@@ -113,24 +113,21 @@ In the page product we can see a particular product with its details and other s
 
 In the Profile page we can change our information and we can see the graphics about our expenses and incomes, also we can see recommended articles based on our purchases.
 
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/HTML%20y%20CSS/screenshot/profile3.png)
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/HTML%20y%20CSS/screenshot/profile4.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/profile3.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/profile4.png)
 
 In the checkout page we can finish a purchase introducing tha address data and payment details.
 
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/HTML%20y%20CSS/screenshot/Checkout1.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/Checkout1.png)
 
 By last, the store page show a lot of products and filters to search a particular product according to the search wish of the customer.
 
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/HTML%20y%20CSS/screenshot/store2.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/store2.png)
 
 
 **Navigation Diagram**
 
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/HTML%20y%20CSS/img/Diagrama1.png)
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/HTML%20y%20CSS/img/Diagrama2.png)
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/HTML%20y%20CSS/img/Diagrama3.png)
-![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/HTML%20y%20CSS/img/Diagrama4.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/img/Diagrama4.png)
 
 **Development Instructions**
 
@@ -146,9 +143,12 @@ By last, the store page show a lot of products and filters to search a particula
 
 **BD Entity Diagram**
 
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/img/Diagrama1.png)
+
 **Class Diagram and Templates**
 
-
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/img/Diagrama2.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/img/Diagrama3.png)
 
 
 ### Installation 🔧
