@@ -225,237 +225,32 @@
 
                 <!-- store products -->
                 <div class="row">
+                    {{#productsLike}}
                     <!-- product -->
                     <div class="col-md-4 col-xs-6">
                         <div class="product">
                             <div class="product-img">
-                                <img src="./img/sudadera.jpg" alt="">
-                                <div class="product-label">
-                                    <span class="new">NEW</span>
-                                </div>
+                                <img src='/images/products/image-{{id}}.jpg'>
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Jerseys</p>
-                                <h3 class="product-name"><a href="#">Sudadera Capucha color Block</a></h3>
-                                <h4 class="product-price">49.0 Swapers </h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/jerseymostaza.jpg" alt="">
-                                <div class="product-label">
-                                    <span class="new">NEW</span>
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Jerseys</p>
-                                <h3 class="product-name"><a href="#">Jersey mostaza</a></h3>
-                                <h4 class="product-price">200.0 Swapers </h4>
+                                <p class="product-category">{{category}}</p>
+                                <p class="product-category">{{brand}}</p>
+                                <h3 class="product-name"><a href="#">{{name}}</a></h3>
+                                <h4 class="product-price"> {{price}} Swapers </h4>
                                 <div class="product-rating">
                                 </div>
                                 <div class="product-btns">
                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">añadir a deseados</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">visualizar</span></button>
+                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                 </div>
                             </div>
                             <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>añadir a la cesta</button>
+                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                             </div>
                         </div>
                     </div>
                     <!-- /product -->
-
-                    <div class="clearfix visible-sm visible-xs"></div>
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/jerseyazul.jpg" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Jerseys</p>
-                                <h3 class="product-name"><a href="#">Jersey azul</a></h3>
-                                <h4 class="product-price">299.0 Swapers </h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a deseados</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <div class="clearfix visible-lg visible-md"></div>
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/jerseyburdeos.jpg" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Jerseys</p>
-                                <h3 class="product-name"><a href="#">Jersey burdeos</a></h3>
-                                <h4 class="product-price">259.0 Swapers </h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a deseados</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <div class="clearfix visible-sm visible-xs"></div>
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/jerseyblanco.jpg" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">>Jerseys</p>
-                                <h3 class="product-name"><a href="#">Jesey blanco</a></h3>
-                                <h4 class="product-price">350.0 Swapers </h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a deseados</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/jerseygris.jpg" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Jerseys</p>
-                                <h3 class="product-name"><a href="#">Jersey gris</a></h3>
-                                <h4 class="product-price">129.0 Swapers </h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <div class="clearfix visible-lg visible-md visible-sm visible-xs"></div>
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/jerseymarron.jpg" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Jerseys</p>
-                                <h3 class="product-name"><a href="#">Jersey marrón</a></h3>
-                                <h4 class="product-price">129.0 Swapers </h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizarw</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/jerseyrayas.jpg" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Jerseys</p>
-                                <h3 class="product-name"><a href="#">Jersey a rayas</a></h3>
-                                <h4 class="product-price">129.0 Swapers </h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <div class="clearfix visible-sm visible-xs"></div>
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/jerseyverde.jpg" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Jerseys</p>
-                                <h3 class="product-name"><a href="#">Jesey verde</a></h3>
-                                <h4 class="product-price">129.0 Swapers </h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
+                    {{/productsLike}}
                 </div>
                 <!-- /store products -->
                 <!-- button show more -->

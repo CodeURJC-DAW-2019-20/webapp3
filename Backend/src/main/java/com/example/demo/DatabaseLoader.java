@@ -18,8 +18,8 @@ public class DatabaseLoader {
 
     @PostConstruct
     private void initDatabase() throws IOException {
-    	userRepository.save(new User("user", "pass","user lastname","user@swapit","C/ Buenavista 5","Mostoles","España","28358","619865541", 100, true,  "ROLE_USER"));
-		userRepository.save(new User("admin", "adminpass","admin lastname","admin@swapit","C/ Sierra 52","Mostoles","España","28358","699256710", 999999, true,"ROLE_USER", "ROLE_ADMIN"));
+    	userRepository.save(new User("user", "pass","user lastname","user@swapit","C/ Buenavista 5","Mostoles","España","28358","619865541", 100, true, "ROLE_USER"));
+		userRepository.save(new User("admin", "adminpass","admin lastname","admin@swapit","C/ Sierra 52","Mostoles","España","28358","699256710", 999999, true,  "ROLE_USER",  "ROLE_ADMIN"));
 
 
 		productRepository.save(new Product("Sudadera Capucha", "Multi", "Jersey", "PullAndBear", "M", "", "",  false));

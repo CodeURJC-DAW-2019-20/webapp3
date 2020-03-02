@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
+import javax.validation.constraints.Null;
 
 import java.util.List;
 import java.io.IOException;
@@ -55,6 +57,11 @@ public class WebController {
 	public String localIndex(Model model) {
 
 		model.addAttribute("user", user);
+
+		List<Product> product = productRepository.findAll();
+
+		model.addAttribute("product", product);
+
 		return "index";
 	}
 
@@ -91,17 +98,42 @@ public class WebController {
 		model.addAttribute("user", user);
 		return "infomail";
 	}
+	@Transactional
 	@GetMapping("/likeit")
 	public String basicLikeit(Model model) {
-		model.addAttribute("user",user);
+
+		model.addAttribute("user", user);
 
 		List<Product> products = productRepository.findAll();
-		for (Product product: products){
-			if (user.getProductsILikeIt().contains(product))
-				model.addAttribute("product", product);
-		}
+		long[] productsILikeIt = user.getProductsILikeIt();
+		List<Product> productsLike = new ArrayList<Product>();
 
+		if (productsILikeIt.length != 0) {
+			for (Product product : products) {
+				for (int i = 0; i < productsILikeIt.length; i++){
+					if (productsILikeIt[i] == product.getId()) {
+						productsLike.add(product);
+					}
+				}
+			}
+		}
+		model.addAttribute("productsLike", productsLike);
 		return "likeit";
+	}
+
+	@PostMapping("index/addLikeIt")
+	public String addProductToLikeIt(Model model, @RequestParam long id){
+		model.addAttribute("user", user);
+
+		long[] productsILikeIt = user.getProductsILikeIt();
+		int i = 0;
+
+		while (productsILikeIt[i] != 0){
+			i++;
+		}
+		user.setProductsILikeIt(id, i);
+
+		return "/index";
 	}
 	
 	@GetMapping("/logout")
@@ -171,7 +203,7 @@ public class WebController {
         mailMessage.setText("To confirm your account, please click here :" +"https://localhost:8443/profile/validate?name="+name);
         try {
 	        emailSenderService.sendEmail(mailMessage);
-	        userRepository.save(new User(name, password,lastname,email,address,city,country,cp,phone, 100,false,"ROLE_USER"));
+	        userRepository.save(new User(name, password,lastname,email,address,city,country,cp,phone, 100,false, "ROLE_USER"));
 			return "emailVerification";
 		}
         catch(Exception e) {
@@ -203,13 +235,14 @@ public class WebController {
 	
 	@PostMapping("/{id}/imagen")
 	public ResponseEntity<Product> newImageProduct (@PathVariable long id, @RequestParam MultipartFile imagenFile) throws IOException {
-		Optional<Product> product = productRepository.findById(id);
+		Product product = productRepository.findById(id);
 
-		if (product.isPresent()){
-			product.get().setHasImage(true);
-			productRepository.save(product.get());
+		if (product != null){
 
-			imageService.saveImage("productos", product.get().getId(), imagenFile);
+			product.setHasImage(true);
+			productRepository.save(product);
+
+			imageService.saveImage("productos", product.getId(), imagenFile);
 			return new ResponseEntity<>(HttpStatus.CREATED);
 
 		} else {
@@ -219,10 +252,10 @@ public class WebController {
 
 	@GetMapping("/{id}/imagen")
 	public ResponseEntity<Object> getImageProduct (@PathVariable long id) throws IOException {
-		Optional <Product> product = productRepository.findById(id);
+		Product product = productRepository.findById(id);
 
-		if (product.isPresent()) {
-			if (product.get().hasImage()) {
+		if (product != null) {
+			if (product.hasImage()) {
 				return this.imageService.createResponseFromImage("productos", id);
 			} else {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -319,9 +352,9 @@ public class WebController {
 	@GetMapping ("/product/{id}")
     public String verProducto(Model model, @PathVariable long id){
 
-	    Optional<Product> product = productRepository.findById(id);
-	    if (product.isPresent()){
-	        model.addAttribute("producto", product.get());
+	    Product product = productRepository.findById(id);
+	    if (product != null){
+	        model.addAttribute("producto", product);
         }
 
 	    return "ver Producto";

@@ -36,8 +36,8 @@ public class User {
 	 private Boolean emailVerified;
 	 private Boolean login;
 
-	 @OneToMany
-	 private List<Product> productsILikeIt;
+     @OrderColumn
+	 private long[] productsILikeIt;
 
 	 @OneToMany
 	 private List<Product> productsBasket;
@@ -45,6 +45,7 @@ public class User {
 	 private int itemsILikeIt;
 	 private int itemsBasket;
 
+	 //Constructors
 	public User() {
 	}
 
@@ -63,13 +64,67 @@ public class User {
 		this.login=false;
 		this.emailVerified=Verified;
 
-		this.productsILikeIt = new ArrayList<>();
+		this.productsILikeIt = new long[20];
 		this.productsBasket = new ArrayList<>();
 		this.itemsILikeIt = getNumberOfitemsILikeIt();
 		this.itemsBasket = getNumberOfitemsBasket();
 	}
 	
 
+	//Setters
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setCountry(String country) {
+		country = country;
+	}
+
+	public void setCp(String cp) {
+		this.cp = cp;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public void setPuntos(Integer puntos) {
+		this.puntos = puntos;
+	}
+
+	public void setLogin(Boolean login) {
+		this.login = login;
+	}
+
+	public void setEmailVerified(Boolean emailVerified) {
+		this.emailVerified = emailVerified;
+	}
+
+	public void setProductsILikeIt (long idProduct, int position){
+		this.productsILikeIt[position] = idProduct;
+	}
+
+	//Getters
 	public Long getId() {
 		return id;
 	}
@@ -78,95 +133,77 @@ public class User {
 		return name;
 	}
 
-
 	public String getPasswordHash() {
 		return passwordHash;
-	}
-
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
 	}
 
 	public List<String> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
-	}
-
 	public String getLastname() {
 		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getAddress() {
 		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public String getCity() {
 		return city;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
-	}
-
 	public String getCountry() {
 		return country;
-	}
-
-	public void setCountry(String country) {
-		country = country;
 	}
 
 	public String getCp() {
 		return cp;
 	}
 
-	public void setCp(String cp) {
-		this.cp = cp;
-	}
-
 	public String getPhone() {
 		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
 	}
 
 	public Integer getPuntos() {
 		return puntos;
 	}
 
-	public void setPuntos(Integer puntos) {
-		this.puntos = puntos;
-	}
-
 	public Boolean getLogin() {
 		return login;
 	}
 
-	public void setLogin(Boolean login) {
-		this.login = login;
+	public Boolean getEmailVerified() {
+		return emailVerified;
 	}
 
+	public long[] getProductsILikeIt (){
+		return this.productsILikeIt;
+	}
+
+	public int getNumberOfitemsILikeIt (){
+		int number = 0;
+		for (int i = 0; i < this.productsILikeIt.length; i++){
+			if (this.productsILikeIt[i] != 0){
+				number++;
+			}
+		}
+		return number;
+	}
+
+	public int getNumberOfitemsBasket (){
+		int items = 0;
+		for (Product product: this.productsBasket){
+			items++;
+		}
+		return items;
+	}
+
+	//Functions
 	public void updateData( String lastname, String email, String address, String city, String country, String cp, String phone) {
 
 		if(lastname != "")
@@ -185,40 +222,19 @@ public class User {
 			setPhone(phone);
 	}
 
-	public Boolean getEmailVerified() {
-		return emailVerified;
-	}
+	public void addProductILikeIt (long idProduct){
+		int size = this.itemsILikeIt + 1;
+		this.productsILikeIt[size] = idProduct;
+		this.getNumberOfitemsILikeIt();
 
-	public void setEmailVerified(Boolean emailVerified) {
-		this.emailVerified = emailVerified;
-	}
-
-	public void addProductILikeIt (Product product){
-		this.productsILikeIt.add(product);
 	}
 
 	public void addProductBasket (Product product){
 		this.productsBasket.add(product);
 	}
 
-	public List<Product> getProductsILikeIt (){
-		return this.productsILikeIt;
-	}
 
-	public int getNumberOfitemsILikeIt (){
-		int items = 0;
-		for (Product product: this.productsILikeIt){
-			items++;
-		}
-		return items;
-	}
 
-	public int getNumberOfitemsBasket (){
-		int items = 0;
-		for (Product product: this.productsBasket){
-			items++;
-		}
-		return items;
-	}
+
 
 }

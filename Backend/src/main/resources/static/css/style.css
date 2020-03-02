@@ -1746,6 +1746,11 @@ textarea.input {
   width: 100%;
 }
 
+#product-btns form #form-group #buttonIndex {
+  background-color: white;
+  border: 0px;
+}
+
 /*-- Rating --*/
 
 .rating-avg {

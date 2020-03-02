@@ -118,7 +118,9 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Mi Cesta</span>
-										<div class="qty">2</div>
+										{{#user.login}}
+											<div class="qty">{{user.itemsILikeIt}}</div>
+										{{/user.login}}
 									</a>
 									<div class="cart-dropdown">
 										<div class="cart-list">
@@ -184,7 +186,7 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="index.html">Inicio</a></li>
+						<li class="active"><a href="/index">Inicio</a></li>
 						<li><a href="/store">Catálogo</a></li>
 					</ul>
 					<!-- /NAV -->
@@ -216,12 +218,18 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">{{category}}</p>
-												<p class="product-category">{{brand}}}</p>
+												<p class="product-category">{{brand}}</p>
 												<h3 class="product-name"><a href="#">{{name}}</a></h3>
 												<h4 class="product-price">{{price}} Swapers </h4>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Deseados</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
+													<form action = "/index/addLikeIt" method = "post" enctype = "multipart/form-data">
+														<div class = "form-group">
+															<button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{id}}"</button>
+															</button>
+															<button style="border: 0px; background-color: white" class="fa fa-eye tooltipp"></button>
+														</div>
+													</form>
+
 												</div>
 											</div>
 											<div class="add-to-cart">
