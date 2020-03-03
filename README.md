@@ -98,6 +98,63 @@ By last, the store page show a lot of products and filters to search a particula
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/img/Diagrama.png)
 
+### Phase 2 📋
+
+**Navigation Screenshots**
+
+Our Start Page is **index.html**, in this page you can see the categories of the Sales App Web, the new products, the acess to the profile section, the opening month offer, the record to the news and another themes.
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/Index5.png)
+
+In the page product we can see a particular product with its details and other similar products.
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/product3.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/screenshot/product2.png)
+
+In the Profile page we can change our information and we can see the graphics about our expenses and incomes, also we can see recommended articles based on our purchases.
+
+AdminUser
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/profile3.png)
+
+BasicUser
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/profile4.png)
+
+In the checkout page we can finish a purchase introducing tha address data and payment details.
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/Checkout1.png)
+
+By last, the store page show a lot of products and filters to search a particular product according to the search wish of the customer.
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/store2.png)
+
+
+**Navigation Diagram**
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama4.png)
+
+**Development Instructions**
+
+1. Create the html template with CSS and JS
+2. Create a spring project with maven and web dependencies, jpa, h2, mustache.
+3. Create in resources a static folder and another of templates.
+4. We put all our css, js, images and static elements that we already had in the static folder.
+5. We have to put the html in the templates folder because we will use mustache and it is the configuration that it requires.
+6. We will have to change the links to all the css, js from the html because the static address does not work, so we will have to put, for example, /css/bootstrap.min.css
+7. In the application.properties file we add: a. spring.mustache.suffix = .html i. so that mustache understands the .html files. b. spring.h2.console.enabled = true i. For h2 to work.
+8. We tried to make everything work.
+9. To see that the bbdd works, we load localhost: port / h2-console and on the screen that comes out, we will have to leave everything the same changing what is in JDBC URL by jdbc: h2:        mem: testdb and should connect and see the administrator of the bbdd. 10 .The project could already be uploaded to github, because it works, even if it doesn't detect the links between      html (index load only).
+
+**BD Entity Diagram**
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama1.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama2.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama3.png)
+
+**Class Diagram and Templates**
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama5.png)
+
+
 ### Installation 🔧
 
 If you want to execute the project you must open it with a browser.
