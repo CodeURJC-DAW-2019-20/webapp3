@@ -154,6 +154,8 @@ By last, the store page show a lot of products and filters to search a particula
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama5.png)
 
+### Phase 3 📋
+
 
 ### Installation 🔧
 
