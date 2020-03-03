@@ -29,22 +29,21 @@ public class WebController {
 	
 	@Autowired
 	private UserRepository userRepository;
-
 	@Autowired
 	private  ProductRepository productRepository;
-	
-	@Autowired
-	private User user;
-	
-	@Autowired
-	private Product product;
-	
-	@Autowired
-	private Suggestion suggestion;
+    @Autowired
+    private TransactionRepository transactionRepository;
+    @Autowired
+    private SuggestionRepository suggestionRepository;
 	
     @Autowired
+	private User user;	
+	@Autowired
+	private Product product;	
+	@Autowired
+	private Suggestion suggestion;	
+    @Autowired
     private EmailSenderService emailSenderService;
-
     @Autowired
 	private ImageService imageService;
 	
@@ -159,7 +158,47 @@ public class WebController {
 		
 		user = userRepository.findByName(request.getUserPrincipal().getName());
 		user.setLogin(true);
-		
+		List<Transaction> transactions = transactionRepository.findByUserId((long)user.getId());
+		List<String> buyDates = new ArrayList<String>();
+		List<Integer> buyValues= new ArrayList<Integer>();
+		List<String> sellDates = new ArrayList<String>();
+		List<Integer> sellValues= new ArrayList<Integer>();
+		int x =0;
+		for(Transaction aux: transactions)
+		{
+			if(aux.getType().equals("BUY"))
+			{
+				if(buyDates.isEmpty()) 			
+				{
+					buyDates.add("'"+aux.getDate()+"'");
+					buyValues.add(1);		
+				}else if(buyDates.get(x).equals("'"+aux.getDate()+"'") )
+				{
+					buyValues.set(x,buyValues.get(x)+1);				
+				}else {
+					buyDates.add("'"+aux.getDate()+"'");
+					buyValues.add(1);
+					x++;				
+				}
+			}else if(aux.getType().equals("SELL")) {
+				if(sellDates.isEmpty()) 			
+				{
+					sellDates.add("'"+aux.getDate()+"'");
+					sellValues.add(1);		
+				}else if(sellDates.get(x).equals("'"+aux.getDate()+"'") )
+				{
+					sellValues.set(x,sellValues.get(x)+1);				
+				}else {
+					sellDates.add("'"+aux.getDate()+"'");
+					sellValues.add(1);
+					x++;				
+				}
+			}
+		}
+		model.addAttribute("sellDates", sellDates.toString());
+		model.addAttribute("sellValues", sellValues.toString());
+		model.addAttribute("buyDates", buyDates.toString());
+		model.addAttribute("buyValues", buyValues.toString());
 		model.addAttribute("stockempty", stock.isEmpty());
 		model.addAttribute("stock",stock);
 		model.addAttribute("suggestionlistempty",suggestionlist.isEmpty());
@@ -267,17 +306,59 @@ public class WebController {
 	
 	@PostMapping("/profile/loadProduct")
 	public String register(Model model, HttpServletRequest request, @RequestParam String name, String color, String category, String brand, String size, String description, String detail, MultipartFile imagenFile) throws IOException {
-		product = new Product(name, color, category, brand, size, description, detail, false);
+		product = new Product(name, color, category, brand, size, description, detail, false,true);
 		prestock.add(product);
 		
+		List<Transaction> transactions = transactionRepository.findByUserId((long)user.getId());
+		List<String> buyDates = new ArrayList<String>();
+		List<Integer> buyValues= new ArrayList<Integer>();
+		List<String> sellDates = new ArrayList<String>();
+		List<Integer> sellValues= new ArrayList<Integer>();
+		int x =0;
+		for(Transaction aux: transactions)
+		{
+			if(aux.getType().equals("BUY"))
+			{
+				if(buyDates.isEmpty()) 			
+				{
+					buyDates.add("'"+aux.getDate()+"'");
+					buyValues.add(1);		
+				}else if(buyDates.get(x).equals("'"+aux.getDate()+"'") )
+				{
+					buyValues.set(x,buyValues.get(x)+1);				
+				}else {
+					buyDates.add("'"+aux.getDate()+"'");
+					buyValues.add(1);
+					x++;				
+				}
+			}else if(aux.getType().equals("SELL")) {
+				if(sellDates.isEmpty()) 			
+				{
+					sellDates.add("'"+aux.getDate()+"'");
+					sellValues.add(1);		
+				}else if(sellDates.get(x).equals("'"+aux.getDate()+"'") )
+				{
+					sellValues.set(x,sellValues.get(x)+1);				
+				}else {
+					sellDates.add("'"+aux.getDate()+"'");
+					sellValues.add(1);
+					x++;				
+				}
+			}
+		}
+		model.addAttribute("sellDates", sellDates.toString());
+		model.addAttribute("sellValues", sellValues.toString());
+		model.addAttribute("buyDates", buyDates.toString());
+		model.addAttribute("buyValues", buyValues.toString());
 		model.addAttribute("stockempty", stock.isEmpty());
 		model.addAttribute("stock",stock);
-		model.addAttribute("user",user);
-		model.addAttribute("admin",request.isUserInRole("ROLE_ADMIN"));
-		model.addAttribute("prestockempty", prestock.isEmpty());
-		model.addAttribute("prestock",prestock);
 		model.addAttribute("suggestionlistempty",suggestionlist.isEmpty());
 		model.addAttribute("suggestionlist",suggestionlist);
+		model.addAttribute("user",user);
+		model.addAttribute("admin",request.isUserInRole("ROLE_ADMIN"));
+		model.addAttribute("prestock",prestock);
+		model.addAttribute("prestockempty", prestock.isEmpty());
+		model.addAttribute("userlist", userRepository.findAll());
 
 		product.setHasImage(true);
 		productRepository.save(product);
@@ -298,7 +379,7 @@ public class WebController {
 	public String cheksproduct(Model model, HttpServletRequest request, @RequestParam String index, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
 	
 		if (action.equals("Aceptar"))
-			stock.add(new Product(name, color, category, brand, size, description, detail, true));
+			stock.add(new Product(name, color, category, brand, size, description, detail, true,true));
 		prestock.remove(Integer.parseInt(index)-1);
 		
 		model.addAttribute("stockempty", stock.isEmpty());
@@ -317,7 +398,7 @@ public class WebController {
 	public String modifyproduct(Model model, HttpServletRequest request, @RequestParam String index, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
 		
 		if (action.equals("Modificar"))
-			stock.add(new Product(name, color, category, brand, size, description, detail, true));
+			stock.add(new Product(name, color, category, brand, size, description, detail, true,true));
 		stock.remove(Integer.parseInt(index)-1);
 		
 		model.addAttribute("stockempty", stock.isEmpty());

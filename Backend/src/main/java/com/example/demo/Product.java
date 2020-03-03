@@ -49,7 +49,7 @@ public class Product {
 	private String detail;
 	private Boolean verify;
 	private Boolean hasImage;
-
+	private Boolean inStock;
 	private byte[] image;
 
 	//Constructors
@@ -64,9 +64,10 @@ public class Product {
 		this.setDetail("");
 		this.setVerify(false);
 		this.setHasImage(false);
+		this.setInStock(false);
 	}
 
-	public Product (String name, String color, String category, String brand, String size, String description, String detail, Boolean verify) {
+	public Product (String name, String color, String category, String brand, String size, String description, String detail, Boolean verify, Boolean inStock) {
 		super ();
 	    this.setName(name);
 		this.setColor(color);
@@ -77,9 +78,10 @@ public class Product {
 		this.setDescription(description);
 		this.setDetail(detail);
 		this.setVerify(verify);
+		this.setInStock(inStock);
 	}
 
-    public Product (String name, String color, String category, String brand, String size, String description, String detail, Boolean verify, String imageURL) throws IOException {
+    public Product (String name, String color, String category, String brand, String size, String description, String detail, Boolean verify,Boolean inStock, String imageURL) throws IOException {
         super ();
         this.setName(name);
         this.setColor(color);
@@ -91,6 +93,7 @@ public class Product {
         this.setDetail(detail);
         this.setVerify(verify);
         this.setImage(imageURL);
+        this.setInStock(inStock);
     }
 
 	//Setters
@@ -248,5 +251,13 @@ public class Product {
 				return MULTIPLIER_PREMIUM;
 		}
 		return 1;
+	}
+
+	public Boolean getInStock() {
+		return inStock;
+	}
+
+	public void setInStock(Boolean inStock) {
+		this.inStock = inStock;
 	}
 }

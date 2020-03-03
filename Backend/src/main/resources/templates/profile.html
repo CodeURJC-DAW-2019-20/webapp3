@@ -28,7 +28,7 @@
  		<!-- Custom stlylesheet -->
  		<link type="text/css" rel="stylesheet" href="/css/style.css"/>
 		<link type="text/css" rel="stylesheet" href="/css/web.css"/>
-
+		<link type="text/css" rel="stylesheet" href="/css/chart.css"/>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -37,7 +37,7 @@
 		<![endif]-->
 
 	</head>
-	<body>
+	<body onload="viewChart({{buyDates}},{{buyValues}},'buyChart','HISTORIAL DE COMPRAS','rgb(237,71,79)');">
 		<!-- HEADER -->
 		<header>
 			<!-- TOP HEADER -->
@@ -475,7 +475,7 @@
 					<!-- product tab nav -->
 					<ul class="tab-nav">
 						<li class="active"><a data-toggle="tab" href="#tab1">Historial Compras</a></li>
-						<li><a data-toggle="tab" href="#tab2">Historial Ventas</a></li>
+						<li><a data-toggle="tab" href="#tab2" onclick="viewChart({{sellDates}},{{sellValues}},'sellChart','HISTORIAL DE VENTAS','rgb(71,92,237)');">Historial Ventas</a></li>
 						<li><a data-toggle="tab" href="#tab3">Subir Producto</a></li>
 					</ul>
 					<!-- /product tab nav -->
@@ -490,7 +490,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div>
-										<img class="graphic" src= "img/GraficoCompra.png" alt = "Grafico de Compras">
+										<canvas id="buyChart" ></canvas>
 									</div>
 								</div>
 							</div>
@@ -502,7 +502,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div>
-										<img class="graphic" src= "img/GraficoVenta.png" alt = "Grafico de Compras">
+										<canvas id="sellChart" ></canvas>
 									</div>
 								</div>
 							</div>
@@ -843,7 +843,7 @@
 		<script src="/js/nouislider.min.js"></script>
 		<script src="/js/jquery.zoom.min.js"></script>
 		<script src="/js/main.js"></script>
-
+		<script src="/js/chart.js"></script>
 
 
 	</body>
