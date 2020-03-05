@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.swapitServer.user;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,9 +8,13 @@ import javax.persistence.*;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
+import com.swapitServer.product.Product;
 
 @Entity
 @Component
+@RequestScope
 public class User {
 
 	@Id
@@ -38,6 +42,9 @@ public class User {
 
      @OrderColumn
 	 private long[] productsILikeIt;
+     
+     @OneToMany
+     private List<Product> LikekIts;
 
 	 @OneToMany
 	 private List<Product> productsBasket;
@@ -68,6 +75,7 @@ public class User {
 		this.productsBasket = new ArrayList<>();
 		this.itemsILikeIt = getNumberOfitemsILikeIt();
 		this.itemsBasket = getNumberOfitemsBasket();
+		
 	}
 	
 
@@ -204,7 +212,7 @@ public class User {
 	}
 
 	//Functions
-	public void updateData( String lastname, String email, String address, String city, String country, String cp, String phone) {
+	public void updateUserData( String lastname, String email, String address, String city, String country, String cp, String phone) {
 
 		if(lastname != "")
 			setLastname(lastname);
@@ -231,6 +239,18 @@ public class User {
 
 	public void addProductBasket (Product product){
 		this.productsBasket.add(product);
+	}
+
+	public List<Product> getLikekIts() {
+		return this.LikekIts;
+	}
+
+	public void setLikekIts(List<Product> likekIts) {
+		this.LikekIts = likekIts;
+	}
+	
+	public void setLikeit(Product product) {
+		this.LikekIts.add(product);
 	}
 
 

@@ -208,41 +208,41 @@
                             <div class="section-title">
                                 <h3 class="title">Perfil de usuario</h3>
                             </div>
-                            <form action="/profile/update" method="post">
+                            <form action="profile/update" method="post">
 	                            <div class="form-group">
 	                            	<span>Nombre</span>
-	                                <input class="input" type="text" name="name" placeholder={{user.name}}>
+	                                <input class="input" type="text" name="name" value={{user.name}} readonly>
 	                            </div>
 	                            <div class="form-group">
 	                            	<span>Apellidos</span>
-	                                <input class="input" type="text" name="lastname" placeholder="{{user.lastname}}">
+	                                <input class="input" type="text" name="lastname" value="{{user.lastname}}">
 	                            </div>
 	                            <div class="form-group">
 	                            	<span>Email</span>
-	                                <input class="input" type="email" name="email" placeholder="{{user.email}}">
+	                                <input class="input" type="email" name="email" value="{{user.email}}">
 	                            </div>
 	                            <div class="form-group">
 	                           	 	<span>Dirección</span>
-	                                <input class="input" type="text" name="address" placeholder="{{user.address}}">
+	                                <input class="input" type="text" name="address" value="{{user.address}}">
 	                            </div>
 	                            <div class="form-group">
 	                            	<span>Ciudad</span>
-	                                <input class="input" type="text" name="city" placeholder="{{user.city}}">
+	                                <input class="input" type="text" name="city" value="{{user.city}}">
 	                            </div>
 	                            <div class="form-group">
 	                            	<span>País</span>
-	                                <input class="input" type="text" name="country" placeholder="{{user.country}}">
+	                                <input class="input" type="text" name="country" value="{{user.country}}">
 	                            </div>
 	                            <div class="form-group">
 	                            	<span>Código Postal</span>
-	                                <input class="input" type="text" name="cp" placeholder="{{user.cp}}">
+	                                <input class="input" type="text" name="cp" value="{{user.cp}}">
 	                            </div>
 	                            <div class="form-group">
 	                            	<span>Teléfono</span>
-	                                <input class="input" type="tel" name="phone" placeholder="{{user.phone}}">
+	                                <input class="input" type="tel" name="phone" value="{{user.phone}}">
 	                            </div>
 	                            <div class="from-gruop">
-									<input type="submit" id="sendInfoButton" class="primary-btn cta-btn" value="Actualizar Datos">
+									<input type="submit" name="action" class="primary-btn cta-btn" value="Modificar">
                         		</div>
                         	</form>
                         </div>
@@ -295,9 +295,9 @@
 										  		{{#userlist}}
 												<tr>
 													<div>
-														<form action="/profile/update" method="post">
+														<form action="profile/update" method="post">
 															<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>						
-															<td>  <input class="input" type="text" name="name" value="{{name}}"> </td>	
+															<td>  <input class="input" type="text" name="name" value="{{name}}" readonly> </td>	
 															<td>  <input class="input" type="text" name="lastname" value="{{lastname}}">  </td>	
 															<td>  <input class="input" type="text" name="email" value="{{email}}">  </td>
 															<td>  <input class="input" type="text" name="address" value="{{address}}"> </td>
@@ -334,6 +334,7 @@
 										<table>	
 											<tr>
 												<td> <h4>Indice</h4> </td>
+												<td> <h4>Id</h4> </td>
 												<td> <h4>Nombre</h4> </td>
 												<td> <h4>Color</h4> </td>
 												<td> <h4>Categoria</h4> </td>
@@ -348,7 +349,8 @@
 											<tr>
 												<div>
 													<form action="profile/modifyproduct" method="post">
-														<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>						
+														<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>
+														<td>  <input class="input" type="text" name="id" value="{{id}}" readonly> </td>						
 														<td>  <input class="input" type="text" name="name" value="{{name}}"> </td>	
 														<td>  <input class="input" type="text" name="color" value="{{color}}">  </td>	
 														<td>  <input class="input" type="text" name="category" value="{{category}}">  </td>
@@ -384,6 +386,7 @@
 											<table>
 												<tr>
 													<td> <h4>Indice</h4> </td>
+													<td> <h4>Id</h4> </td>
 													<td> <h4>Nombre</h4> </td>
 													<td> <h4>Color</h4> </td>
 													<td> <h4>Categoria</h4> </td>
@@ -397,8 +400,9 @@
 												{{#prestock}}
 												<tr>
 													<div>
-														<form action="profile/checkproduct" method="post">
-															<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>						
+														<form action="profile/validateProduct" method="post">
+															<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>
+															<td>  <input class="input" type="text" name="id" value="{{id}}" readonly> </td>
 															<td>  <input class="input" type="text" name="name" value="{{name}}"> </td>	
 															<td>  <input class="input" type="text" name="color" value="{{color}}">  </td>	
 															<td>  <input class="input" type="text" name="category" value="{{category}}">  </td>
@@ -434,6 +438,7 @@
 											<table>
 												<tr>
 													<td> <h4>Indice</h4> </td>
+													<td> <h4>Id</h4> </td>
 													<td> <h4>Nombre</h4> </td>
 													<td> <h4>Apellido</h4> </td>
 													<td> <h4>Email</h4> </td>
@@ -443,8 +448,9 @@
 												<tr>
 													<div>
 														
-														<form action="profile/editsuggestion" method="post">
-															<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>						
+														<form action="profile/deleteSuggestion" method="post">
+															<td>  <input class="input" type="text" name="index" value="{{-index}}"> </td>
+															<td>  <input class="input" type="text" name="id" value="{{id}}" readonly> </td>						
 															<td>  <input class="input" type="text" name="name" value="{{name}}"> </td>	
 															<td>  <input class="input" type="text" name="lastname" value="{{lastname}}">  </td>	
 															<td>  <input class="input" type="text" name="email" value="{{email}}">  </td>

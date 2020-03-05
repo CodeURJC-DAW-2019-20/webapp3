@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.swapitServer.mail;
 
 import java.util.Properties;
 

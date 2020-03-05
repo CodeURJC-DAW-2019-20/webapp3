@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.swapitServer.suggestion;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,9 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
 @Entity
 @Component
+@RequestScope
 public class Suggestion {
 	
 	@Id

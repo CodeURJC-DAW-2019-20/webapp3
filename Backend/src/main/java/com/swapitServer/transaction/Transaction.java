@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.swapitServer.transaction;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,11 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Component
+@RequestScope
 public class Transaction {
 	
 	static final String pattern = "dd/MM/yyyy";
