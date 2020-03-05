@@ -1,9 +1,18 @@
-package com.example.demo;
+package com.swapitServer;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.swapitServer.product.Product;
+import com.swapitServer.product.ProductRepository;
+import com.swapitServer.suggestion.Suggestion;
+import com.swapitServer.suggestion.SuggestionRepository;
+import com.swapitServer.transaction.Transaction;
+import com.swapitServer.transaction.TransactionRepository;
+import com.swapitServer.user.User;
+import com.swapitServer.user.UserRepository;
 
 import java.io.IOException;
 
@@ -26,15 +35,15 @@ public class DatabaseLoader {
     	userRepository.save(new User("user", "pass","user lastname","user@swapit","C/ Buenavista 5","Mostoles","España","28358","619865541", 100, true, "ROLE_USER"));
 		
 		//PRODUCTS
-		productRepository.save(new Product("Sudadera Capucha", "Multi", "Jersey", "PullAndBear", "M", "", "",  false,true));
-        productRepository.save(new Product("Jersey Mostaza", "Mostaza", "Jersey", "Zara", "S", "", "",  false,true));
-        productRepository.save(new Product("Jersey Azul", "Azul", "Jersey", "Calvin Klein", "M", "", "",  false,true));
-        productRepository.save(new Product("Jersey Burdeos", "Burdeos", "Jersey", "Zara", "M", "", "",  false,true));
-        productRepository.save(new Product("Jersey Blanco", "Blanco", "Jersey", "HyM", "M", "", "",  false,true));
-        productRepository.save(new Product("Jersey Gris", "Gris", "Jersey", "Primark", "M", "", "",  false,true));
-        productRepository.save(new Product("Jersey Rosa", "Rosa", "Jersey", "Lefties", "M", "", "",  false,true));
-        productRepository.save(new Product("Jersey A Rayas", "Multi", "Jersey", "Primark", "M", "", "",  false,true));
-        productRepository.save(new Product("Camisa Pana", "Azul", "Camisa", "PullAndBear", "M", "", "",  false,true));
+		productRepository.save(new Product("Sudadera Capucha", "Multi", "Jersey", "PullAndBear", "M", "", "",  true,true));
+        productRepository.save(new Product("Jersey Mostaza", "Mostaza", "Jersey", "Zara", "S", "", "",  true,true));
+        productRepository.save(new Product("Jersey Azul", "Azul", "Jersey", "Calvin Klein", "M", "", "",  true,true));
+        productRepository.save(new Product("Jersey Burdeos", "Burdeos", "Jersey", "Zara", "M", "", "",  true,true));
+        productRepository.save(new Product("Jersey Blanco", "Blanco", "Jersey", "HyM", "M", "", "",  true,true));
+        productRepository.save(new Product("Jersey Gris", "Gris", "Jersey", "Primark", "M", "", "",  true,true));
+        productRepository.save(new Product("Jersey Rosa", "Rosa", "Jersey", "Lefties", "M", "", "",  true,true));
+        productRepository.save(new Product("Jersey A Rayas", "Multi", "Jersey", "Primark", "M", "", "",  true,true));
+        productRepository.save(new Product("Camisa Pana", "Azul", "Camisa", "PullAndBear", "M", "", "",  true,true));
         
         //TRANSACTIONS
         transactionRepository.save(new Transaction("BUY",(long)2,(long)4));

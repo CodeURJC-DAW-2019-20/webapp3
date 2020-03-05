@@ -1,10 +1,11 @@
-package com.example.demo;
+package com.swapitServer.product;
 
 import javax.imageio.ImageIO;
 import javax.persistence.*;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -15,6 +16,7 @@ import java.io.IOException;
 
 @Entity
 @Component
+@RequestScope
 public class Product {
 
 	@Id
@@ -259,5 +261,22 @@ public class Product {
 
 	public void setInStock(Boolean inStock) {
 		this.inStock = inStock;
+	}
+	public void updateProductData( String name, String color, String category, String brand, String size, String description, String detail) {
+
+		if(name != "")
+			setName(name);
+		if(color != "")
+			setColor(color);
+		if(category != "")
+			setCategory(category);
+		if(brand != "")
+			setBrand(brand);
+		if(size != "")
+			setSize(size);
+		if(description != "")
+			setDescription(description);
+		if(detail != "")
+			setDetail(detail);
 	}
 }
