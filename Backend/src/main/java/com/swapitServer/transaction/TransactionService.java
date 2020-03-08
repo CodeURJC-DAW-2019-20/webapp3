@@ -17,9 +17,9 @@ public class TransactionService {
 	@Autowired
 	UserRepository userRepository;
 	
-	public String[] getAllTransactionsFromUser(HttpServletRequest request){
+	public String[] getAllTransactionsFromUser(String name){
 		
-		User auxser = userRepository.findByName(request.getUserPrincipal().getName());
+		User auxser = userRepository.findByName(name);
 		//user.setLogin(true);
 		String auxTransactions[] = new String[4];
 		List<Transaction> transactions = transactionRepository.findByUserId((long)auxser.getId());

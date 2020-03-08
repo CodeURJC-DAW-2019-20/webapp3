@@ -43,11 +43,11 @@ public class SuggestionController {
 	}
 	
 	@PostMapping("/profile/deleteSuggestion")
-	public String deleteSuggestion(Model model, HttpServletRequest request, @RequestParam String id) {
+	public String deleteSuggestion(Model model, HttpServletRequest request, @RequestParam long id) {
 		
 		suggestionService.deleteSuggestion(id);
 		
-		String[] auxTransactions = transactionService.getAllTransactionsFromUser(request);		
+		String[] auxTransactions = transactionService.getAllTransactionsFromUser(userService.getUserInSesion(request).getName());		
 		model.addAttribute("buyDates", auxTransactions[0]);
 		model.addAttribute("buyValues", auxTransactions[1]);
 		model.addAttribute("sellDates", auxTransactions[2]);

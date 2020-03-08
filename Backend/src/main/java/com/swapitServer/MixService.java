@@ -31,8 +31,8 @@ public class MixService {
 		return userRepository.findByName(request.getUserPrincipal().getName()).getLikekIts();
 	}
 	
-	public void addLikeIt(HttpServletRequest request, long idProduct) {
-		User auxUser = userRepository.findByName(request.getUserPrincipal().getName());
+	public void addLikeIt(String name, long idProduct) {
+		User auxUser = userRepository.findByName(name);
 		Product auxProduct = productRepository.findById(idProduct);
 		auxUser.setLikeit(auxProduct);
 		userRepository.save(auxUser);

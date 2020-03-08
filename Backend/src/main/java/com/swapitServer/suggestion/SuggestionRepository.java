@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface SuggestionRepository extends CrudRepository<Suggestion, Long> {
 
     Suggestion findByName(String name);
-    Suggestion findById(String id);
+    Suggestion findById(long id);
     List<Suggestion> findAll();
 }

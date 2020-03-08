@@ -105,7 +105,7 @@ public class User {
 	}
 
 	public void setCountry(String country) {
-		country = country;
+		this.country = country;
 	}
 
 	public void setCp(String cp) {

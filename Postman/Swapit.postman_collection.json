@@ -1,0 +1,824 @@
+{
+	"info": {
+		"_postman_id": "4c0f236b-4e4d-4bda-9d24-d415a8296f28",
+		"name": "Swapit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserRequest",
+			"item": [
+				{
+					"name": "UserRequest : Crear",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"alex\",\n\t\"lastname\":\"aguilar\",\n\t\"passwordHash\":\"alex\",\n\t\"email\":\"swapitserver@gmail.com\",\n\t\"address\":\"C/ Martinez 34\",\n\t\"city\":\"Mostoles\",\n\t\"country\":\"España\",\n\t\"cp\":\"12496\",\n\t\"phone\":\"689520446\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/user/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "UserRequest : Validar Email",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/user/validate?name=alex",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"user",
+								"validate"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "alex"
+								}
+							]
+						},
+						"description": "Valida la cuenta de un usuario para que pueda acceder a su perfil y toda la funcionalidad de usuario."
+					},
+					"response": []
+				},
+				{
+					"name": "UserRequest : Actualizar datos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"alex\",\n\t\"lastname\":\"Aguilar Fuertemoreno\",\n\t\"email\":\"swapitserver@gmail.com\",\n\t\"address\":\"C/ Martinez 34\",\n\t\"city\":\"Mostoles\",\n\t\"country\":\"España\",\n\t\"cp\":\"12496\",\n\t\"phone\":\"689520446\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/user/update",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"user",
+								"update"
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "UserRequest : Borrar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/user/update?name=user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"user",
+								"update"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "user"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "UserRequest : Añadir a Favorito",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"alex\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/user/addLikeIt?id=5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"user",
+								"addLikeIt"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "UserRequest : Leer por Nombre",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/user/?name=user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "user"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "UserRequest : Leer Todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/user/?name=user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "user"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ProductRequest",
+			"item": [
+				{
+					"name": "ProductRequest : Modificar datos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Jersey Burdeos\",\n\t\"color\":\"Burdeos\",\n\t\"category\":\"Jersey\",\n\t\"brand\":\"Zara\",\n\t\"size\":\"M\",\n\t\"description\":\"color burdepx oscuro\",\n\t\"detail\":\"tiene botones en los puños de las mangas y en el cuello\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/modify?id=6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								"modify"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "ProductRequest : Crear",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imagenFile",
+									"type": "file",
+									"src": "/C:/Users/aagui/Desktop/gatito.jpg"
+								},
+								{
+									"key": "product",
+									"value": "Json{\n\t\"name\":\"Jersey Burdeos\",\n\t\"color\":\"Burdeos\",\n\t\"category\":\"Jersey\",\n\t\"brand\":\"Zara\",\n\t\"size\":\"M\",\n\t\"description\":\"color burdepx oscuro\",\n\t\"detail\":\"tiene botones en los puños de las mangas y en el cuello\"\n}",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/load",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								"load"
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "ProductRequest : Borrar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/modify?id=6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								"modify"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "ProductRequest : Leer por Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/?id=4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "ProductRequest : Leer Stock",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/?id=4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "ProductRequest : Validar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Jersey Burdeos\",\n\t\"color\":\"Burdeos\",\n\t\"category\":\"Jersey\",\n\t\"brand\":\"Zara\",\n\t\"size\":\"M\",\n\t\"description\":\"color burdepx oscuro\",\n\t\"detail\":\"tiene botones en los puños de las mangas y en el cuello\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/validate?id=21",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								"validate"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "21"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "ProductRequest : Leer PreStock",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/prestock",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								"prestock"
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "SuggestionRequest",
+			"item": [
+				{
+					"name": "Suggestion Request : Crear",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"alex\",\n\t\"lastname\":\"aguilar\",\n\t\"email\":\"swapitserver@gmail.com\",\n\t\"message\":\"Me gusta como esta evolucionando la App Web buen trabajo XD\",\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/suggestion/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"suggestion",
+								""
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Suggestion Request : Borrar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "id",
+								"value": "20",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/suggestion/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"suggestion",
+								""
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Suggestion Request : Leer Todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/suggestion/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"suggestion",
+								""
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "TransactionRequest",
+			"item": [
+				{
+					"name": "Transaction Request : Leer por Nombre",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/transaction/?name=user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"transaction",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "user"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

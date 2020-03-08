@@ -20,10 +20,11 @@ public class ProductService {
     @Autowired
 	private ImageService imageService;
 	
-	public Product getProductById(Long id) {
-		Object product =  productRepository.findById(id);
-		return (Product)product; 
+	public Product getProductById(long id) {
+		return productRepository.findById(id);
+		  
 	}
+
 	
 	public void saveProduct(Product product) {
 		productRepository.save(product);
@@ -58,21 +59,21 @@ public class ProductService {
 		imageService.saveImage("products", product.getId(), imagenFile);
 	}
 	
-	public void validateProduct(String id, String name, String color, String category, String brand, String size, String description, String detail) {
-		Product auxProduct = productRepository.findById(Long.parseLong(id));
+	public void validateProduct(long id, String name, String color, String category, String brand, String size, String description, String detail) {
+		Product auxProduct = productRepository.findById(id);
 		auxProduct.updateProductData(name, color, category, brand, size, description, detail);
 		auxProduct.setVerify(true);
 		productRepository.save(auxProduct);
 	}
 	
-	public void modifyProduct(String id, String name, String color, String category, String brand, String size, String description, String detail){
-		Product auxProduct = productRepository.findById(Long.parseLong(id));
+	public void modifyProduct(long id, String name, String color, String category, String brand, String size, String description, String detail){
+		Product auxProduct = productRepository.findById(id);
 		auxProduct.updateProductData(name, color, category, brand, size, description, detail);
 		productRepository.save(auxProduct);
 	}
 	
-	public void deleteProduct(String id) {
-		productRepository.deleteById(Long.parseLong(id));
+	public void deleteProduct(long id) {
+		productRepository.deleteById(id);
 	}
 	
 	

@@ -58,7 +58,7 @@ public class ProductController {
 	public String register(Model model, HttpServletRequest request, @RequestParam String name, String color, String category, String brand, String size, String description, String detail, MultipartFile imagenFile) throws IOException {
 		productService.saveNewProduct(name, color, category, brand, size, description, detail, imagenFile);
 		
-		String[] auxTransactions = transactionService.getAllTransactionsFromUser(request);		
+		String[] auxTransactions = transactionService.getAllTransactionsFromUser(userService.getUserInSesion(request).getName());		
 		model.addAttribute("buyDates", auxTransactions[0]);
 		model.addAttribute("buyValues", auxTransactions[1]);
 		model.addAttribute("sellDates", auxTransactions[2]);
@@ -76,14 +76,14 @@ public class ProductController {
 	}
 	
 	@PostMapping("/profile/validateProduct")
-	public String cheksproduct(Model model, HttpServletRequest request, @RequestParam String id, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
+	public String cheksproduct(Model model, HttpServletRequest request, @RequestParam long id, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
 	
 		if (action.equals("Aceptar"))
 			productService.validateProduct(id, name, color, category, brand, size, description, detail);
 		else
 			productService.deleteProduct(id);
 		
-		String[] auxTransactions = transactionService.getAllTransactionsFromUser(request);		
+		String[] auxTransactions = transactionService.getAllTransactionsFromUser(userService.getUserInSesion(request).getName());		
 		model.addAttribute("buyDates", auxTransactions[0]);
 		model.addAttribute("buyValues", auxTransactions[1]);
 		model.addAttribute("sellDates", auxTransactions[2]);
@@ -101,7 +101,7 @@ public class ProductController {
 	}
 	
 	@PostMapping("/profile/modifyproduct")
-	public String modifyproduct(Model model, HttpServletRequest request, @RequestParam String id, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
+	public String modifyproduct(Model model, HttpServletRequest request, @RequestParam long id, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
 		
 		if (action.equals("Modificar"))
 			productService.modifyProduct(id, name, color, category, brand, size, description, detail);
@@ -109,7 +109,7 @@ public class ProductController {
 			productService.deleteProduct(id);
 		
 		
-		String[] auxTransactions = transactionService.getAllTransactionsFromUser(request);		
+		String[] auxTransactions = transactionService.getAllTransactionsFromUser(userService.getUserInSesion(request).getName());		
 		model.addAttribute("buyDates", auxTransactions[0]);
 		model.addAttribute("buyValues", auxTransactions[1]);
 		model.addAttribute("sellDates", auxTransactions[2]);

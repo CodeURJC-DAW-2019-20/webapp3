@@ -181,7 +181,10 @@ public class Product {
 	public Boolean getVerify() {
 		return verify;
 	}
-
+	
+	public String getBrand() {
+		return brand;
+	}
 	//Functions
 
 	public boolean hasImage () {
