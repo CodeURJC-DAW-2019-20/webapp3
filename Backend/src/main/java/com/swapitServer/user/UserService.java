@@ -32,15 +32,16 @@ public class UserService {
 	public List<User> getAllUser(){
 		return userRepository.findAll();
 	}
-	public void registerUser(User user) {
+	/*public void registerUser(User user , String url) {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setTo(user.getEmail());
         mailMessage.setSubject("Complete Registration!");
         mailMessage.setFrom("swapitserver@gmail.com");
-        mailMessage.setText("To confirm your account, please click here :" +"https://localhost:8443/profile/validate?name="+user.getName());
+        mailMessage.setText("To confirm your account, please click here :" +"https://localhost:8443"+ url +"?name="+user.getName());
 	    emailSenderService.sendEmail(mailMessage);
 	    userRepository.save(user);
-	}
+	}*/
+	
 	public void registerUser(String name,String  password,String lastname,String email,String address,String city,String country,String cp,String phone) {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setTo(email);
