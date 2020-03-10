@@ -252,6 +252,7 @@ public class User {
 	public void setLikeit(Product product) {
 		this.LikekIts.add(product);
 	}
+	
 
 
 

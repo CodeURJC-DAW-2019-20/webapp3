@@ -18,8 +18,9 @@ public class UserService {
 	private EmailSenderService emailSenderService;
 	
 	public User getUserByName(String name) {
-		return userRepository.findByName(name);
+		return clearPassword(userRepository.findByName(name));
 	}
+	
 	public User getUserInSesion(HttpServletRequest request) {
 		User user = new User();
 		if(request.isRequestedSessionIdValid()) {	
@@ -30,7 +31,9 @@ public class UserService {
 	}
 	
 	public List<User> getAllUser(){
-		return userRepository.findAll();
+
+		return clearAllPassword(userRepository.findAll());
+		
 	}
 	/*public void registerUser(User user , String url) {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -67,5 +70,16 @@ public class UserService {
 		User auxuser = userRepository.findByName(name);
 		auxuser.setEmailVerified(true);
 		userRepository.save(auxuser);
+	}
+	
+	public User clearPassword(User user) {
+		user.setPasswordHash("");
+		return user;
+	}
+	
+	public List<User> clearAllPassword(List<User> userList ){
+		for (User user : userList)
+			userList.set(userList.indexOf(user), clearPassword(user));
+		return userList;		
 	}
 }
