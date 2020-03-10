@@ -39,9 +39,6 @@ public class User {
 	 private Integer puntos;
 	 private Boolean emailVerified;
 	 private Boolean login;
-
-     @OrderColumn
-	 private long[] productsILikeIt;
      
      @OneToMany
      private List<Product> LikekIts;
@@ -51,6 +48,7 @@ public class User {
 
 	 private int itemsILikeIt;
 	 private int itemsBasket;
+	 private float priceOfBasket;
 
 	 //Constructors
 	public User() {
@@ -71,10 +69,11 @@ public class User {
 		this.login=false;
 		this.emailVerified=Verified;
 
-		this.productsILikeIt = new long[20];
+		this.LikekIts = new ArrayList<>();
 		this.productsBasket = new ArrayList<>();
-		this.itemsILikeIt = getNumberOfitemsILikeIt();
-		this.itemsBasket = getNumberOfitemsBasket();
+		this.priceOfBasket = 0;
+		getNumberOfitemsILikeIt();
+		getNumberOfitemsBasket();
 		
 	}
 	
@@ -128,8 +127,25 @@ public class User {
 		this.emailVerified = emailVerified;
 	}
 
-	public void setProductsILikeIt (long idProduct, int position){
-		this.productsILikeIt[position] = idProduct;
+	public void setLikeit(Product product) {
+		this.LikekIts.add(product);
+		this.itemsILikeIt++;
+	}
+
+	public void setProductBasket (Product product){
+		this.productsBasket.add(product);
+		setPriceOfBasket();
+		this.itemsBasket++;
+	}
+
+	public void setPriceOfBasket (){
+		float accumulator = 0;
+
+		for (Product product: this.productsBasket){
+			accumulator += product.getPrice();
+		}
+
+		this.priceOfBasket = accumulator;
 	}
 
 	//Getters
@@ -189,26 +205,24 @@ public class User {
 		return emailVerified;
 	}
 
-	public long[] getProductsILikeIt (){
-		return this.productsILikeIt;
+	public void getNumberOfitemsILikeIt (){
+		this.itemsILikeIt = this.LikekIts.size();
 	}
 
-	public int getNumberOfitemsILikeIt (){
-		int number = 0;
-		for (int i = 0; i < this.productsILikeIt.length; i++){
-			if (this.productsILikeIt[i] != 0){
-				number++;
-			}
-		}
-		return number;
+	public void getNumberOfitemsBasket (){
+		this.itemsBasket = this.productsBasket.size();
 	}
 
-	public int getNumberOfitemsBasket (){
-		int items = 0;
-		for (Product product: this.productsBasket){
-			items++;
-		}
-		return items;
+	public List<Product> getLikekIts() {
+		return this.LikekIts;
+	}
+
+	public List<Product> getProductsBasket(){
+		return this.productsBasket;
+	}
+
+	public float getPriceOfBasket(){
+		return this.priceOfBasket;
 	}
 
 	//Functions
@@ -230,28 +244,10 @@ public class User {
 			setPhone(phone);
 	}
 
-	public void addProductILikeIt (long idProduct){
-		int size = this.itemsILikeIt + 1;
-		this.productsILikeIt[size] = idProduct;
-		this.getNumberOfitemsILikeIt();
 
-	}
 
-	public void addProductBasket (Product product){
-		this.productsBasket.add(product);
-	}
 
-	public List<Product> getLikekIts() {
-		return this.LikekIts;
-	}
 
-	public void setLikekIts(List<Product> likekIts) {
-		this.LikekIts = likekIts;
-	}
-	
-	public void setLikeit(Product product) {
-		this.LikekIts.add(product);
-	}
 
 
 

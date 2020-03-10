@@ -45,6 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/profile").authenticated();
         http.authorizeRequests().antMatchers("/checkout").authenticated();
         http.authorizeRequests().antMatchers("/likeit").authenticated();
+        http.authorizeRequests().antMatchers("/basket").authenticated();
         
 
         // Login form

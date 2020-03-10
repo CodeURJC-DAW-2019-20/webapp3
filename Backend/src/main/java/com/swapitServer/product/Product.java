@@ -1,23 +1,19 @@
 package com.swapitServer.product;
 
-import javax.imageio.ImageIO;
-import javax.persistence.*;
 
-import org.apache.tomcat.util.http.fileupload.IOUtils;
+import javax.persistence.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
-
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+
 
 
 @Entity
 @Component
 @RequestScope
-public class Product {
+public class Product{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -133,6 +129,10 @@ public class Product {
 		this.detail = detail;
 	}
 
+	public void setInStock(Boolean inStock) {
+		this.inStock = inStock;
+	}
+
 	public void setHasImage (Boolean status){
 		this.hasImage = status;
 	}
@@ -153,6 +153,8 @@ public class Product {
 	public String getName() {
 		return name;
 	}
+
+	public String getBrand() {return this.brand;}
 
 	public String getColor() {
 		return color;
@@ -180,6 +182,10 @@ public class Product {
 
 	public Boolean getVerify() {
 		return verify;
+	}
+
+	public Boolean getInStock() {
+		return inStock;
 	}
 
 	//Functions
@@ -255,13 +261,6 @@ public class Product {
 		return 1;
 	}
 
-	public Boolean getInStock() {
-		return inStock;
-	}
-
-	public void setInStock(Boolean inStock) {
-		this.inStock = inStock;
-	}
 	public void updateProductData( String name, String color, String category, String brand, String size, String description, String detail) {
 
 		if(name != "")
@@ -279,4 +278,6 @@ public class Product {
 		if(detail != "")
 			setDetail(detail);
 	}
+
+
 }

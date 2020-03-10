@@ -2,9 +2,11 @@ package com.swapitServer.product;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
+import com.swapitServer.Brand.Brand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,8 +38,9 @@ public class ProductService {
 		for(Product aux: products)
 			if(aux.getInStock() && aux.getVerify())
 				auxList.add(aux);
+
+			auxList.sort(new CompareProductsByName());
 		return auxList;
-		
 	}
 	
 	public List<Product> getAllProductinPreStock(){
@@ -74,8 +77,46 @@ public class ProductService {
 	public void deleteProduct(String id) {
 		productRepository.deleteById(Long.parseLong(id));
 	}
-	
-	
+
+	public float getMaxPrice (){
+		float price = 0;
+
+		for (Product product: getAllProductinStock()){
+			if (product.getPrice() > price){
+				price = product.getPrice();
+			}
+		}
+		return price;
+	}
+
+	public float getMinPrice (){
+		float price = Float.MAX_VALUE;
+
+		for (Product product: getAllProductinStock()){
+			if (product.getPrice() < price){
+				price = product.getPrice();
+			}
+		}
+		return price;
+	}
+
+	public HashSet<String> getAllBrands (){
+		HashSet<String> brands = new HashSet<>();
+
+		for (Product product: getAllProductinStock()){
+			brands.add(product.getBrand());
+		}
+		return brands;
+	}
+
+	public HashSet<String> getAllCategorys (){
+		HashSet<String> categorys = new HashSet<>();
+
+		for (Product product: getAllProductinStock()){
+			categorys.add(product.getCategory());
+		}
+		return categorys;
+	}
 	
 	
 

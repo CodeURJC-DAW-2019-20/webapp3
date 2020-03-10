@@ -66,9 +66,6 @@ public class WebController {
 		
 		return mixService.getImage(id);
 	}
-		
-	
-
 
 	@GetMapping ("/product/{id}")
     public String verProducto(Model model, @PathVariable long id){

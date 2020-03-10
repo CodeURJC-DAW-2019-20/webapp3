@@ -119,55 +119,17 @@
 
 								<!-- Cart -->
 								<div class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+									<a href  = "/basket">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Mi Cesta</span>
-										<div class="qty">2</div>
+										{{#user.login}}
+										<div class="qty">{{user.itemsBasket}}</div>
+										{{/user.login}}
+										{{^user.login}}
+										{{/user.login}}
 									</a>
-									<div class="cart-dropdown">
-										<div class="cart-list">
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/camisapana.jpg" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">Camisa de Pana</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span> 299 Swapers</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/bandolera.jpg" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">Bandolera Geométrica</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span> 129 Swapers</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-										</div>
-										<div class="cart-summary">
-											<small>2 Productos Seleccionados</small>
-											<h5>SUBTOTAL: 429 Swapers</h5>
-										</div>
-										<div class="cart-btns">
-											<a href="/profile">Ver Cesta</a>
-											<a href="/checkout">Comprar<i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-									</div>
 								</div>
 								<!-- /Cart -->
-
-								<!-- Menu Toogle -->
-								<div class="menu-toggle">
-									<a href="#">
-										<i class="fa fa-bars"></i>
-										<span>Menu</span>
-									</a>
-								</div>
-								<!-- /Menu Toogle -->
 							</div>
 						</div>
 						<!-- /ACCOUNT -->
@@ -231,106 +193,15 @@
 							<h3 class="aside-title">Categorias</h3>
 							<div class="checkbox-filter">
 
+								{{#categorys}}
 								<div class="input-checkbox">
-									<input type="checkbox" id="category-1">
-									<label for="category-1">
+									<input type="checkbox" id="{{toString}}">
+									<label for="{{toString}}">
 										<span></span>
-										Abrigos
-										<small>(120)</small>
+										{{toString}}
 									</label>
 								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-2">
-									<label for="category-2">
-										<span></span>
-										Accesorios
-										<small>(740)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-3">
-									<label for="category-3">
-										<span></span>
-										Botas
-										<small>(1450)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-4">
-									<label for="category-4">
-										<span></span>
-										Jerseys
-										<small>(578)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-5">
-									<label for="category-5">
-										<span></span>
-										Camisas
-										<small>(120)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-6">
-									<label for="category-6">
-										<span></span>
-										Camisetas
-										<small>(740)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-7">
-									<label for="category-7">
-										<span></span>
-										Chaquetas
-										<small>(74)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-8">
-									<label for="category-8">
-										<span></span>
-										Faldas
-										<small>(85)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-9">
-									<label for="category-9">
-										<span></span>
-										Vaqueros
-										<small>(120)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-10">
-									<label for="category-10">
-										<span></span>
-										Zapatillas
-										<small>(65)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-11">
-									<label for="category-11">
-										<span></span>
-										Zapatos
-										<small>(70)</small>
-									</label>
-								</div>
-
-
+								{{/categorys}}
 							</div>
 						</div>
 						<!-- /aside Widget -->
@@ -341,13 +212,13 @@
 							<div class="price-filter">
 								<div id="price-slider"></div>
 								<div class="input-number price-min">
-									<input id="price-min" type="number">
+									<input value="{{minPrice}}" type="number">
 									<span class="qty-up">+</span>
 									<span class="qty-down">-</span>
 								</div>
 								<span>-</span>
 								<div class="input-number price-max">
-									<input id="price-max" type="number">
+									<input value="{{maxPrice}}" type="number">
 									<span class="qty-up">+</span>
 									<span class="qty-down">-</span>
 								</div>
@@ -359,54 +230,14 @@
 						<div class="aside">
 							<h3 class="aside-title">Marca</h3>
 							<div class="checkbox-filter">
+								{{#brands}}
 								<div class="input-checkbox">
-									<input type="checkbox" id="brand-1">
-									<label for="brand-1">
-										<span></span>
-										Levis
-										<small>(578)</small>
+									<input type="checkbox" id ="{{toString}}">
+									<label for = "{{toString}}">
+										<span></span> {{toString}}
 									</label>
 								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-2">
-									<label for="brand-2">
-										<span></span>
-										Nike
-										<small>(125)</small>
-									</label>
-								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-3">
-									<label for="brand-3">
-										<span></span>
-										Adidas
-										<small>(755)</small>
-									</label>
-								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-4">
-									<label for="brand-4">
-										<span></span>
-										Carhartt
-										<small>(578)</small>
-									</label>
-								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-5">
-									<label for="brand-5">
-										<span></span>
-										 The Norht Face
-										<small>(125)</small>
-									</label>
-								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-6">
-									<label for="brand-6">
-										<span></span>
-										Dickies
-										<small>(755)</small>
-									</label>
-								</div>
+								{{/brands}}
 							</div>
 						</div>
 						<!-- /aside Widget -->
@@ -423,8 +254,8 @@
 								<label>
 									Ordenar Por:
 									<select class="input-select">
-										<option value="0">Nombre</option>
-										<option value="1">Precio</option>
+										<option value="Nombre" form ="/store/forName" selected>Nombre</option>
+										<option value="Precio" form ="/store/forPrice">Precio</option>
 									</select>
 								</label>
 							</div>
@@ -450,12 +281,21 @@
 										<div class="product-rating">
 										</div>
 										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">añadir a deseados</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+											<form action = "/index/addLikeIt" method = "post" enctype = "multipart/form-data">
+												<div class = "form-group">
+													<button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{id}}"></button>
+													</button>
+													<button style="border: 0px; background-color: white" class="fa fa-eye tooltipp"></button>
+												</div>
+											</form>
 										</div>
 									</div>
 									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+										<form action = "/index/addBasket" method = "post" enctype = "multipart/form-data">
+											<div class = "form-group">
+												<button class="add-to-cart-btn" name="id" type="submit" value="{{id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
+											</div>
+										</form>
 									</div>
 								</div>
 							</div>

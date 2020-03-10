@@ -1,24 +1,19 @@
 package com.swapitServer.user;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.swapitServer.MixService;
-import com.swapitServer.product.Product;
 import com.swapitServer.product.ProductService;
 import com.swapitServer.suggestion.SuggestionService;
-import com.swapitServer.transaction.Transaction;
 import com.swapitServer.transaction.TransactionService;
 
 @Controller
@@ -34,7 +29,7 @@ public class UserController {
 	private ProductService productService;
 	@Autowired
 	private SuggestionService suggestionService;
-	
+
 	@GetMapping("/log")
 	public String basicLog(Model model) {
 		return "log";
@@ -53,8 +48,24 @@ public class UserController {
 	public String addProductToLikeIt(Model model, @RequestParam long id, HttpServletRequest request){
 		mixService.addLikeIt(request, id);
 		model.addAttribute("user", userService.getUserInSesion(request));
-		
-		return "index";
+
+		return "/index";
+	}
+
+	@GetMapping("/basket")
+	public String basicBasket (Model model, HttpServletRequest request){
+		model.addAttribute("user", userService.getUserInSesion(request));
+		model.addAttribute("productsBasket", mixService.getProductsBasket(request));
+
+		return "basket";
+	}
+
+	@PostMapping("index/addBasket")
+	public String addProductToBasket(Model model, @RequestParam long id, HttpServletRequest request){
+		mixService.addBasket(request, id);
+		model.addAttribute("user", userService.getUserInSesion(request));
+
+		return "/index";
 	}
 	
 	@GetMapping("/profile")

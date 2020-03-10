@@ -48,14 +48,14 @@
             </ul>
             <ul class="header-links pull-right">
                 {{#user.login}}
-					<li><a><i class="fa fa-coins"></i> {{user.puntos}}</a></li>
-					<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
-					<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
-				{{/user.login}}
-				{{^user.login}}
-					<li><a><i class="fa fa-coins"></i> Puntos</a></li>
-					<li><a href="/profile"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
-				{{/user.login}}
+                <li><a><i class="fa fa-coins"></i> {{user.puntos}}</a></li>
+                <li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
+                <li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
+                {{/user.login}}
+                {{^user.login}}
+                <li><a><i class="fa fa-coins"></i> Puntos</a></li>
+                <li><a href="/profile"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
+                {{/user.login}}
             </ul>
         </div>
     </div>
@@ -171,23 +171,9 @@
         <div class="row">
             <!-- STORE -->
             <div id="store" class="col-md-12 text-center">
-                <!-- store top filter -->
-                <div class="store-filter clearfix">
-                    <div class="store-sort">
-                        <label>
-                            Ordenar Por:
-                            <select class="input-select">
-                                <option value="0">Nombre</option>
-                                <option value="1">Precio</option>
-                            </select>
-                        </label>
-                    </div>
-                </div>
-                <!-- /store top filter -->
-
                 <!-- store products -->
                 <div class="row">
-                    {{#productsLike}}
+                    {{#productsBasket}}
                     <!-- product -->
                     <div class="col-md-4 col-xs-6">
                         <div class="product">
@@ -199,20 +185,29 @@
                                 <p class="product-category">{{brand}}</p>
                                 <h3 class="product-name"><a href="#">{{name}}</a></h3>
                                 <h4 class="product-price"> {{price}} Swapers </h4>
-                                <div class="product-rating">
-                                </div>
                                 <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">añadir a deseados</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
+                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp"></span></button>
                                 </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+
                             </div>
                         </div>
                     </div>
                     <!-- /product -->
-                    {{/productsLike}}
+                    {{/productsBasket}}
+                </div>
+                <div class = "row">
+                    {{#user.login}}
+                    <div class="cart-summary">
+                        <small>Productos Seleccionados</small>
+                        <h5>SUBTOTAL: {{user.priceOfBasket}} Swapers</h5>
+                    </div>
+                    <div class="cart-btns">
+                        <a href="/checkout">Comprar<i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                    {{/user.login}}
+                    {{^user.login}}
+                    {{/user.login}}
                 </div>
                 <!-- /store products -->
                 <!-- button show more -->

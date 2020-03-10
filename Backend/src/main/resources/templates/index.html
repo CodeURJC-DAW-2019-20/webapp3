@@ -115,57 +115,17 @@
 
 								<!-- Cart -->
 								<div class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+									<a href  = "/basket">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Mi Cesta</span>
 										{{#user.login}}
-											<div class="qty">{{user.itemsILikeIt}}</div>
+											<div class="qty">{{user.itemsBasket}}</div>
+										{{/user.login}}
+										{{^user.login}}
 										{{/user.login}}
 									</a>
-									<div class="cart-dropdown">
-										<div class="cart-list">
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/camisapana.jpg" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">Camisa de Pana</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>299 Swapers</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/bandolera.jpg" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">Bandolera Geométrica</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>129 Swapers</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-										</div>
-										<div class="cart-summary">
-											<small>2 Productos Seleccionados</small>
-											<h5>SUBTOTAL: 429 Swapers</h5>
-										</div>
-										<div class="cart-btns">
-											<a href="/profile">Ver Cesta</a>
-											<a href="/checkout">Comprar  <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-									</div>
 								</div>
 								<!-- /Cart -->
-
-								<!-- Menu Toogle -->
-								<div class="menu-toggle">
-									<a href="#">
-										<i class="fa fa-bars"></i>
-										<span>Menu</span>
-									</a>
-								</div>
-								<!-- /Menu Toogle -->
 							</div>
 						</div>
 						<!-- /ACCOUNT -->
@@ -223,17 +183,20 @@
 												<h4 class="product-price">{{price}} Swapers </h4>
 												<div class="product-btns">
 													<form action = "/index/addLikeIt" method = "post" enctype = "multipart/form-data">
-														<div class = "form-group">
-															<button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{id}}"</button>
-															</button>
-															<button style="border: 0px; background-color: white" class="fa fa-eye tooltipp"></button>
-														</div>
+													<div class = "form-group">
+														<button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{id}}"></button>
+														</button>
+														<button style="border: 0px; background-color: white" class="fa fa-eye tooltipp"></button>
+													</div>
 													</form>
-
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir a la Cesta</button>
+												<form action = "/index/addBasket" method = "post" enctype = "multipart/form-data">
+													<div class = "form-group">
+														<button class="add-to-cart-btn" name="id" type="submit" value="{{id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
+													</div>
+												</form>
 											</div>
 										</div>
 										{{/product}}

@@ -37,7 +37,7 @@ public class DatabaseLoader {
 		//PRODUCTS
 		productRepository.save(new Product("Sudadera Capucha", "Multi", "Jersey", "PullAndBear", "M", "", "",  true,true));
         productRepository.save(new Product("Jersey Mostaza", "Mostaza", "Jersey", "Zara", "S", "", "",  true,true));
-        productRepository.save(new Product("Jersey Azul", "Azul", "Jersey", "Calvin Klein", "M", "", "",  true,true));
+        productRepository.save(new Product("Jersey Azul", "Azul", "Jersey", "CalvinKlein", "M", "", "",  true,true));
         productRepository.save(new Product("Jersey Burdeos", "Burdeos", "Jersey", "Zara", "M", "", "",  true,true));
         productRepository.save(new Product("Jersey Blanco", "Blanco", "Jersey", "HyM", "M", "", "",  true,true));
         productRepository.save(new Product("Jersey Gris", "Gris", "Jersey", "Primark", "M", "", "",  true,true));

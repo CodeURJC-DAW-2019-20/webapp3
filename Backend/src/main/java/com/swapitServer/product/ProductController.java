@@ -50,6 +50,10 @@ public class ProductController {
 
 	    model.addAttribute("user", userService.getUserInSesion(request));
 	    model.addAttribute("product", productService.getAllProductinStock());
+	    model.addAttribute("maxPrice", productService.getMaxPrice());
+		model.addAttribute("minPrice", productService.getMinPrice());
+		model.addAttribute("brands", productService.getAllBrands());
+		model.addAttribute("categorys", productService.getAllCategorys());
 
 		return "store";
 	}
