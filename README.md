@@ -2,12 +2,12 @@
 
 Our purpose is to create an APP web to sell second-hand clothes through a monetary change or virtual money to use in the same APP.
 
-## Begining 🚀
+## Begining ??
 
 If you want get a copy of our proyect to development and testing you will download the project in: https://github.com/CodeURJC-DAW-2019-20/webapp3.git
 
 
-### Pre-Requisites / Phase 0 📋
+### Pre-Requisites / Phase 0 ??
 
 The name of the App Web is Swap It!
 
@@ -17,7 +17,7 @@ We recommend the use of Brackets to change de code of the APP Web.
 
 The entities could be User Types and Second Entities.
 
-**User Types 👨‍💼👩‍💼**
+**User Types ??????????**
 
 
 * Admin User: Each of the managers of the App Web, responsible for the control of the proper functioning of the App.  A Registered User do a request to a Admin User to upload a product. If the admin check the request and all are ok, the product will upload.
@@ -28,7 +28,7 @@ The entities could be User Types and Second Entities.
 * Anonymous User: A person who can only see the published information in the App Web.
 
 
-**Second Entities 👕 💷 💰**
+**Second Entities ?? ?? ??**
 
 * Product: Our products are clothes and accessories which people can sell or/and buy in the App Web.
 
@@ -64,7 +64,7 @@ In this moment we don't use any complementary technology, but in the future we w
 
 We will use a Advanced Query Algorithm to recommend products to a customer based on their previous purchases.
 
-### Phase 1 📋
+### Phase 1 ??
 
 **Screenshots**
 
@@ -98,7 +98,7 @@ By last, the store page show a lot of products and filters to search a particula
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/img/Diagrama.png)
 
-### Phase 2 📋
+### Phase 2 ??
 
 **Navigation Screenshots**
 
@@ -154,10 +154,11 @@ By last, the store page show a lot of products and filters to search a particula
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama5.png)
 
-### Phase 3 📋
+### Phase 3 ??
+#### REST API documentation
+Document [Api documentation](API.md) with information about the REST API.
 
-
-### Installation 🔧
+### Installation ??
 
 If you want to execute the project you must open it with a browser.
 
@@ -166,24 +167,24 @@ Open index.HTML with a browser
 ```
 
 
-## Executing the tests ⚙️
+## Executing the tests ??
 
 To test the App Web you can try to interact with the elements of the APP Web. 
 
 
-## Built with 🛠️
+## Built with ???
 
 * [Brackets](http://brackets.io/) - The text editor that we used
 * [Trello](https://trello.com/b/7tXmEA17/daw) - To manager the task that we must do in this phase.
 
-## Versioned 📌
+## Versioned ??
 
 We use **HTML5** to design the format of the APP Web and **CSS3** to add styles. 
 
-## Authors ✒️
+## Authors ??
 
 
-* **Javier Barrio Martín** - *Programmer* - [Git Account](https://github.com/JaviBarrio6) - Mail: j.barrio.2016@alumnos.urjc.es
+* **Javier Barrio Mart�n** - *Programmer* - [Git Account](https://github.com/JaviBarrio6) - Mail: j.barrio.2016@alumnos.urjc.es
 * **Maria Gutierrez** - *Programmer* - [Git Account](https://github.com/Mariagt97) - Mail: m.gutierrezt.2016@alumnos.urjc.es
 * **Alejandro Aguilar** - *Programmer* - [Git Account](https://github.com/Aaguilarf) - Mail: a.aguilarf.2016@alumnos.urjc.es
 * **David Robles** - *Programmer* - [Git Account](https://github.com/davidrobl) - Mail: d.robles.2016@alumnos.urjc.es
@@ -192,7 +193,7 @@ We use **HTML5** to design the format of the APP Web and **CSS3** to add styles.
 
 If you check the list with all the contributors you will check [contributors](https://github.com/CodeURJC-DAW-2019-20/webapp3/graphs/contributors).
 
-## Licency 📄
+## Licency ??
 
 This project is down the licency [LICENSE.md](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/master/LICENSE) for details
 
