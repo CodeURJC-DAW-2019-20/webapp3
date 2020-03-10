@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  web:
+    build: davidrobl/prueba3:latest
+    entrypoint: ["java","-jar","swapit_server-0.0.1-SNAPSHOT.jar"]
+    
+    ports:
+      - 8443:8443
+   
+    environment:
+      SPRING_DATASOURCE_URL= jdbc:mysql://docker-mysql:3306/shop?autoReconnect=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME= root
+      SPRING_DATASOURCE_PASSWORD= pass
+    depends_on:
+      - mysqldb
+
+
+
+  mysqldb:
+    image: mysql:5.7
+    restart: ALWAYS
+    ports:
+      - 3306:3306
+
+    environment:
+      - MYSQL_DATABASE= shop
+      - MYSQL_ROOT_PASSWORD= pass
+      - MYSQL_USER= root
+      - MYSQL_PASSWORD= pass
