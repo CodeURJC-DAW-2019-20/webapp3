@@ -49,7 +49,7 @@ public class UserController {
 		mixService.addLikeIt(request, id);
 		model.addAttribute("user", userService.getUserInSesion(request));
 
-		return "/index";
+		return "redirect:/index";
 	}
 
 	@GetMapping("/basket")
@@ -65,7 +65,7 @@ public class UserController {
 		mixService.addBasket(request, id);
 		model.addAttribute("user", userService.getUserInSesion(request));
 
-		return "/index";
+		return "redirect:/index";
 	}
 	
 	@GetMapping("/profile")

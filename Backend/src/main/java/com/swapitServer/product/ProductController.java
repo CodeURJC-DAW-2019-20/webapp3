@@ -57,6 +57,54 @@ public class ProductController {
 
 		return "store";
 	}
+
+	@PostMapping("/store/filter")
+	public String basicStoreByFilter(Model model , HttpServletRequest request, String[] categorys, int minPrice, int maxPrice, String[] brands) {
+
+		model.addAttribute("user", userService.getUserInSesion(request));
+		model.addAttribute("product", productService.getProductinStockByFilter(categorys, minPrice, maxPrice, brands));
+		model.addAttribute("maxPrice", productService.getMaxPrice());
+		model.addAttribute("minPrice", productService.getMinPrice());
+		model.addAttribute("brands", productService.getAllBrands());
+		model.addAttribute("categorys", productService.getAllCategorys());
+
+		return "store";
+	}
+
+	@GetMapping("/store/orderByName")
+	public String basicStoreOrderByName(Model model , HttpServletRequest request) {
+
+		model.addAttribute("user", userService.getUserInSesion(request));
+
+		ArrayList<Product> productsInStock = (ArrayList<Product>) productService.getAllProductinStock();
+		productsInStock.sort(new CompareProductsByName());
+
+		model.addAttribute("product", productsInStock);
+
+		model.addAttribute("maxPrice", productService.getMaxPrice());
+		model.addAttribute("minPrice", productService.getMinPrice());
+		model.addAttribute("brands", productService.getAllBrands());
+		model.addAttribute("categorys", productService.getAllCategorys());
+
+		return "store";
+	}
+
+	@GetMapping("/store/orderByPrice")
+	public String basicStoreOrderByPrice(Model model , HttpServletRequest request) {
+
+		model.addAttribute("user", userService.getUserInSesion(request));
+
+		ArrayList<Product> productsInStock = (ArrayList<Product>) productService.getAllProductinStock();
+		productsInStock.sort(new CompareProductsByPrice());
+
+		model.addAttribute("product", productsInStock);
+		model.addAttribute("maxPrice", productService.getMaxPrice());
+		model.addAttribute("minPrice", productService.getMinPrice());
+		model.addAttribute("brands", productService.getAllBrands());
+		model.addAttribute("categorys", productService.getAllCategorys());
+
+		return "store";
+	}
 	
 	@PostMapping("/profile/loadProduct")
 	public String register(Model model, HttpServletRequest request, @RequestParam String name, String color, String category, String brand, String size, String description, String detail, MultipartFile imagenFile) throws IOException {

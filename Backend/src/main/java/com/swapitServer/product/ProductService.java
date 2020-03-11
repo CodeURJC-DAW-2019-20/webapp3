@@ -42,6 +42,33 @@ public class ProductService {
 			auxList.sort(new CompareProductsByName());
 		return auxList;
 	}
+
+	public List<Product> getProductinStockByFilter(String[] categorys, int minPrice, int maxPrice, String[] brands){
+		// Cambiar por una Busqueda SQL que devuelva la lista filtrada
+		List<Product> products = productRepository.findAll();
+		List<Product> auxList = new ArrayList<Product>();
+
+		if (categorys == null){
+			categorys = fillCategorys();
+		}
+
+		if (brands == null){
+			brands = fillBrands();
+		}
+
+		for(Product aux: products) {
+			for (int i = 0; i < categorys.length; i++) {
+				for (int j = 0; j < brands.length; j++) {
+					if (aux.getInStock() && aux.getVerify() && (aux.getCategory().equals(categorys[i])) && (aux.getBrand().equals(brands[j])) && (aux.getPrice() >= minPrice) && (aux.getPrice() <= maxPrice)){
+						auxList.add(aux);
+					}
+				}
+			}
+		}
+
+		auxList.sort(new CompareProductsByName());
+		return auxList;
+	}
 	
 	public List<Product> getAllProductinPreStock(){
 		// Cambiar por una Busqueda SQL que devuelva la lista filtrada
@@ -78,7 +105,7 @@ public class ProductService {
 		productRepository.deleteById(Long.parseLong(id));
 	}
 
-	public float getMaxPrice (){
+	public int getMaxPrice (){
 		float price = 0;
 
 		for (Product product: getAllProductinStock()){
@@ -86,10 +113,12 @@ public class ProductService {
 				price = product.getPrice();
 			}
 		}
-		return price;
+		int priceAux = (int) price;
+
+		return priceAux;
 	}
 
-	public float getMinPrice (){
+	public int getMinPrice (){
 		float price = Float.MAX_VALUE;
 
 		for (Product product: getAllProductinStock()){
@@ -97,7 +126,10 @@ public class ProductService {
 				price = product.getPrice();
 			}
 		}
-		return price;
+
+		int priceAux = (int) price;
+
+		return priceAux;
 	}
 
 	public HashSet<String> getAllBrands (){
@@ -118,6 +150,35 @@ public class ProductService {
 		return categorys;
 	}
 	
-	
+	public String[] fillCategorys (){
+		String[] categorys = new String[11];
+
+		categorys[0] = "Abrigo";
+		categorys[1] = "Accesorio";
+		categorys[2] = "Bota";
+		categorys[3] = "Camisa";
+		categorys[4] = "Camiseta";
+		categorys[5] = "Chaqueta";
+		categorys[6] = "Falda";
+		categorys[7] = "Jersey";
+		categorys[8] = "Vaquero";
+		categorys[9] = "Zapatilla";
+		categorys[10] = "Zapato";
+
+		return categorys;
+	}
+
+	public String[] fillBrands (){
+		HashSet<String> allBrands = getAllBrands();
+		String[] newBrands = new String[allBrands.size()];
+		int i = 0;
+
+		for (String brand: allBrands){
+			newBrands[i] = brand;
+			i++;
+		}
+
+		return newBrands;
+	}
 
 }

@@ -188,6 +188,7 @@
 				<div class="row">
 					<!-- ASIDE -->
 					<div id="aside" class="col-md-3">
+						<form action ="/store/filter" method="post" enctype = "multipart/form-data">
 						<!-- aside Widget -->
 						<div class="aside">
 							<h3 class="aside-title">Categorias</h3>
@@ -195,7 +196,7 @@
 
 								{{#categorys}}
 								<div class="input-checkbox">
-									<input type="checkbox" id="{{toString}}">
+									<input type="checkbox" id="{{toString}}" value="{{toString}}" name ="categorys">
 									<label for="{{toString}}">
 										<span></span>
 										{{toString}}
@@ -212,13 +213,13 @@
 							<div class="price-filter">
 								<div id="price-slider"></div>
 								<div class="input-number price-min">
-									<input value="{{minPrice}}" type="number">
+									<input value="{{minPrice}}" type="number" name="minPrice">
 									<span class="qty-up">+</span>
 									<span class="qty-down">-</span>
 								</div>
 								<span>-</span>
 								<div class="input-number price-max">
-									<input value="{{maxPrice}}" type="number">
+									<input value="{{maxPrice}}" type="number" name="maxPrice">
 									<span class="qty-up">+</span>
 									<span class="qty-down">-</span>
 								</div>
@@ -232,7 +233,7 @@
 							<div class="checkbox-filter">
 								{{#brands}}
 								<div class="input-checkbox">
-									<input type="checkbox" id ="{{toString}}">
+									<input type="checkbox" id ="{{toString}}" value="{{toString}}" name="brands">
 									<label for = "{{toString}}">
 										<span></span> {{toString}}
 									</label>
@@ -242,7 +243,14 @@
 						</div>
 						<!-- /aside Widget -->
 
-
+						<!-- Filter -->
+						<div class = "product">
+							<div class ="mostrarMas">
+								<button class="mostrarMas-btn" type ="submit"><i class="fa fa-plus-circle"></i>Filtrar</button>
+							</div>
+						</div>
+						<!-- /Filter -->
+						</form>
 					</div>
 					<!-- /ASIDE -->
 
@@ -253,13 +261,12 @@
 							<div class="store-sort">
 								<label>
 									Ordenar Por:
-									<select class="input-select">
-										<option value="Nombre" form ="/store/forName" selected>Nombre</option>
-										<option value="Precio" form ="/store/forPrice">Precio</option>
-									</select>
+									<form action ="/store" method="get" enctype= "multipart/form-data">
+										<button class="input-select" formaction ="/store/orderByName" type="submit">Nombre</button>
+										<button class="input-select" formaction ="/store/orderByPrice" formmethod="get" formenctype= "multipart/form-data" type="submit">Precio</button>
+									</form>
 								</label>
 							</div>
-							
 						</div>
 						<!-- /store top filter -->
 
