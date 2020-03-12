@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -92,6 +94,9 @@ public class UserRestController {
 			return new ResponseEntity<>(userService.getAllUser(),HttpStatus.OK);
 
 	}
-	
+	@RequestMapping(value="/all/page", method=RequestMethod.GET)
+	public ResponseEntity<UserPage> readAllUserPage(Pageable page) {	
+		return new ResponseEntity<>(userService.getAllUser(page),HttpStatus.OK);
+	}
 	
 }

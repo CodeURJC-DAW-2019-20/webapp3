@@ -3,6 +3,8 @@ package com.swapitServer.suggestion;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,6 +43,11 @@ public class SuggestionRestController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ResponseEntity<List<Suggestion>> readAllSuggestion() {				
 			return new ResponseEntity<>(suggestionService.getAllSuggestion(),HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value="/page", method=RequestMethod.GET)
+	public ResponseEntity<Page<Suggestion>> readAllSuggestion(Pageable page) {				
+			return new ResponseEntity<>(suggestionService.getAllSuggestion(page),HttpStatus.CREATED);
 	}
 	
 

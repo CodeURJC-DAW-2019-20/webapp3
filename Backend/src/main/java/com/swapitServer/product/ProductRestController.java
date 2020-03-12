@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -69,10 +72,18 @@ public class ProductRestController {
 	@RequestMapping(value="/stock", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> readAllStockProducts() {			
 			return new ResponseEntity<>(productService.getAllProductinStock(),HttpStatus.OK);
+	}	
+	@RequestMapping(value="/stock/page", method=RequestMethod.GET)
+	public ResponseEntity<Page<Product>> readAllStockProductsPage(Pageable page) {	
+		return new ResponseEntity<>(productService.getAllProductinStock(page),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/prestock", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> readAllPreStockProducts() {			
 			return new ResponseEntity<>(productService.getAllProductinPreStock(),HttpStatus.OK);
+	}
+	@RequestMapping(value="/prestock/page", method=RequestMethod.GET)
+	public ResponseEntity<Page<Product>> readAllPreStockProductsPage(Pageable page) {	
+		return new ResponseEntity<>(productService.getAllProductinPreStock(page),HttpStatus.OK);
 	}
 }

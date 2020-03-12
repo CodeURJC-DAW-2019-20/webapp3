@@ -3,6 +3,8 @@ package com.swapitServer.suggestion;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,6 +26,9 @@ public class SuggestionService {
 	
 	public List<Suggestion> getAllSuggestion(){
 		return suggestionRepository.findAll();
+	}
+	public Page<Suggestion> getAllSuggestion(Pageable page){
+		return suggestionRepository.findAll(page);
 	}
 }	
 

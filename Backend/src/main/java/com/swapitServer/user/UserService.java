@@ -1,10 +1,13 @@
 package com.swapitServer.user;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Component;
 import com.swapitServer.mail.*;
@@ -30,11 +33,16 @@ public class UserService {
 		return user;
 	}
 	
-	public List<User> getAllUser(){
-
-		return clearAllPassword(userRepository.findAll());
-		
+	
+	
+	public List<User> getAllUser(){	
+		return clearAllPassword(userRepository.findAll());		
 	}
+	public UserPage getAllUser(Pageable page){	
+		return clearAllPassword(userRepository.findAll(page));		
+	}
+	
+	
 	/*public void registerUser(User user , String url) {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setTo(user.getEmail());
@@ -82,4 +90,13 @@ public class UserService {
 			userList.set(userList.indexOf(user), clearPassword(user));
 		return userList;		
 	}
+	public UserPage clearAllPassword(Page<User> page ){
+		List<User> userList=page.getContent();
+		List<User> aux = new ArrayList();
+		for (User user : userList)
+			//userList.set(userList.indexOf(user), clearPassword(user));
+			aux.add(clearPassword(user));
+		return new UserPage(page, aux);				 		
+	}
+	
 }

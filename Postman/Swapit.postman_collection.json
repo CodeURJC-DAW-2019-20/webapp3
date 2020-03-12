@@ -381,6 +381,62 @@
 						"description": "Modifica los datos de un usuario"
 					},
 					"response": []
+				},
+				{
+					"name": "UserRequest : Leer Todos page",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminpass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/user/all",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"user",
+								"all"
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -635,6 +691,53 @@
 					"response": []
 				},
 				{
+					"name": "ProductRequest : Leer PreStock Page",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/?id=4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
 					"name": "ProductRequest : Validar",
 					"request": {
 						"auth": {
@@ -699,6 +802,21 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminpass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -728,6 +846,53 @@
 								"api",
 								"product",
 								"prestock"
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "ProductRequest : Leer Stock Page",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/?id=4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
 							]
 						},
 						"description": "Modifica los datos de un usuario"
@@ -871,6 +1036,62 @@
 								"api",
 								"suggestion",
 								""
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Suggestion Request : Leer Todos page",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminpass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/suggestion/page",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"suggestion",
+								"page"
 							]
 						},
 						"description": "Modifica los datos de un usuario"

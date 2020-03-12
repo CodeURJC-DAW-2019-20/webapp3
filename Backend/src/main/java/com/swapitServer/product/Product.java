@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.persistence.*;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -17,7 +18,7 @@ import java.io.*;
 @Entity
 @Component
 @RequestScope
-public class Product {
+public class Product extends Pageable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

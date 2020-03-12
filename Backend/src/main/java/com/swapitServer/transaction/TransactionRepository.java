@@ -2,9 +2,10 @@ package com.swapitServer.transaction;
 
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TransactionRepository extends CrudRepository<Transaction, Long> {
+
+public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
 	List<Transaction> findByUserId(long userId);
 	List<Transaction> findByProductId(long productId);

@@ -27,6 +27,7 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		// UserREST URLs that need authentication to access to it
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/user/").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/user/all").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/user/all/page").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/user/addLikeIt").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/user/update").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/user/update").hasRole("ADMIN");		
@@ -36,9 +37,11 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/product/modify").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/product/modify").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/product/prestock").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/product/prestock/page").hasRole("ADMIN");
 		
 		// SuggestionREST URLs that need authentication to access to it
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/suggestion/").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/suggestion/page").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/suggestion/").hasRole("ADMIN");
 		
 		// TransactionREST URLs that need authentication to access to it
