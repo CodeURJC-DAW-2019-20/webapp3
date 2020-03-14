@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.swapitServer.MixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,8 @@ public class ProductController {
 	@Autowired
 	private UserService userService;
 	@Autowired
+	private MixService mixService;
+	@Autowired
 	private ProductService productService;
 	@Autowired
 	private TransactionService transactionService;
@@ -33,15 +36,18 @@ public class ProductController {
 	
 	@GetMapping("/checkout")
 	public String basicCheckout(Model model , HttpServletRequest request) {
-		
 		model.addAttribute("user", userService.getUserInSesion(request));
+		model.addAttribute("productsBasket", mixService.getProductsBasket(request));
 		return "checkout";
 	}
-	
+
 	@GetMapping("/product")
-	public String basicProduct(Model model, HttpServletRequest request) {
-		
+	public String IndexProduct(Model model, HttpServletRequest request, long id) {
+
 		model.addAttribute("user", userService.getUserInSesion(request));
+		model.addAttribute("SpecificProduct", productService.getProductById(id));
+		model.addAttribute("relatedProducts", productService.getAllProductinStockByBrandAndCategory(id, productService.getProductById(id).getBrand(), productService.getProductById(id).getCategory()));
+
 		return "product";
 	}
 	
@@ -128,12 +134,12 @@ public class ProductController {
 	}
 	
 	@PostMapping("/profile/validateProduct")
-	public String cheksproduct(Model model, HttpServletRequest request, @RequestParam String id, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
+	public String cheksproduct(Model model, HttpServletRequest request, @RequestParam long id, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
 	
 		if (action.equals("Aceptar"))
 			productService.validateProduct(id, name, color, category, brand, size, description, detail);
 		else
-			productService.deleteProduct(id);
+			productService.deleteProduct((long) id);
 		
 		String[] auxTransactions = transactionService.getAllTransactionsFromUser(request);		
 		model.addAttribute("buyDates", auxTransactions[0]);
@@ -153,12 +159,12 @@ public class ProductController {
 	}
 	
 	@PostMapping("/profile/modifyproduct")
-	public String modifyproduct(Model model, HttpServletRequest request, @RequestParam String id, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
+	public String modifyproduct(Model model, HttpServletRequest request, @RequestParam long id, String name, String color, String category, String brand, String size, String description, String detail ,String action) {
 		
 		if (action.equals("Modificar"))
 			productService.modifyProduct(id, name, color, category, brand, size, description, detail);
 		else
-			productService.deleteProduct(id);
+			productService.deleteProduct((long) id);
 		
 		
 		String[] auxTransactions = transactionService.getAllTransactionsFromUser(request);		

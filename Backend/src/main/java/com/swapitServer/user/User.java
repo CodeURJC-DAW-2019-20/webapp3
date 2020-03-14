@@ -36,7 +36,7 @@ public class User {
 	 private String country;
 	 private String cp;
 	 private String phone;
-	 private Integer puntos;
+	 private float balance;
 	 private Boolean emailVerified;
 	 private Boolean login;
      
@@ -54,7 +54,7 @@ public class User {
 	public User() {
 	}
 
-	public User(String name, String password, String lastname, String email, String address ,String city , String country , String cp ,String phone, Integer puntos, Boolean Verified, String... roles) {
+	public User(String name, String password, String lastname, String email, String address ,String city , String country , String cp ,String phone, Integer balance, Boolean Verified, String... roles) {
 		this.name = name;
 		this.lastname=lastname;
 		this.email=email;
@@ -65,7 +65,7 @@ public class User {
 		this.phone=phone;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
-		this.puntos=puntos;
+		this.balance=balance;
 		this.login=false;
 		this.emailVerified=Verified;
 
@@ -115,8 +115,8 @@ public class User {
 		this.phone = phone;
 	}
 
-	public void setPuntos(Integer puntos) {
-		this.puntos = puntos;
+	public void setBalance(float balance) {
+		this.balance = balance;
 	}
 
 	public void setLogin(Boolean login) {
@@ -150,7 +150,7 @@ public class User {
 
 	//Getters
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 	
 	public String getName() {
@@ -193,8 +193,8 @@ public class User {
 		return phone;
 	}
 
-	public Integer getPuntos() {
-		return puntos;
+	public float getBalance() {
+		return this.balance;
 	}
 
 	public Boolean getLogin() {
@@ -242,6 +242,10 @@ public class User {
 			setCp(cp);
 		if(phone != "")
 			setPhone(phone);
+	}
+
+	public void emptyProductsBasket (){
+		this.productsBasket = new ArrayList<>();
 	}
 
 

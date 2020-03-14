@@ -32,7 +32,7 @@ public class DatabaseLoader {
     private void initDatabase() throws IOException {
     	// USER
     	userRepository.save(new User("admin", "adminpass","admin lastname","admin@swapit","C/ Sierra 52","Mostoles","España","28358","699256710", 999999, true,  "ROLE_USER",  "ROLE_ADMIN"));
-    	userRepository.save(new User("user", "pass","user lastname","user@swapit","C/ Buenavista 5","Mostoles","España","28358","619865541", 100, true, "ROLE_USER"));
+    	userRepository.save(new User("user", "pass","user lastname","user@swapit","C/ Buenavista 5","Mostoles","España","28358","619865541", 10000, true, "ROLE_USER"));
 		
 		//PRODUCTS
 		productRepository.save(new Product("Sudadera Capucha", "Multi", "Jersey", "PullAndBear", "M", "", "",  true,true));

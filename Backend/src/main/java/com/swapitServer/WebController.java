@@ -1,5 +1,6 @@
 package com.swapitServer;
 
+import com.swapitServer.product.ProductController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,8 @@ public class WebController {
     private ProductService productService;
     @Autowired
 	private MixService mixService;
+    @Autowired
+	private ProductController productController = new ProductController();
 	
 	
 	@GetMapping("/")
@@ -55,7 +58,6 @@ public class WebController {
 		return "index";
 	}
 
-	
 	@PostMapping("/{id}/imagen")
 	public ResponseEntity<Product> newImageProduct (@PathVariable long id, @RequestParam MultipartFile imagenFile) throws IOException {		
 		return mixService.newProductImagen(imagenFile, id);
@@ -70,7 +72,7 @@ public class WebController {
 	@GetMapping ("/product/{id}")
     public String verProducto(Model model, @PathVariable long id){
 
-	    Product product=productService.getProductById(id);
+	    Product product = productService.getProductById(id);
 	    if (product != null){
 	        model.addAttribute("producto", product);
         }

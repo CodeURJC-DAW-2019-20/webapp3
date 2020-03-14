@@ -4,27 +4,38 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 
-import com.swapitServer.Brand.Brand;
+import com.swapitServer.transaction.Transaction;
+import com.swapitServer.user.User;
+import com.swapitServer.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.swapitServer.ImageService;
-import com.swapitServer.product.*;
 
 @Component
 public class ProductService {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	@Autowired
+	private UserRepository userRepository;
     @Autowired
 	private ImageService imageService;
 	
 	public Product getProductById(Long id) {
-		Object product =  productRepository.findById(id);
-		return (Product)product; 
+		List<Product> products =  productRepository.findAll();
+		Product productAux = new Product();
+		while (productAux.getName() == ""){
+			for (Product product: products){
+				if (product.getId() == id){
+					productAux = product;
+				}
+			}
+		}
+
+		return productAux;
 	}
 	
 	public void saveProduct(Product product) {
@@ -40,6 +51,18 @@ public class ProductService {
 				auxList.add(aux);
 
 			auxList.sort(new CompareProductsByName());
+		return auxList;
+	}
+
+	public List<Product> getAllProductinStockByBrandAndCategory(long id, String brand, String category){
+		// Cambiar por una Busqueda SQL que devuelva la lista filtrada
+		List<Product> products = productRepository.findAll();
+		List<Product> auxList = new ArrayList<Product>();
+		for(Product aux: products)
+			if(aux.getInStock() && aux.getVerify() && aux.getBrand().equals(brand) && aux.getCategory().equals(category) && aux.getId() != id)
+				auxList.add(aux);
+
+		auxList.sort(new CompareProductsByName());
 		return auxList;
 	}
 
@@ -88,21 +111,21 @@ public class ProductService {
 		imageService.saveImage("products", product.getId(), imagenFile);
 	}
 	
-	public void validateProduct(String id, String name, String color, String category, String brand, String size, String description, String detail) {
-		Product auxProduct = productRepository.findById(Long.parseLong(id));
+	public void validateProduct(long id, String name, String color, String category, String brand, String size, String description, String detail) {
+		Product auxProduct = productRepository.findById(id);
 		auxProduct.updateProductData(name, color, category, brand, size, description, detail);
 		auxProduct.setVerify(true);
 		productRepository.save(auxProduct);
 	}
 	
-	public void modifyProduct(String id, String name, String color, String category, String brand, String size, String description, String detail){
-		Product auxProduct = productRepository.findById(Long.parseLong(id));
+	public void modifyProduct(long id, String name, String color, String category, String brand, String size, String description, String detail){
+		Product auxProduct = productRepository.findById((id));
 		auxProduct.updateProductData(name, color, category, brand, size, description, detail);
 		productRepository.save(auxProduct);
 	}
 	
-	public void deleteProduct(String id) {
-		productRepository.deleteById(Long.parseLong(id));
+	public void deleteProduct(long id) {
+		productRepository.deleteById(id);
 	}
 
 	public int getMaxPrice (){
@@ -180,5 +203,4 @@ public class ProductService {
 
 		return newBrands;
 	}
-
 }

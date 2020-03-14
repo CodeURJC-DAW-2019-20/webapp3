@@ -34,6 +34,12 @@ public class MixService {
 	public List<Product> getProductsBasket(HttpServletRequest request){
 		return userRepository.findByName(request.getUserPrincipal().getName()).getProductsBasket();
 	}
+
+	public List<Product> deleteProductsBasket(HttpServletRequest request){
+		userRepository.findByName(request.getUserPrincipal().getName()).getProductsBasket().clear();
+
+		return new ArrayList<>();
+	}
 	
 	public void addLikeIt(HttpServletRequest request, long idProduct) {
 		User auxUser = userRepository.findByName(request.getUserPrincipal().getName());

@@ -46,7 +46,14 @@ public class UserService {
 			userRepository.save(auxUser);
 		
 	}
-	
+
+	public void emptyProductsBasket (String name){
+		User auxUser = userRepository.findByName(name);
+		auxUser.emptyProductsBasket();
+		auxUser.getNumberOfitemsBasket();
+		userRepository.save(auxUser);
+	}
+
 	public void deleteUser(String name) {
 		userRepository.delete(userRepository.findByName(name));
 	}

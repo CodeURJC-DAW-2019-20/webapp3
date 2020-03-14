@@ -44,7 +44,7 @@
         </ul>
         <ul class="header-links pull-right">
           {{#user.login}}
-			<li><a><i class="fa fa-coins"></i> {{user.puntos}}</a></li>
+			<li><a><i class="fa fa-coins"></i> {{user.balance}}</a></li>
 			<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
 			<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
 		{{/user.login}}
@@ -73,30 +73,16 @@
           </div>
           <!-- /LOGO -->
 
-          <!-- SEARCH BAR -->
-          <div class="col-md-6">
-            <div class="header-search">
-              <form>
-                <select class="input-select">
-                  <option value="0">Categorias</option>
-                  <option value="1">Abrigos</option>
-                  <option value="2">Accesorios</option>
-                  <option value="3">Botas</option>
-                  <option value="5">Camisas</option>
-                  <option value="6">Camisetas</option>
-                  <option value="7">Chaquetas</option>
-                  <option value="8">Faldas</option>
-                  <option value="9">Jerseys</option>
-                  <option value="10">Vaqueros</option>
-                  <option value="11">Zapatillas</option>
-                  <option value="12">Zapatos</option>
-                </select>
-                <input class="input" placeholder="Buscar">
-                <button class="search-btn"><a href = "/store">Buscar</a></button>
-              </form>
+            <!-- SEARCH BAR -->
+            <div class="col-md-6 text-center">
+                <div class="header-search">
+                    <form>
+                        <button class = "input-select"><a href = "/Index">Inicio</a></button>
+                        <button class = "search-btn"><a href = "/store">Catálogo</a></button>
+                    </form>
+                </div>
             </div>
-          </div>
-          <!-- /SEARCH BAR -->
+            <!-- /SEARCH BAR -->
 
           <!-- ACCOUNT -->
           <div class="col-md-3 clearfix">

@@ -48,7 +48,7 @@
 					</ul>
 					<ul class="header-links pull-right">
 						{{#user.login}}
-							<li><a><i class="fa fa-coins"></i> {{user.puntos}}</a></li>
+							<li><a><i class="fa fa-coins"></i> {{user.balance}}</a></li>
 							<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
 							<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
 						{{/user.login}}
@@ -78,25 +78,11 @@
 						<!-- /LOGO -->
 
 						<!-- SEARCH BAR -->
-						<div class="col-md-6">
+						<div class="col-md-6 text-center">
 							<div class="header-search">
 								<form>
-									<select class="input-select">
-										<option value="0">Categorias</option>
-										<option value="1">Abrigos</option>
-										<option value="2">Accesorios</option>
-										<option value="3">Botas</option>
-										<option value="5">Camisas</option>
-										<option value="6">Camisetas</option>
-										<option value="7">Chaquetas</option>
-										<option value="8">Faldas</option>
-										<option value="9">Jerseys</option>
-										<option value="10">Vaqueros</option>
-										<option value="11">Zapatillas</option>
-										<option value="12">Zapatos</option>
-									</select>
-									<input class="input" placeholder="Buscar">
-                                    <button class="search-btn"><a href = "/store">Buscar</a></button>
+									<button class = "input-select"><a href = "/Index">Inicio</a></button>
+									<button class = "search-btn"><a href = "/store">Catálogo</a></button>
 								</form>
 							</div>
 						</div>
@@ -170,10 +156,6 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h3 class="breadcrumb-header">Checkout</h3>
-						<ul class="breadcrumb-tree">
-							<li><a href="/index">Home</a></li>
-							<li class="active">Checkout</li>
-						</ul>
 					</div>
 				</div>
 				<!-- /row -->
@@ -195,30 +177,32 @@
 							<div class="section-title">
 								<h3 class="title">Dirección de envío</h3>
 							</div>
+							{{#user.login}}
 							<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="Nombre">
+								<input class="input" type="text" name="first-name" value={{user.name}}>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Apellido">
+								<input class="input" type="text" name="last-name" placeholder="{{user.lastname}}">
 							</div>
 							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="email" name="email" placeholder="{{user.email}}">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Dirección">
+								<input class="input" type="text" name="address" placeholder="{{user.address}}">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="Ciudad">
+								<input class="input" type="text" name="city" placeholder="{{user.city}}">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="País">
+								<input class="input" type="text" name="country" placeholder="{{user.country}}">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="Código Postal">
+								<input class="input" type="text" name="zip-code" placeholder="{{user.cp}}">
 							</div>
 							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Teléfono">
+								<input class="input" type="tel" name="tel" placeholder="{{user.phone}}">
 							</div>
+							{{/user.login}}
 						</div>
 						<!-- /Billing Details -->
 
@@ -274,34 +258,33 @@
 								<div><strong>PRODUCTO</strong></div>
 								<div><strong>TOTAL</strong></div>
 							</div>
+							{{#productsBasket}}
 							<div class="order-products">
 								<div class="order-col">
-									<div>1x Camisa de Pana</div>
-									<div>299.0 Swapers</div>
+									<div>1x {{name}}</div>
+									<div>{{price}} Swapers</div>
 								</div>
-								<div class="order-col">
-									<div>1x Bandolera Geométrica</div>
-									<div>129.0 Swapers</div>
-								</div>
+
 							</div>
+							{{/productsBasket}}
 							<div class="order-col">
 								<div>Envío</div>
 								<div><strong>Gratuito</strong></div>
 							</div>
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">429.0 Swapers</strong></div>
+								{{#user.login}}
+								<div><strong class="order-total">{{user.priceOfBasket}} Swapers</strong></div>
+								{{/user.login}}
 							</div>
 						</div>
-						
-						<div class="input-checkbox">
-							<input type="checkbox" id="terms">
-							<label for="terms">
-								<span></span>
-								He leído y acepto los <a href="#">términos y condiciones</a>
-							</label>
+						<div class = "form-group">
+							<form style = "display: inline-block"; action = "/checkout/transaction" method = "post" enctype = "multipart/form-data">
+								{{#user.login}}
+								<button class="primary-btn order-submit" type = "submit" value = "{{user.id}}">Realizar pedido</button>
+								{{/user.login}}
+							</form>
 						</div>
-						<a href="#" class="primary-btn order-submit">Realizar pedido</a>
 					</div>
 					<!-- /Order Details -->
 				</div>
@@ -416,15 +399,6 @@
 					<!-- row -->
 					<div class="row">
 						<div class="col-md-12 text-center">
-						<!--	<ul class="footer-payments">
-								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-							</ul>
-						-->
 							<span class="copyright">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados. Esta pagina ha sido desarrollada por el equipo de Swap It! <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>

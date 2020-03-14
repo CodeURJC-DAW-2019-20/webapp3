@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.swapitServer.MixService;
+import com.swapitServer.product.Product;
+import com.swapitServer.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.swapitServer.user.*;
@@ -14,6 +17,13 @@ public class TransactionService {
 	
 	@Autowired
 	TransactionRepository transactionRepository;
+
+	@Autowired
+	ProductService productService;
+
+	@Autowired
+	MixService mixService;
+
 	@Autowired
 	UserRepository userRepository;
 	
@@ -65,5 +75,26 @@ public class TransactionService {
 		auxTransactions[3]=sellValues.toString();
 		
 		return auxTransactions;
+	}
+
+	public void registerTransaction (String type, Long userId, Long productId){
+		transactionRepository.save(new Transaction(type, userId, productId));
+	}
+
+	public boolean payTransaction (long id, List<Product> productsBasket){
+		User user = userRepository.findById(id);
+		List<Product> products = productsBasket;
+
+		if (user.getBalance() > user.getPriceOfBasket()){
+			for (Product product: products){
+				user.setBalance(user.getBalance() - user.getPriceOfBasket());
+				registerTransaction("BUY", id, product.getId());
+				product.setInStock(false);
+			}
+
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
