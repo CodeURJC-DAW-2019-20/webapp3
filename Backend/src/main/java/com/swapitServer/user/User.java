@@ -49,8 +49,8 @@ public class User {
 	 @OneToMany
 	 private List<Product> productsBasket;
 
-	// private int itemsILikeIt;
-	// private int itemsBasket;
+	 private int itemsILikeIt;
+	 private int itemsBasket;
 
 	 //Constructors
 	public User() {
@@ -72,6 +72,8 @@ public class User {
 		this.emailVerified=Verified;
 		this.LikekIts = null;
 		this.productsBasket = null;
+		this.itemsILikeIt=0;
+		this.itemsBasket=0;
 		
 	}
 	
@@ -218,6 +220,22 @@ public class User {
 	
 	public void setLikeit(Product product) {
 		this.LikekIts.add(product);
+	}
+
+	public int getItemsBasket() {
+		return itemsBasket;
+	}
+
+	public void setItemsBasket(int itemsBasket) {
+		this.itemsBasket = itemsBasket;
+	}
+
+	public int getItemsILikeIt() {
+		return itemsILikeIt;
+	}
+
+	public void setItemsILikeIt(int itemsILikeIt) {
+		this.itemsILikeIt = itemsILikeIt;
 	}
 	
 

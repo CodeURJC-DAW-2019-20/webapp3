@@ -70,7 +70,7 @@ public class Product extends Pageable {
 		this.setInStock(false);
 	}
 
-	public Product (String name, String color, String category, String brand, String size, String description, String detail, Boolean verify, Boolean inStock) {
+	public Product (String name, String color, String category, String brand, String size, String description, String detail, Boolean verify, Boolean inStock ,Boolean hasImage) {
 		super ();
 	    this.setName(name);
 		this.setColor(color);
@@ -82,6 +82,7 @@ public class Product extends Pageable {
 		this.setDetail(detail);
 		this.setVerify(verify);
 		this.setInStock(inStock);
+		this.setHasImage(hasImage);
 	}
 
     public Product (String name, String color, String category, String brand, String size, String description, String detail, Boolean verify,Boolean inStock, String imageURL) throws IOException {
@@ -97,6 +98,7 @@ public class Product extends Pageable {
         this.setVerify(verify);
         this.setImage(imageURL);
         this.setInStock(inStock);
+        this.setHasImage(true);
     }
 
 	//Setters
@@ -188,7 +190,7 @@ public class Product extends Pageable {
 	}
 	//Functions
 
-	public boolean hasImage () {
+	public Boolean hasImage () {
 		return this.hasImage;
 	}
 

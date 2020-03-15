@@ -50,10 +50,15 @@ public class ProductService<T> {
 	
 	
 	public void saveNewProduct(String name, String color, String category, String brand, String size, String description, String detail, MultipartFile imagenFile) throws IOException {
-		Product	product = new Product(name, color, category, brand, size, description, detail, false,true);
+		Product	product = new Product(name, color, category, brand, size, description, detail, false,true,false);
 		product.setHasImage(true);
 		productRepository.save(product);
 		imageService.saveImage("products", product.getId(), imagenFile);
+	}	
+	public void saveNewProduct(String name, String color, String category, String brand, String size, String description, String detail){
+		Product	product = new Product(name, color, category, brand, size, description, detail, false,true,false);
+		product.setHasImage(true);
+		productRepository.save(product);
 	}
 	
 	public void validateProduct(long id, String name, String color, String category, String brand, String size, String description, String detail) {

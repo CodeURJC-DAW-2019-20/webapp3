@@ -33,6 +33,8 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/user/update").hasRole("ADMIN");		
 		
 		// ProductREST URLs that need authentication to access to it
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/product/load").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/product/{id}/imagen").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/product/validate").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/product/modify").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/product/modify").hasRole("ADMIN");

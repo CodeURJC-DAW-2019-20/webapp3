@@ -35,6 +35,7 @@ public class MixService {
 		User auxUser = userRepository.findByName(name);
 		Product auxProduct = productRepository.findById(idProduct);
 		auxUser.setLikeit(auxProduct);
+		auxUser.setItemsILikeIt(auxUser.getLikekIts().size());
 		userRepository.save(auxUser);
 
 	}

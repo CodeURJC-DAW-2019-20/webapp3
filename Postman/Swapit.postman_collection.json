@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"alex\",\n\t\"lastname\":\"aguilar\",\n\t\"passwordHash\":\"alex\",\n\t\"email\":\"swapitserver@gmail.com\",\n\t\"address\":\"C/ Martinez 34\",\n\t\"city\":\"Mostoles\",\n\t\"country\":\"España\",\n\t\"cp\":\"12496\",\n\t\"phone\":\"689520446\"\n}",
+							"raw": "{\n\t\"name\":\"Javier\",\n\t\"lastname\":\"aguilar\",\n\t\"passwordHash\":\"alex\",\n\t\"email\":\"swapitserver@gmail.com\",\n\t\"address\":\"C/ Martinez 34\",\n\t\"city\":\"Mostoles\",\n\t\"country\":\"España\",\n\t\"cp\":\"12496\",\n\t\"phone\":\"689520446\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -71,7 +71,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/user/validate?name=alex",
+							"raw": "https://localhost:8443/api/user/validate?name=maria",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -85,7 +85,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "alex"
+									"value": "maria"
 								}
 							]
 						},
@@ -234,7 +234,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":\"2\"\n\t\"name\":\"user\"\n}",
+							"raw": "{\n\t\"name\":\"user\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -422,7 +422,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/user/all",
+							"raw": "https://localhost:8443/api/user/all/page",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -431,7 +431,8 @@
 							"path": [
 								"api",
 								"user",
-								"all"
+								"all",
+								"page"
 							]
 						},
 						"description": "Modifica los datos de un usuario"
@@ -481,7 +482,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/product/modify?id=6",
+							"raw": "https://localhost:8443/api/product/modify",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -491,12 +492,6 @@
 								"api",
 								"product",
 								"modify"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "6"
-								}
 							]
 						},
 						"description": "Modifica los datos de un usuario"
@@ -506,6 +501,21 @@
 				{
 					"name": "ProductRequest : Crear",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminpass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -516,19 +526,8 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "imagenFile",
-									"type": "file",
-									"src": "/C:/Users/aagui/Desktop/gatito.jpg"
-								},
-								{
-									"key": "product",
-									"value": "Json{\n\t\"name\":\"Jersey Burdeos\",\n\t\"color\":\"Burdeos\",\n\t\"category\":\"Jersey\",\n\t\"brand\":\"Zara\",\n\t\"size\":\"M\",\n\t\"description\":\"color burdepx oscuro\",\n\t\"detail\":\"tiene botones en los puños de las mangas y en el cuello\"\n}",
-									"type": "text"
-								}
-							],
+							"mode": "raw",
+							"raw": "{\r\n    \"pageParameter\": \"page\",\r\n    \"sizeParameter\": \"size\",\r\n    \"oneIndexedParameters\": false,\r\n    \"prefix\": \"\",\r\n    \"qualifierDelimiter\": \"_\",\r\n    \"defaultPageSize\": 20,\r\n    \"maxPageSize\": 2000,\r\n    \"name\": \"Jersey Verde\",\r\n    \"color\": \"Verde claro\",\r\n    \"category\": \"Jersey\",\r\n    \"brand\": \"Zara\",\r\n    \"size\": \"L\",\r\n    \"price\": 3020.0,\r\n    \"description\": \"Muy bonito\",\r\n    \"detail\": \"Muy chachi\",\r\n    \"verify\": false,\r\n    \"inStock\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -553,8 +552,83 @@
 					"response": []
 				},
 				{
+					"name": "ProductRequest : Crear Imagen",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminpass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imagenFile",
+									"type": "file",
+									"src": "/C:/Users/aagui/Desktop/gatito.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/21/imagen",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								"21",
+								"imagen"
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
 					"name": "ProductRequest : Borrar",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminpass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -644,6 +718,29 @@
 					"response": []
 				},
 				{
+					"name": "ProductRequest : Leer Imagen",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/product/3/imagen",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								"3",
+								"imagen"
+							]
+						},
+						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
 					"name": "ProductRequest : Leer Stock",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -668,7 +765,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/product/?id=4",
+							"raw": "https://localhost:8443/api/product/stock",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -677,13 +774,7 @@
 							"path": [
 								"api",
 								"product",
-								""
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "4"
-								}
+								"stock"
 							]
 						},
 						"description": "Modifica los datos de un usuario"
@@ -715,7 +806,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/product/?id=4",
+							"raw": "https://localhost:8443/api/prestock/page?page=0&size=5",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -723,13 +814,17 @@
 							"port": "8443",
 							"path": [
 								"api",
-								"product",
-								""
+								"prestock",
+								"page"
 							],
 							"query": [
 								{
-									"key": "id",
-									"value": "4"
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
 								}
 							]
 						},
@@ -877,7 +972,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/product/?id=4",
+							"raw": "https://localhost:8443/api/product/stock/page?page=0&size=5",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -886,12 +981,17 @@
 							"path": [
 								"api",
 								"product",
-								""
+								"stock",
+								"page"
 							],
 							"query": [
 								{
-									"key": "id",
-									"value": "4"
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
 								}
 							]
 						},
@@ -919,7 +1019,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"alex\",\n\t\"lastname\":\"aguilar\",\n\t\"email\":\"swapitserver@gmail.com\",\n\t\"message\":\"Me gusta como esta evolucionando la App Web buen trabajo XD\",\n}",
+							"raw": "{\n\t\"name\":\"alex\",\n\t\"lastname\":\"aguilar\",\n\t\"email\":\"swapitserver@gmail.com\",\n\t\"message\":\"Me gusta como esta evolucionando la App Web buen trabajo XD\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -946,6 +1046,21 @@
 				{
 					"name": "Suggestion Request : Borrar",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminpass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -953,11 +1068,6 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
-							},
-							{
-								"key": "id",
-								"value": "20",
-								"type": "text"
 							}
 						],
 						"body": {
@@ -970,7 +1080,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/suggestion/",
+							"raw": "https://localhost:8443/api/suggestion/?id=20",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -980,6 +1090,12 @@
 								"api",
 								"suggestion",
 								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "20"
+								}
 							]
 						},
 						"description": "Modifica los datos de un usuario"
