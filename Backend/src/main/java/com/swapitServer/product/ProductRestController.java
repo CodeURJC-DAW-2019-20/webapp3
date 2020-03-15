@@ -53,10 +53,10 @@ public class ProductRestController {
 	
 
 	@RequestMapping(value="/modify", method=RequestMethod.PUT)
-	public ResponseEntity<Product> modifyProduct(@RequestParam long id , @RequestBody Product product) {	
-		if(productService.getProductById(id) != null) {
-			productService.modifyProduct(id, product.getName(), product.getColor(), product.getCategory(), product.getBrand(), product.getSize(), product.getDescription(), product.getDetail());
-			return new ResponseEntity<>(productService.getProductById(id),HttpStatus.OK);
+	public ResponseEntity<Product> modifyProduct( @RequestBody Product product) {	
+		if(productService.getProductById(product.getId()) != null) {
+			productService.modifyProduct(product);
+			return new ResponseEntity<>(productService.getProductById(product.getId()),HttpStatus.OK);
 		}else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);	
 	}

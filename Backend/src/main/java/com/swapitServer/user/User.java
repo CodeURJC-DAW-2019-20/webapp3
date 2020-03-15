@@ -40,8 +40,8 @@ public class User {
 	 private Boolean emailVerified;
 	 private Boolean login;
 
-     @OrderColumn
-	 private long[] productsILikeIt;
+     //@OrderColumn
+	// private long[] productsILikeIt;
      
      @OneToMany
      private List<Product> LikekIts;
@@ -49,8 +49,8 @@ public class User {
 	 @OneToMany
 	 private List<Product> productsBasket;
 
-	 private int itemsILikeIt;
-	 private int itemsBasket;
+	// private int itemsILikeIt;
+	// private int itemsBasket;
 
 	 //Constructors
 	public User() {
@@ -70,11 +70,8 @@ public class User {
 		this.puntos=puntos;
 		this.login=false;
 		this.emailVerified=Verified;
-
-		this.productsILikeIt = new long[20];
-		this.productsBasket = new ArrayList<>();
-		this.itemsILikeIt = getNumberOfitemsILikeIt();
-		this.itemsBasket = getNumberOfitemsBasket();
+		this.LikekIts = null;
+		this.productsBasket = null;
 		
 	}
 	
@@ -128,88 +125,64 @@ public class User {
 		this.emailVerified = emailVerified;
 	}
 
-	public void setProductsILikeIt (long idProduct, int position){
-		this.productsILikeIt[position] = idProduct;
-	}
 
 	//Getters
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 	
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public String getPasswordHash() {
-		return passwordHash;
+		return this.passwordHash;
 	}
 
 	public List<String> getRoles() {
-		return roles;
+		return this.roles;
 	}
 
 	public String getLastname() {
-		return lastname;
+		return this.lastname;
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public String getAddress() {
-		return address;
+		return this.address;
 	}
 
 	public String getCity() {
-		return city;
+		return this.city;
 	}
 
 	public String getCountry() {
-		return country;
+		return this.country;
 	}
 
 	public String getCp() {
-		return cp;
+		return this.cp;
 	}
 
 	public String getPhone() {
-		return phone;
+		return this.phone;
 	}
 
 	public Integer getPuntos() {
-		return puntos;
+		return this.puntos;
 	}
 
 	public Boolean getLogin() {
-		return login;
+		return this.login;
 	}
 
 	public Boolean getEmailVerified() {
-		return emailVerified;
+		return this.emailVerified;
 	}
 
-	public long[] getProductsILikeIt (){
-		return this.productsILikeIt;
-	}
-
-	public int getNumberOfitemsILikeIt (){
-		int number = 0;
-		for (int i = 0; i < this.productsILikeIt.length; i++){
-			if (this.productsILikeIt[i] != 0){
-				number++;
-			}
-		}
-		return number;
-	}
-
-	public int getNumberOfitemsBasket (){
-		int items = 0;
-		for (Product product: this.productsBasket){
-			items++;
-		}
-		return items;
-	}
 
 	//Functions
 	public void updateUserData( String lastname, String email, String address, String city, String country, String cp, String phone) {
@@ -230,12 +203,6 @@ public class User {
 			setPhone(phone);
 	}
 
-	public void addProductILikeIt (long idProduct){
-		int size = this.itemsILikeIt + 1;
-		this.productsILikeIt[size] = idProduct;
-		this.getNumberOfitemsILikeIt();
-
-	}
 
 	public void addProductBasket (Product product){
 		this.productsBasket.add(product);

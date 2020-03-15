@@ -32,7 +32,7 @@ public class UserRestController {
 	@RequestMapping(value="/addLikeIt", method=RequestMethod.PUT)
 	public ResponseEntity<User> addLikeIt(@RequestParam long id ,@RequestBody User user){
 		
-		if(userService.getUserByName(user.getName()) != null) {
+		if(userService.existByName(user.getName())) {
 			mixService.addLikeIt(user.getName(), id);	
 			return new ResponseEntity<>(userService.getUserByName(user.getName()),HttpStatus.OK);
 		}else
@@ -43,7 +43,7 @@ public class UserRestController {
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public ResponseEntity<User> registerProfile(@RequestBody User user) {	
-		if(userService.getUserByName(user.getName()) == null) {
+		if(!userService.existByName(user.getName())) {
 			userService.registerUser(user.getName(), user.getPasswordHash(), user.getLastname(), user.getEmail(), user.getAddress(), user.getCity(), user.getCountry(), user.getCp(), user.getPhone());	
 			return new ResponseEntity<>(userService.getUserByName(user.getName()),HttpStatus.CREATED);
 		}else
@@ -54,8 +54,8 @@ public class UserRestController {
 	//Añadir control de acceso
 	@RequestMapping(value="/update", method=RequestMethod.PUT)
 	public ResponseEntity<User> updateProfile( @RequestBody User user) {	
-		if(userService.getUserByName(user.getName()) != null) {
-			userService.updateUserData(user.getName(), user.getLastname(), user.getEmail(), user.getAddress(), user.getCity(), user.getCountry(), user.getCp(), user.getPhone());	
+		if(userService.existByName(user.getName())) {
+			userService.updateUserData(user);	
 			return new ResponseEntity<>(userService.getUserByName(user.getName()),HttpStatus.OK);
 		}else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);	
@@ -64,7 +64,7 @@ public class UserRestController {
 	//Añadir control de acceso
 	@RequestMapping(value="/update", method=RequestMethod.DELETE)
 	public ResponseEntity<User> updateProfile(@RequestParam String name) {	
-		if(userService.getUserByName(name) != null) {
+		if(userService.existByName(name)) {
 			userService.deleteUser(name);	
 			return new ResponseEntity<>(HttpStatus.OK);
 		}else
@@ -72,9 +72,9 @@ public class UserRestController {
 	}
 	
 	@RequestMapping(value="/validate", method=RequestMethod.PUT)
-	public ResponseEntity<User> validate(@RequestParam String name, @RequestBody User userValidate) {
+	public ResponseEntity<User> validate(@RequestParam String name) {
 		
-		if(userService.getUserByName(name) != null) {
+		if(userService.existByName(name)) {
 			userService.validateUser(name);		
 			return new ResponseEntity<>(userService.getUserByName(name),HttpStatus.OK);
 		}else
@@ -83,7 +83,7 @@ public class UserRestController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ResponseEntity<User> readUser(@RequestParam String name) {	
-		if(userService.getUserByName(name) != null) {			
+		if(userService.existByName(name)) {			
 			return new ResponseEntity<>(userService.getUserByName(name),HttpStatus.OK);
 		}else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);	

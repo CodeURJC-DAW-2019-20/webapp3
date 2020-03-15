@@ -122,7 +122,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"user\",\n\t\"lastname\":\"Aguilar Fuertemoreno\",\n\t\"email\":\"swapitserver@gmail.com\",\n\t\"address\":\"C/ Martinez 34\",\n\t\"city\":\"Mostoles\",\n\t\"country\":\"España\",\n\t\"cp\":\"12496\",\n\t\"phone\":\"689520446\"\n}",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"user\",\r\n    \"passwordHash\": \"\",\r\n    \"roles\": [\r\n        \"ROLE_USER\"\r\n    ],\r\n    \"lastname\": \"user Apellido\",\r\n    \"email\": \"user@swapit\",\r\n    \"address\": \"C/ Buenavista 5\",\r\n    \"city\": \"Mostoles\",\r\n    \"country\": \"España\",\r\n    \"cp\": \"28358\",\r\n    \"phone\": \"619865541\",\r\n    \"puntos\": 100,\r\n    \"emailVerified\": true,\r\n    \"login\": false,\r\n    \"likekIts\": []\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -234,7 +234,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"alex\"\n}",
+							"raw": "{\n\t\"id\":\"2\"\n\t\"name\":\"user\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -473,7 +473,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"Jersey Burdeos\",\n\t\"color\":\"Burdeos\",\n\t\"category\":\"Jersey\",\n\t\"brand\":\"Zara\",\n\t\"size\":\"M\",\n\t\"description\":\"color burdepx oscuro\",\n\t\"detail\":\"tiene botones en los puños de las mangas y en el cuello\"\n}",
+							"raw": "{\r\n    \"pageParameter\": \"page\",\r\n    \"sizeParameter\": \"size\",\r\n    \"oneIndexedParameters\": false,\r\n    \"prefix\": \"\",\r\n    \"qualifierDelimiter\": \"_\",\r\n    \"defaultPageSize\": 20,\r\n    \"maxPageSize\": 2000,\r\n    \"id\": 4,\r\n    \"name\": \"Jersey Negro\",\r\n    \"color\": \"Negro oscuro\",\r\n    \"category\": \"Jersey\",\r\n    \"brand\": \"Zara\",\r\n    \"size\": \"S\",\r\n    \"price\": 300.0,\r\n    \"description\": \"\",\r\n    \"detail\": \"\",\r\n    \"verify\": true,\r\n    \"inStock\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

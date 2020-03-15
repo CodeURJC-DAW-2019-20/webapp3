@@ -24,6 +24,15 @@ public class UserService {
 		return clearPassword(userRepository.findByName(name));
 	}
 	
+	public Boolean existById(long id) {
+		return userRepository.existsById(id);
+	}
+	
+	public Boolean existByName(String name) {
+		return userRepository.findByName(name) != null;
+	}
+	
+	
 	public User getUserInSesion(HttpServletRequest request) {
 		User user = new User();
 		if(request.isRequestedSessionIdValid()) {	
@@ -43,16 +52,6 @@ public class UserService {
 	}
 	
 	
-	/*public void registerUser(User user , String url) {
-		SimpleMailMessage mailMessage = new SimpleMailMessage();
-		mailMessage.setTo(user.getEmail());
-        mailMessage.setSubject("Complete Registration!");
-        mailMessage.setFrom("swapitserver@gmail.com");
-        mailMessage.setText("To confirm your account, please click here :" +"https://localhost:8443"+ url +"?name="+user.getName());
-	    emailSenderService.sendEmail(mailMessage);
-	    userRepository.save(user);
-	}*/
-	
 	public void registerUser(String name,String  password,String lastname,String email,String address,String city,String country,String cp,String phone) {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setTo(email);
@@ -63,12 +62,24 @@ public class UserService {
 	    userRepository.save(new User(name, password,lastname,email,address,city,country,cp,phone, 100,false, "ROLE_USER"));
 	}
 	
+	
 	public void updateUserData(String name, String lastname, String email, String address, String city, String country, String cp, String phone) {
 			User auxUser = userRepository.findByName(name);
 			auxUser.updateUserData(lastname, email, address, city, country, cp, phone);
-			userRepository.save(auxUser);
-		
+			userRepository.save(auxUser);	
 	}
+	
+	public void updateUserData(User user) {
+		User aux=userRepository.findByName(user.getName());
+		aux.setLastname(user.getLastname());
+		aux.setAddress(user.getAddress());
+		aux.setCity(user.getCity());
+		aux.setCountry(user.getCountry());
+		aux.setCp(user.getCp());
+		aux.setEmail(user.getEmail());
+		aux.setPhone(user.getPhone());
+		userRepository.save(aux);	
+}
 	
 	public void deleteUser(String name) {
 		userRepository.delete(userRepository.findByName(name));
@@ -94,7 +105,6 @@ public class UserService {
 		List<User> userList=page.getContent();
 		List<User> aux = new ArrayList();
 		for (User user : userList)
-			//userList.set(userList.indexOf(user), clearPassword(user));
 			aux.add(clearPassword(user));
 		return new UserPage(page, aux);				 		
 	}

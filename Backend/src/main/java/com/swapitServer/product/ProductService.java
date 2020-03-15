@@ -68,6 +68,9 @@ public class ProductService<T> {
 		auxProduct.updateProductData(name, color, category, brand, size, description, detail);
 		productRepository.save(auxProduct);
 	}
+	public void modifyProduct(Product product){
+		productRepository.save(product);
+	}
 	
 	public void deleteProduct(long id) {
 		productRepository.deleteById(id);
