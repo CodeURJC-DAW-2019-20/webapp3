@@ -48,7 +48,7 @@
 					</ul>
 					<ul class="header-links pull-right">
 						{{#user.login}}
-							<li><a><i class="fa fa-dollar"></i> {{user.puntos}}</a></li>
+							<li><a><i class="fa fa-dollar"></i> {{user.balance}}</a></li>
 							<li><a href="/profile"><i class="fa fa-user-o"></i>{{user.name}}</a></li>
 							<li><a href="/logout"><i class="fa fa-user-o"></i>Logout</a></li>
 						{{/user.login}}
@@ -78,25 +78,11 @@
 						<!-- /LOGO -->
 
 						<!-- SEARCH BAR -->
-						<div class="col-md-6">
+						<div class="col-md-6 text-center">
 							<div class="header-search">
 								<form>
-									<select class="input-select">
-										<option value="0">Categorias</option>
-										<option value="Abrigo">Abrigos</option>
-										<option value="Accesorio">Accesorios</option>
-										<option value="Bota">Botas</option>
-										<option value="Camisa">Camisas</option>
-										<option value="Camiseta">Camisetas</option>
-										<option value="Chaqueta">Chaquetas</option>
-										<option value="Falda">Faldas</option>
-										<option value="Jersey">Jerseys</option>
-										<option value="Vaquero">Vaqueros</option>
-										<option value="Zapatilla">Zapatillas</option>
-										<option value="Zapato">Zapatos</option>
-									</select>
-									<input class="input" placeholder="Buscar">
-									<button class="search-btn">Buscar</button>
+									<button class = "input-select"><a href = "/Index">Inicio</a></button>
+									<button class = "search-btn"><a href = "/store">Catálogo</a></button>
 								</form>
 							</div>
 						</div>
@@ -121,55 +107,17 @@
 
 								<!-- Cart -->
 								<div class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+									<a href  = "/basket">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Mi Cesta</span>
-										<div class="qty">2</div>
+										{{#user.login}}
+										<div class="qty">{{user.itemsBasket}}</div>
+										{{/user.login}}
+										{{^user.login}}
+										{{/user.login}}
 									</a>
-									<div class="cart-dropdown">
-										<div class="cart-list">
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/camisapana.jpg" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">Camisa de Pana</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>299.0 Swapers</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/bandolera.jpg" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">Bandolera Geométrica</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>129.0 Swapers</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-										</div>
-										<div class="cart-summary">
-											<small>2 Productos Seleccionados</small>
-											<h5>SUBTOTAL: 429.0 Swapers</h5>
-										</div>
-										<div class="cart-btns">
-											<a href="/profile">Ver Cesta</a>
-											<a href="/checkout">Comprar  <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-									</div>
 								</div>
 								<!-- /Cart -->
-
-								<!-- Menu Toogle -->
-								<div class="menu-toggle">
-									<a href="#">
-										<i class="fa fa-bars"></i>
-										<span>Menu</span>
-									</a>
-								</div>
-								<!-- /Menu Toogle -->
 							</div>
 						</div>
 						<!-- /ACCOUNT -->
@@ -192,10 +140,6 @@
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="/index">Inicio</a></li>
 						<li><a href="/store">Catálogo</a></li>
-						<!-- future implementation
-						<li><a href="/store">Mujer</a></li>
-						<li><a href="/store">Hombre</a></li>
-						-->
 					</ul>
 					<!-- /NAV -->
 				</div>
@@ -213,11 +157,12 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="breadcrumb-tree">
-							<li><a href="#">Inicio</a></li> <!-- Hay que decidir cuantas Categorias y Subcategorias vamos a tener -->
-							<li><a href="#">Categorias</a></li>
-							<li><a href="#">Sudadera</a></li>
-							<li><a href="#">Con Capucha</a></li>
-							<li class="active">Sudadera con Capucha color Block</li>
+							<li><a href="/Index">Inicio</a></li> <!-- Hay que decidir cuantas Categorias y Subcategorias vamos a tener -->
+							<li><a href="/Store">Categorias</a></li>
+							{{#SpecificProduct}}
+							<li>{{brand}}</li>
+							<li class="active">{{name}}</li>
+							{{/SpecificProduct}}
 						</ul>
 					</div>
 				</div>
@@ -237,93 +182,65 @@
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">	<!-- Alzado del producto-->
-								<img src="./img/sudadera.jpg" alt="">
-							</div>
-
-							<div class="product-preview"> <!-- Perfil derecho del producto-->
-								<img src="./img/sudadera1.jpg" alt="">
-							</div>
-
-							<div class="product-preview"> <!-- Perfil Izquierdo del producto-->
-								<img src="./img/sudadera2.jpg" alt="">
+								{{#SpecificProduct}}
+								<img src='/images/products/image-{{id}}.jpg' alt="">
+								{{/SpecificProduct}}
 							</div>
 						</div>
 					</div>
 					<!-- /Product main img -->
-					<!-- Deben Conincidir el orden las fotos de las vistas del producto, para conseguir el efecto deseado
-							 Entre el carrusel y la pantalla de muestra del producto 	-->
-					<!-- Visualizador de Producto (Vertical, Izquierda) -->
+
 					<div class="col-md-2  col-md-pull-5">
-						<div id="product-imgs">
-							<div class="product-preview">	<!-- Alzado del producto-->
-								<img src="./img/sudadera.jpg" alt="">
-							</div>
-
-							<div class="product-preview"> <!-- Perfil derecho del producto-->
-								<img src="./img/sudadera1.jpg" alt="">
-							</div>
-
-							<div class="product-preview"> <!-- Perfil Izquierdo del producto-->
-								<img src="./img/sudadera2.jpg" alt="">
-							</div>
-
-													</div>
+						<!-- You mustn't delete this -->
 					</div>
-					<!-- /Product thumb imgs -->
 
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">Sudadera con Capucha color Block</h2>
+							{{#SpecificProduct}}
+							<h2 class="product-name">{{name}}</h2>
 							<div>
-								<h3 class="product-price"> 49 Swapers</h3>
+								<h3 class="product-price">{{price}} Swapers</h3>
 								<span class="product-available">Disponible</span>
 							</div>
-							<p>Sudadera felpa. Capucha. Cuello redondo. Color block</p>
+							<p>{{description}}</p>
 
 							<div class="product-options">
 								<label>
 									Talla
 									<div class="celda-select product-celda">
-										<p>M</p>
+										<p>{{size}}</p>
 									</div>
 								</label>
 								<label>
 									Color
 									<div class="celda-select product-celda">
-										<p>Block</p>
+										<p>{{color}}</p>
 									</div>
 								</label>
 							</div>
 
 							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir a la Cesta</button>
+								<div class = "form-group">
+									<form action = "/index/addBasket" method = "post" enctype = "multipart/form-data">
+										<button class="add-to-cart-btn" name="id" type="submit" value="{{id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
+									</form>
+								</div>
 							</div>
 
 							<ul class="product-btns">
-								<li><a href="#"><i class="fa fa-heart-o"></i> Añadir a Favoritos</a></li>
-								<!--
-								<li><a href="#"><i class="fa fa-exchange"></i>Comparar</a></li>
-								-->
+								<div class = "form-group">
+									<form style = "display: inline-block"; action = "/index/addLikeIt" method = "post" enctype = "multipart/form-data">
+										<button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{id}}"></button>
+									</form>
+								</div>
 							</ul>
 
 							<ul class="product-links">
 								<li>Categorias:</li>
-								<!--
-								<li><a href="#">Hombre</a></li>
-								-->
-								<li><a href="#">Sudaderas</a></li>
+								<li><a href="#">{{category}}</a></li>
 							</ul>
-							<!--
-							<ul class="product-links">
-								<li>Comparte:</li>
-								<li><a href="#"><i class="fab fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-							</ul>
-							-->
-
+							{{/SpecificProduct}}
 						</div>
 					</div>
 					<!-- /Product details -->
@@ -331,6 +248,7 @@
 					<!-- Product tab -->
 					<div class="col-md-12">
 						<div id="product-tab">
+							{{#SpecificProduct}}
 							<!-- product tab nav -->
 							<ul class="tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab1">Descripcion</a></li>
@@ -344,7 +262,7 @@
 								<div id="tab1" class="tab-pane fade in active">
 									<div class="row">
 										<div class="col-md-12">
-											<p> Sudadera felpa. Capucha. Cuello redondo. Color block</p>
+											<p>{{description}}</p>
 										</div>
 									</div>
 								</div>
@@ -354,13 +272,14 @@
 								<div id="tab2" class="tab-pane fade in">
 									<div class="row">
 										<div class="col-md-12">
-											<p>Exterior: 86% algodón, 14% poliéster</p>
+											<p>{{detail}}</p>
 										</div>
 									</div>
 								</div>
 								<!-- /tab2  -->
 							</div>
 							<!-- /product tab content  -->
+							{{/SpecificProduct}}
 						</div>
 					</div>
 					<!-- /product tab -->
@@ -383,87 +302,40 @@
 							<h3 class="title">Productos Relacionados</h3>
 						</div>
 					</div>
-					
 						<!-- PRODUCTO 1 -->
-						<div class="col-md-4 col-xs-6">
-							<div class="product">
+						{{#relatedProducts}}
+						<div class="col-md-4 col-xs-6 center-block">
+							<div class="product text-center">
 								<div class="product-img">
-									<img src="./img/sudaderaalt.jpg" alt="">
+									<img src='/images/products/image-{{id}}.jpg' alt="">
 								</div>
 								<div class="product-body">
-									<p class="product-category">Sudaderas</p>
-									<h3 class="product-name"><a href="#">Sudadera con Capucha color Block</a></h3>
-									<h4 class="product-price"> 49 Swapers </h4>
-									<div class="product-rating">
-									</div>
+									<p class="product-category">{{brand}}</p>
+									<h3 class="product-name"><a href="#">{{name}}</a></h3>
+									<h4 class="product-price"> {{price}} Swapers </h4>
+									<div class="product-rating"></div>
 									<div class="product-btns">
-										<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Favoritos</span></button>
-										<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
+										<div class = "form-group">
+											<form style = "display: inline-block"; action = "/index/addLikeIt" method = "post" enctype = "multipart/form-data">
+												<button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{id}}"></button>
+											</form>
+											<form style = "display: inline-block"; action = "/product" method = "get" enctype = "multipart/form-data">
+												<button style="border: 0px; background-color: white" tyoe = "submit" name = "id" value = "{{id}}" class="fa fa-eye tooltipp"></button>
+											</form>
+										</div>
 									</div>
 								</div>
 								<div class="add-to-cart">
-									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la Cesta</button>
+									<form action = "/index/addBasket" method = "post" enctype = "multipart/form-data">
+										<div class = "form-group">
+											<button class="add-to-cart-btn" name="id" type="submit" value="{{id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
+										</div>
+									</form>
 								</div>
 							</div>
 						</div>
+						{{/relatedProducts}}
 						<!-- /product -->
-
-						<!-- PRODUCTO 2 -->
-						<div class="col-md-4 col-xs-6">
-							<div class="product">
-								<div class="product-img">
-									<img src="./img/sudaderaalt2.jpg" alt="">
-									<div class="product-label">
-										<span class="new">NEW</span>
-									</div>
-								</div>
-								<div class="product-body">
-									<p class="product-category">Sudadera</p>
-									<h3 class="product-name"><a href="#">Sudadera Mickey Mouse con Capucha</a></h3>
-									<h4 class="product-price"> 49 Swapers</h4>
-									<div class="product-btns">
-										<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Favoritos</span></button>
-										<!--
-										<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar</span></button>
-										-->
-										<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-									</div>
-								</div>
-								<div class="add-to-cart">
-									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</button>
-								</div>
-							</div>
-						</div>
-						<!-- /product -->
-
-						<div class="clearfix visible-sm visible-xs"></div>
-
-						<!-- PRODUCTO 3 -->
-						<div class="col-md-4 col-xs-6">
-							<div class="product">
-								<div class="product-img">
-									<img src="./img/sudaderaalt3.jpg" alt="">
-								</div>
-								<div class="product-body">
-									<p class="product-category">Sudadera</p>
-									<h3 class="product-name"><a href="#">Sudadera Combinada</a></h3>
-									<h4 class="product-price"> 49 Swapers</h4>
-									<div class="product-btns">
-										<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a Favoritos</span></button>
-										<!--
-										<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar</span></button>
-										-->
-										<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
-									</div>
-								</div>
-								<div class="add-to-cart">
-									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir a la Cesta</button>
-								</div>
-							</div>
-						</div>
-						<!-- /product -->
-					
-
 				</div>
 				<!-- /row -->
 			</div>
@@ -578,15 +450,6 @@
 					<!-- row -->
 					<div class="row">
 						<div class="col-md-12 text-center">
-						<!--	<ul class="footer-payments">
-								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-							</ul>
-						-->
 							<span class="copyright">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados. Esta pagina ha sido desarrollada por el equipo de Swap It! <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>

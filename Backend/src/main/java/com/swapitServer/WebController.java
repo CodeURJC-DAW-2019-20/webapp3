@@ -1,5 +1,6 @@
 package com.swapitServer;
 
+import com.swapitServer.product.ProductController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,8 @@ public class WebController {
     private ProductService productService;
     @Autowired
 	private MixService mixService;
+	@Autowired
+	private ProductController productController = new ProductController();
 	
 	
 	@GetMapping("/")

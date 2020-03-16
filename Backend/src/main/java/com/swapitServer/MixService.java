@@ -30,7 +30,17 @@ public class MixService {
 	public List<Product> getLikeItProducts(HttpServletRequest request){
 		return userRepository.findByName(request.getUserPrincipal().getName()).getLikekIts();
 	}
-	
+
+	public List<Product> getProductsBasket(HttpServletRequest request){
+		return userRepository.findByName(request.getUserPrincipal().getName()).getProductsBasket();
+	}
+
+	public List<Product> deleteProductsBasket(HttpServletRequest request){
+		userRepository.findByName(request.getUserPrincipal().getName()).getProductsBasket().clear();
+
+		return new ArrayList<>();
+	}
+
 	public void addLikeIt(String name, long idProduct) {
 		User auxUser = userRepository.findByName(name);
 		Product auxProduct = productRepository.findById(idProduct);
@@ -38,6 +48,12 @@ public class MixService {
 		auxUser.setItemsILikeIt(auxUser.getLikekIts().size());
 		userRepository.save(auxUser);
 
+	}
+	public void addBasket(HttpServletRequest request, long idProduct) {
+		User auxUser = userRepository.findByName(request.getUserPrincipal().getName());
+		Product auxProduct = productRepository.findById(idProduct);
+		auxUser.setProductBasket(auxProduct);
+		userRepository.save(auxUser);
 	}
 	
 	public ResponseEntity<Object> getImage(long id) throws MalformedURLException{	

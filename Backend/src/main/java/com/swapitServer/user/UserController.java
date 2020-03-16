@@ -51,6 +51,22 @@ public class UserController {
 		
 		return "index";
 	}
+
+	@GetMapping("/basket")
+	public String basicBasket (Model model, HttpServletRequest request){
+		model.addAttribute("user", userService.getUserInSesion(request));
+		model.addAttribute("productsBasket", mixService.getProductsBasket(request));
+
+		return "basket";
+	}
+
+	@PostMapping("index/addBasket")
+	public String addProductToBasket(Model model, @RequestParam long id, HttpServletRequest request){
+		mixService.addBasket(request, id);
+		model.addAttribute("user", userService.getUserInSesion(request));
+
+		return "redirect:/index";
+	}
 	
 	@GetMapping("/profile")
 	public String basicprofile(Model model, HttpServletRequest request) {

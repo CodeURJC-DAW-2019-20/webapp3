@@ -108,5 +108,12 @@ public class UserService {
 			aux.add(clearPassword(user));
 		return new UserPage(page, aux);				 		
 	}
+
+	public void emptyProductsBasket (String name){
+		User auxUser = userRepository.findByName(name);
+		auxUser.emptyProductsBasket();
+		auxUser.getNumberOfitemsBasket();
+		userRepository.save(auxUser);
+	}
 	
 }
