@@ -37,7 +37,7 @@ Allows a user to register.
 	"email":"swapitserver@gmail.com",
 	"address":"C/ Martinez 34",
 	"city":"Mostoles",
-	"country":"España",
+	"country":"Espaï¿½a",
 	"cp":"12496",
 	"phone":"689520446"
 	```	
@@ -84,7 +84,7 @@ Modify a user's data.
 	"email":"swapitserver@gmail.com",
 	"address":"C/ Martinez 34",
 	"city":"Mostoles",
-	"country":"España",
+	"country":"Espaï¿½a",
 	"cp":"12496",
 	"phone":"689520446"e":"689520446"
 	```	
@@ -130,7 +130,115 @@ Add one product to favorite.
 	"name":"alex"
 	```	
 
+#### Add to basket  
+Add one product to favorite.
+
+* ##### URL Params:
+	* id=[int]	
+	
+* ##### Example of query:
+
+	* URL
+		
+		`/api/user/addBasket?id=5`
   
+* ##### Method:
+
+	`PUT`
+* ##### Data Params
+
+	```
+	"name":"alex"
+	```	
+* ##### Success respone:
+
+	```
+    {
+        "id": 2,
+        "name": "user",
+        "passwordHash": "",
+        "roles": [
+            "ROLE_USER"
+        ],
+        "lastname": "user lastname",
+        "email": "user@swapit",
+        "address": "C/ Buenavista 5",
+        "city": "Mostoles",
+        "country": "EspaÃ±a",
+        "cp": "28358",
+        "phone": "619865541",
+        "puntos": 100,
+        "emailVerified": true,
+        "login": false,
+        "balance": 0.0,
+        "productsBasket": [
+            {
+                "pageParameter": "page",
+                "sizeParameter": "size",
+                "oneIndexedParameters": false,
+                "prefix": "",
+                "qualifierDelimiter": "_",
+                "defaultPageSize": 20,
+                "maxPageSize": 2000,
+                "id": 3,
+                "name": "Sudadera Capucha",
+                "color": "Multi",
+                "category": "Jersey",
+                "brand": "PullAndBear",
+                "size": "M",
+                "price": 200.0,
+                "description": "",
+                "detail": "",
+                "verify": true,
+                "inStock": true
+            },
+            {
+                "pageParameter": "page",
+                "sizeParameter": "size",
+                "oneIndexedParameters": false,
+                "prefix": "",
+                "qualifierDelimiter": "_",
+                "defaultPageSize": 20,
+                "maxPageSize": 2000,
+                "id": 8,
+                "name": "Jersey Gris",
+                "color": "Gris",
+                "category": "Jersey",
+                "brand": "Primark",
+                "size": "M",
+                "price": 140.0,
+                "description": "",
+                "detail": "",
+                "verify": true,
+                "inStock": true
+            },
+            {
+                "pageParameter": "page",
+                "sizeParameter": "size",
+                "oneIndexedParameters": false,
+                "prefix": "",
+                "qualifierDelimiter": "_",
+                "defaultPageSize": 20,
+                "maxPageSize": 2000,
+                "id": 5,
+                "name": "Jersey Azul",
+                "color": "Azul",
+                "category": "Jersey",
+                "brand": "Calvin Klein",
+                "size": "M",
+                "price": 200.0,
+                "description": "",
+                "detail": "",
+                "verify": true,
+                "inStock": true
+            }
+        ],
+        "itemsILikeIt": 0,
+        "itemsBasket": 3,
+        "priceOfBasket": 540.0,
+        "likekIts": []
+    }
+    ``` 
 
 #### Read by name  
 Read a user's data
@@ -159,7 +267,7 @@ Read a user's data
 	"lastname":"user lastname",
 	"email":"user@swapit",
 	"address":"C/ Buenavista 5",
-	"city":"Mostoles","country":"España",
+	"city":"Mostoles","country":"Espaï¿½a",
 	"cp":"28358",
 	"phone":"619865541",
 	"puntos":100,
@@ -196,7 +304,7 @@ Read all user's data
 	"email":"admin@swapit",
 	"address":"C/ Sierra 52",
 	"city":"Mostoles",
-	"country":"España",
+	"country":"Espaï¿½a",
 	"cp":"28358",
 	"phone":"699256710",
 	"puntos":999999,
@@ -214,7 +322,7 @@ Read all user's data
 	"email":"user@swapit",
 	"address":"C/ Buenavista 5",
 	"city":"Mostoles",
-	"country":"España",
+	"country":"Espaï¿½a",
 	"cp":"28358",
 	"phone":"619865541",
 	"puntos":100,
@@ -258,7 +366,7 @@ Modify product data.
 	"brand":"Zara",
 	"size":"M",
 	"description":"color burdepx oscuro",
-	"detail":"tiene botones en los puños de las mangas y en el cuello"
+	"detail":"tiene botones en los puï¿½os de las mangas y en el cuello"
 	```	
 	
 
@@ -281,7 +389,22 @@ Create a product.
 	```
 	imagenFile: gatito.jpg
 	```	
+### Create image
+Create a image.
+
+* ##### URL:
+
+	< /21/imagen >
 	
+* ##### Method:
+
+	`POST`
+
+* ##### Data Params
+
+	```
+	imagenFile: gatito.jpg
+	```		
 
   
 
@@ -370,6 +493,25 @@ Read a product by id.
 	"inStock":true
 	}
 	```
+ #### Read image
+ Read a image for a product.
+ * ##### URL:
+ 
+ 	< /3/imagen >
+ 	
+ 
+ * ##### Method:
+ 
+ 	`GET`
+ 
+ * ##### Success respone:
+ 
+ 	```
+ 	{
+ 	image-3.jpg
+ 	image-3.jpg
+ 	}
+ 	```
 ### Validate
 Validate a product.
 
@@ -395,7 +537,7 @@ Validate a product.
 	"brand":"Zara",
 	"size":"M",
 	"description":"color burdepx oscuro",
-	"detail":"tiene botones en los puños de las mangas y en el cuello"
+	"detail":"tiene botones en los puï¿½os de las mangas y en el cuello"
 	```	
 #### Read Prestock
 Read all prestock.
@@ -413,10 +555,609 @@ Read all prestock.
 	
 	}
 	```	
+#### Read stock
+Read  stock page.
+* ##### URL Params:
+	* page=[int]	
+	* size=[int]
+* ##### Example of query:
 
+	* URL
+		
+		`/api/product/stock/page?page=0&size=5`
   
+* ##### Method:
 
+	`GET`
 
+* ##### Success respone:
+
+	```
+	{
+	    {
+                    "pageParameter": "page",
+                    "sizeParameter": "size",
+                    "oneIndexedParameters": false,
+                    "prefix": "",
+                    "qualifierDelimiter": "_",
+                    "defaultPageSize": 20,
+                    "maxPageSize": 2000,
+                    "id": 3,
+                    "name": "Sudadera Capucha",
+                    "color": "Multi",
+                    "category": "Jersey",
+                    "brand": "PullAndBear",
+                    "size": "M",
+                    "price": 200.0,
+                    "description": "",
+                    "detail": "",
+                    "verify": true,
+                    "inStock": true
+                },
+                {
+                    "pageParameter": "page",
+                    "sizeParameter": "size",
+                    "oneIndexedParameters": false,
+                    "prefix": "",
+                    "qualifierDelimiter": "_",
+                    "defaultPageSize": 20,
+                    "maxPageSize": 2000,
+                    "id": 4,
+                    "name": "Jersey Mostaza",
+                    "color": "Mostaza",
+                    "category": "Jersey",
+                    "brand": "Zara",
+                    "size": "S",
+                    "price": 300.0,
+                    "description": "",
+                    "detail": "",
+                    "verify": true,
+                    "inStock": true
+                },
+                {
+                    "pageParameter": "page",
+                    "sizeParameter": "size",
+                    "oneIndexedParameters": false,
+                    "prefix": "",
+                    "qualifierDelimiter": "_",
+                    "defaultPageSize": 20,
+                    "maxPageSize": 2000,
+                    "id": 5,
+                    "name": "Jersey Azul",
+                    "color": "Azul",
+                    "category": "Jersey",
+                    "brand": "Calvin Klein",
+                    "size": "M",
+                    "price": 200.0,
+                    "description": "",
+                    "detail": "",
+                    "verify": true,
+                    "inStock": true
+                },
+                {
+                    "pageParameter": "page",
+                    "sizeParameter": "size",
+                    "oneIndexedParameters": false,
+                    "prefix": "",
+                    "qualifierDelimiter": "_",
+                    "defaultPageSize": 20,
+                    "maxPageSize": 2000,
+                    "id": 6,
+                    "name": "Jersey Burdeos",
+                    "color": "Burdeos",
+                    "category": "Jersey",
+                    "brand": "Zara",
+                    "size": "M",
+                    "price": 300.0,
+                    "description": "",
+                    "detail": "",
+                    "verify": true,
+                    "inStock": true
+                },
+                {
+                    "pageParameter": "page",
+                    "sizeParameter": "size",
+                    "oneIndexedParameters": false,
+                    "prefix": "",
+                    "qualifierDelimiter": "_",
+                    "defaultPageSize": 20,
+                    "maxPageSize": 2000,
+                    "id": 7,
+                    "name": "Jersey Blanco",
+                    "color": "Blanco",
+                    "category": "Jersey",
+                    "brand": "HyM",
+                    "size": "M",
+                    "price": 200.0,
+                    "description": "",
+                    "detail": "",
+                    "verify": true,
+                    "inStock": true
+                }
+            ],
+            "pageable": {
+                "sort": {
+                    "sorted": false,
+                    "unsorted": true,
+                    "empty": true
+                },
+                "offset": 0,
+                "pageSize": 5,
+                "pageNumber": 0,
+                "unpaged": false,
+                "paged": true
+            },
+            "totalElements": 9,
+            "totalPages": 2,
+            "last": false,
+            "size": 5,
+            "number": 0,
+            "sort": {
+                "sorted": false,
+                "unsorted": true,
+                "empty": true
+            },
+            "numberOfElements": 5,
+            "first": true,
+            "empty": false
+        }
+	}
+	```	
+#### Filter
+Filter products.
+* ##### URL Params:
+	* categorys=[string]	
+	* size=[int]
+	* minPrice=[int]
+	* maxPrice=[int]
+	* brands=[string]
+* ##### Example of query:
+
+	* URL
+		
+		`/api/product/filter?categorys=Jersey&minPrice=100&maxPrice=300&brands=Primark`
+  
+* ##### Method:
+
+	`GET`
+
+* ##### Success respone:
+
+	```  
+    {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 10,
+            "name": "Jersey A Rayas",
+            "color": "Multi",
+            "category": "Jersey",
+            "brand": "Primark",
+            "size": "M",
+            "price": 140.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 8,
+            "name": "Jersey Gris",
+            "color": "Gris",
+            "category": "Jersey",
+            "brand": "Primark",
+            "size": "M",
+            "price": 140.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        }
+        ``` 
+#### Order by name
+Order all products by name.
+
+* ##### URL:
+
+	* URL
+		
+		`/order/name`
+  
+* ##### Method:
+
+	`GET`
+
+* ##### Success respone:
+
+	```  
+    {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 11,
+            "name": "Camisa Pana",
+            "color": "Azul",
+            "category": "Camisa",
+            "brand": "PullAndBear",
+            "size": "M",
+            "price": 300.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 10,
+            "name": "Jersey A Rayas",
+            "color": "Multi",
+            "category": "Jersey",
+            "brand": "Primark",
+            "size": "M",
+            "price": 140.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 5,
+            "name": "Jersey Azul",
+            "color": "Azul",
+            "category": "Jersey",
+            "brand": "Calvin Klein",
+            "size": "M",
+            "price": 200.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 7,
+            "name": "Jersey Blanco",
+            "color": "Blanco",
+            "category": "Jersey",
+            "brand": "HyM",
+            "size": "M",
+            "price": 200.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 6,
+            "name": "Jersey Burdeos",
+            "color": "Burdeos",
+            "category": "Jersey",
+            "brand": "Zara",
+            "size": "M",
+            "price": 300.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 8,
+            "name": "Jersey Gris",
+            "color": "Gris",
+            "category": "Jersey",
+            "brand": "Primark",
+            "size": "M",
+            "price": 140.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 4,
+            "name": "Jersey Mostaza",
+            "color": "Mostaza",
+            "category": "Jersey",
+            "brand": "Zara",
+            "size": "S",
+            "price": 300.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 9,
+            "name": "Jersey Rosa",
+            "color": "Rosa",
+            "category": "Jersey",
+            "brand": "Lefties",
+            "size": "M",
+            "price": 140.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 3,
+            "name": "Sudadera Capucha",
+            "color": "Multi",
+            "category": "Jersey",
+            "brand": "PullAndBear",
+            "size": "M",
+            "price": 200.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        }
+        ```  
+ #### Order by price
+ Order all products by price.
+ 
+ * ##### URL:
+ 
+ 	* URL
+ 		
+ 		`/order/price`
+   
+ * ##### Method:
+ 
+ 	`GET`
+ 
+ * ##### Success respone:
+ 
+ 	``` 
+    {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 8,
+            "name": "Jersey Gris",
+            "color": "Gris",
+            "category": "Jersey",
+            "brand": "Primark",
+            "size": "M",
+            "price": 140.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 9,
+            "name": "Jersey Rosa",
+            "color": "Rosa",
+            "category": "Jersey",
+            "brand": "Lefties",
+            "size": "M",
+            "price": 140.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 10,
+            "name": "Jersey A Rayas",
+            "color": "Multi",
+            "category": "Jersey",
+            "brand": "Primark",
+            "size": "M",
+            "price": 140.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 3,
+            "name": "Sudadera Capucha",
+            "color": "Multi",
+            "category": "Jersey",
+            "brand": "PullAndBear",
+            "size": "M",
+            "price": 200.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 5,
+            "name": "Jersey Azul",
+            "color": "Azul",
+            "category": "Jersey",
+            "brand": "Calvin Klein",
+            "size": "M",
+            "price": 200.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 7,
+            "name": "Jersey Blanco",
+            "color": "Blanco",
+            "category": "Jersey",
+            "brand": "HyM",
+            "size": "M",
+            "price": 200.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 4,
+            "name": "Jersey Mostaza",
+            "color": "Mostaza",
+            "category": "Jersey",
+            "brand": "Zara",
+            "size": "S",
+            "price": 300.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 6,
+            "name": "Jersey Burdeos",
+            "color": "Burdeos",
+            "category": "Jersey",
+            "brand": "Zara",
+            "size": "M",
+            "price": 300.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        },
+        {
+            "pageParameter": "page",
+            "sizeParameter": "size",
+            "oneIndexedParameters": false,
+            "prefix": "",
+            "qualifierDelimiter": "_",
+            "defaultPageSize": 20,
+            "maxPageSize": 2000,
+            "id": 11,
+            "name": "Camisa Pana",
+            "color": "Azul",
+            "category": "Camisa",
+            "brand": "PullAndBear",
+            "size": "M",
+            "price": 300.0,
+            "description": "",
+            "detail": "",
+            "verify": true,
+            "inStock": true
+        }
 ## Suggestions
 The following queries will be preceded by /suggestion.
  
@@ -450,7 +1191,7 @@ Delete a suggestion.
 
 	< />
 
-* ##### Método:
+* ##### Mï¿½todo:
 
 	`DEL`
   
