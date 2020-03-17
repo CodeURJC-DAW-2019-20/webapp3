@@ -123,4 +123,14 @@ public class ProductRestController {
 		return new ResponseEntity<>(productService.getProductinStockByFilter(categorys, minPrice,maxPrice,brands),HttpStatus.OK);
 			
 	}
+	@RequestMapping(value="/order/name", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> readAllProductsByName() {
+		return new ResponseEntity<>(productService.getProductinStockByName(),HttpStatus.OK);
+			
+	}
+	@RequestMapping(value="/order/price", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> readAllProductsByPrice() {
+		return new ResponseEntity<>(productService.getProductinStockByPrice(),HttpStatus.OK);
+			
+	}
 }

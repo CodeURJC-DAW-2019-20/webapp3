@@ -93,7 +93,20 @@ public class ProductService<T> {
 		return productRepository.findByVerifyAndInStockOrderByCategoryDesc(false, true, page);
 	}
 	
+	public List<Product> getProductinStockByName(){
+		List<Product> products = productRepository.findAll();
+		products.sort(new CompareProductsByName());
+		
+		
+		return products;
+	}
 	
+	public List<Product> getProductinStockByPrice(){
+		List<Product> products = productRepository.findAll();
+		products.sort(new CompareProductsByPrice());
+		
+		return products;
+	}
 	
 	
 	public void saveNewProduct(String name, String color, String category, String brand, String size, String description, String detail, MultipartFile imagenFile) throws IOException {
