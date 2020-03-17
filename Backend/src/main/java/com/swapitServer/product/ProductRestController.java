@@ -117,4 +117,10 @@ public class ProductRestController {
 	public ResponseEntity<Page<Product>> readAllPreStockProductsPage(Pageable page) {	
 		return new ResponseEntity<>(productService.getAllProductinPreStock(page),HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/filter", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> readFilter(@RequestParam  String[] categorys, @RequestParam  int minPrice, @RequestParam  int maxPrice, @RequestParam String[] brands) {
+		return new ResponseEntity<>(productService.getProductinStockByFilter(categorys, minPrice,maxPrice,brands),HttpStatus.OK);
+			
+	}
 }
