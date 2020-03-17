@@ -39,6 +39,16 @@ public class UserRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
+	@RequestMapping(value="/addBasket", method=RequestMethod.PUT)
+	public ResponseEntity<User> addBasket(@RequestParam long id ,@RequestBody User user){
+		if(userService.existByName(user.getName())) {
+			mixService.addBasket(user.getName(), id);	
+			return new ResponseEntity<>(userService.getUserByName(user.getName()),HttpStatus.OK);
+		}else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
 	
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)

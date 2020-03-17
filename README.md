@@ -158,6 +158,14 @@ By last, the store page show a lot of products and filters to search a particula
 #### REST API documentation
 Document [Api documentation](API.md) with information about the REST API.
 
+**BD Entity Diagram**
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama1.png)
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama2.png)
+
+**Class Diagram and Templates**
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama3.png)
 ### Installation ??
 
 If you want to execute the project you must open it with a browser.

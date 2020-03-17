@@ -35,6 +35,8 @@ public class MixService {
 		return userRepository.findByName(request.getUserPrincipal().getName()).getProductsBasket();
 	}
 
+	
+	
 	public List<Product> deleteProductsBasket(HttpServletRequest request){
 		userRepository.findByName(request.getUserPrincipal().getName()).getProductsBasket().clear();
 
@@ -49,13 +51,19 @@ public class MixService {
 		userRepository.save(auxUser);
 
 	}
-	public void addBasket(HttpServletRequest request, long idProduct) {
+	/*public void addBasket(HttpServletRequest request, long idProduct) {
 		User auxUser = userRepository.findByName(request.getUserPrincipal().getName());
 		Product auxProduct = productRepository.findById(idProduct);
 		auxUser.setProductBasket(auxProduct);
 		userRepository.save(auxUser);
 	}
-	
+	*/
+	public void addBasket(String name, long idProduct) {
+		User auxUser = userRepository.findByName(name);
+		Product auxProduct = productRepository.findById(idProduct);
+		auxUser.setProductBasket(auxProduct);
+		userRepository.save(auxUser);
+	}
 	public ResponseEntity<Object> getImage(long id) throws MalformedURLException{	
 		Product product = productRepository.findById(id);
 		if (product != null) {

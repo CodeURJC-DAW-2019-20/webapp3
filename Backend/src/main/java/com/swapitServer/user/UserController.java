@@ -55,14 +55,14 @@ public class UserController {
 	@GetMapping("/basket")
 	public String basicBasket (Model model, HttpServletRequest request){
 		model.addAttribute("user", userService.getUserInSesion(request));
-		model.addAttribute("productsBasket", mixService.getProductsBasket(request));
+		model.addAttribute("productsBasket", mixService.getProductsBasket());
 
 		return "basket";
 	}
 
 	@PostMapping("index/addBasket")
 	public String addProductToBasket(Model model, @RequestParam long id, HttpServletRequest request){
-		mixService.addBasket(request, id);
+	mixService.addBasket(request.getUserPrincipal().getName(), id);
 		model.addAttribute("user", userService.getUserInSesion(request));
 
 		return "redirect:/index";
