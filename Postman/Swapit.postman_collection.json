@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4c0f236b-4e4d-4bda-9d24-d415a8296f28",
+		"_postman_id": "148a0a0f-ce47-42ba-925b-b359bf5a599c",
 		"name": "Swapit",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -436,6 +436,57 @@
 							]
 						},
 						"description": "Modifica los datos de un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "UserRequest: Añadir a la cesta",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/user/addBasket?id=3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"user",
+								"addBasket"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
 					},
 					"response": []
 				}
@@ -998,6 +1049,96 @@
 						"description": "Modifica los datos de un usuario"
 					},
 					"response": []
+				},
+				{
+					"name": "ProductRequest: Filtrar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/product/filter?categorys=Jersey&minPrice=100&maxPrice=300&brands=Primark",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "categorys",
+									"value": "Jersey"
+								},
+								{
+									"key": "minPrice",
+									"value": "100"
+								},
+								{
+									"key": "maxPrice",
+									"value": "300"
+								},
+								{
+									"key": "brands",
+									"value": "Primark"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductRequest: Ordenar por nombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/product/order/name",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								"order",
+								"name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductRequest: Ordenar por precio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/product/order/price",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"product",
+								"order",
+								"price"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -1284,6 +1425,43 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "pass",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "user",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "64e521d1-a050-46cd-acb0-cec7135dc1fa",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "50092181-419d-4252-8d2d-c0f0c8026f00",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}
