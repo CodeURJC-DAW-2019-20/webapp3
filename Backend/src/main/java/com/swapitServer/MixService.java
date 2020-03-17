@@ -58,12 +58,12 @@ public class MixService {
 		userRepository.save(auxUser);
 	}
 	
-	/*public void addBasket(String name, long idProduct) {
+	public void addBasket(String name, long idProduct) {
 		User auxUser = userRepository.findByName(name);
 		Product auxProduct = productRepository.findById(idProduct);
 		auxUser.setProductBasket(auxProduct);
 		userRepository.save(auxUser);
-	}*/
+	}
 	public ResponseEntity<Object> getImage(long id) throws MalformedURLException{	
 		Product product = productRepository.findById(id);
 		if (product != null) {
