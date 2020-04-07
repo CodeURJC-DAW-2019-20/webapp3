@@ -1,0 +1,71 @@
+<div class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+  
+        <div class="col-md-20"> <!-- Change -->
+          <!-- Billing Details -->
+          <div class="billing-details">
+            <div class="form-group text-center">
+  
+  
+                <div class="form-group">
+                    <h2>Iniciar Sesión</h2>
+                    <form>
+                        <div class="form-group">
+                          <input #userInput type="text" name="username" placeholder="Usuario" required>
+                        </div>
+                        <div class="form-group">
+                          <input #passInput type="password" name="password" placeholder="Contraseña" required>
+                        </div>
+                        <div class="form-group">
+                            <input (click)="userLogin()" type="submit" id="sendLogin" value="Iniciar Sesion" class="primary-btn cta-btn">
+                        </div>
+                       
+                    </form>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <h2>Registrate</h2>
+                    <form>
+                        <div class="form-group">
+                            <input #nameInput type="text" name="name" placeholder="Nombre de Usuario" required>
+                        </div>
+                        <div class="form-group">
+                            <input #passwordInput type="text" name="password"placeholder="Contraseña" required>
+                        </div>
+                        <div class="form-group">
+                            <input #lastnameInput type="text" name="lastname" placeholder="Apellidos" required>
+                        </div>
+                        <div class="form-group">
+                            <input #emailInput type="text" name="email" placeholder="Correo Electronico" required>
+                        </div>
+                        <div class="form-group">
+                            <input #addresInput type="text" name="address" placeholder="Direccion de Envio" required>
+                        </div>
+                        <div class="form-group">
+                            <input #cityInput type="text" name="city" placeholder="Ciudad" required>
+                        </div>
+                        <div class="form-group">
+                            <input #countryInput type="text" name="country" placeholder="Pais" required>
+                        </div>
+                        <div class="form-group">
+                            <input #cpInput type="text" name="cp" placeholder="Codigo Postal" required>
+                        </div>
+                        <div class="form-group">
+                            <input #phoneInput type="text" name="phone" placeholder="Teléfono" required>
+                        </div>
+                        <div class="form-group">
+                            <input (click)="registerUser()" type="submit" id="sendRegistration" class="primary-btn cta-btn" value="Registrarse">
+                        </div>
+                    </form>
+                </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
