@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, JsonpModule} from '@angular/http';
-import {User} from './app.user';
+import {User} from '../app.user';
 
 
 @Injectable()

@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable, Optional} from '@angular/core';
 
 @Injectable()
 export class User{
-   
+
     private id: number;
     private name: string;
     private passworHash: string;
@@ -22,7 +22,8 @@ export class User{
     //private likekIts:Products[];
 
     //constructor(name, passworHash, lastname, email, addres, city, country, cp, phone){
-    constructor(name: string, passworHash: string, lastname: string, email: string, addres: string, city: string, country: string, cp: string, phone: string){
+
+    constructor(@Inject(String) name: string, @Inject(String) passworHash: string, @Inject(String) lastname: string, @Inject(String) email: string, @Inject(String) addres: string, @Inject(String) city: string, @Inject(String) country: string, @Inject(String) cp: string, @Inject(String) phone: string){
         this.id = -1;
         this.name= name;
         this.passworHash=  passworHash;
@@ -45,7 +46,5 @@ export class User{
         alert('nombre: ' + this.name + ' | ' +
             'lastname: ' + this.lastname + ' | ' +
             'email: ' + this.email + ' | ' );
-
-        
     }
 }

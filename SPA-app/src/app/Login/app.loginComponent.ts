@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef} from '@angular/core';
 import {LoginService} from './app.loginService';
-import {User} from './app.user';
+import {User} from '../app.user';
 
 @Component({
     selector:'login-root',
@@ -45,8 +45,8 @@ export class LoginComponent{
     private cp: string;
 
     @ViewChild('phoneInput') phoneInput:ElementRef;
-    private phone: string;  
-    
+    private phone: string;
+
     userLogin(){
         this.user=this.userInput.nativeElement.value;
         this.pass=this.passInput.nativeElement.value;
@@ -76,9 +76,9 @@ export class LoginComponent{
                 user.printUser();
                 this.loginService.registerUser(user);
         }
-       
+
     }
-    
+
     checkField(field:string):boolean{
         if(field != '')
             return true;

@@ -6,14 +6,14 @@ import {HttpModule, JsonpModule} from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './app.loginComponent';
-import { LoginService} from './app.loginService';
+import { LoginComponent } from './Login/app.loginComponent';
+import { LoginService} from './Login/app.loginService';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent 
+    LoginComponent
   ],
   imports: [
     BrowserModule,
