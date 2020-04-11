@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,7 @@ public class ProductRestController {
 	@Autowired
 	private ImageService imageService;
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/load", method=RequestMethod.POST)
 	public ResponseEntity<Product> loadProduct( @RequestBody Product product) {			
 			
@@ -38,6 +40,7 @@ public class ProductRestController {
 		return new ResponseEntity<>(productService.getProductById(product.getId()),HttpStatus.CREATED);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/{id}/imagen", method=RequestMethod.POST)
 	public ResponseEntity<Product> nuevaImagenAnuncio(@PathVariable long id, @RequestParam MultipartFile imagenFile) throws IOException {
 		Product product = productService.getProductById(id);
@@ -51,6 +54,7 @@ public class ProductRestController {
 		}
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/{id}/imagen", method=RequestMethod.GET)
 	public ResponseEntity<Object> nuevaImagenAnuncio(@PathVariable long id) throws IOException {
 		Product product = productService.getProductById(id);
@@ -63,7 +67,7 @@ public class ProductRestController {
 	 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/validate", method=RequestMethod.PUT)
 	public ResponseEntity<Product> validateProduct(@RequestParam long id , @RequestBody Product product) {	
 		if(productService.getProductById(id) != null) {
@@ -73,6 +77,7 @@ public class ProductRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);	
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/modify", method=RequestMethod.DELETE)
 	public ResponseEntity<Product> modifyProduct(@RequestParam long id) {	
 		if(productService.getProductById(id) != null) {
@@ -82,7 +87,7 @@ public class ProductRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);	
 	}
 	
-
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/modify", method=RequestMethod.PUT)
 	public ResponseEntity<Product> modifyProduct( @RequestBody Product product) {	
 		if(productService.getProductById(product.getId()) != null) {
@@ -92,6 +97,7 @@ public class ProductRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);	
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ResponseEntity<Product> readProduct(@RequestParam long id) {	
 		if(productService.getProductById(id) != null) {			
@@ -100,34 +106,45 @@ public class ProductRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);	
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/stock", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> readAllStockProducts() {			
 			return new ResponseEntity<>(productService.getAllProductinStock(),HttpStatus.OK);
 	}	
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/stock/page", method=RequestMethod.GET)
 	public ResponseEntity<Page<Product>> readAllStockProductsPage(Pageable page) {	
 		return new ResponseEntity<>(productService.getAllProductinStock(page),HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/prestock", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> readAllPreStockProducts() {			
 			return new ResponseEntity<>(productService.getAllProductinPreStock(),HttpStatus.OK);
 	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/prestock/page", method=RequestMethod.GET)
 	public ResponseEntity<Page<Product>> readAllPreStockProductsPage(Pageable page) {	
 		return new ResponseEntity<>(productService.getAllProductinPreStock(page),HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/filter", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> readFilter(@RequestParam  String[] categorys, @RequestParam  int minPrice, @RequestParam  int maxPrice, @RequestParam String[] brands) {
 		return new ResponseEntity<>(productService.getProductinStockByFilter(categorys, minPrice,maxPrice,brands),HttpStatus.OK);
 			
 	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/order/name", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> readAllProductsByName() {
 		return new ResponseEntity<>(productService.getProductinStockByName(),HttpStatus.OK);
 			
 	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/order/price", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> readAllProductsByPrice() {
 		return new ResponseEntity<>(productService.getProductinStockByPrice(),HttpStatus.OK);
