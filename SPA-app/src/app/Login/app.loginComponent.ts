@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef} from '@angular/core';
 import {UserService} from '../User/app.userService';
 import {User} from '../User/app.user';
+import { HttpErrorResponse } from '@angular/common/http';
+import { DataService } from '../Data/app.dataService';
 
 @Component({
     selector:'login-root',
@@ -9,14 +11,19 @@ import {User} from '../User/app.user';
 })
 
 export class LoginComponent{
-    constructor(private loginService: UserService){};
+    constructor(private userService: UserService,private dataservice:DataService){};
+    
+    ngOnInit(){
+        
+    }
+    
     //Login form
 
     @ViewChild('userInput') userInput:ElementRef;
-    private user: string;
+    private userName: string;
 
     @ViewChild('passInput') passInput:ElementRef;
-    private pass: string;
+    private userPass: string;
 
     //Register form
 
@@ -48,12 +55,26 @@ export class LoginComponent{
     private phone: string;  
     
     userLogin(){
-        this.user=this.userInput.nativeElement.value;
-        this.pass=this.passInput.nativeElement.value;
+        this.userName=this.userInput.nativeElement.value;
+        this.userPass=this.passInput.nativeElement.value;
 
-        if(this.checkField(this.user) && (this.checkField(this.pass))){
-            alert('usser name: '+ this.user +
-                 '  pass : '+ this.pass );
+        if(this.checkField(this.userName) && (this.checkField(this.userPass))){
+
+            this.userService.getUserByName(this.userName,this.userPass).subscribe(
+                response => {
+                    console.log(response);
+                    let user: User =response;
+                    this.dataservice.user=response;
+                    //alert(user.getPass());
+                /*    this.user = response;
+                    this.user.setPass(this.userPass);
+                    alert( this.user.getName());
+                    */alert('respuesta');
+                    
+                },
+                (error:HttpErrorResponse) => alert(error.message)
+            );
+            alert('getUser');
         }
     }
 
@@ -73,10 +94,14 @@ export class LoginComponent{
             this.checkField(this.city) && (this.checkField(this.country)) &&
             this.checkField(this.cp) && (this.checkField(this.phone))){
                 let user= new User(this.name,this.password,this.lastname,this.email,this.address,this.city,this.country,this.cp,this.phone);
-                this.loginService.registerUser(user).subscribe(
-                    response => console.log(response),
+                this.userService.registerUser(user).subscribe(
+                    response => {
+                        console.log(response);
+                        alert('El usuario ha sido registrado exitosamente. Verifique su email para activarlo');
+                    },
                     error => console.log('Error al registrar al usuario')
                 );
+                alert('Se ha solicitado la peticion de registro');
         }
        
     }

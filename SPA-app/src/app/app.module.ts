@@ -1,26 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Login/app.loginComponent';
+import { ProfileComponent } from './Profile/app.profileComponent';
 import { UserService} from './User/app.userService';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ProductService} from './Product/app.productService'
+import {DataService} from './Data/app.dataService'
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
-  bootstrap: [AppComponent,LoginComponent]
+  providers: [UserService,ProductService,DataService],
+  bootstrap: [AppComponent,LoginComponent,ProfileComponent]
 })
 export class AppModule { }
