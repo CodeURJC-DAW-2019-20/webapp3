@@ -9,14 +9,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Login/app.loginComponent';
 import { ProfileComponent } from './Profile/app.profileComponent';
 import { UserService} from './User/app.userService';
-import { ProductService} from './Product/app.productService'
-import {DataService} from './Data/app.dataService'
+import { ProductService} from './Product/app.productService';
+import {DataService} from './Data/app.dataService';
+import {AppHeaderComponent} from './Header/app.headerComponent';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppHeaderComponent,
     LoginComponent,
     ProfileComponent
   ],
@@ -27,7 +28,7 @@ import {DataService} from './Data/app.dataService'
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService,ProductService,DataService],
-  bootstrap: [AppComponent,LoginComponent,ProfileComponent]
+  providers: [UserService, ProductService, DataService],
+  bootstrap: [AppHeaderComponent, LoginComponent, ProfileComponent]
 })
 export class AppModule { }

@@ -10,11 +10,11 @@ import { map } from 'rxjs/operators';
 @Injectable({providedIn:'root'})
 export class UserService{
     constructor(private http: HttpClient){};
-    url:string='https://localhost:8443/api/user/';
-    
-   
-    public registerUser(user:User){ 
-       return this.http.post<User>(this.url+'register',user,{
+    url:string = 'https://localhost:8443/api/user/';
+
+
+    public registerUser(user:User){
+       return this.http.post<User>(this.url + 'register', user,{
                 headers: new HttpHeaders({
                     'Content-Type':'application/json'
                 })
@@ -40,7 +40,7 @@ export class UserService{
     }
 
 
-    public updateUser(user:User){
+    public updateUser(user: User){
         return this.http.put<User>(this.url+'update',user,{
             headers: new HttpHeaders({
                 'Content-Type':'application/json',
