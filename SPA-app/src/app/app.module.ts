@@ -12,6 +12,7 @@ import { UserService} from './User/app.userService';
 import { ProductService} from './Product/app.productService';
 import {DataService} from './Data/app.dataService';
 import {AppHeaderComponent} from './Header/app.headerComponent';
+import {AppFooterComponent} from './Footer/app.footerComponent';
 
 
 
@@ -19,7 +20,8 @@ import {AppHeaderComponent} from './Header/app.headerComponent';
   declarations: [
     AppHeaderComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    AppFooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,6 @@ import {AppHeaderComponent} from './Header/app.headerComponent';
     HttpClientModule
   ],
   providers: [UserService, ProductService, DataService],
-  bootstrap: [AppHeaderComponent, LoginComponent, ProfileComponent]
+  bootstrap: [AppHeaderComponent, LoginComponent, ProfileComponent, AppFooterComponent]
 })
 export class AppModule { }

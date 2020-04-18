@@ -8,42 +8,42 @@ import { DataService } from '../Data/app.dataService';
 import { ProductService } from '../Product/app.productService';
 
 @Component({
-    selector:'profile-root',
+  // tslint:disable-next-line:component-selector
+    selector: 'profile-root',
     templateUrl: './app.profileComponent.html',
-    providers: [UserService,ProductService]
+    providers: [UserService, ProductService]
 })
 
 export class ProfileComponent {
-    
-    constructor(private userService: UserService,private productService:ProductService,public dataService: DataService,){}
+    constructor(private userService: UserService, private productService: ProductService, public dataService: DataService){}
 
-    @ViewChild('nameInput') nameInput:ElementRef;
+    @ViewChild('nameInput') nameInput: ElementRef;
     private name: string;
 
-    @ViewChild('lastnameInput') lastnameInput:ElementRef;
+    @ViewChild('lastnameInput') lastnameInput: ElementRef;
     private lastname: string;
 
-    @ViewChild('emailInput') emailInput:ElementRef;
+    @ViewChild('emailInput') emailInput: ElementRef;
     private email: string;
 
-    @ViewChild('addresInput') addresInput:ElementRef;
+    @ViewChild('addresInput') addresInput: ElementRef;
     private address: string;
 
-    @ViewChild('cityInput') cityInput:ElementRef;
+    @ViewChild('cityInput') cityInput: ElementRef;
     private city: string;
 
-    @ViewChild('countryInput') countryInput:ElementRef;
+    @ViewChild('countryInput') countryInput: ElementRef;
     private country: string;
 
-    @ViewChild('cpInput') cpInput:ElementRef;
+    @ViewChild('cpInput') cpInput: ElementRef;
     private cp: string;
 
-    @ViewChild('phoneInput') phoneInput:ElementRef;
+    @ViewChild('phoneInput') phoneInput: ElementRef;
     private phone: string;
 
-    active=1;
-    
-    //Para probar los metodos
+    active = 1;
+
+    // Para probar los metodos
     ngOnInit(){
         this.productService.getStock().subscribe(
             response => {
@@ -53,7 +53,7 @@ export class ProfileComponent {
             error => console.log('Error al solicitar el stock')
         );
 
-        this.productService.getPreStock('Admin','adminpass').subscribe(
+        this.productService.getPreStock('Admin', 'adminpass').subscribe(
             response => {
                 console.log(response);
                 alert('Stock recibido');
@@ -61,7 +61,7 @@ export class ProfileComponent {
             error => console.log('Error al solicitar el stock')
         );
 
-        this.userService.getAllUser('Admin','adminpass').subscribe(
+        this.userService.getAllUser('Admin', 'adminpass').subscribe(
             response => {
                 console.log(response);
                 alert('Stock recibido');
@@ -70,24 +70,24 @@ export class ProfileComponent {
         );
     }
 
-    
+
 
     updateUser(){
-        this.name=this.nameInput.nativeElement.value;
-        this.lastname=this.lastnameInput.nativeElement.value;
-        this.email=this.emailInput.nativeElement.value;
-        this.address=this.addresInput.nativeElement.value;
-        this.city=this.cityInput.nativeElement.value;
-        this.country=this.countryInput.nativeElement.value;
-        this.cp=this.cpInput.nativeElement.value;
-        this.phone=this.phoneInput.nativeElement.value;
+        this.name = this.nameInput.nativeElement.value;
+        this.lastname = this.lastnameInput.nativeElement.value;
+        this.email = this.emailInput.nativeElement.value;
+        this.address = this.addresInput.nativeElement.value;
+        this.city = this.cityInput.nativeElement.value;
+        this.country = this.countryInput.nativeElement.value;
+        this.cp = this.cpInput.nativeElement.value;
+        this.phone = this.phoneInput.nativeElement.value;
 
         if( this.checkField(this.name)  && (this.checkField(this.lastname)) &&
             this.checkField(this.email) && (this.checkField(this.address)) &&
             this.checkField(this.city) && (this.checkField(this.country)) &&
             this.checkField(this.cp) && (this.checkField(this.phone))){
-                
-                let user= new User(this.name,prompt('Introduzca su contraseña para realizar la operacion'),this.lastname,this.email,this.address,this.city,this.country,this.cp,this.phone);    
+
+                let user = new User(this.name, prompt('Introduzca su contraseña para realizar la operacion'), this.lastname, this.email, this.address, this.city, this.country, this.cp, this.phone);
                 this.userService.updateUser(user).subscribe(
                     response => {
                         console.log(response);
@@ -99,8 +99,8 @@ export class ProfileComponent {
         }
     }
 
-    checkField(field:string):boolean{
-        if(field != '')
+    checkField(field: string): boolean{
+        if (field != '')
             return true;
         return false;
     }

@@ -3,7 +3,7 @@ import {User} from '../User/app.user';
 
 
 
-@Injectable({providedIn:'root'})
+@Injectable({providedIn: 'root'})
 export class DataService{
  user: User = new User('Usuario','Contraseña','apellido','email','direccion','ciudad','pais','c.d.','Telefono');
 }

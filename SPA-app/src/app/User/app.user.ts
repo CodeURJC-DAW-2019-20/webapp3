@@ -7,7 +7,7 @@ export class User{
     public id: number;
     public name: string;
     public passwordHash: string;
-    public roles : String[];
+    public roles: String[];
     public lastname: string;
     public email: string;
     public address: string;
@@ -15,7 +15,7 @@ export class User{
     public country: string;
     public cp: string;
     public phone: string;
-    public puntos: number;
+    private puntos: number;
     public emailVerified: boolean;
     public login : boolean;
     public itemsIlikeIt: number;
@@ -26,22 +26,22 @@ export class User{
 
     constructor(@Inject(String) name: string, @Inject(String) passwordHash: string, @Inject(String) lastname: string, @Inject(String) email: string, @Inject(String) address: string, @Inject(String) city: string, @Inject(String) country: string, @Inject(String) cp: string, @Inject(String) phone: string){
         this.id = -1;
-        this.name= name;
-        this.passwordHash=  passwordHash;
+        this.name = name;
+        this.passwordHash =  passwordHash;
         this.roles = [];
-        this.lastname=lastname;
-        this.email=email;
-        this.address= address;
-        this.city= city;
-        this.country= country;
-        this.cp= cp;
-        this.phone= phone;
-        this.puntos=0;
-        this.emailVerified=false;
+        this.lastname = lastname;
+        this.email = email;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.cp = cp;
+        this.phone = phone;
+        this.puntos = 0;
+        this.emailVerified = false;
         this.login = false;
-        this.itemsIlikeIt=0;
-        this.itemsBasket=0;
-        this.likekIts=[];
+        this.itemsIlikeIt = 0;
+        this.itemsBasket = 0;
+        this.likekIts = [];
     }
 
 
@@ -49,16 +49,19 @@ export class User{
         return this.name;
     }
 
-    public setPass(pass:string){
-        this.passwordHash=pass;
+    public setPass(pass: string){
+        this.passwordHash = pass;
+    }
+    public getPuntos(){
+      return this.puntos;
     }
 
     public getPass(){
         return this.passwordHash;
     }
 
-    public setLogin(value:boolean){
-        this.login=value;
+    public setLogin(value: boolean){
+        this.login = value;
     }
 
     public stringUser(){

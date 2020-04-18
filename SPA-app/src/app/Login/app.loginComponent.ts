@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef} from '@angular/core';
+import {Component, ViewChild, ElementRef} from '@angular/core';
 import {UserService} from '../User/app.userService';
 import {User} from '../User/app.user';
 import { HttpErrorResponse } from '@angular/common/http';
