@@ -1,39 +1,37 @@
-import {Injectable,Inject} from '@angular/core';
+import {Injectable, Inject} from '@angular/core';
 import {User} from './app.user';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
-import {Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
 
 
 
-@Injectable({providedIn:'root'})
+
+@Injectable({providedIn: 'root'})
 export class UserService{
     constructor(private http: HttpClient){};
-    url:string = 'https://localhost:8443/api/user/';
+    url: string = 'https://localhost:8443/api/user/';
 
 
-    public registerUser(user:User){
+    public registerUser(user: User){
        return this.http.post<User>(this.url + 'register', user,{
                 headers: new HttpHeaders({
-                    'Content-Type':'application/json'
+                    'Content-Type': 'application/json'
                 })
         });
     }
 
-    public getUserByName(name:string, pass:string){
-        return this.http.get<User>(this.url+'?name='+name,{
+    public getUserByName(name: string, pass: string){
+        return this.http.get<User>(this.url + '?name=' + name, {
             headers: new HttpHeaders({
-                'Content-Type':'application/json',
-                'Authorization': 'Basic '+ btoa(name+':'+pass)
+                'Content-Type': 'application/json',
+                 'Authorization': 'Basic ' + btoa(name + ':' + pass)
             })
         });
     }
 
-    public getAllUser(name:string, pass:string){
+    public getAllUser(name: string, pass: string){
         return this.http.get<User[]>(this.url+'all',{
             headers: new HttpHeaders({
-                'Content-Type':'application/json',
+                'Content-Type': 'application/json',
                 'Authorization': 'Basic '+ btoa(name+':'+pass)
             })
         });
@@ -41,10 +39,10 @@ export class UserService{
 
 
     public updateUser(user: User){
-        return this.http.put<User>(this.url+'update',user,{
+        return this.http.put<User>(this.url + 'update', user,{
             headers: new HttpHeaders({
-                'Content-Type':'application/json',
-                'Authorization': 'Basic '+ btoa(user.getName()+':'+user.getPass())
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic ' + btoa(user.getName() + ':' + user.getPass())
             })
         });
     }

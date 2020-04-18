@@ -50,6 +50,7 @@ export class LoginComponent{
 
     @ViewChild('phoneInput') phoneInput: ElementRef;
     private phone: string;
+    private userAux: User;
 
     ngOnInit(){
 
@@ -60,8 +61,7 @@ export class LoginComponent{
         this.userPass = this.passInput.nativeElement.value;
 
         if (this.checkField(this.userName) && (this.checkField(this.userPass))){
-
-            this.userService.getUserByName(this.userName, this.userPass).subscribe(
+          this.userService.getUserByName(this.userName, this.userPass).subscribe(
                 response => {
                     console.log(response);
                     const user: User = response;

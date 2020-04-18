@@ -1,5 +1,5 @@
 import {Inject, Injectable, Optional} from '@angular/core';
-import {Product} from '../Product/app.product'
+import {Product} from '../Product/app.product';
 
 @Injectable()
 export class User{

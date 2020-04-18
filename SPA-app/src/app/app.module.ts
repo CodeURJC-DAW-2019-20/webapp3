@@ -5,7 +5,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { LoginComponent } from './Login/app.loginComponent';
 import { ProfileComponent } from './Profile/app.profileComponent';
 import { UserService} from './User/app.userService';
@@ -13,12 +12,16 @@ import { ProductService} from './Product/app.productService';
 import {DataService} from './Data/app.dataService';
 import {AppHeaderComponent} from './Header/app.headerComponent';
 import {AppFooterComponent} from './Footer/app.footerComponent';
+import {AppIndexComponent} from './Index/app.indexComponent';
+import {AppNavComponent} from './Nav/app.navComponent';
 
 
 
 @NgModule({
   declarations: [
     AppHeaderComponent,
+    AppNavComponent,
+    AppIndexComponent,
     LoginComponent,
     ProfileComponent,
     AppFooterComponent,
@@ -31,6 +34,6 @@ import {AppFooterComponent} from './Footer/app.footerComponent';
     HttpClientModule
   ],
   providers: [UserService, ProductService, DataService],
-  bootstrap: [AppHeaderComponent, LoginComponent, ProfileComponent, AppFooterComponent]
+  bootstrap: [AppHeaderComponent, AppNavComponent, AppIndexComponent, LoginComponent, ProfileComponent, AppFooterComponent]
 })
 export class AppModule { }
