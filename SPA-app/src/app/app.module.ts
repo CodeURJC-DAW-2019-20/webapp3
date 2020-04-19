@@ -9,11 +9,13 @@ import { LoginComponent } from './Login/app.loginComponent';
 import { ProfileComponent } from './Profile/app.profileComponent';
 import { UserService} from './User/app.userService';
 import { ProductService} from './Product/app.productService';
+import { SuggestionService } from './Suggestion/app.suggestionService';
 import {DataService} from './Data/app.dataService';
 import {AppHeaderComponent} from './Header/app.headerComponent';
 import {AppFooterComponent} from './Footer/app.footerComponent';
 import {AppIndexComponent} from './Index/app.indexComponent';
 import {AppNavComponent} from './Nav/app.navComponent';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -32,8 +34,9 @@ import {AppNavComponent} from './Nav/app.navComponent';
     NgbModule,
     FormsModule,
     HttpClientModule,
+    NoopAnimationsModule
   ],
-  providers: [UserService, ProductService, DataService],
-  bootstrap: [AppHeaderComponent, AppNavComponent, AppIndexComponent, AppFooterComponent]
+  providers: [UserService, ProductService, DataService,SuggestionService],
+  bootstrap: [AppHeaderComponent,LoginComponent ,AppNavComponent, ProfileComponent,AppIndexComponent, AppFooterComponent]
 })
 export class AppModule { }

@@ -68,6 +68,7 @@ export class LoginComponent{
                     console.log(response);
                     this.dataservice.user = response;
                     this.dataservice.user.login = true;
+                    this.dataservice.user.passwordHash=this.userPass;
                     console.log(this.dataservice.user);
                 },
                 (error: HttpErrorResponse) => alert(error.message)

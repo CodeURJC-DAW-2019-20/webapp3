@@ -12,7 +12,7 @@
                     <form >
                         <div class="form-group">
                             <span>Nombre</span>
-                            <input #nameInput class="input" type="text"  name="name" [(ngModel)]="dataService.user.name" readonly>
+                            <input #nameInput type="text"  name="name" [(ngModel)]="dataService.user.name" readonly>
                         </div>
                         <div class="form-group">
                             <span>Apellidos</span>
@@ -49,10 +49,285 @@
                 </div>
             <!-- /Profile Details -->
             </div>
-        </div>
 
-        <!-- /row -->
+            <!-- /row -->
+        </div>
+        <!-- /container -->
     </div>
-    <!-- /container -->
 </div>
 
+<!-- ADMIN DATA -->
+<div *ngIf="!isAdmin">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+            <a ngbNavLink (click)="getUserList(dataService.user.name,dataService.user.passwordHash)">Usuarios Registrados</a>
+            <ng-template ngbNavContent>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Pais</th>
+                    <th scope="col">C.P.</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Puntos</th>
+                    <th scope="col">Login</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Action1</th>
+                    <th scope="col">Action2</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of userList; index as i" >
+                            <th scope="row"> {{ i + 1 }}</th>						
+                            <td>  <input class="input" type="text" name="name" value="{{user.name}}" readonly> </td>	
+                            <td>  <input class="input" type="text" name="lastname" value="{{user.lastname}}">  </td>	
+                            <td>  <input class="input" type="text" name="email" value="{{user.email}}">  </td>
+                            <td>  <input class="input" type="text" name="address" value="{{user.address}}"> </td>
+                            <td>  <input class="input" type="text" name="city" value="{{user.city}}">  </td>	
+                            <td>  <input class="input" type="text" name="country" value="{{user.country}}">  </td>	
+                            <td>  <input class="input" type="text" name="cp" value="{{user.cp}}">  </td>
+                            <td>  <input class="input" type="text" name="phone" value="{{user.phone}}">  </td>
+                            <td>  <input class="input" type="text" name="puntos" value="{{user.balance}}">  </td>
+                            <td>  <input class="input" type="text" name="login" value="{{user.login}}">  </td>
+                            <td>  <input class="input" type="text" name="Rol" value="{{user.roles}}">  </td>
+                            <td> <input type="submit" name="action" value="Modificar"></td>
+                            <td> <input type="submit" name="action" value="Eliminar"></td>
+                        </tr>
+                    </tbody>
+                </table>    
+            </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+        <a ngbNavLink (click)="getStock()" >Productos en Stock</a>
+        <ng-template ngbNavContent>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Color</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Talla</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Detalle</th>
+                <!-- <th scope="col">Imagen</th> -->
+                <th scope="col">Action1</th>
+                <th scope="col">Action2</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of stock; index as i" >
+                        <th scope="row"> {{ i + 1 }}</th>						
+                        <td>  <input class="input" type="text" name="name" value="{{product.id}}" readonly> </td>	
+                        <td>  <input class="input" type="text" name="lastname" value="{{product.name}}">  </td>	
+                        <td>  <input class="input" type="text" name="email" value="{{product.color}}">  </td>
+                        <td>  <input class="input" type="text" name="address" value="{{product.category}}"> </td>
+                        <td>  <input class="input" type="text" name="city" value="{{product.brand}}">  </td>	
+                        <td>  <input class="input" type="text" name="country" value="{{product.size}}">  </td>	
+                        <td>  <input class="input" type="text" name="cp" value="{{product.price}}">  </td>
+                        <td>  <input class="input" type="text" name="phone" value="{{product.description}}">  </td>
+                        <td>  <input class="input" type="text" name="phone" value="{{product.detail}}">  </td>
+                    <!--    <td>  <input class="input" type="text" name="puntos" value="{{user.balance}}">  </td> -->
+                        <td> <input type="submit" name="action" value="Modificar"></td>
+                        <td> <input type="submit" name="action" value="Eliminar"></td>
+                    </tr>
+                </tbody>
+            </table>    
+        </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+        <a ngbNavLink (click)="getPreStock(dataService.user.name,dataService.user.passwordHash)">Productos pendientes de Aceptacion</a>
+        <ng-template ngbNavContent>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Color</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Talla</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Detalle</th>
+                <!-- <th scope="col">Imagen</th> -->
+                <th scope="col">Action1</th>
+                <th scope="col">Action2</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of preStock; index as i" >
+                        <th scope="row"> {{ i + 1 }}</th>						
+                        <td>  <input class="input" type="text" name="name" value="{{product.id}}" readonly> </td>	
+                        <td>  <input class="input" type="text" name="lastname" value="{{product.name}}">  </td>	
+                        <td>  <input class="input" type="text" name="email" value="{{product.color}}">  </td>
+                        <td>  <input class="input" type="text" name="address" value="{{product.category}}"> </td>
+                        <td>  <input class="input" type="text" name="city" value="{{product.brand}}">  </td>	
+                        <td>  <input class="input" type="text" name="country" value="{{product.size}}">  </td>	
+                        <td>  <input class="input" type="text" name="cp" value="{{product.price}}">  </td>
+                        <td>  <input class="input" type="text" name="phone" value="{{product.description}}">  </td>
+                        <td>  <input class="input" type="text" name="phone" value="{{product.detail}}">  </td>
+                    <!--    <td>  <input class="input" type="text" name="puntos" value="{{user.balance}}">  </td> -->
+                        <td> <input type="submit" name="action" value="Modificar"></td>
+                        <td> <input type="submit" name="action" value="Eliminar"></td>
+                    </tr>
+                </tbody>
+            </table>    
+        </ng-template>
+        </li>
+        <li [ngbNavItem]="4">
+            <a ngbNavLink (click)="getSuggestionList(dataService.user.name,dataService.user.passwordHash)">Atencion al Cliente</a>
+            <ng-template ngbNavContent>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mensage</th>
+                    <!-- <th scope="col">Imagen</th> -->
+                    <th scope="col">Action1</th>
+                    <th scope="col">Action2</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let suggestion of suggestionList; index as i" >
+                            <th scope="row"> {{ i + 1 }}</th>						
+                            <td>  <input class="input" type="text" name="name" value="{{suggestion.id}}" readonly> </td>	
+                            <td>  <input class="input" type="text" name="lastname" value="{{suggestion.name}}">  </td>	
+                            <td>  <input class="input" type="text" name="email" value="{{suggestion.lastname}}">  </td>
+                            <td>  <input class="input" type="text" name="address" value="{{suggestion.email}}"> </td>
+                            <td>  <input class="input" type="text" name="city" value="{{suggestion.message}}">  </td>	
+                        <!--    <td>  <input class="input" type="text" name="puntos" value="{{user.balance}}">  </td> -->
+                            <td> <input type="submit" name="action" value="Modificar"></td>
+                            <td> <input type="submit" name="action" value="Eliminar"></td>
+                        </tr>
+                    </tbody>
+                </table>    
+            </ng-template>
+        </li>
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
+<!-- USER DAta-->
+<div *ngIf="!isAdmin">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+            <a ngbNavLink (click)="getUserList(dataService.user.name,dataService.user.passwordHash)">Historial de Compras</a>
+            <ng-template ngbNavContent>
+                
+            </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+        <a ngbNavLink (click)="getStock()" >Historial de Ventas</a>
+        <ng-template ngbNavContent>
+            Grafico de Ventas  
+        </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+        <a ngbNavLink (click)="getPreStock(dataService.user.name,dataService.user.passwordHash)">Subir Producto</a>
+        <ng-template ngbNavContent>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-20">
+                        <form action="profile/loadProduct" method="post" enctype = "multipart/form-data">
+                            <div class="form-group">
+                                <input class="input" type="text" name="name" placeholder="Nombre del Producto" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="input" type="text" name="color" placeholder="Color" required>
+                            </div>
+                            <ul>
+                                <li> <!-- Desplegable CATEGORIA-->
+                                    <div class="col-md-6">
+                                        <div class="header-search">
+                                            <span>Categoria</span>
+                                            <select name="category" class="input-select" required>
+                                                <option value="0"></option>
+                                                <option value="Abrigo">Abrigo</option>
+                                                <option value="Accesorio">Accesorio</option>
+                                                <option value="Bota">Bota</option>
+                                                <option value="Camisa">Camisa</option>
+                                                <option value="Camiseta">Camiseta</option>
+                                                <option value="Chaqueta">Chaqueta</option>
+                                                <option value="Falda">Falda</option>
+                                                <option value="Jersey">Jersey</option>
+                                                <option value="Vaquero">Vaquero</option>
+                                                <option value="Zapatilla">Zapatilla</option>
+                                                <option value="Zapato">Zapato</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li> <!-- Desplegable Marca-->
+                                    <div class="col-md-6">
+                                        <div class="header-search">
+                                            <span>Marca</span>
+                                            <select name="brand" class="input-select" required>
+                                                <option value="0"></option>
+                                                <option value="Adidas">Adidas</option>
+                                                <option value="Armani">Armani</option>
+                                                <option value="CalvinKlein">Calvin Klein</option>
+                                                <option value="C&A">C&A</option>
+                                                <option value="Hollister">Hollister</option>
+                                                <option value="HyM">HyM</option>
+                                                <option value="Lacoste">Lacoste</option>
+                                                <option value="Lefties">Lefties</option>
+                                                <option value="Nike">Nike</option>
+                                                <option value="Primark">Primark</option>
+                                                <option value="PullAndBear">PullAndBear</option>
+                                                <option value="Puma">Puma</option>
+                                                <option value="RalphLauren">Ralph Lauren</option>
+                                                <option value="TH">TH</option>
+                                                <option value="Zara">Zara</option>
+                                                <option value="Other">Otra</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li> <!-- Desplegable Talla-->
+                                    <div class="col-md-6">
+                                        <div class="header-search">
+                                            <span>Talla</span>
+                                            <select name="size" class="input-select" required>
+                                                <option value="0"></option>
+                                                <option value="XS">XS</option>
+                                                <option value="S">S</option>
+                                                <option value="M">M</option>
+                                                <option value="L">L</option>
+                                                <option value="XL">XL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                </ul>
+                                <div class="form-group">
+                                    <textarea  name="description" class="input" type="text" name="product-description" placeholder="Descripcion" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="detail" class="input" type="text" name="product-detail" placeholder="Detalles" required></textarea>
+                                </div>
+                                <input type="file" name="imagenFile" accept=".jpg, .jpeg, .png">
+                                <br>
+                                <input (click)="createProduct()" type="submit" id="newProduct" class="primary-btn cta-btn" value="SUBIR PRODUCTO">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        </li>
+        
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>

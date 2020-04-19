@@ -62,6 +62,11 @@ export class User{
         this.login = value;
     }
 
+    
+    public isAdmin():boolean{
+        return this.roles.includes("ROLE_ADMIN");
+    }
+    
     public stringUser(){
         return 'nombre: ' + this.name + ' | ' +
             'lastname: ' + this.lastname + ' | ' +

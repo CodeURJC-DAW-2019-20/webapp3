@@ -3,7 +3,7 @@ import {Inject, Injectable, Optional} from '@angular/core';
 @Injectable()
 export class Product{
 
-    public id: string;
+public id: string;
 public  name: string;
 public  color: string;
 public  category: string;
