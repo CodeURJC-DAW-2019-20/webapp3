@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
-import { AppRoutingModule } from './app-routing.module';
+import {routing} from './app-routing.module';
 import { LoginComponent } from './Login/app.loginComponent';
 import { ProfileComponent } from './Profile/app.profileComponent';
 import { UserService} from './User/app.userService';
@@ -16,8 +15,7 @@ import {AppFooterComponent} from './Footer/app.footerComponent';
 import {AppIndexComponent} from './Index/app.indexComponent';
 import {AppNavComponent} from './Nav/app.navComponent';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import {AppErrorComponent} from './Error/app.errorComponent';
 
 @NgModule({
   declarations: [
@@ -27,16 +25,17 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     ProfileComponent,
     AppFooterComponent,
+    AppErrorComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    routing,
     NgbModule,
     FormsModule,
     HttpClientModule,
     NoopAnimationsModule
   ],
-  providers: [UserService, ProductService, DataService,SuggestionService],
-  bootstrap: [AppHeaderComponent,LoginComponent ,AppNavComponent, ProfileComponent,AppIndexComponent, AppFooterComponent]
+  providers: [UserService, ProductService, DataService, SuggestionService],
+  bootstrap: [AppHeaderComponent, AppNavComponent, AppFooterComponent],
 })
 export class AppModule { }
