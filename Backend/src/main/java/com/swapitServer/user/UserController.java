@@ -46,10 +46,10 @@ public class UserController {
 	
 	@PostMapping("index/addLikeIt")
 	public String addProductToLikeIt(Model model, @RequestParam long id, HttpServletRequest request){
-		mixService.addLikeIt(request.getUserPrincipal().getName(), id);
+		mixService.addLikeIt(request, id);
 		model.addAttribute("user", userService.getUserInSesion(request));
 		
-		return "index";
+		return "redirect:/index";
 	}
 
 	@GetMapping("/basket")

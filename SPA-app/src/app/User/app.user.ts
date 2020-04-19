@@ -15,14 +15,12 @@ export class User{
     public country: string;
     public cp: string;
     public phone: string;
-    private puntos: number;
+    public puntos: number;
     public emailVerified: boolean;
-    public login : boolean;
-    public itemsIlikeIt: number;
+    public login: boolean;
+    public itemsILikeIt: number;
     public itemsBasket: number;
-    public likekIts:Product[];
-
-    //constructor(name, passworHash, lastname, email, addres, city, country, cp, phone){
+    public likekIts: Product[];
 
     constructor(@Inject(String) name: string, @Inject(String) passwordHash: string, @Inject(String) lastname: string, @Inject(String) email: string, @Inject(String) address: string, @Inject(String) city: string, @Inject(String) country: string, @Inject(String) cp: string, @Inject(String) phone: string){
         this.id = -1;
@@ -39,7 +37,7 @@ export class User{
         this.puntos = 0;
         this.emailVerified = false;
         this.login = false;
-        this.itemsIlikeIt = 0;
+        this.itemsILikeIt = 0;
         this.itemsBasket = 0;
         this.likekIts = [];
     }

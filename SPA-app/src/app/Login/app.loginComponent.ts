@@ -3,6 +3,8 @@ import {UserService} from '../User/app.userService';
 import {User} from '../User/app.user';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DataService } from '../Data/app.dataService';
+import {Router} from '@angular/router';
+
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -64,18 +66,12 @@ export class LoginComponent{
           this.userService.getUserByName(this.userName, this.userPass).subscribe(
                 response => {
                     console.log(response);
-                    const user: User = response;
                     this.dataservice.user = response;
-                    // alert(user.getPass());
-                /*    this.user = response;
-                    this.user.setPass(this.userPass);
-                    alert( this.user.getName());
-                    */alert('respuesta');
-
+                    this.dataservice.user.login = true;
+                    console.log(this.dataservice.user);
                 },
                 (error: HttpErrorResponse) => alert(error.message)
             );
-            alert('getUser');
         }
     }
 

@@ -47,10 +47,16 @@ public class MixService {
 		User auxUser = userRepository.findByName(name);
 		Product auxProduct = productRepository.findById(idProduct);
 		auxUser.setLikeit(auxProduct);
-		auxUser.setItemsILikeIt(auxUser.getLikekIts().size());
 		userRepository.save(auxUser);
-
 	}
+    
+    public void addLikeIt(HttpServletRequest request, long idProduct) {
+		User auxUser = userRepository.findByName(request.getUserPrincipal().getName());
+		Product auxProduct = productRepository.findById(idProduct);
+		auxUser.setLikeit(auxProduct);
+		userRepository.save(auxUser);
+	}
+    
 	public void addBasket(HttpServletRequest request, long idProduct) {
 		User auxUser = userRepository.findByName(request.getUserPrincipal().getName());
 		Product auxProduct = productRepository.findById(idProduct);

@@ -31,9 +31,9 @@ import {AppNavComponent} from './Nav/app.navComponent';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [UserService, ProductService, DataService],
-  bootstrap: [AppHeaderComponent, AppNavComponent, AppIndexComponent, LoginComponent, ProfileComponent, AppFooterComponent]
+  bootstrap: [AppHeaderComponent, AppNavComponent, AppIndexComponent, AppFooterComponent]
 })
 export class AppModule { }

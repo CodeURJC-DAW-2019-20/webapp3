@@ -48,7 +48,6 @@ export class ProfileComponent {
         this.productService.getStock().subscribe(
             response => {
                 console.log(response);
-                alert('Stock recibido');
             },
             error => console.log('Error al solicitar el stock')
         );
@@ -56,7 +55,6 @@ export class ProfileComponent {
         this.productService.getPreStock('Admin', 'adminpass').subscribe(
             response => {
                 console.log(response);
-                alert('Stock recibido');
             },
             error => console.log('Error al solicitar el stock')
         );
@@ -64,7 +62,6 @@ export class ProfileComponent {
         this.userService.getAllUser('Admin', 'adminpass').subscribe(
             response => {
                 console.log(response);
-                alert('Stock recibido');
             },
             error => console.log('Error al solicitar el stock')
         );

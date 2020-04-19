@@ -1,7 +1,8 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {UserService} from '../User/app.userService';
 import {ProductService} from '../Product/app.productService';
 import {DataService} from '../Data/app.dataService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header-root',
@@ -9,5 +10,9 @@ import {DataService} from '../Data/app.dataService';
   providers: [UserService, ProductService]
 })
 export class AppHeaderComponent {
-  constructor(private userService: UserService, private productService: ProductService, public dataService: DataService){}
+  constructor(private userService: UserService, private router: Router, public dataService: DataService){}
+
+  goToLogin(){
+    this.router.navigate(['/login']);
+  }
 }
