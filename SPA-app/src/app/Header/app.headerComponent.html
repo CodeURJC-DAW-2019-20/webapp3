@@ -47,22 +47,34 @@
       <div class="col-md-3 clearfix">
         <div class="header-ctn">
           <!-- Wishlist -->
-          <div>
-            <a href="/">
+          <div *ngIf = "dataService.user.login == false">
+            <a routerLink="login">
               <i class="fa fa-heart-o"></i>
               <span>Me gusta</span>
-              <div class="qty" *ngIf = "dataService.user.login == false"> 0 </div>
-              <div class="qty" *ngIf = "dataService.user.login == true"> {{dataService.user.itemsILikeIt}} </div>
+              <div class="qty"> 0 </div>
+            </a>
+          </div>
+          <div *ngIf = "dataService.user.login == true">
+            <a routerLink="likeit">
+              <i class="fa fa-heart-o"></i>
+              <span>Me gusta</span>
+              <div class="qty"> {{dataService.user.itemsILikeIt}} </div>
             </a>
           </div>
           <!-- /Wishlist -->
           <!-- Cart -->
-          <div class="dropdown">
-            <a href  = "/">
+          <div class="dropdown" *ngIf = "dataService.user.login == false">
+            <a routerLink="login">
               <i class="fa fa-shopping-cart"></i>
               <span>Mi Cesta</span>
-              <div class="qty" *ngIf = "dataService.user.login == false"> 0 </div>
-              <div class="qty" *ngIf = "dataService.user.login == true"> {{dataService.user.itemsBasket}} </div>
+              <div class="qty"> 0 </div>
+            </a>
+          </div>
+          <div class="dropdown" *ngIf = "dataService.user.login == true">
+            <a routerLink="basket">
+              <i class="fa fa-shopping-cart"></i>
+              <span>Mi Cesta</span>
+              <div class="qty"> 0 </div>
             </a>
           </div>
           <!-- /Cart -->

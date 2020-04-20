@@ -19,9 +19,9 @@
               <div class="product-rating">
               </div>
               <div class="product-btns">
-                <form action = "/" method = "post" enctype = "multipart/form-data">
+                <form method = "post" enctype = "multipart/form-data">
                   <div class = "form-group">
-                    <button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{Product.id}}"></button>
+                    <button style="border: 0px; background-color: white" (click)="addProductToLike(Product.id)" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{Product.id}}"></button>
                     <button style="border: 0px; background-color: white" class="fa fa-eye tooltipp"></button>
                   </div>
                 </form>
@@ -30,7 +30,7 @@
             <div class="add-to-cart">
               <form action = "/" method = "post" enctype = "multipart/form-data">
                 <div class = "form-group">
-                  <button class="add-to-cart-btn" name="id" type="submit" value="{{Product.id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
+                  <button (click)="addProductToBasket(Product.id)" class="add-to-cart-btn" name="id" type="submit" value="{{Product.id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
                 </div>
               </form>
             </div>

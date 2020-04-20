@@ -18,7 +18,7 @@ export class UserService{
                  })
          });
      }
- 
+
      public getUserByName(name:string, pass:string){
          return this.http.get<User>(this.url+'?name='+name,{
              headers: new HttpHeaders({
@@ -27,7 +27,7 @@ export class UserService{
              })
          });
      }
- 
+
      public getAllUser(name:string, pass:string){
          return this.http.get<User[]>(this.url+'all',{
              headers: new HttpHeaders({
@@ -36,8 +36,8 @@ export class UserService{
              })
          });
      }
- 
- 
+
+
      public updateUser(user: User){
          return this.http.put<User>(this.url+'update',user,{
              headers: new HttpHeaders({

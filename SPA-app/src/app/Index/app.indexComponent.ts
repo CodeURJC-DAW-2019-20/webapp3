@@ -16,6 +16,8 @@ import {Observable} from 'rxjs';
 export class AppIndexComponent {
   constructor(private userService: UserService, private productService: ProductService, public dataService: DataService) {}
   public Products: Product[];
+  public ProductsLiked = [];
+  public ProductsBasket = [];
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit(){
@@ -26,6 +28,24 @@ export class AppIndexComponent {
       },
       error => console.log('Error al solicitar el stock')
     );
+  }
+
+  public addProductToLike(id: string){
+      for(let Product of this.Products){
+        if (Product.id === id){
+          this.ProductsLiked[this.dataService.user.itemsILikeIt] = Product;
+          this.dataService.user.itemsILikeIt++;
+        }
+      }
+  }
+
+  public addProductToBasket(id: string){
+    for(let Product of this.Products){
+      if (Product.id === id){
+        this.ProductsBasket[this.dataService.user.itemsILikeIt] = Product;
+        this.dataService.user.itemsBasket++;
+      }
+    }
   }
 }
 

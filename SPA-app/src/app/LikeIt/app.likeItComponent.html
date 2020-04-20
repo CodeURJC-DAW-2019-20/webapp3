@@ -1,0 +1,47 @@
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- ASIDE -->
+      <div id="aside" class="col-md-3">
+        <!-- store products -->
+        <div  class="row">
+          <!-- product -->
+          <div class="col-md-4 col-xs-6" *ngFor="let Product of Products">
+            <div class="product">
+              <div class="product-img">
+                <img src="../../assets/img/products/image-{{Product.id}}.jpg">
+              </div>
+              <div class="product-body">
+                <p class="product-category">{{Product.category}}</p>
+                <p class="product-category">{{Product.brand}}</p>
+                <h3 class="product-name"><a href="#">{{Product.name}}</a></h3>
+                <h4 class="product-price"> {{Product.price}} Swapers </h4>
+                <div class="product-rating">
+                </div>
+                <div class="product-btns">
+                  <form action = "/index/addLikeIt" method = "post" enctype = "multipart/form-data">
+                    <div class = "form-group">
+                      <button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{Product.id}}"></button>
+                      <button style="border: 0px; background-color: white" class="fa fa-eye tooltipp"></button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="add-to-cart">
+                <form action = "/index/addBasket" method = "post" enctype = "multipart/form-data">
+                  <div class = "form-group">
+                    <button class="add-to-cart-btn" name="id" type="submit" value="{{Product.id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /product -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

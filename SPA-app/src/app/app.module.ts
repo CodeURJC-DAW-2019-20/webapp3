@@ -18,6 +18,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {AppErrorComponent} from './Error/app.errorComponent';
 import {AppStoreComponent} from './Store/app.storeComponent';
 import {AppInfomailComponent} from './Infomail/app.infomailComponent';
+import {AppLikeItComponent} from './LikeIt/app.likeItComponent';
+import {AppBasketComponent} from './Basket/app.basketComponent';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,9 @@ import {AppInfomailComponent} from './Infomail/app.infomailComponent';
     AppNavComponent,
     AppIndexComponent,
     AppStoreComponent,
+    AppInfomailComponent,
+    AppLikeItComponent,
+    AppBasketComponent,
     LoginComponent,
     ProfileComponent,
     AppFooterComponent,
