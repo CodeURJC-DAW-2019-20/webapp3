@@ -6,17 +6,14 @@
     <div class="row">
       <!-- ASIDE -->
       <div id="aside" class="col-md-3">
-        <form action ="/store/filter" method="post" enctype = "multipart/form-data">
+        <form action ="/" method="post" enctype = "multipart/form-data">
           <!-- aside Widget -->
           <div class="aside">
             <h3 class="aside-title">Categorias</h3>
             <div class="checkbox-filter" *ngFor="let Category of Categorys">
               <div class="input-checkbox">
-                <input type="checkbox" id="{{Category}}" value="{{Category}}" name ="categorys">
-                <label for="{{Category}}">
                   <span></span>
                   {{Category}}
-                </label>
               </div>
             </div>
           </div>
@@ -28,11 +25,11 @@
             <div class="price-filter">
               <div id="price-slider"></div>
               <div class="input-number price-min">
-                <input value="{{this.minPrice}}" type="number" name="minPrice">
+                <input #MinPriceInput value="{{this.minPrice}}" type="number" name="minPriceI">
               </div>
               <span> / </span>
               <div class="input-number price-max">
-                <input value="{{this.maxPrice}}" type="number" name="maxPrice">
+                <input #MaxPriceInput value="{{this.maxPrice}}" type="number" name="maxPriceI">
               </div>
             </div>
           </div>
@@ -43,10 +40,7 @@
             <h3 class="aside-title">Marca</h3>
             <div class="checkbox-filter" *ngFor = "let Brand of Brands">
               <div class="input-checkbox">
-                <input type="checkbox" id ="{{Brand}}" value="{{Brand}}" name="brands">
-                <label for = "{{Brand}}">
-                  <span></span>{{Brand}}
-                </label>
+                <span></span>{{Brand}}
               </div>
             </div>
           </div>
@@ -55,7 +49,7 @@
           <!-- Filter -->
           <div class = "product">
             <div class ="mostrarMas">
-              <button class="mostrarMas-btn" type ="submit"><i class="fa fa-plus-circle"></i>Filtrar</button>
+              <button (click)="filtrarProductos()" class="mostrarMas-btn" type ="submit"><i class="fa fa-plus-circle"></i>Filtrar</button>
             </div>
           </div>
           <!-- /Filter -->
@@ -71,8 +65,8 @@
             <label>
               Ordenar Por:
               <form action ="/store" method="get" enctype= "multipart/form-data">
-                <button class="input-select" formaction ="/store/orderByName" type="submit">Nombre</button>
-                <button class="input-select" formaction ="/store/orderByPrice" formmethod="get" formenctype= "multipart/form-data" type="submit">Precio</button>
+                <button class="input-select" (click)="ordenarPorNombre()" type="submit">Nombre</button>
+                <button class="input-select" (click)="ordenarPorPrecio()" formmethod="get" formenctype= "multipart/form-data" type="submit">Precio</button>
               </form>
             </label>
           </div>

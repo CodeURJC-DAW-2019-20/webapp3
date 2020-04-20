@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import { ProductService } from './app.productService';
 import {Product} from '../Product/app.product';
 import { stringify } from 'querystring';
@@ -12,8 +12,8 @@ import { stringify } from 'querystring';
 
 export class AppProductComponent{
     constructor(private productService: ProductService){}
-    public product: Product;
-   
+
+        public product: Product;
 
     ngOnInit(id: string){
         this.productService.getProduct(id='4').subscribe(

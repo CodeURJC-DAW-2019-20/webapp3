@@ -1,5 +1,5 @@
 // @ts-ignore
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {ProductService} from '../Product/app.productService';
 import {UserService} from '../User/app.userService';
 import {DataService} from '../Data/app.dataService';
@@ -18,9 +18,26 @@ export class AppStoreComponent {
   public Brands = [];
   public minPrice = 0;
   public maxPrice = 0;
+  public filtro = false;
+
+  @ViewChild('CategoryInput') CategoryInput: ElementRef;
+  private categorys: string[];
+
+  @ViewChild('MinPriceInput') MinPriceInput: ElementRef;
+  private minPriceI: number;
+
+  @ViewChild('MaxPriceInput') MaxPriceInput: ElementRef;
+  private maxPriceI: number;
+
+  @ViewChild('BrandInput') BrandInput: ElementRef;
+  private brands: string[];
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit(){
+    this.getProducts();
+  }
+
+  public getProducts(){
     this.productService.getStock().subscribe(
       response => {
         this.Products = response;
@@ -81,4 +98,46 @@ export class AppStoreComponent {
       }
     }
   }
+
+  public ordenarPorNombre(){
+    for(let i = 0; i < (this.Products.length - 1); i++){
+      for(let j = i + 1; j < this.Products.length; j++){
+        if(this.Products[i].name > this.Products[j].name){
+          let variableauxiliar = this.Products[i];
+          this.Products[i] = this.Products[j];
+          this.Products[j] = variableauxiliar;
+        }
+      }
+    }
+  }
+
+  public ordenarPorPrecio(){
+    for(let i = 0; i < (this.Products.length - 1); i++){
+      for(let j = i + 1; j < this.Products.length; j++){
+        if(this.Products[i].price > this.Products[j].price){
+          let variableauxiliar = this.Products[i];
+          this.Products[i] = this.Products[j];
+          this.Products[j] = variableauxiliar;
+        }
+      }
+    }
+  }
+
+  public filtrarProductos(){
+    this.minPriceI = this.MinPriceInput.nativeElement.value;
+    this.maxPriceI = this.MaxPriceInput.nativeElement.value;
+    let ProductsByFilter = [];
+    let i = 0;
+
+    for (let Product of this.Products){
+      if ((Product.price > this.minPriceI) && (Product.price < this.maxPriceI)){
+        ProductsByFilter[i] = Product;
+        i++;
+      }
+    }
+    console.log(this.categorys);
+    console.log(this.brands);
+    this.Products = ProductsByFilter;
+  }
+
 }

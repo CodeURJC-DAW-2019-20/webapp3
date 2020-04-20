@@ -20,6 +20,7 @@ const routes = [
   {path: 'basket', component: AppBasketComponent},
   {path: 'product', component: AppProductComponent},
   {path: 'infomail', component: AppInfomailComponent},
+  {path: 'product/:id', component: AppProductComponent},
   {path: '**', component: AppErrorComponent}
 ];
 
