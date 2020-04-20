@@ -1,27 +1,37 @@
-import {Injectable,Inject} from '@angular/core';
+import {Injectable, Inject} from '@angular/core';
 import {Suggestion} from './app.suggestion';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
 import {Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
+import {Product} from '../Product/app.product';
+import {AppInfomailComponent} from '../Infomail/app.infomailComponent';
 
 
 
-@Injectable({providedIn:'root'})
+@Injectable({providedIn: 'root'})
 export class SuggestionService{
-    constructor(private http: HttpClient){};
-    url:string='https://localhost:8443/api/suggestion/';
-   
+    constructor(private http: HttpClient){}
+    url = 'https://localhost:8443/api/suggestion/';
 
 
-    public getPreStock(name:string, pass:string){
-        return this.http.get<Suggestion[]>(this.url,{
+
+    public getPreStock(name: string, pass: string){
+        return this.http.get<Suggestion[]>(this.url, {
             headers: new HttpHeaders({
-                'Content-Type':'application/json',
-                'Authorization': 'Basic '+ btoa(name+':'+pass)
+                'Content-Type': 'application/json',
+                Authorization: 'Basic ' + btoa(name + ':' + pass)
             })
         });
     }
+    public registerInfo(infomail: Suggestion){
+        return this.http.post<Suggestion[]>(this.url + 'register', infomail, {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json'
+             })
+        });
+    }
+
 
 
 }
