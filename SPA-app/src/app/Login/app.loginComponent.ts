@@ -68,12 +68,13 @@ export class LoginComponent{
                     console.log(response);
                     this.dataservice.user = response;
                     this.dataservice.user.login = true;
-                    this.dataservice.user.passwordHash=this.userPass;
+                    this.dataservice.user.passwordHash= this.userPass;
                     console.log(this.dataservice.user);
                 },
-                (error: HttpErrorResponse) => alert(error.message)
+                (error: HttpErrorResponse) => alert("El usuario o contraseña no es correcto")
             );
         }
+        return true;
     }
 
     registerUser(){

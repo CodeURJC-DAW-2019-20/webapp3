@@ -3,7 +3,7 @@
   <div class="container">
     <ul class="header-links pull-left">
       <li><a><i class = "fa fa-phone"></i> +34 608 844 123</a></li>
-      <li><a href="/"><i class="fa fa-envelope-o"></i> info@Swapit.com</a></li>
+      <li><a routerLink="infomail"><i class="fa fa-envelope-o"></i> info@Swapit.com</a></li>
     </ul>
     <ul class="header-links pull-right">
       <li><a *ngIf = "dataService.user.login == true"><i class = "fa fa-money"></i> {{dataService.user.puntos}} </a></li>
