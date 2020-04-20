@@ -1,0 +1,40 @@
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-7">
+        <!-- Profile Details -->
+        <div class="billing-details">
+          <div class="section-title">
+            <h3 class="title">Solicitar Informacion</h3>
+          </div>
+          <form action="/profile/infomail" method="post">
+            <div class="form-group">
+              <span>Nombre</span>
+              <input #nameInput class="input" type="text"  name="name" >
+            </div>
+            <div class="form-group">
+              <span>Apellidos</span>
+              <input #lastnameInput class="input" type="text" name="apellido">
+            </div>
+            <div class="form-group">
+              <span>Email</span>
+              <input #emailInput class="input" type="email" name="email">
+            </div>
+            <div class="form-group">
+              <span>Comentario</span>
+              <input #messageInput class="input" type="text" name="message">
+            </div>
+            <input type="submit" id="sendInfoButton" class="primary-btn cta-btn" value="Enviar">
+          </form>
+        </div>
+        <!-- /Profile Details -->
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+</div>
+  <!-- /SECTION -->

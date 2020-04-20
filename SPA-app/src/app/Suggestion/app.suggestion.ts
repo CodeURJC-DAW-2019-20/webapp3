@@ -16,7 +16,7 @@ export class Suggestion{
         this.name = name;
         this.lastname = lastname;
         this.email = email;
-        this.message=message;
+        this.message = message;
     }
 
 }
