@@ -1,0 +1,123 @@
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+
+      <div class="col-md-7">
+        <!-- Billing Details -->
+        <div class="billing-details">
+          <div class="section-title">
+            <h3 class="title">Dirección de envío</h3>
+          </div>
+
+          <div class="form-group">
+            <input class="input" type="text" name="first-name" value=0>
+          </div>
+          <div class="form-group">
+            <input class="input" type="text" name="last-name" placeholder="lastname">
+          </div>
+          <div class="form-group">
+            <input class="input" type="email" name="email" placeholder="email">
+          </div>
+          <div class="form-group">
+            <input class="input" type="text" name="address" placeholder="adress">
+          </div>
+          <div class="form-group">
+            <input class="input" type="text" name="city" placeholder="city">
+          </div>
+          <div class="form-group">
+            <input class="input" type="text" name="country" placeholder="country">
+          </div>
+          <div class="form-group">
+            <input class="input" type="text" name="zip-code" placeholder="cp">
+          </div>
+          <div class="form-group">
+            <input class="input" type="tel" name="tel" placeholder="phone">
+          </div>
+        </div>
+        <!-- /Billing Details -->
+
+        <!-- Shiping Details -->
+        <div class="shiping-details">
+          <div class="section-title">
+            <h3 class="title">Dirección de envío</h3>
+          </div>
+          <div class="input-checkbox">
+            <input type="checkbox" id="shiping-address">
+            <label for="shiping-address">
+              <span></span>
+              Enviar a una dirección diferente
+            </label>
+            <div class="caption">
+              <div class="form-group">
+                <input class="input" type="text" name="first-name" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                <input class="input" type="text" name="last-name" placeholder="Apellidos">
+              </div>
+              <div class="form-group">
+                <input class="input" type="email" name="email" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input class="input" type="text" name="address" placeholder="Dirección">
+              </div>
+              <div class="form-group">
+                <input class="input" type="text" name="city" placeholder="Ciudad">
+              </div>
+              <div class="form-group">
+                <input class="input" type="text" name="country" placeholder="País">
+              </div>
+              <div class="form-group">
+                <input class="input" type="text" name="zip-code" placeholder="Código postal">
+              </div>
+              <div class="form-group">
+                <input class="input" type="tel" name="tel" placeholder="Teléfono">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Shiping Details -->
+      </div>
+
+      <!-- Order Details -->
+      <div class="col-md-5 order-details"*ngFor="let Product of Products">
+        <div class="section-title text-center">
+          <h3 class="title">Su pedido</h3>
+        </div>
+        <div class="order-summary">
+          <div class="order-col">
+            <div><strong>PRODUCTO</strong></div>
+            <div><strong>TOTAL</strong></div>
+          </div>
+
+          <div class="order-products">
+            <div class="order-col">
+              <div>1x {{Product.name}}</div>
+              <div>{{Product.price}} Swapers</div>
+            </div>
+
+          </div>
+          <div class="order-col">
+            <div>Envío</div>
+            <div><strong>Gratuito</strong></div>
+          </div>
+          <div class="order-col">
+            <div><strong>TOTAL</strong></div>
+            <div><strong class="order-total">{{Product.price}} Swapers</strong></div>
+          </div>
+        </div>
+        <div class = "form-group">
+          <form style = "display: inline-block"; action = "/checkout/transaction" method = "post" enctype = "multipart/form-data">
+            <button class="primary-btn order-submit" type = "submit" value = "id">Realizar pedido</button>
+          </form>
+        </div>
+      </div>
+      <!-- /Order Details -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /SECTION -->

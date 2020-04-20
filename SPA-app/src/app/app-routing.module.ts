@@ -8,6 +8,7 @@ import {AppInfomailComponent} from './Infomail/app.infomailComponent';
 import {AppLikeItComponent} from './LikeIt/app.likeItComponent';
 import {AppBasketComponent} from './Basket/app.basketComponent';
 import {AppProductComponent} from './Product/app.productComponent';
+import {AppCheckoutComponent} from './Checkout/app.checkoutComponent';
 
 
 
@@ -21,6 +22,7 @@ const routes = [
   {path: 'product', component: AppProductComponent},
   {path: 'infomail', component: AppInfomailComponent},
   {path: 'product/:id', component: AppProductComponent},
+  {path: 'basket/checkout', component: AppCheckoutComponent},
   {path: '**', component: AppErrorComponent}
 ];
 

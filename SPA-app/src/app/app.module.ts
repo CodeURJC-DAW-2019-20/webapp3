@@ -21,6 +21,7 @@ import {AppInfomailComponent} from './Infomail/app.infomailComponent';
 import {AppLikeItComponent} from './LikeIt/app.likeItComponent';
 import {AppBasketComponent} from './Basket/app.basketComponent';
 import {AppProductComponent} from './Product/app.productComponent';
+import {AppCheckoutComponent} from './Checkout/app.checkoutComponent';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {AppProductComponent} from './Product/app.productComponent';
     AppErrorComponent,
     AppInfomailComponent,
     AppProductComponent,
+    AppCheckoutComponent,
   ],
   imports: [
     BrowserModule,
