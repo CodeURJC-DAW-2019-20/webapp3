@@ -10,7 +10,7 @@
           <ul class="footer-links">
             <li><a><i class="fa fa-map-marker"></i>C/ Amargura 34 - Mostoles</a></li>
             <li><a><i class="fa fa-phone"></i>+34 608 844 077</a></li>
-            <li><a href="/"><i class="fa fa-envelope-o"></i>info@Swapit.com</a></li>
+            <li><a routerLink="infomail"><i class="fa fa-envelope-o"></i>info@Swapit.com</a></li>
           </ul>
         </div>
       </div>
@@ -19,16 +19,16 @@
         <div class="footer">
           <h3 class="footer-title">categorias</h3>
           <ul class="footer-links">
-            <li><a href="/">Abrigos</a></li>
-            <li><a href="/">Accesorios</a></li>
-            <li><a href="/">Botas</a></li>
-            <li><a href="/">Camisas</a></li>
-            <li><a href="/">Camisetas</a></li>
-            <li><a href="/">Faldas</a></li>
-            <li><a href="/">Jerseys</a></li>
-            <li><a href="/">Vaqueros</a></li>
-            <li><a href="/">Zapatillas</a></li>
-            <li><a href="/">Zapatos</a></li>
+            <li><a routerLink="store">Abrigos</a></li>
+            <li><a routerLink="store">Accesorios</a></li>
+            <li><a routerLink="store">Botas</a></li>
+            <li><a routerLink="store">Camisas</a></li>
+            <li><a routerLink="store">Camisetas</a></li>
+            <li><a routerLink="store">Faldas</a></li>
+            <li><a routerLink="store">Jerseys</a></li>
+            <li><a routerLink="store">Vaqueros</a></li>
+            <li><a routerLink="store">Zapatillas</a></li>
+            <li><a routerLink="store">Zapatos</a></li>
           </ul>
         </div>
       </div>
@@ -39,9 +39,9 @@
         <div class="footer">
           <h3 class="footer-title">Informacion</h3>
           <ul class="footer-links">
-            <li><a href="/">Pedidos</a></li>
-            <li><a href="/">Devoluciones</a></li>
-            <li><a href="/">Contacto Us</a></li>
+            <li><a routerLink="infomail">Pedidos</a></li>
+            <li><a routerLink="infomail">Devoluciones</a></li>
+            <li><a routerLink="infomail">Contacto Us</a></li>
             <li>
               <div class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
@@ -81,10 +81,13 @@
         <div class="footer">
           <h3 class="footer-title">Servicio</h3>
           <ul class="footer-links">
-            <li><a href="/">Mi Perfil</a></li>
-            <li><a href="/">Ver Cesta</a></li>
-            <li><a href="/">Favoritos</a></li>
-            <li><a href="/">Ayuda</a></li>
+            <li><a routerLink = "login" *ngIf = "dataService.user.login == false">Mi Perfil</a></li>
+            <li><a routerLink = "login/profile" *ngIf = "dataService.user.login == true">Mi Perfil</a></li>
+            <li><a routerLink = "login" *ngIf = "dataService.user.login == false">Ver Cesta</a></li>
+            <li><a routerLink = "basket" *ngIf = "dataService.user.login == true">Ver Cesta</a></li>
+            <li><a routerLink = "login" *ngIf = "dataService.user.login == false">Favoritos</a></li>
+            <li><a routerLink = "likeit" *ngIf = "dataService.user.login == true">Favoritos</a></li>
+            <li><a routerLink="infomail">Ayuda</a></li>
           </ul>
         </div>
       </div>

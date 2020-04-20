@@ -14,12 +14,28 @@ import {Product} from '../Product/app.product';
 export class AppLikeItComponent {
   constructor(private userService: UserService, private productService: ProductService, public dataService: DataService) {}
   public Products: Product[];
-  public Categorys: string[];
-  public Brands = [];
-  public minPrice = 0;
-  public maxPrice = 0;
 
   // tslint:disable-next-line:use-lifecycle-interface
-  ngOnInit(){}
+  ngOnInit(){
+    this.Products = this.dataService.user.likekIts;
+  }
+
+  public addProductToLike(id: string){
+    for(let Product of this.Products){
+      if (Product.id === id){
+        this.dataService.user.likekIts[this.dataService.user.itemsILikeIt] = Product;
+        this.dataService.user.itemsILikeIt++;
+      }
+    }
+  }
+
+  public addProductToBasket(id: string){
+    for(let Product of this.Products){
+      if (Product.id === id){
+        this.dataService.user.productsBasket[this.dataService.user.itemsBasket] = Product;
+        this.dataService.user.itemsBasket++;
+      }
+    }
+  }
 
 }

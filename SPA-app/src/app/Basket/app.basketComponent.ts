@@ -17,6 +17,17 @@ export class AppBasketComponent {
 
 
   // tslint:disable-next-line:use-lifecycle-interface
-  ngOnInit(){}
+  ngOnInit(){
+    this.Products = this.dataService.user.productsBasket;
+  }
+
+  public addProductToLike(id: string){
+    for(let Product of this.Products){
+      if (Product.id === id){
+        this.dataService.user.likekIts[this.dataService.user.itemsILikeIt] = Product;
+        this.dataService.user.itemsILikeIt++;
+      }
+    }
+  }
 
 }

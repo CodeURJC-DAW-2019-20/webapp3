@@ -4,10 +4,13 @@
   <div class="container">
     <!-- row -->
     <div class="row">
+      <div class="text-center" *ngIf="this.dataService.user.itemsILikeIt == 0">
+        <h2 >Vuelve Cuando Tengas Productos en Me gusta!</h2>
+      </div>
       <!-- ASIDE -->
-      <div id="aside" class="col-md-3">
+      <div id="store" class="col-md-12 text-center">
         <!-- store products -->
-        <div  class="row">
+        <div class="row">
           <!-- product -->
           <div class="col-md-4 col-xs-6" *ngFor="let Product of Products">
             <div class="product">
@@ -22,7 +25,7 @@
                 <div class="product-rating">
                 </div>
                 <div class="product-btns">
-                  <form action = "/index/addLikeIt" method = "post" enctype = "multipart/form-data">
+                  <form action = "" method = "post" enctype = "multipart/form-data">
                     <div class = "form-group">
                       <button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{Product.id}}"></button>
                       <button style="border: 0px; background-color: white" class="fa fa-eye tooltipp"></button>
@@ -31,9 +34,9 @@
                 </div>
               </div>
               <div class="add-to-cart">
-                <form action = "/index/addBasket" method = "post" enctype = "multipart/form-data">
+                <form action = "" method = "post" enctype = "multipart/form-data">
                   <div class = "form-group">
-                    <button class="add-to-cart-btn" name="id" type="submit" value="{{Product.id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
+                    <button class="add-to-cart-btn" (click)="addProductToBasket(Product.id)" name="id" type="submit" value="{{Product.id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
                   </div>
                 </form>
               </div>

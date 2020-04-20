@@ -33,7 +33,7 @@ export class AppIndexComponent {
   public addProductToLike(id: string){
       for(let Product of this.Products){
         if (Product.id === id){
-          this.ProductsLiked[this.dataService.user.itemsILikeIt] = Product;
+          this.dataService.user.likekIts[this.dataService.user.itemsILikeIt] = Product;
           this.dataService.user.itemsILikeIt++;
         }
       }
@@ -42,7 +42,7 @@ export class AppIndexComponent {
   public addProductToBasket(id: string){
     for(let Product of this.Products){
       if (Product.id === id){
-        this.ProductsBasket[this.dataService.user.itemsILikeIt] = Product;
+        this.dataService.user.productsBasket[this.dataService.user.itemsBasket] = Product;
         this.dataService.user.itemsBasket++;
       }
     }

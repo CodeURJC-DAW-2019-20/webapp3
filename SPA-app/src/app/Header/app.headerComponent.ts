@@ -12,8 +12,4 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class AppHeaderComponent {
   constructor(private userService: UserService, activatedRoute: ActivatedRoute, private router: Router, public dataService: DataService){}
 
-  goToLogin(){
-    this.router.navigate(['/login']);
-  }
-
 }
