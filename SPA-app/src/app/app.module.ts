@@ -16,12 +16,14 @@ import {AppIndexComponent} from './Index/app.indexComponent';
 import {AppNavComponent} from './Nav/app.navComponent';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {AppErrorComponent} from './Error/app.errorComponent';
+import {AppStoreComponent} from './Store/app.storeComponent';
 
 @NgModule({
   declarations: [
     AppHeaderComponent,
     AppNavComponent,
     AppIndexComponent,
+    AppStoreComponent,
     LoginComponent,
     ProfileComponent,
     AppFooterComponent,
