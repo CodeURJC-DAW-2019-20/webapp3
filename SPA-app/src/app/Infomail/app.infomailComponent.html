@@ -27,7 +27,7 @@
               <span>Comentario</span>
               <input #messageInput class="input" type="text" name="message">
             </div>
-            <input type="submit" id="sendInfoButton" class="primary-btn cta-btn" value="Enviar">
+            <input (click)="registerInfo()" type="submit" id="sendInfoButton" class="primary-btn cta-btn" value="Enviar">
           </form>
         </div>
         <!-- /Profile Details -->
