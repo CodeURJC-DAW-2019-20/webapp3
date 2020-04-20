@@ -1,0 +1,173 @@
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+    <!-- row -->
+    <div class="row">
+        <!-- Visualizador de Producto  (Central) -->
+        <div class="col-md-5 col-md-push-2">
+        <div id="product-main-img">
+            <div class="product-preview">	<!-- Alzado del producto-->
+            
+            <img src='../../assets/img/products/image-{{product.id}}.jpg' alt="">
+           
+            </div>
+        </div>
+        </div>
+        <!-- /Product main img -->
+
+        <div class="col-md-2  col-md-pull-5">
+        <!-- You mustn't delete this -->
+        </div>
+
+        <!-- Product details -->
+        <div class="col-md-5">
+        <div class="product-details">
+         
+            <h2 class="product-name">{{product.name}}</h2>
+            <div>
+            <h3 class="product-price">{{product.price}} Swapers</h3>
+            <span class="product-available">Disponible</span>
+            </div>
+            <p>{{product.description}}</p>
+
+            <div class="product-options">
+            <label>
+                Talla
+                <div class="celda-select product-celda">
+                <p>{{product.size}}</p>
+                </div>
+            </label>
+            <label>
+                Color
+                <div class="celda-select product-celda">
+                <p>{{product.color}}</p>
+                </div>
+            </label>
+            </div>
+
+            <div class="add-to-cart">
+            <div class = "form-group">
+                <form action = "/index/addBasket" method = "post" enctype = "multipart/form-data">
+                <button class="add-to-cart-btn" name="id" type="submit" value="{{product.id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
+                </form>
+            </div>
+            </div>
+
+            <ul class="product-btns">
+            <div class = "form-group">
+                <form style = "display: inline-block" action = "/index/addLikeIt" method = "post" enctype = "multipart/form-data">
+                <button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{product.id}}"></button>
+                </form>
+            </div>
+            </ul>
+
+            <ul class="product-links">
+            <li>Categorias:</li>
+            <li><a routerLink="">{{product.category}}</a></li>
+            </ul>
+           
+        </div>
+        </div>
+        <!-- /Product details -->
+
+        <!-- Product tab -->
+        <div class="col-md-12">
+        <div id="product-tab">
+            
+            <!-- product tab nav -->
+            <ul class="tab-nav">
+            <li class="active"><a data-toggle="tab" href="#tab1">Descripcion</a></li>
+            <li><a data-toggle="tab" href="#tab2">Detalles</a></li>
+            </ul>
+            <!-- /product tab nav -->
+
+            <!-- product tab content -->
+            <div class="tab-content">
+            <!-- DESCRIPCION  -->
+            <div id="tab1" class="tab-pane fade in active">
+                <div class="row">
+                <div class="col-md-12">
+                    <p>{{product.description}}</p>
+                </div>
+                </div>
+            </div>
+            <!-- /tab1  -->
+
+            <!-- DETALLES  -->
+            <div id="tab2" class="tab-pane fade in">
+                <div class="row">
+                <div class="col-md-12">
+                    <p>{{product.detail}}</p>
+                </div>
+                </div>
+            </div>
+            <!-- /tab2  -->
+            </div>
+            <!-- /product tab content  -->
+            
+        </div>
+        </div>
+        <!-- /product tab -->
+    </div>
+    <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->  
+
+<!-- /SECTION -->
+
+		<!-- Section Inferior de la pagina -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="section-title text-center">
+							<h3 class="title">Productos Relacionados</h3>
+						</div>
+					</div>
+						<!-- PRODUCTO 1 -->
+	
+						<div class="col-md-4 col-xs-6 center-block">
+							<div class="product text-center">
+								<div class="product-img">
+									<img src='../../assets/img/products/image-{{product.id}}.jpg' alt="">
+								</div>
+								<div class="product-body">
+									<p class="product-category">{{product.brand}}</p>
+									<h3 class="product-name"><a href="#">{{product.name}}</a></h3>
+									<h4 class="product-price"> {{product.price}} Swapers </h4>
+									<div class="product-rating"></div>
+									<div class="product-btns">
+										<div class = "form-group">
+											<form style = "display: inline-block" action = "/index/addLikeIt" method = "post" enctype = "multipart/form-data">
+												<button style="border: 0px; background-color: white" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{product.{id}}"></button>
+											</form>
+											<form style = "display: inline-block" action = "/product" method = "get" enctype = "multipart/form-data">
+												<button style="border: 0px; background-color: white" tyoe = "submit" name = "id" value = "{{product.id}}" class="fa fa-eye tooltipp"></button>
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="add-to-cart">
+									<form action = "/index/addBasket" method = "post" enctype = "multipart/form-data">
+										<div class = "form-group">
+											<button class="add-to-cart-btn" name="id" type="submit" value="{{product.id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					
+						<!-- /product -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /Section -->

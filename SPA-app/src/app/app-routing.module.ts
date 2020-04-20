@@ -7,6 +7,8 @@ import {AppStoreComponent} from './Store/app.storeComponent';
 import {AppInfomailComponent} from './Infomail/app.infomailComponent';
 import {AppLikeItComponent} from './LikeIt/app.likeItComponent';
 import {AppBasketComponent} from './Basket/app.basketComponent';
+import {AppProductComponent} from './Product/app.productComponent';
+
 
 
 const routes = [
@@ -16,6 +18,7 @@ const routes = [
   {path: 'store', component: AppStoreComponent},
   {path: 'likeit', component: AppLikeItComponent},
   {path: 'basket', component: AppBasketComponent},
+  {path: 'product', component: AppProductComponent},
   {path: 'infomail', component: AppInfomailComponent},
   {path: '**', component: AppErrorComponent}
 ];

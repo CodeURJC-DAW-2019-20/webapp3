@@ -20,6 +20,7 @@ import {AppStoreComponent} from './Store/app.storeComponent';
 import {AppInfomailComponent} from './Infomail/app.infomailComponent';
 import {AppLikeItComponent} from './LikeIt/app.likeItComponent';
 import {AppBasketComponent} from './Basket/app.basketComponent';
+import {AppProductComponent} from './Product/app.productComponent';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {AppBasketComponent} from './Basket/app.basketComponent';
     AppFooterComponent,
     AppErrorComponent,
     AppInfomailComponent,
+    AppProductComponent,
   ],
   imports: [
     BrowserModule,

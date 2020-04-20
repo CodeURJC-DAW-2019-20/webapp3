@@ -24,5 +24,13 @@ export class ProductService{
         });
     }
 
+    public getProduct(id: string){
+        return this.http.get<Product>(this.url +'?id='+id,{
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+            })
+        });
+    }
+
 
 }
