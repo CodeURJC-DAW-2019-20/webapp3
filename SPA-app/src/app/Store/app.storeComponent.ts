@@ -140,4 +140,26 @@ export class AppStoreComponent {
     this.Products = ProductsByFilter;
   }
 
+  public addProductToLike(id: string){
+    for(let Product of this.Products){
+      if (Product.id === id){
+        this.dataService.user.likekIts[this.dataService.user.itemsILikeIt] = Product;
+        this.dataService.user.itemsILikeIt++;
+      }
+    }
+  }
+
+  public addProductToBasket(id: string){
+    for(let Product of this.Products){
+      if (Product.id === id){
+        this.dataService.user.productsBasket[this.dataService.user.itemsBasket] = Product;
+        this.dataService.user.itemsBasket++;
+      }
+    }
+  }
+
+  public setIdProductView(id: string){
+    this.dataService.product.id=id;
+  }
+
 }

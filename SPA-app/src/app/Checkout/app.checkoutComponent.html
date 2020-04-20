@@ -1,4 +1,3 @@
-<!-- SECTION -->
 <div class="section">
   <!-- container -->
   <div class="container">
@@ -11,30 +10,29 @@
           <div class="section-title">
             <h3 class="title">Dirección de envío</h3>
           </div>
-
           <div class="form-group">
-            <input class="input" type="text" name="first-name" value=0>
+            <input class="input" type="text" name="first-name" value="{{dataService.user.name}}">
           </div>
           <div class="form-group">
-            <input class="input" type="text" name="last-name" placeholder="lastname">
+            <input class="input" type="text" name="last-name" placeholder="{{dataService.user.lastname}}">
           </div>
           <div class="form-group">
-            <input class="input" type="email" name="email" placeholder="email">
+            <input class="input" type="email" name="email" placeholder="{{dataService.user.email}}">
           </div>
           <div class="form-group">
-            <input class="input" type="text" name="address" placeholder="adress">
+            <input class="input" type="text" name="address" placeholder="{{dataService.user.address}}">
           </div>
           <div class="form-group">
-            <input class="input" type="text" name="city" placeholder="city">
+            <input class="input" type="text" name="city" placeholder="{{dataService.user.city}}">
           </div>
           <div class="form-group">
-            <input class="input" type="text" name="country" placeholder="country">
+            <input class="input" type="text" name="country" placeholder="{{dataService.user.country}}">
           </div>
           <div class="form-group">
-            <input class="input" type="text" name="zip-code" placeholder="cp">
+            <input class="input" type="text" name="zip-code" placeholder="{{dataService.user.cp}}">
           </div>
           <div class="form-group">
-            <input class="input" type="tel" name="tel" placeholder="phone">
+            <input class="input" type="tel" name="tel" placeholder="{{dataService.user.phone}}">
           </div>
         </div>
         <!-- /Billing Details -->
@@ -82,7 +80,7 @@
       </div>
 
       <!-- Order Details -->
-      <div class="col-md-5 order-details"*ngFor="let Product of Products">
+      <div class="col-md-5 order-details">
         <div class="section-title text-center">
           <h3 class="title">Su pedido</h3>
         </div>
@@ -91,13 +89,11 @@
             <div><strong>PRODUCTO</strong></div>
             <div><strong>TOTAL</strong></div>
           </div>
-
-          <div class="order-products">
+          <div class="order-products" *ngFor="let Product of Products">
             <div class="order-col">
               <div>1x {{Product.name}}</div>
               <div>{{Product.price}} Swapers</div>
             </div>
-
           </div>
           <div class="order-col">
             <div>Envío</div>
@@ -105,12 +101,12 @@
           </div>
           <div class="order-col">
             <div><strong>TOTAL</strong></div>
-            <div><strong class="order-total">{{Product.price}} Swapers</strong></div>
+            <div><strong class="order-total"> {{priceOfBasket}} Swapers</strong></div>
           </div>
         </div>
         <div class = "form-group">
-          <form style = "display: inline-block"; action = "/checkout/transaction" method = "post" enctype = "multipart/form-data">
-            <button class="primary-btn order-submit" type = "submit" value = "id">Realizar pedido</button>
+          <form style = "display: inline-block" method = "post" enctype = "multipart/form-data">
+            <button class="primary-btn order-submit" (click)="checkout()" type = "submit" value = "{{dataService.user.id}}">Realizar pedido</button>
           </form>
         </div>
       </div>
@@ -120,4 +116,3 @@
   </div>
   <!-- /container -->
 </div>
-<!-- /SECTION -->

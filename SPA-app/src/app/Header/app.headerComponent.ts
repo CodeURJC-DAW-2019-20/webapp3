@@ -10,6 +10,6 @@ import {ActivatedRoute, Router} from '@angular/router';
   providers: [UserService, ProductService]
 })
 export class AppHeaderComponent {
-  constructor(private userService: UserService, activatedRoute: ActivatedRoute, private router: Router, public dataService: DataService){}
+  constructor(public dataService: DataService){}
 
 }

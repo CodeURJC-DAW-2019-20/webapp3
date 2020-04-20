@@ -14,11 +14,13 @@ import {Product} from '../Product/app.product';
 export class AppBasketComponent {
   constructor(private userService: UserService, private productService: ProductService, public dataService: DataService) {}
   public Products: Product[];
+  public priceofBasket = 0;
 
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit(){
     this.Products = this.dataService.user.productsBasket;
+    this.setPriceOfBasket();
   }
 
   public addProductToLike(id: string){
@@ -28,6 +30,17 @@ export class AppBasketComponent {
         this.dataService.user.itemsILikeIt++;
       }
     }
+  }
+
+  public setPriceOfBasket (){
+    for (let i = 0; i < this.Products.length; i++){
+      this.priceofBasket += this.Products[i].price;
+    }
+  }
+
+  public setIdProductView(id: string){
+    this.dataService.product.id = id;
+
   }
 
 }

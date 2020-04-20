@@ -9,10 +9,23 @@ import {Product} from '../Product/app.product';
   templateUrl: 'app.checkoutComponent.html',
 })
 export class AppCheckoutComponent {
-  constructor(private userService: UserService, private productService: ProductService, public dataService: DataService){}
+  constructor(public dataService: DataService){}
   public Products: Product[];
-  // tslint:disable-next-line:use-lifecycle-interface
+  public priceOfBasket = 0;
   ngOnInit(){
     this.Products = this.dataService.user.productsBasket;
+    this.setPriceOfBasket();
+  }
+
+  public setPriceOfBasket (){
+    for (let i = 0; i < this.Products.length; i++){
+      this.priceOfBasket += this.Products[i].price;
+    }
+  }
+
+  public checkout (){
+    if (this.dataService.user.puntos >= this.priceOfBasket){
+      this.dataService.user.puntos = this.dataService.user.puntos - this.priceOfBasket;
+    }
   }
 }

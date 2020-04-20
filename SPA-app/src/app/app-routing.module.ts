@@ -17,12 +17,13 @@ const routes = [
   {path: 'login', component: LoginComponent},
   {path: 'login/profile', component: ProfileComponent},
   {path: 'store', component: AppStoreComponent},
+  {path: 'store/product', component: AppProductComponent},
   {path: 'likeit', component: AppLikeItComponent},
   {path: 'basket', component: AppBasketComponent},
+  {path: 'basket/checkout', component: AppCheckoutComponent},
+  {path: 'basket/product', component: AppProductComponent},
   {path: 'product', component: AppProductComponent},
   {path: 'infomail', component: AppInfomailComponent},
-  {path: 'product/:id', component: AppProductComponent},
-  {path: 'basket/checkout', component: AppCheckoutComponent},
   {path: '**', component: AppErrorComponent}
 ];
 

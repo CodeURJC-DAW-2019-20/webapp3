@@ -10,5 +10,5 @@ import {DataService} from '../Data/app.dataService';
 })
 
 export class AppFooterComponent{
-  constructor(private userService: UserService, activatedRoute: ActivatedRoute, private router: Router, public dataService: DataService){}
+  constructor(public dataService: DataService){}
 }

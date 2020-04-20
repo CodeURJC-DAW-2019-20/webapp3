@@ -8,5 +8,4 @@ import { Product } from '../Product/app.product';
 export class DataService{
  user: User = new User('Usuario', 'Contraseña', 'apellido', 'email', 'direccion', 'ciudad', 'pais', 'c.d.', 'Telefono');
  product: Product = new Product('name', 'color','category','brand','size','description','detail');
-
 }

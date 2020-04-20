@@ -1,13 +1,9 @@
-<!-- SECTION -->
 <div class="section">
   <!-- container -->
   <div class="container">
     <!-- row -->
     <div class="row">
-      <div class="text-center" *ngIf="this.dataService.user.itemsBasket == 0">
-        <h2 >Vuelve Cuando Tengas Productos en Tu Cesta!</h2>
-      </div>
-      <!-- ASIDE -->
+      <!-- STORE -->
       <div id="store" class="col-md-12 text-center">
         <!-- store products -->
         <div class="row">
@@ -22,32 +18,30 @@
                 <p class="product-category">{{Product.brand}}</p>
                 <h3 class="product-name"><a href="#">{{Product.name}}</a></h3>
                 <h4 class="product-price"> {{Product.price}} Swapers </h4>
-                <div class="product-rating">
-                </div>
                 <div class="product-btns">
-                  <form action = "" method = "post" enctype = "multipart/form-data">
-                    <div class = "form-group">
-                      <button style="border: 0px; background-color: white" (click)="addProductToLike(Product.id)" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{Product.id}}"></button>
-                      <button style="border: 0px; background-color: white" class="fa fa-eye tooltipp"></button>
-                    </div>
-                  </form>
+                  <button class="add-to-wishlist" (click)="addProductToLike(Product.id)"><i class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
+                  <button class="quick-view" routerLink="product" (click)="setIdProductView(Product.id)"><i class="fa fa-eye"></i><span class="tooltipp"></span></button>
                 </div>
-              </div>
-              <div class="add-to-cart">
-                <form action = "" method = "post" enctype = "multipart/form-data">
-                  <div class = "form-group">
-                    <button class="add-to-cart-btn" name="id" type="submit" value="{{Product.id}}"><i class="fa fa-shopping-cart" ></i> Añadir a la Cesta</button>
-                  </div>
-                </form>
+
               </div>
             </div>
           </div>
           <!-- /product -->
+        </div>
+        <div class = "row">
+          <div class="cart-summary">
+            <small>Productos Seleccionados</small>
+            <h5>SUBTOTAL: {{priceofBasket}} Swapers</h5>
+          </div>
           <div class="cart-btns">
             <a routerLink="checkout">Comprar<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        <!-- /store products -->
       </div>
+      <!-- /STORE -->
     </div>
+    <!-- /row -->
   </div>
+  <!-- /container -->
 </div>
