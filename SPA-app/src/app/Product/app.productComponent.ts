@@ -2,6 +2,7 @@ import {Component, Inject} from '@angular/core';
 import { ProductService } from './app.productService';
 import {Product} from '../Product/app.product';
 import { stringify } from 'querystring';
+import { DataService } from '../Data/app.dataService';
 
 @Component({
     selector: 'product-root',
@@ -11,12 +12,12 @@ import { stringify } from 'querystring';
 })
 
 export class AppProductComponent{
-    constructor(private productService: ProductService){}
+    constructor(private productService: ProductService,private dataService: DataService){}
 
         public product: Product;
 
     ngOnInit(id: string){
-        this.productService.getProduct(id='4').subscribe(
+        this.productService.getProduct(this.dataService.product.id).subscribe(
             response => {
                 this.product = response;
                 console.log(response);

@@ -47,5 +47,10 @@ export class AppIndexComponent {
       }
     }
   }
+
+  public setIdProductView(id: string){
+    this.dataService.product.id=id;
+    
+  }
 }
 

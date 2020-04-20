@@ -22,7 +22,7 @@
                 <form method = "post" enctype = "multipart/form-data">
                   <div class = "form-group">
                     <button style="border: 0px; background-color: white" (click)="addProductToLike(Product.id)" class="fa fa-heart-o tooltipp" name="id" type ="submit" value="{{Product.id}}"></button>
-                    <button routerLink="product/:{{Product.id}}" style="border: 0px; background-color: white" class="fa fa-eye tooltipp"></button>
+                    <button style="border: 0px; background-color: white" routerLink = "product" (click)="setIdProductView(Product.id)" class="fa fa-eye tooltipp"></button>
                   </div>
                 </form>
               </div>
