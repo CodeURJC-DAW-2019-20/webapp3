@@ -10,7 +10,7 @@
       <li><a *ngIf = "dataService.user.login == false"><i class = "fa fa-money"></i> Puntos </a></li>
       <li><a routerLink="login/profile" routerLinkActive = "true" *ngIf = "dataService.user.login == true"><i class="fa fa-user-o"></i>{{dataService.user.name}}</a></li>
       <li><a routerLink="login" *ngIf = "dataService.user.login == false"><i class="fa fa-user-o"></i>User</a></li>
-      <li><a *ngIf = "dataService.user.login == true"><i class = "fa fa-user-circle"></i>Log Out</a></li>
+      <li><a routerLink="" *ngIf = "dataService.user.login == true" (click)="logoutUser()"><i class = "fa fa-user-circle"></i>Log Out</a></li>
     </ul>
   </div>
 </div>
