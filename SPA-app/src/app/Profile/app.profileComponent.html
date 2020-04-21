@@ -57,7 +57,7 @@
 </div>
 
 <!-- ADMIN DATA -->
-<div *ngIf="!isAdmin">
+<div *ngIf="isAdmin">
     <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
         <li [ngbNavItem]="1">
             <a ngbNavLink (click)="getUserList(dataService.user.name,dataService.user.passwordHash)">Usuarios Registrados</a>

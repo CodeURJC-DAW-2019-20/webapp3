@@ -68,13 +68,13 @@ export class ProfileComponent {
 
     // Para probar los metodos
     ngOnInit(){
-        this.isAdmin=this.dataService.user.isAdmin();
+        this.isAdmin=this.dataService.user.isAdmin;
         console.log(this.isAdmin);
         this.getUserList(this.dataService.user.name,this.dataService.user.passwordHash);
     }
 
     isAdministrator(){
-        this.isAdmin=this.dataService.user.isAdmin();
+        this.isAdmin=this.dataService.user.isAdmin;
         console.log(this.isAdmin);
     }
 
