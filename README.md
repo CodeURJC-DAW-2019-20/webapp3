@@ -7,17 +7,17 @@ Our purpose is to create an APP web to sell second-hand clothes through a moneta
 If you want get a copy of our proyect to development and testing you will download the project in: https://github.com/CodeURJC-DAW-2019-20/webapp3.git
 
 
-### Pre-Requisites / Phase 0 
+## Pre-Requisites / Phase 0 
 
 The name of the App Web is Swap It!
 
 We recommend the use of Brackets to change de code of the APP Web.
 
-**Entities**
+### Entities
 
 The entities could be User Types and Second Entities.
 
-**User Types ??????????**
+### User Types
 
 
 * Admin User: Each of the managers of the App Web, responsible for the control of the proper functioning of the App.  A Registered User do a request to a Admin User to upload a product. If the admin check the request and all are ok, the product will upload.
@@ -28,7 +28,7 @@ The entities could be User Types and Second Entities.
 * Anonymous User: A person who can only see the published information in the App Web.
 
 
-**Second Entities ?? ?? ??**
+### Second Entities
 
 * Product: Our products are clothes and accessories which people can sell or/and buy in the App Web.
 
@@ -45,28 +45,28 @@ An example of relation, is Registered User buys Product, or Registered User sell
 An anonymous user that has registered it in the App Web becomes a Registered User. A Registered User after logging in can buy products, check his historical movements or upload products to sell. 
 
 
-**Pictures**
+###Pictures
 
 The App Web must allow to upload pictures, for example, a Registered User wants to change his user avatar.
 
 Always the uploaded product will be accompanied with its respective photo.
 
-**Graphics**
+### Graphics
 
 In the profile a Registered User can see their expenses and benefits in form of graphics.
 
 
-**Complementary Technology** 
+### Complementary Technology
 
 In this moment we don't use any complementary technology, but in the future we will use it. For example, the database that collects all the information.
 
-**Advanced Query Algorithm**
+### Advanced Query Algorithm
 
 We will use a Advanced Query Algorithm to recommend products to a customer based on their previous purchases.
 
-### Phase 1 
+## Phase 1 
 
-**Screenshots**
+### Screenshots
 
 Our Start Page is **index.html**, in this page you can see the categories of the Sales App Web, the new products, the acess to the profile section, the opening month offer, the record to the news and another themes.
 
@@ -94,13 +94,13 @@ By last, the store page show a lot of products and filters to search a particula
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/screenshot/store.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/screenshot/store1.png)
 
-**Navigation Diagrams**
+### Navigation Diagrams
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-1/HTML%20y%20CSS/img/Diagrama.png)
 
-### Phase 2
+## Phase 2
 
-**Navigation Screenshots**
+### Navigation Screenshots
 
 Our Start Page is **index.html**, in this page you can see the categories of the Sales App Web, the new products, the acess to the profile section, the opening month offer, the record to the news and another themes.
 
@@ -128,11 +128,11 @@ By last, the store page show a lot of products and filters to search a particula
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/store2.png)
 
 
-**Navigation Diagram**
+### Navigation Diagram
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama4.png)
 
-**Development Instructions**
+### Development Instructions
 
 1. Create the html template with CSS and JS
 2. Create a spring project with maven and web dependencies, jpa, h2, mustache.
@@ -144,32 +144,59 @@ By last, the store page show a lot of products and filters to search a particula
 8. We tried to make everything work.
 9. To see that the bbdd works, we load localhost: port / h2-console and on the screen that comes out, we will have to leave everything the same changing what is in JDBC URL by jdbc: h2:        mem: testdb and should connect and see the administrator of the bbdd. 10 .The project could already be uploaded to github, because it works, even if it doesn't detect the links between      html (index load only).
 
-**BD Entity Diagram**
+### BD Entity Diagram
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama1.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama2.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama3.png)
 
-**Class Diagram and Templates**
+### Class Diagram and Templates
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama5.png)
 
-### Phase 3 
-#### REST API documentation
+## Phase 3 
+### REST API documentation
 Document [Api documentation](API.md) with information about the REST API.
 
-**BD Entity Diagram**
+### BD Entity Diagram
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama1.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama2.png)
 
-**Class Diagram and Templates**
+### Class Diagram and Templates
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama3.png)
 
-### Phase 4
+## Phase 4
 
-### Installation
+### Development Enviroment
+
+1. The first step is installing node.js, npm and angular cli. With all this correctly installed, we can create a new angular proyect in the IDE you are working on. 
+2. The next step is creating all the configuration necessary to create each module.
+3. Each part is in a folder with a component.ts where is all the logic connected with a componen.html, also a component.css with the style for this html and service.ts where you make the get, post, put or delete request to the API.
+4. You can modify the html template making it more beautiful using ng-material, Bootstrap or primeng. The last step, if you want to upload to Docker.
+5. ```DOCKER:``` add the node.js container to Docker-compose and in the dockerfile, add the configuration for doing ng-build.
+6. Last step, there is an angular application connected with an api, and working all of this in Docker, with an springboot backend and an independent front with mustache.
+
+### Class Diagram and Templates
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-4/SPA-app/src/assets/img/DiagramaFase4.png)
+
+### Member Participation
+
+| Name | Mail | Github user| % Participation |
+|--------|--------|------------|---------|
+|Javier Barrio Martín | j.barrio.2016@alumnos.urjc.es | (https://github.com/JaviBarrio6) | 100 % |
+|Maria Gutierrez| m.gutierrezt.2016@alumnos.urjc.es | (https://github.com/Mariagt97) | 100 % |
+|Alejandro Aguilar | a.aguilarf.2016@alumnos.urjc.es | (https://github.com/Aaguilarf) | 100 % |
+|David Roble | d.robles.2016@alumnos.urjc.es | (https://github.com/davidrobl) | 100 % |
+|Alvaro Noguerales | j.noguerales.2016@alumnos.urjc.es | (https://github.com/Anogue) | 0 % |
+
+### Youtube Video
+ 
+ https://youtu.be/lVchevc75ME
+
+## Installation
 
 If you want to execute the project you must open it with a browser.
 
