@@ -38,15 +38,24 @@ export class UserService{
      }
 
 
-     public updateUser(user: User){
-         return this.http.put<User>(this.url+'update',user,{
-             headers: new HttpHeaders({
-                 'Content-Type':'application/json',
-                 'Authorization': 'Basic '+ btoa(user.getName()+':'+user.getPass())
-             })
-         });
-     }
+     public updateUser(user: User ,name:string, pass:string){
+        console.log(user)
+        return this.http.put<User>(this.url+'update',user,{
+            headers: new HttpHeaders({
+                'Content-Type':'application/json',
+                'Authorization': 'Basic '+ btoa(name+':'+pass)
+            })
+        });
+    }
 
+     public deleteUser(userName:string, name:string, pass:string){
+        return this.http.delete(this.url+'update?name='+ userName,{
+            headers: new HttpHeaders({
+                'Content-Type':'application/json',
+                'Authorization': 'Basic '+ btoa(name+':'+pass)
+            })
+        });
+    }
 
 /*
     logIn(name:string, pass:string){

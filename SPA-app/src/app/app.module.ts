@@ -9,6 +9,7 @@ import { ProfileComponent } from './Profile/app.profileComponent';
 import { UserService} from './User/app.userService';
 import { ProductService} from './Product/app.productService';
 import { SuggestionService } from './Suggestion/app.suggestionService';
+import { TransactionService} from './transaction/app.transactionService';
 import {DataService} from './Data/app.dataService';
 import {AppHeaderComponent} from './Header/app.headerComponent';
 import {AppFooterComponent} from './Footer/app.footerComponent';
@@ -22,6 +23,9 @@ import {AppLikeItComponent} from './LikeIt/app.likeItComponent';
 import {AppBasketComponent} from './Basket/app.basketComponent';
 import {AppProductComponent} from './Product/app.productComponent';
 import {AppCheckoutComponent} from './Checkout/app.checkoutComponent';
+import { GraphVentas } from './Graficos/Ventas/graphVentas';
+import { GraphCompras } from './Graficos/Compras/graphCompras';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,8 @@ import {AppCheckoutComponent} from './Checkout/app.checkoutComponent';
     AppInfomailComponent,
     AppProductComponent,
     AppCheckoutComponent,
+    GraphVentas,
+    GraphCompras
   ],
   imports: [
     BrowserModule,
@@ -46,9 +52,10 @@ import {AppCheckoutComponent} from './Checkout/app.checkoutComponent';
     NgbModule,
     FormsModule,
     HttpClientModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    ChartsModule
   ],
-  providers: [UserService, ProductService, DataService, SuggestionService],
+  providers: [UserService, ProductService, DataService, SuggestionService,TransactionService],
   bootstrap: [AppHeaderComponent, AppNavComponent, AppFooterComponent],
 })
 export class AppModule { }

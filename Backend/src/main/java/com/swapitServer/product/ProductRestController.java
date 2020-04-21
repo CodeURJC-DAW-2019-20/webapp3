@@ -36,8 +36,8 @@ public class ProductRestController {
 	@RequestMapping(value="/load", method=RequestMethod.POST)
 	public ResponseEntity<Product> loadProduct( @RequestBody Product product) {			
 			
-		productService.saveNewProduct(product.getName(), product.getColor(), product.getCategory(), product.getBrand(), product.getSize(), product.getDescription(), product.getDetail());
-		return new ResponseEntity<>(productService.getProductById(product.getId()),HttpStatus.CREATED);
+		Product aux = productService.saveNewProduct(product.getName(), product.getColor(), product.getCategory(), product.getBrand(), product.getSize(), product.getDescription(), product.getDetail());
+		return new ResponseEntity<Product>(productService.getProductById(aux.getId()),HttpStatus.CREATED);
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")

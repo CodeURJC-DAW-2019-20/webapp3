@@ -16,7 +16,7 @@ export class SuggestionService{
 
 
 
-    public getPreStock(name: string, pass: string){
+    public getSuggestionList(name: string, pass: string){
         return this.http.get<Suggestion[]>(this.url, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
@@ -32,6 +32,14 @@ export class SuggestionService{
         });
     }
 
-
+    public deleteSuggestion(id:string, name:string, pass:string){
+        console.log(id);
+        return this.http.delete(this.url+'name?name='+id,{
+            headers: new HttpHeaders({
+                'Content-Type':'application/json',
+                'Authorization': 'Basic '+ btoa(name+':'+pass)
+            })
+        });
+    }
 
 }

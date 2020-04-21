@@ -1,5 +1,6 @@
 package com.swapitServer.suggestion;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,9 @@ public class Suggestion {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(unique = true)
 	private String name;
+	
 	private String lastname;
 	private String email;
 	private String message;
@@ -67,6 +70,10 @@ public class Suggestion {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	
+	public Long getId() {
+		return this.id;
 	}
 	
 

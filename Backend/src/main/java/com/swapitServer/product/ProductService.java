@@ -23,7 +23,9 @@ public class ProductService<T> {
     @Autowired
 	private ImageService imageService;
 
-	public Product getProductById(Long id) {
+	public Product getProductById(long id) {		
+		return  productRepository.findById(id);
+	/*
 		List<Product> products =  productRepository.findAll();
 		Product productAux = new Product();
 		while (productAux.getName() == ""){
@@ -33,8 +35,9 @@ public class ProductService<T> {
 				}
 			}
 		}
-
+		
 		return productAux;
+	*/
 	}
 
 	public void saveProduct(Product product) {
@@ -114,11 +117,13 @@ public class ProductService<T> {
 		product.setHasImage(true);
 		productRepository.save(product);
 		imageService.saveImage("products", product.getId(), imagenFile);
+		
 	}	
-	public void saveNewProduct(String name, String color, String category, String brand, String size, String description, String detail){
+	public Product saveNewProduct(String name, String color, String category, String brand, String size, String description, String detail){
 		Product	product = new Product(name, color, category, brand, size, description, detail, false,true,false);
 		product.setHasImage(true);
 		productRepository.save(product);
+		return product;
 	}
 	
 	public void validateProduct(long id, String name, String color, String category, String brand, String size, String description, String detail) {
