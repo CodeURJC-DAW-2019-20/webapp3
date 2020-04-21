@@ -100,7 +100,7 @@ By last, the store page show a lot of products and filters to search a particula
 
 ## Phase 2
 
-###Navigation Screenshots
+### Navigation Screenshots
 
 Our Start Page is **index.html**, in this page you can see the categories of the Sales App Web, the new products, the acess to the profile section, the opening month offer, the record to the news and another themes.
 
@@ -128,11 +128,11 @@ By last, the store page show a lot of products and filters to search a particula
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Annexed/screenshot/store2.png)
 
 
-###Navigation Diagram
+### Navigation Diagram
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama4.png)
 
-###Development Instructions
+### Development Instructions
 
 1. Create the html template with CSS and JS
 2. Create a spring project with maven and web dependencies, jpa, h2, mustache.
@@ -155,15 +155,15 @@ By last, the store page show a lot of products and filters to search a particula
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama5.png)
 
 ## Phase 3 
-#### REST API documentation
+### REST API documentation
 Document [Api documentation](API.md) with information about the REST API.
 
-**BD Entity Diagram**
+### BD Entity Diagram
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama1.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama2.png)
 
-**Class Diagram and Templates**
+### Class Diagram and Templates
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama3.png)
 
@@ -177,6 +177,23 @@ Document [Api documentation](API.md) with information about the REST API.
 4. You can modify the html template making it more beautiful using ng-material, Bootstrap or primeng. The last step, if you want to upload to Docker.
 5. ```DOCKER:``` add the node.js container to Docker-compose and in the dockerfile, add the configuration for doing ng-build.
 6. Last step, there is an angular application connected with an api, and working all of this in Docker, with an springboot backend and an independent front with mustache.
+
+### Class Diagram and Templates
+
+![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-4/SPA-app/src/assets/img/DiagramaFase4.png)
+
+### Member Participation
+
+| Name | Mail | Github user| % Participation |
+|--------|--------|------------|---------|
+|Javier Barrio Martín** | j.barrio.2016@alumnos.urjc.es | (https://github.com/JaviBarrio6) | 100 % |
+|Maria Gutierrez| m.gutierrezt.2016@alumnos.urjc.es | (https://github.com/Mariagt97) | 100 % |
+|Alejandro Aguilar | a.aguilarf.2016@alumnos.urjc.es | (https://github.com/Aaguilarf) | 100 % |
+|David Roble | d.robles.2016@alumnos.urjc.es | (https://github.com/davidrobl) | 100 % |
+|Alvaro Noguerales | j.noguerales.2016@alumnos.urjc.es | (https://github.com/Anogue) | 0 % |
+
+### Youtube Video
+ 
 
 ## Installation
 
