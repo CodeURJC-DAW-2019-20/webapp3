@@ -7,17 +7,17 @@ Our purpose is to create an APP web to sell second-hand clothes through a moneta
 If you want get a copy of our proyect to development and testing you will download the project in: https://github.com/CodeURJC-DAW-2019-20/webapp3.git
 
 
-### Pre-Requisites / Phase 0 
+## Pre-Requisites / Phase 0 
 
 The name of the App Web is Swap It!
 
 We recommend the use of Brackets to change de code of the APP Web.
 
-**Entities**
+###Entities
 
 The entities could be User Types and Second Entities.
 
-**User Types ??????????**
+**User Types**
 
 
 * Admin User: Each of the managers of the App Web, responsible for the control of the proper functioning of the App.  A Registered User do a request to a Admin User to upload a product. If the admin check the request and all are ok, the product will upload.
@@ -28,7 +28,7 @@ The entities could be User Types and Second Entities.
 * Anonymous User: A person who can only see the published information in the App Web.
 
 
-**Second Entities ?? ?? ??**
+**Second Entities**
 
 * Product: Our products are clothes and accessories which people can sell or/and buy in the App Web.
 
@@ -64,7 +64,7 @@ In this moment we don't use any complementary technology, but in the future we w
 
 We will use a Advanced Query Algorithm to recommend products to a customer based on their previous purchases.
 
-### Phase 1 
+## Phase 1 
 
 **Screenshots**
 
@@ -154,7 +154,7 @@ By last, the store page show a lot of products and filters to search a particula
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama5.png)
 
-### Phase 3 
+## Phase 3 
 #### REST API documentation
 Document [Api documentation](API.md) with information about the REST API.
 
@@ -167,9 +167,16 @@ Document [Api documentation](API.md) with information about the REST API.
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama3.png)
 
-### Phase 4
+## Phase 4
 
-### Installation
+1. The first step is installing node.js, npm and angular cli. With all this correctly installed, we can create a new angular proyect in the IDE you are working on. 
+2. The next step is creating all the configuration necessary to create each module.
+3. Each part is in a folder with a component.ts where is all the logic connected with a componen.html, also a component.css with the style for this html and service.ts where you make the get, post, put or delete request to the API.
+4. You can modify the html template making it more beautiful using ng-material, Bootstrap or primeng. The last step, if you want to upload to Docker.
+5. ```DOCKER:``` add the node.js container to Docker-compose and in the dockerfile, add the configuration for doing ng-build.
+6. Last step, there is an angular application connected with an api, and working all of this in Docker, with an springboot backend and an independent front with mustache.
+
+## Installation
 
 If you want to execute the project you must open it with a browser.
 
