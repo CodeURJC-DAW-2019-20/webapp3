@@ -1,7 +1,7 @@
 # Tittle of the Proyect: Swap it!
 ## Table of Content
 
-- [Phase 0](#phase-0)
+- [Phase 0](#Pre-Requisites/phase-0)
     + [Authors](#authors)
     + [Sections description](#sections-description)
       - [Entities](#entities)
@@ -12,21 +12,21 @@
       - [Advanced Algorithmic](#advanced-algorithmic)
 - [Phase 1](#phase-1)
     + [Screenshots](#screenshots)
-    + [Navigation Diagram](#navigationDiagrams)
+    + [Navigation Diagram](#navigation Diagrams)
 - [Phase 2](#phase-2)
-    + [Navigation Screenshoots](#navigationScreenshoots)
-    + [Development Instructions](#DevelopmentInstructions)
-    + [BD Entity Diagram](#BDEntityDiagram)
-    + [Class Diagram and Templates](#ClassDiagramandTemplates)
+    + [Navigation Screenshoots](#navigation Screenshoots)
+    + [Development Instructions](#Development Instructions)
+    + [BD Entity Diagram](#BD Entity Diagram)
+    + [Class Diagram and Templates](#Class Diagram and Templates)
 - [Phase 3](#phase-3)
-    + [REST API Documentation](#RESTAPIDocumentation)
-    + [BD Entity Diagram](#BDEntityDiagram)
-    + [Class Diagram and Templates](#ClassDiagramandTemplates)
+    + [REST API Documentation](#REST API Documentation)
+    + [BD Entity Diagram](#BD Entity Diagram)
+    + [Class Diagram and Templates](#Class Diagram and Templates)
 - [Phase 4](#phase-4)
-    + [Development Enviroment](#DevelopmentEnviroment)
-    + [Class Diagram and Templates](#ClassDiagramandTemplates)
-    + [Member Participation](#MemberParticipation)
-    + [Youtube Video](#YoutubeVideo)
+    + [Development Enviroment](#Development Enviroment)
+    + [Class Diagram and Templates](#Class Diagram and Templates)
+    + [Member Participation](#Member Participation)
+    + [Youtube Video](#Youtube Video)
     
 
 
