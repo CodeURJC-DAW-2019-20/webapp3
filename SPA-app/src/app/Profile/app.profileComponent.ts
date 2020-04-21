@@ -62,11 +62,10 @@ export class ProfileComponent {
     @ViewChild('newDetailProductInput') newDetailProductInput: ElementRef;
     private newDetailProduct: string;
 
-     img : File =null;
+     img: File =null;
 
     active = 1;
 
-    // Para probar los metodos
     ngOnInit(){
         this.isAdmin=this.dataService.user.isAdmin;
         console.log(this.isAdmin);
@@ -98,7 +97,7 @@ export class ProfileComponent {
             this.checkField(this.cp) && (this.checkField(this.phone))){
 
                 let user = new User(this.name, this.dataService.user.passwordHash, this.lastname, this.email, this.address, this.city, this.country, this.cp, this.phone);
-                this.userService.updateUser(user,this.dataService.user.name,this.dataService.user.passwordHash).subscribe(
+                this.userService.updateUser(user, this.dataService.user.name, this.dataService.user.passwordHash).subscribe(
                     response => {
                         console.log(response);
                     },
@@ -119,9 +118,9 @@ export class ProfileComponent {
 
     getPreStock(name:string,pass:string){
         this.productService.getPreStock(name,pass).subscribe(
-            response => {                 
+            response => {
                 this.preStock=response;
-                console.log(response);              
+                console.log(response);
             },
             error => console.log('Error al solicitar el stock')
         );
@@ -168,7 +167,7 @@ export class ProfileComponent {
                     console.log(response);
                     this.productService.loadImageProduct(this.img,response.id,this.dataService.user.name,this.dataService.user.passwordHash).subscribe(
                         response => {
-                            console.log(response);                           
+                            console.log(response);
                         },
                         error => console.log('Error al crear la Imagen del Producto')
                     );
@@ -184,11 +183,11 @@ export class ProfileComponent {
             return true;
         return false;
     }
-   
+
     deleteSuggestion(index:number){
         this.suggestionService.deleteSuggestion(this.suggestionList[index].name,this.dataService.user.name,this.dataService.user.passwordHash).subscribe(
             response => {
-                console.log(response);                           
+                console.log(response);
             },
             error => console.log('Error al borra el Usuario')
         );
@@ -198,7 +197,7 @@ export class ProfileComponent {
         console.log(this.userList[index].name);
         this.userService.deleteUser(this.userList[index].name,this.dataService.user.name,this.dataService.user.passwordHash).subscribe(
             response => {
-                console.log(response);                           
+                console.log(response);
             },
             error => console.log('Error al borra el Usuario')
         );
@@ -209,35 +208,35 @@ export class ProfileComponent {
         console.log(this.userList[index]);
         this.userService.updateUser(this.userList[index],this.dataService.user.name,this.dataService.user.passwordHash).subscribe(
             response => {
-                console.log(response);                           
+                console.log(response);
             },
             error => console.log('Error al Modificar el Usuario')
-        );    
+        );
     }
 
     deletePreProduct(index:number){
         this.productService.deleteProduct(this.preStock[index].id,this.dataService.user.name,this.dataService.user.passwordHash).subscribe(
             response => {
-                console.log(response);                           
+                console.log(response);
             },
             error => console.log('Error al Borrar el articulo de prestock')
-        );  
+        );
     }
 
     deleteProduct(index:number){
         this.productService.deleteProduct(this.stock[index].id,this.dataService.user.name,this.dataService.user.passwordHash).subscribe(
             response => {
-                console.log(response);                           
+                console.log(response);
             },
             error => console.log('Error al Borrar el articulo')
-        );  
+        );
     }
     validarPreProduct(index:number){
         this.productService.validarPreProduct(this.preStock[index],this.dataService.user.name,this.dataService.user.passwordHash).subscribe(
             response => {
-                console.log(response);                           
+                console.log(response);
             },
             error => console.log('Error al Validar el articulo de prestock')
-        );  
+        );
     }
 }
