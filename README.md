@@ -1,4 +1,31 @@
 # Tittle of the Proyect: Swap it!
+## Table of Content
+
+- [Fase 0](#fase-0)
+    + [Authors](#authors)
+    + [Other tools used](#other-tools-used)
+      - [Trello](#trello)
+    + [Sections description](#sections-description)
+      - [Entities](#entities)
+      - [Users and permissions](#users-and-permissions)
+      - [Images](#images)
+      - [Graphics](#graphics)
+      - [Complementary technology](#complementary-technology)
+      - [Advanced Algorithmic](#advanced-algorithmic)
+- [Fase 1](#fase-1)
+    + [Snapshots](#snapshots)
+      - [Home](#home)
+      - [Loggin](#loggin)
+      - [SignUp](#signup)
+      - [Matches](#matches)
+      - [SpecificMatch](#specificmatch)
+      - [Teams](#teams)
+      - [SpecificTeam](#specificteam)
+      - [Player/User](#playeruser)
+      - [Registration Tournament](#registration-tournament)
+      - [Calendar](#calendar)
+    + [Flow Diagram](#flow-diagram)
+
 
 Our purpose is to create an APP web to sell second-hand clothes through a monetary change or virtual money to use in the same APP.
 
@@ -220,7 +247,6 @@ To test the App Web you can try to interact with the elements of the APP Web.
 We use **HTML5** to design the format of the APP Web and **CSS3** to add styles. 
 
 ## Authors
-
 
 * **Javier Barrio Martín** - *Programmer* - [Git Account](https://github.com/JaviBarrio6) - Mail: j.barrio.2016@alumnos.urjc.es
 * **Maria Gutierrez** - *Programmer* - [Git Account](https://github.com/Mariagt97) - Mail: m.gutierrezt.2016@alumnos.urjc.es
