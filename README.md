@@ -3,8 +3,6 @@
 
 - [Fase 0](#fase-0)
     + [Authors](#authors)
-    + [Other tools used](#other-tools-used)
-      - [Trello](#trello)
     + [Sections description](#sections-description)
       - [Entities](#entities)
       - [Users and permissions](#users-and-permissions)
@@ -13,18 +11,8 @@
       - [Complementary technology](#complementary-technology)
       - [Advanced Algorithmic](#advanced-algorithmic)
 - [Fase 1](#fase-1)
-    + [Snapshots](#snapshots)
-      - [Home](#home)
-      - [Loggin](#loggin)
-      - [SignUp](#signup)
-      - [Matches](#matches)
-      - [SpecificMatch](#specificmatch)
-      - [Teams](#teams)
-      - [SpecificTeam](#specificteam)
-      - [Player/User](#playeruser)
-      - [Registration Tournament](#registration-tournament)
-      - [Calendar](#calendar)
-    + [Flow Diagram](#flow-diagram)
+    + [Screenshots](#screenshots)
+    + [Navigation Diagram](#navigationDiagram)
 
 
 Our purpose is to create an APP web to sell second-hand clothes through a monetary change or virtual money to use in the same APP.
@@ -72,7 +60,7 @@ An example of relation, is Registered User buys Product, or Registered User sell
 An anonymous user that has registered it in the App Web becomes a Registered User. A Registered User after logging in can buy products, check his historical movements or upload products to sell. 
 
 
-###Pictures
+### Pictures
 
 The App Web must allow to upload pictures, for example, a Registered User wants to change his user avatar.
 
