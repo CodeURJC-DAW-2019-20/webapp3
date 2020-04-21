@@ -1,7 +1,7 @@
 # Tittle of the Proyect: Swap it!
 ## Table of Content
 
-- [Fase 0](#fase-0)
+- [Phase 0](#phase-0)
     + [Authors](#authors)
     + [Sections description](#sections-description)
       - [Entities](#entities)
@@ -10,9 +10,25 @@
       - [Graphics](#graphics)
       - [Complementary technology](#complementary-technology)
       - [Advanced Algorithmic](#advanced-algorithmic)
-- [Fase 1](#fase-1)
+- [Phase 1](#phase-1)
     + [Screenshots](#screenshots)
-    + [Navigation Diagram](#navigationDiagram)
+    + [Navigation Diagram](#navigationDiagrams)
+- [Phase 2](#phase-2)
+    + [Navigation Screenshoots](#navigationScreenshoots)
+    + [Development Instructions](#DevelopmentInstructions)
+    + [BD Entity Diagram](#BDEntityDiagram)
+    + [Class Diagram and Templates](#ClassDiagramandTemplates)
+- [Phase 3](#phase-3)
+    + [REST API Documentation](#RESTAPIDocumentation)
+    + [BD Entity Diagram](#BDEntityDiagram)
+    + [Class Diagram and Templates](#ClassDiagramandTemplates)
+- [Phase 4](#phase-4)
+    + [Development Enviroment](#DevelopmentEnviroment)
+    + [Class Diagram and Templates](#ClassDiagramandTemplates)
+    + [Member Participation](#MemberParticipation)
+    + [Youtube Video](#YoutubeVideo)
+    
+
 
 
 Our purpose is to create an APP web to sell second-hand clothes through a monetary change or virtual money to use in the same APP.
