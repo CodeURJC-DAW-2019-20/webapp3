@@ -3,6 +3,7 @@ import {UserService} from '../User/app.userService';
 import {ProductService} from '../Product/app.productService';
 import {DataService} from '../Data/app.dataService';
 import {Product} from '../Product/app.product';
+import {Transaction} from '../Transaction/app.transaction';
 
 @Component({
   selector: 'app-checkout-root',
@@ -26,6 +27,8 @@ export class AppCheckoutComponent {
   public checkout (){
     if (this.dataService.user.puntos >= this.priceOfBasket){
       this.dataService.user.puntos = this.dataService.user.puntos - this.priceOfBasket;
+      let transaction = new Transaction(this.dataService.user.name, this.dataService.user.passwordHash, this.dataService.user.lastname,
+        this.dataService.user.email, this.dataService.user.address, this.dataService.user.city, this.dataService.user.country, this.dataService.user.cp, this.dataService.user.phone);
     }
   }
 }

@@ -24,13 +24,21 @@ export class ProductService{
         });
     }
 
+  public getProduct(id: string){
+    return this.http.get<Product>(this.url + '?id=' + id,{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    });
+  }
+
     public loadProduct(product:Product , name: string, pass: string){
         return this.http.post<Product>(this.url + 'load',product,{
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
                 'Authorization': 'Basic ' + btoa(name + ':' + pass)
             })
-        }); 
+        });
     }
 
     public loadImageProduct(img:File, id:string , name: string, pass: string){
@@ -46,7 +54,7 @@ export class ProductService{
             })
         });
         return this.http.request(newRequest);
- 
+
     }
 
     public deleteProduct(id:string , name: string, pass: string){
@@ -56,7 +64,7 @@ export class ProductService{
                 'Content-Type': 'application/json',
                 'Authorization': 'Basic ' + btoa(name + ':' + pass)
             })
-        }); 
+        });
     }
 
     public validarPreProduct(product:Product , name: string, pass: string){
@@ -66,6 +74,6 @@ export class ProductService{
                 'Content-Type': 'application/json',
                 'Authorization': 'Basic ' + btoa(name + ':' + pass)
             })
-        }); 
+        });
     }
 }
