@@ -16,12 +16,20 @@ public class SuggestionService {
 	public Suggestion getSuggestionById(long id) {
 		return suggestionRepository.findById(id);
 	}
+	
+	public Suggestion getSuggestionByName(String name) {
+		return suggestionRepository.findByName(name);
+	}
 	public void saveSuggestion(Suggestion suggestion) {
 		suggestionRepository.save(suggestion);
 	}
 	
 	public void deleteSuggestion(long id) {
 		suggestionRepository.deleteById(id);
+	}
+	public void deleteSuggestion(String name) {
+		Suggestion aux = getSuggestionByName(name);
+		suggestionRepository.deleteById(aux.getId());
 	}
 	
 	public List<Suggestion> getAllSuggestion(){

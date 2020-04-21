@@ -43,6 +43,16 @@ public class SuggestionRestController {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value="/name", method=RequestMethod.DELETE)
+	public ResponseEntity<Product> deleteSuggestion(@RequestParam String name) {	
+		if(suggestionService.getSuggestionByName(name) != null) {
+			suggestionService.deleteSuggestion(name);
+			return new ResponseEntity<>(HttpStatus.OK);
+		}else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);	
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ResponseEntity<List<Suggestion>> readAllSuggestion() {				
 			return new ResponseEntity<>(suggestionService.getAllSuggestion(),HttpStatus.CREATED);
