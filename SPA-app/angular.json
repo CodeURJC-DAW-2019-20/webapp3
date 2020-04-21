@@ -125,6 +125,6 @@
   },
   "defaultProject": "SPA-app",
   "cli": {
-    "analytics": false
+    "analytics": false,
   }
 }
