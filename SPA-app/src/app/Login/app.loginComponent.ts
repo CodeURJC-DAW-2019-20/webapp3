@@ -14,7 +14,7 @@ import {Router} from '@angular/router';
 })
 
 export class LoginComponent{
-    constructor(private userService: UserService, private dataservice: DataService){}
+    constructor(private userService: UserService, private dataservice: DataService,private router:Router){}
 
     // Login form
 
@@ -69,6 +69,8 @@ export class LoginComponent{
                     this.dataservice.user = response;
                     this.dataservice.user.login = true;
                     this.dataservice.user.passwordHash= this.userPass;
+                    this.dataservice.user.isAdmin=(this.dataservice.user.passwordHash=='adminpass');
+                    this.router.navigate(['login/profile']);
                     console.log(this.dataservice.user);
                 },
                 (error: HttpErrorResponse) => alert("El usuario o contraseña no es correcto")

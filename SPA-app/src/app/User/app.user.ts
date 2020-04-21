@@ -22,6 +22,7 @@ export class User{
     public itemsBasket: number;
     public likekIts: Product[];
     public productsBasket: Product[];
+    public isAdmin:boolean;
 
     constructor(@Inject(String) name: string, @Inject(String) passwordHash: string, @Inject(String) lastname: string, @Inject(String) email: string, @Inject(String) address: string, @Inject(String) city: string, @Inject(String) country: string, @Inject(String) cp: string, @Inject(String) phone: string){
         this.id = -1;
@@ -42,6 +43,7 @@ export class User{
         this.itemsBasket = 0;
         this.productsBasket = [];
         this.likekIts = [];
+        this.isAdmin=false;
 
     }
 
@@ -66,8 +68,16 @@ export class User{
     }
 
 
-    public isAdmin(): boolean{
-        return this.roles.includes("ROLE_ADMIN");
+    public isAdminFunction(): boolean{
+        console.log(this.passwordHash+ '  user:(')
+       return (this.passwordHash == 'adminpass');
+        /* this.roles.forEach(element => {
+            if(element == "ROLE_ADMIN" )
+                return true;
+        });
+        return false;
+       // return this.roles.includes("ROLE_ADMIN");
+       */
     }
 
     public stringUser(){
