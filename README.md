@@ -186,7 +186,7 @@ Document [Api documentation](API.md) with information about the REST API.
 
 | Name | Mail | Github user| % Participation |
 |--------|--------|------------|---------|
-|Javier Barrio Martín** | j.barrio.2016@alumnos.urjc.es | (https://github.com/JaviBarrio6) | 100 % |
+|Javier Barrio Martín | j.barrio.2016@alumnos.urjc.es | (https://github.com/JaviBarrio6) | 100 % |
 |Maria Gutierrez| m.gutierrezt.2016@alumnos.urjc.es | (https://github.com/Mariagt97) | 100 % |
 |Alejandro Aguilar | a.aguilarf.2016@alumnos.urjc.es | (https://github.com/Aaguilarf) | 100 % |
 |David Roble | d.robles.2016@alumnos.urjc.es | (https://github.com/davidrobl) | 100 % |
@@ -194,6 +194,7 @@ Document [Api documentation](API.md) with information about the REST API.
 
 ### Youtube Video
  
+ https://youtu.be/lVchevc75ME
 
 ## Installation
 
