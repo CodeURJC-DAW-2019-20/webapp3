@@ -1,6 +1,7 @@
 import {Injectable,Inject} from '@angular/core';
 import {Product} from './app.product';
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
+import {ProductPage} from './app.ProductPage';
 
 @Injectable({providedIn: 'root'})
 export class ProductService{
@@ -70,6 +71,23 @@ export class ProductService{
     public validarPreProduct(product:Product , name: string, pass: string){
         console.log(product.id+ ' | '+name+' | '+pass);
         return this.http.put<Product>(this.url + 'validate?id='+product.id,product,{
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic ' + btoa(name + ':' + pass)
+            })
+        });
+    }
+
+    public getStockPage( index: number, size: number){
+        return this.http.get<ProductPage>(this.url + 'stock/page?page='+index+'&size='+size,{
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        });
+    }
+
+    public getPreStockPage( index: number, size: number,name: string, pass: string){
+        return this.http.get<ProductPage>(this.url + 'prestock/page?page='+index+'&size='+size,{
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
                 'Authorization': 'Basic ' + btoa(name + ':' + pass)
