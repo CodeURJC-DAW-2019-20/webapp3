@@ -18,33 +18,36 @@ Our purpose is to create an APP web to sell second-hand clothes through a moneta
 
 - [Licency](#Licency)
 
-- [Phase 0](#Pre-Requisites/phase-0)
-    + [Sections](#Sections)
+- [Phase 0 / Pre-Alpha](#Pre-Requisites-/-phase-0)
+    + [Sections](#Sections-phase-0)
       - [Entities](#entities)
-      - [Users and permissions](#users-and-permissions)
-      - [Images](#images)
+      - [Users Types](#users-types)
+      - [Second Entities](#Second-Entities)
+      - [Pictures](#Pictures)
       - [Graphics](#graphics)
       - [Complementary technology](#complementary-technology)
-      - [Advanced Algorithmic](#advanced-algorithmic)
-- [Phase 1](#phase-1)
-    + [Sections](#Sections)
+      - [Advanced Algorithmic](#advanced-Query-algorithmic)
+- [Phase 1 / Alpha](#phase-1)
+    + [Sections](#Sections-phase-1)
         - [Screenshots](#screenshots)
         - [Navigation Diagram](#navigation-Diagrams)
-- [Phase 2](#phase-2)
-    + [Sections](#Sections)
+- [Phase 2 / Betha](#phase-2)
+    + [Sections](#Sections-phase-2)
         - [Navigation Screenshoots](#navigation-Screenshots)
         - [Development Instructions](#Development-Instructions)
-        - [BD Entity Diagram](#BD-Entity-Diagram)
-        - [Class Diagram and Templates](#Class-Diagram-and-Templates)
-- [Phase 3](#phase-3)
-    + [REST API Documentation](#REST-API-Documentation)
-    + [BD Entity Diagram](#BD-Entity-Diagram)
-    + [Class Diagram and Templates](#Class-Diagram-and-Templates)
-- [Phase 4](#phase-4)
-    + [Development Enviroment](#Development-Enviroment)
-    + [Class Diagram and Templates](#Class-Diagram-and-Templates)
-    + [Member Participation](#Member-Participation)
-    + [Youtube Video](#Youtube-Video)
+        - [BD Entity Diagram](#BD-Entity-Diagram-phase-2)
+        - [Class Diagram and Templates](#Class-Diagram-and-Templates-phase-2)
+- [Phase 3 / Perpetual Beta](#phase-3)
+    + [Sections](#Sections-phase-3)
+        - [REST API Documentation](#REST-API-Documentation)
+        - [BD Entity Diagram](#BD-Entity-Diagram-phase-3)
+        - [Class Diagram and Templates](#Class-Diagram-and-Templates-phase-3)
+- [Phase 4 / Open Beta](#phase-4)
+    + [Sections](#Sections-phase-4)
+        - [Development Enviroment](#Development-Enviroment)
+        - [Class Diagram and Templates](#Class-Diagram-and-Templates-phase-4)
+        - [Member Participation](#Member-Participation)
+        - [Youtube Video](#Youtube-Video)
     
 ## Pre-Requisites / Phase 0 
 
@@ -52,7 +55,7 @@ The name of the App Web is Swap It!
 
 We recommend the use of Brackets to change de code of the APP Web.
 
-### Sections
+### Sections Phase 0
 
 #### Entities
 
@@ -107,7 +110,7 @@ We will use a Advanced Query Algorithm to recommend products to a customer based
 
 ## Phase 1
 
-### Sections
+### Sections Phase 1
 
 #### Screenshots
 
@@ -145,7 +148,7 @@ In this section we can see our Navigation Diagrams
 
 ## Phase 2
 
-### Sections
+### Sections Phase 2
 
 #### Navigation Screenshots
 
@@ -193,7 +196,7 @@ In this section we can see our Navigation Diagrams
 8. We tried to make everything work.
 9. To see that the bbdd works, we load localhost: port / h2-console and on the screen that comes out, we will have to leave everything the same changing what is in JDBC URL by jdbc: h2:        mem: testdb and should connect and see the administrator of the bbdd. 10 .The project could already be uploaded to github, because it works, even if it doesn't detect the links between      html (index load only).
 
-#### BD Entity Diagram
+#### BD Entity Diagram Phase 2
 
 We can see the perspective of our BD Entitys in this diagram.
 
@@ -201,28 +204,33 @@ We can see the perspective of our BD Entitys in this diagram.
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama2.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama3.png)
 
-#### Class Diagram and Templates
+#### Class Diagram and Templates Phase 2
 
 We can see the perspective of our Classes and Templates in this diagram.
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-2/Backend/src/main/resources/static/img/Diagrama5.png)
 
-## Phase 3 
-### REST API documentation
+## Phase 3
+
+### Sections Phase 3
+
+#### REST API documentation
 Document [Api documentation](API.md) with information about the REST API.
 
-### BD Entity Diagram
+#### BD Entity Diagram Phase 3
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama1.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama2.png)
 
-### Class Diagram and Templates
+#### Class Diagram and Templates Phase 4
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama3.png)
 
 ## Phase 4
 
-### Development Enviroment
+### Sections
+
+#### Development Enviroment
 
 1. The first step is installing node.js, npm and angular cli. With all this correctly installed, we can create a new angular proyect in the IDE you are working on. 
 2. The next step is creating all the configuration necessary to create each module.
@@ -231,11 +239,11 @@ Document [Api documentation](API.md) with information about the REST API.
 5. ```DOCKER:``` add the node.js container to Docker-compose and in the dockerfile, add the configuration for doing ng-build.
 6. Last step, there is an angular application connected with an api, and working all of this in Docker, with an springboot backend and an independent front with mustache.
 
-### Class Diagram and Templates
+#### Class Diagram and Templates Phase 4
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-4/SPA-app/src/assets/img/DiagramaFase4.png)
 
-### Member Participation
+#### Member Participation
 
 | Name | Mail | Github user| % Participation |
 |--------|--------|------------|---------|
@@ -245,7 +253,7 @@ Document [Api documentation](API.md) with information about the REST API.
 |David Roble | d.robles.2016@alumnos.urjc.es | (https://github.com/davidrobl) | 100 % |
 |Alvaro Noguerales | j.noguerales.2016@alumnos.urjc.es | (https://github.com/Anogue) | 0 % |
 
-### Youtube Video
+#### Youtube Video
  
  https://youtu.be/lVchevc75ME
  
@@ -262,26 +270,31 @@ If you check the list with all the contributors you will check [contributors](ht
 
 ## Installation
 
-If you want to execute the project you must open it with a browser.
+If you want to execute the project you must follow this steps:
 
 ```
-Open index.HTML with a browser
+1.- Open your favorite development environment, we recommended Intel J Idea (https://www.jetbrains.com/es-es/idea/)
+2.- Open the SPA_APP folder
+3.- Install the angular dependencies that Intel J Idea recommends
+4.- Run the APP and enjoy!
+
 ```
 
 
 ## Executing the tests
 
-To test the App Web you can try to interact with the elements of the APP Web. 
+Once the installation section passes are followed to test the App Web you can try to interact with the elements of the APP Web. 
 
 
 ## Built with
 
 * [Brackets](http://brackets.io/) - The text editor that we used
 * [Trello](https://trello.com/b/7tXmEA17/daw) - To manager the task that we must do in this phase.
+* [Intel J Idea](https://www.jetbrains.com/es-es/idea/) - Development Enviroment
 
 ## Versioned
 
-We use **HTML5** to design the format of the APP Web and **CSS3** to add styles. 
+We are in an open beta (Version 4.0) and we accept opinions, reviews and complaints.
 
 ## Download
 
