@@ -21,12 +21,12 @@ Our purpose is to create an APP web to sell second-hand clothes through a moneta
 - [Phase 0 / Pre-Alpha](#Pre-Requisites-/-phase-0)
     + [Sections](#Sections-phase-0)
       - [Entities](#entities)
-      - [Users Types](#users-types)
+      - [User Types](#user-types)
       - [Second Entities](#Second-Entities)
       - [Pictures](#Pictures)
       - [Graphics](#graphics)
       - [Complementary technology](#complementary-technology)
-      - [Advanced Algorithmic](#advanced-Query-algorithmic)
+      - [Advanced Algorithmic](#advanced-Query-Algorithm)
 - [Phase 1 / Alpha](#phase-1)
     + [Sections](#Sections-phase-1)
         - [Screenshots](#screenshots)
@@ -222,7 +222,7 @@ Document [Api documentation](API.md) with information about the REST API.
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama1.png)
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama2.png)
 
-#### Class Diagram and Templates Phase 4
+#### Class Diagram and Templates Phase 3
 
 ![](https://github.com/CodeURJC-DAW-2019-20/webapp3/blob/Fase-3/Backend/src/main/resources/static/img/Diagrama3.png)
 
