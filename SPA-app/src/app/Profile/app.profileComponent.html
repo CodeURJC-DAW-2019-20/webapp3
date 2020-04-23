@@ -57,10 +57,11 @@
 </div>
 
 <!-- ADMIN DATA -->
+
 <div *ngIf="isAdmin">
     <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
         <li [ngbNavItem]="1">
-            <a ngbNavLink (click)="getUserList(dataService.user.name,dataService.user.passwordHash)">Usuarios Registrados</a>
+            <a ngbNavLink (click)="configUserPage(' ')">Usuarios Registrados</a>
             <ng-template ngbNavContent>
                 <table class="table table-striped">
                     <thead>
@@ -100,10 +101,15 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-between p-2">
+                    <input (click)="configUserPage('previous')" type="submit" name="action" class="primary-btn cta-btn" value="Previous">
+                    <input (click)="getUserList(dataService.user.name,dataService.user.passwordHash)" type="submit" name="action" class="primary-btn cta-btn" value="LISTADO COMPLETO">
+                    <input (click)="configUserPage('next')" type="submit" name="action" class="primary-btn cta-btn" value="Next">
+                  </div>
             </ng-template>
         </li>
         <li [ngbNavItem]="2">
-        <a ngbNavLink (click)="getStock()" >Productos en Stock</a>
+        <a ngbNavLink (click)="configStockPage(' ')" >Productos en Stock</a>
         <ng-template ngbNavContent>
             <table class="table table-striped">
                 <thead>
@@ -134,15 +140,20 @@
                         <td>  <input class="input" type="text" name="cp" value="{{product.price}}">  </td>
                         <td>  <input class="input" type="text" name="phone" value="{{product.description}}">  </td>
                         <td>  <input class="input" type="text" name="phone" value="{{product.detail}}">  </td>
-                        <td>  <img src="https://localhost:8443/api/product/{{product.id}}/imagen">  </td>
+                        <td>  <img src="https://localhost:8443/api/product/{{product.id}}/imagen" style="width: 40px">  </td>
                         <td> <input type="submit"  (click)="deleteProduct(i)" name="action" value="Eliminar"></td>
                     </tr>
                 </tbody>
             </table>
+            <div class="d-flex justify-content-between p-2">
+                <input (click)="configStockPage('previous')" type="submit" name="action" class="primary-btn cta-btn" value="Previous">
+                <input (click)="getStock()" type="submit" name="action" class="primary-btn cta-btn" value="LISTADO COMPLETO">
+                <input (click)="configStockPage('next')" type="submit" name="action" class="primary-btn cta-btn" value="Next">
+              </div>
         </ng-template>
         </li>
         <li [ngbNavItem]="3">
-        <a ngbNavLink (click)="getPreStock(dataService.user.name,dataService.user.passwordHash)">Productos pendientes de Aceptacion</a>
+        <a ngbNavLink (click)="configPreStockPage(' ')">Productos pendientes de Aceptacion</a>
         <ng-template ngbNavContent>
             <table class="table table-striped">
                 <thead>
@@ -174,16 +185,21 @@
                         <td>  <input class="input" type="text" name="cp" value="{{product.price}}">  </td>
                         <td>  <input class="input" type="text" name="description" value="{{product.description}}">  </td>
                         <td>  <input class="input" type="text" name="detail" value="{{product.detail}}">  </td>
-                        <td>  <img src="https://localhost:8443/api/product/{{product.id}}/imagen">  </td>
+                        <td>  <img src="https://localhost:8443/api/product/{{product.id}}/imagen" style="width: 40px">  </td>
                         <td>  <input type="submit"  (click)="validarPreProduct(i)" name="action" value="Validar"></td>
                         <td>  <input type="submit"  (click)="deletePreProduct(i)" name="action" value="Denegar"></td>
                     </tr>
                 </tbody>
             </table>
+            <div class="d-flex justify-content-between p-2">
+                <input (click)="configPreStockPage('previous')" type="submit" name="action" class="primary-btn cta-btn" value="Previous">
+                <input (click)="getPreStock(dataService.user.name,dataService.user.passwordHash)" type="submit" name="action" class="primary-btn cta-btn" value="LISTADO COMPLETO">
+                <input (click)="configPreStockPage('next')" type="submit" name="action" class="primary-btn cta-btn" value="Next">
+              </div>
         </ng-template>
         </li>
         <li [ngbNavItem]="4">
-            <a ngbNavLink (click)="getSuggestionList(dataService.user.name,dataService.user.passwordHash)">Atencion al Cliente</a>
+            <a ngbNavLink (click)="configSuggestionPage(' ')">Atencion al Cliente</a>
             <ng-template ngbNavContent>
                 <table class="table table-striped">
                     <thead>
@@ -209,6 +225,11 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-between p-2">
+                    <input (click)="configSuggestionPage('previous')" type="submit" name="action" class="primary-btn cta-btn" value="Previous">
+                    <input (click)="getSuggestionList(dataService.user.name,dataService.user.passwordHash)" type="submit" name="action" class="primary-btn cta-btn" value="LISTADO COMPLETO">
+                    <input (click)="configSuggestionPage('next')" type="submit" name="action" class="primary-btn cta-btn" value="Next">
+                  </div>
             </ng-template>
         </li>
     </ul>

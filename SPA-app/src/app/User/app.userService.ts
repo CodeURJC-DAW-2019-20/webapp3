@@ -1,5 +1,6 @@
 import {Injectable, Inject} from '@angular/core';
 import {User} from './app.user';
+import {UserPage} from './app.userPage';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 
@@ -36,6 +37,15 @@ export class UserService{
              })
          });
      }
+
+     public getUserPage(page:number,size:number,name:string, pass:string){
+        return this.http.get<UserPage>(this.url+'all/page?page='+page+'&size='+size,{
+            headers: new HttpHeaders({
+                'Content-Type':'application/json',
+                'Authorization': 'Basic '+ btoa(name+':'+pass)
+            })
+        });
+    }
 
 
      public updateUser(user: User ,name:string, pass:string){
