@@ -13,6 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref" : "/new/",
+            "deployUrl": "/new/",
             "outputPath": "dist/SPA-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -125,6 +127,6 @@
   },
   "defaultProject": "SPA-app",
   "cli": {
-    "analytics": false,
+    "analytics": false
   }
 }

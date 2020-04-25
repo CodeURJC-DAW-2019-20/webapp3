@@ -16,7 +16,7 @@ services:
       webnet:
 
   web:
-    image: davidrobl/swapit
+    image: davidrobl/app
     container_name: c_web6
     links:
        - mysql

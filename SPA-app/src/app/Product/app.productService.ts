@@ -6,7 +6,7 @@ import {ProductPage} from './app.ProductPage';
 @Injectable({providedIn: 'root'})
 export class ProductService{
     constructor(private http: HttpClient){}
-    url: string = 'https://localhost:8443/api/product/';
+    url: string = '/api/product/';
 
     public getStock(){
         return this.http.get<Product[]>(this.url + 'stock',{

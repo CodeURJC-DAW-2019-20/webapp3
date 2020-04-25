@@ -9,7 +9,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 export class TransactionService{
     constructor(private http: HttpClient){};
    
-    url:string='https://localhost:8443/api/transaction/';
+    url:string='/api/transaction/';
 
     public getTransaction(name:string, pass:string){
         console.log(name+' | '+pass);

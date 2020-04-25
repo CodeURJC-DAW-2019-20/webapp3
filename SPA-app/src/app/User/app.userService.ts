@@ -9,7 +9,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 @Injectable({providedIn: 'root'})
 export class UserService{
     constructor(private http: HttpClient){};
-    url: string = 'https://localhost:8443/api/user/';
+    url: string = '/api/user/';
 
 
     public registerUser(user:User){

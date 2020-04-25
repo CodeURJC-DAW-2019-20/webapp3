@@ -13,7 +13,7 @@ import {AppInfomailComponent} from '../Infomail/app.infomailComponent';
 @Injectable({providedIn: 'root'})
 export class SuggestionService{
     constructor(private http: HttpClient){}
-    url = 'https://localhost:8443/api/suggestion/';
+    url = '/api/suggestion/';
 
 
 
