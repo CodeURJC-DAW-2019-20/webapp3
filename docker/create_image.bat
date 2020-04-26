@@ -1,10 +1,16 @@
 cd ../Backend
 
+:: Copy generated resources on static
+del /Q ..\app\src\main\resources\static\new\*
+copy /Y dist\SPA-app\* ..\app\src\main\resources\static\new
+
+cd ../Backend
+
 :: Create jar
 docker run -it --rm -v "%cd%":/usr/src/project -w /usr/src/project maven mvn clean package -DskipTests
 
 :: Copy jar and images
-copy target\swapit_server-0.0.1-SNAPSHOT.jar ..\docker\build\
+copy target\swapit_server-0.0.1-SNAPSHOT.jar ..\docker\
 copy images\products ..\docker\build\images\products\
 cd ../docker
 
