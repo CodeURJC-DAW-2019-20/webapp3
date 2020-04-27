@@ -1,8 +1,8 @@
-cd ../Backend
+cd ../SPA-app
 
 :: Copy generated resources on static
-del /Q ..\app\src\main\resources\static\new\*
-copy /Y dist\SPA-app\* ..\app\src\main\resources\static\new
+del /Q ..\Backend\src\main\resources\static\new\*
+copy /Y dist\SPA-app\* ..\Backend\src\main\resources\static\new
 
 cd ../Backend
 
